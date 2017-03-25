@@ -9,6 +9,7 @@ import model.entity.Rola;
 import model.entity.Uprawnienie;
 import model.entity.Uzytkownik;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +38,9 @@ public class InitServiceImpl {
     private void init() {
 
 
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+
         Rola rola1 = new Rola("ADMINISTRATOR");
         Uprawnienie uprawnienie1 = new Uprawnienie("READ_KSIAZKI");
         rola1.getUprawnienia().add(uprawnienie1);
@@ -50,8 +54,8 @@ public class InitServiceImpl {
         Rola rola4 = new Rola("ADMINISTRATOR");
         rolaRepository.insert(rola4);
 
-        Uzytkownik uzytkownik = new Uzytkownik("ada@wp.pl", "mati", "Ada Rynkowska");
-        Uzytkownik uzytkownik2 = new Uzytkownik("mati@wp.pl", "ada", "Mateusz Szymczak");
+        Uzytkownik uzytkownik = new Uzytkownik("ada@wp.pl", passwordEncoder.encode("mati"), "Ada Rynkowska");
+        Uzytkownik uzytkownik2 = new Uzytkownik("mati@wp.pl", passwordEncoder.encode("ada"), "Mateusz Szymczak");
         uzytkownik.getRole().add(rola1);
         uzytkownik2.getRole().add(rola1);
         uzytkownik2.getRole().add(rola3);

@@ -26,4 +26,8 @@ public class UzytkownikServiceImp implements UzytkownikService {
     public boolean isLoginAndPasswodCorrect(String email, String haslo) {
         return uzytkownikRepository.isLoginAndPasswodCorrect(email, haslo);
     }
+
+    public int findIdUsingEmail(String email){
+        return uzytkownikRepository.findIdUsingEmail(email);
+    }
 }

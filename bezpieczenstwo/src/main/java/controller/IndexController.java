@@ -23,10 +23,6 @@ public class IndexController {
     private LekService lekService;
 
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
-        return "login";
-    }
 
 
 //    @RequestMapping(value = "/insert", method = RequestMethod.GET)

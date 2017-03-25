@@ -45,6 +45,7 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <beans:bean id="userPermision" class="model.security.UserPermision"/>
     <beans:bean id="uzytkownikRepository" class="model.repository.UzytkownikRepositoryImp"/>
     <beans:bean id="uzytkownikService" class="model.service.UzytkownikServiceImp"/>
 
@@ -61,9 +62,13 @@
     <beans:bean id="initService" class="model.service.InitServiceImpl"/>
 
 
+    <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="11" />
+    </beans:bean>
+
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/login.html*" access="permitAll"/>
-        <intercept-url pattern="/index*" access="hasRole('ADMINISTRATOR')"/>
+        <intercept-url pattern="/login.html" access="permitAll"/>
+        <intercept-url pattern="/**" access="hasRole('ADMINISTRATOR')"/>
         <form-login login-page='/login.html'/>
         <logout logout-url="/logout"/>
 
@@ -72,6 +77,7 @@
 
     <authentication-manager>
         <authentication-provider>
+            <password-encoder ref="encoder"/>
             <jdbc-user-service data-source-ref="dataSource"
 
                                group-authorities-by-username-query="SELECT rola.id, rola.nazwa, uprawnienie.uprawnienie from rola

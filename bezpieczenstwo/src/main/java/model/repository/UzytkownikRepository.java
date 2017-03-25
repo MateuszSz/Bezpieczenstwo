@@ -12,5 +12,6 @@ public interface UzytkownikRepository {
 
     boolean isLoginAndPasswodCorrect(String email, String haslo);
 
+    int findIdUsingEmail(String email);
 
 }
