@@ -8,9 +8,18 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <beans:bean id="permissionEvaluator" class="model.security.CustomPermissionEvaluator"/>
 
-    <global-method-security secured-annotations="enabled" pre-post-annotations="enabled"/>
+    <beans:bean id="expressionHandler"
+                class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+        <beans:property name="permissionEvaluator" ref="permissionEvaluator"/>
+    </beans:bean>
+
+
+    <global-method-security secured-annotations="enabled" pre-post-annotations="enabled">
+        <expression-handler ref="expressionHandler"/>
+    </global-method-security>
+
     <context:component-scan base-package="controller"/>
-
 
 </beans:beans>

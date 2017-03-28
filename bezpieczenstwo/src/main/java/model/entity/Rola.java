@@ -1,5 +1,7 @@
 package model.entity;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
@@ -8,6 +10,7 @@ import java.util.HashSet;
  * Created by mateu on 20.03.2017.
  */
 @Entity
+@Transactional
 public class Rola {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +29,7 @@ public class Rola {
         this.nazwa = nazwa;
     }
 
+    @Transactional
     public Collection<Uprawnienie> getUprawnienia() {
         return uprawnienia;
     }

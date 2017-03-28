@@ -1,7 +1,9 @@
 package model.repository;
 
+import model.entity.Rola;
 import model.entity.Uzytkownik;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -10,9 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by mateu on 19.03.2017.
- */
+
 public class UzytkownikRepositoryImp implements UzytkownikRepository {
 
     @Autowired
@@ -25,7 +25,12 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
 
     @Transactional
     public Uzytkownik display(int id) {
-        return (Uzytkownik) sessionFactory.getCurrentSession().get(Uzytkownik.class, id);
+        Uzytkownik uzytkownik = (Uzytkownik) sessionFactory.getCurrentSession().get(Uzytkownik.class, id);
+        Hibernate.initialize(uzytkownik.getRole());
+        for (Rola rola : uzytkownik.getRole()) {
+            Hibernate.initialize(rola.getUprawnienia());
+        }
+        return uzytkownik;
 
     }
 
@@ -45,5 +50,6 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
         List results = sqlQuery.list();
         return (Integer) results.get(0);
     }
+
 
 }

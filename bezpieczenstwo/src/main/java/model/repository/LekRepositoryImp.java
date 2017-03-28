@@ -29,10 +29,17 @@ public class LekRepositoryImp implements LekRepository {
         return (Lek) sessionFactory.getCurrentSession().get(Lek.class, id);
     }
 
-    public List displayAllByEmail(String email){
+    public List displayAllByEmail(String email) {
 
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select lek.nazwaLeku, lek.dawkowanie, lek.ilosc from lek, uzytkownik_lek, uzytkownik\n" +
                 "where uzytkownik_lek.Uzytkownik_id = uzytkownik.id and uzytkownik.email = \"" + email + "\"");
+        sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        List results = sqlQuery.list();
+        return results;
+    }
+
+    public List displayAll() {
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select lek.nazwaLeku, lek.dawkowanie, lek.ilosc from lek");
         sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         List results = sqlQuery.list();
         return results;

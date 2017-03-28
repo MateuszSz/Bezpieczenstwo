@@ -1,7 +1,7 @@
 package model.service;
 
-import model.repository.LekRepository;
 import model.entity.Lek;
+import model.repository.LekRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +27,9 @@ public class LekServiceImp implements LekService {
 
     public List displayAllByEmail(String email) {
         return lekRepository.displayAllByEmail(email);
+    }
+
+    public List displayAll() {
+        return lekRepository.displayAll();
     }
 }

@@ -1,7 +1,7 @@
 package model.service;
 
-import model.repository.RolaRepository;
 import model.entity.Rola;
+import model.repository.RolaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -16,5 +16,9 @@ public class RolaServiceImp implements RolaService {
 
     public Rola display(int id) {
         return rolaRepository.display(id);
+    }
+
+    public int findIdUsingName(String nazwa) {
+        return rolaRepository.findIdUsingName(nazwa);
     }
 }

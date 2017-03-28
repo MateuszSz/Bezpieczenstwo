@@ -1,7 +1,7 @@
 package model.service;
 
-import model.repository.UzytkownikRepository;
 import model.entity.Uzytkownik;
+import model.repository.UzytkownikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +27,7 @@ public class UzytkownikServiceImp implements UzytkownikService {
         return uzytkownikRepository.isLoginAndPasswodCorrect(email, haslo);
     }
 
-    public int findIdUsingEmail(String email){
+    public int findIdUsingEmail(String email) {
         return uzytkownikRepository.findIdUsingEmail(email);
     }
 }

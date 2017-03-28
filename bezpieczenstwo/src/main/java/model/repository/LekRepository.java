@@ -13,4 +13,6 @@ public interface LekRepository {
     Lek display(int id);
 
     List displayAllByEmail(String email);
+
+    List displayAll();
 }

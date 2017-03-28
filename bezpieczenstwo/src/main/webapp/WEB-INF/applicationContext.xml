@@ -61,21 +61,53 @@
 
     <beans:bean id="initService" class="model.service.InitServiceImpl"/>
 
-
-    <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-        <beans:constructor-arg name="strength" value="11" />
+    <beans:bean id="customUsernamePasswordAuthenticationFilter"
+                class="model.security.RoleUsernamePasswordAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="dao-auth"/>
+        <beans:property name="authenticationFailureHandler" ref="failureHandler"/>
+        <beans:property name="authenticationSuccessHandler" ref="successHandler"/>
     </beans:bean>
 
-    <http auto-config="true" use-expressions="true">
+    <beans:bean id="successHandler"
+                class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+        <beans:property name="defaultTargetUrl" value="/login.html"/>
+    </beans:bean>
+    <beans:bean id="failureHandler"
+                class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+        <beans:property name="defaultFailureUrl" value="/login.html?login_error=true"/>
+    </beans:bean>
+
+
+    <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="11"/>
+    </beans:bean>
+
+    <beans:bean id="webExpressionHandler"
+                class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler">
+        <beans:property name="permissionEvaluator" ref="permissionEvaluator"/>
+    </beans:bean>
+
+    <beans:bean id="permissionEvaluator" class="model.security.CustomPermissionEvaluator"/>
+
+
+    <http auto-config="false" use-expressions="true">
+        <expression-handler ref="webExpressionHandler"/>
+        <custom-filter before="FORM_LOGIN_FILTER" ref="customUsernamePasswordAuthenticationFilter"/>
         <intercept-url pattern="/login.html" access="permitAll"/>
-        <intercept-url pattern="/**" access="hasRole('ADMINISTRATOR')"/>
+        <intercept-url pattern="/**"
+                       access="hasAnyRole('ADMINISTRATOR','UCZEN','HIGIENISTKA', 'NAUCZYCIEL', 'DYREKTOR', 'BIBLIOTEKARZ')"/>
         <form-login login-page='/login.html'/>
         <logout logout-url="/logout"/>
-
-
     </http>
 
-    <authentication-manager>
+    <authentication-manager id="dao-auth">
+        <authentication-provider user-service-ref="userDetailsService">
+            <password-encoder ref="encoder"/>
+        </authentication-provider>
+    </authentication-manager>
+    <beans:bean id="userDetailsService" class="model.security.CustomUserDetailsService"/>
+    <beans:bean id="requestContextListener" class="org.springframework.web.context.request.RequestContextListener"/>
+    <authentication-manager alias="authenticationManager">
         <authentication-provider>
             <password-encoder ref="encoder"/>
             <jdbc-user-service data-source-ref="dataSource"

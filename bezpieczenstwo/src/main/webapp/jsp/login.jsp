@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -67,13 +68,21 @@
 </style>
 <body>
 
-<form class="form-signin" action="/j_spring_security_check" method="POST">
+<form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="POST">
     <h2 class="form-signin-heading">Proszę się zalogować</h2>
     <label for="inputEmail" class="sr-only">Login</label>
     <input name="j_username" type="email" id="inputEmail" class="form-control" placeholder="Login" required autofocus>
     <label for="inputPassword" class="sr-only">Hasło</label>
     <input type="password" name="j_password" id="inputPassword" class="form-control" placeholder="Hasło" required>
-
+    <label for="inputRole">Zaloguj jako:</label>
+    <select name="role" id="inputRole">
+        <option>UCZEN</option>
+        <option>ADMINISTRATOR</option>
+        <option>NAUCZYCIEL</option>
+        <option>DYREKTOR</option>
+        <option>BIBLIOTEKARZ</option>
+        <option>HIGIENISTKA</option>
+    </select>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
 </form>
 <jsp:include page="footer.jsp"/>

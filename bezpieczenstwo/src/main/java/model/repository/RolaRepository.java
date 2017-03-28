@@ -9,4 +9,6 @@ public interface RolaRepository {
     void insert(Rola rola);
 
     Rola display(int id);
+
+    int findIdUsingName(String nazwa);
 }

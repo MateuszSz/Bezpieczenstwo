@@ -1,7 +1,7 @@
 package model.service;
 
-import model.repository.UprawnienieRepository;
 import model.entity.Uprawnienie;
+import model.repository.UprawnienieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

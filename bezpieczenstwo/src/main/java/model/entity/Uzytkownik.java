@@ -1,5 +1,7 @@
 package model.entity;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
@@ -8,6 +10,7 @@ import java.util.HashSet;
  * Created by mateu on 19.03.2017.
  */
 @Entity
+@Transactional
 public class Uzytkownik {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,13 +18,13 @@ public class Uzytkownik {
     private String email;
     private String haslo;
     private String imieINazwisko;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL)
     private Collection<Lek> leki = new HashSet<Lek>();
     @OneToMany(cascade = CascadeType.ALL)
     private Collection<Ocena> oceny = new HashSet<Ocena>();
     @OneToMany(cascade = CascadeType.ALL)
     private Collection<Ksiazka> ksiazki = new HashSet<Ksiazka>();
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private Collection<Rola> role = new HashSet<Rola>();
 
     public Uzytkownik(String email, String haslo, String imieINazwisko) {
