@@ -41,7 +41,7 @@
         </c:forEach>
     </table>
     </sec:authorize>
-    
+
     <sec:authorize access="hasPermission(#user, 'ADD_LEKI')">
         <a href="<c:url value="/index/dodajLek"/>" class="btn btn-default">Dodaj ksiazki</a>
     </sec:authorize>

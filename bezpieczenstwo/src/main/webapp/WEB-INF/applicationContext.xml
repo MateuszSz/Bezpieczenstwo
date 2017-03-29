@@ -94,6 +94,7 @@
         <expression-handler ref="webExpressionHandler"/>
         <custom-filter before="FORM_LOGIN_FILTER" ref="customUsernamePasswordAuthenticationFilter"/>
         <intercept-url pattern="/login.html" access="permitAll"/>
+        <intercept-url pattern="/favicon.ico" access="permitAll" />
         <intercept-url pattern="/**"
                        access="hasAnyRole('ADMINISTRATOR','UCZEN','HIGIENISTKA', 'NAUCZYCIEL', 'DYREKTOR', 'BIBLIOTEKARZ')"/>
         <form-login login-page='/login.html'/>
