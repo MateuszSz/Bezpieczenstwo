@@ -14,7 +14,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script c:url src="../resources/js/sortedTable.js"></script>
 </head>
+<style>
+    body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        /*
+        background: <c:url value="/resources/images/bodybg.png"/> ;
+        */
+    }
+    table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+        content: " \25B4\25BE"
+    }
+
+
+
+
+
+
+</style>
 <body>
 
 <jsp:include page="classic.jsp"/>
@@ -26,11 +45,11 @@
 <br><br>
 <center>
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
-    <table>
+    <table class="sortable">
         <tr>
-            <td>Nazwa leku</td>
-            <td>Ilosc na stanie</td>
-            <td>Dawkowanie</td>
+            <th>Nazwa leku</th>
+            <th>Ilosc na stanie</th>
+            <th>Dawkowanie</th>
         </tr>
         <c:forEach items="${listaLekow}" var="mapaLekow">
             <tr>
@@ -43,7 +62,7 @@
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_LEKI')">
-        <a href="<c:url value="/index/dodajLek"/>" class="btn btn-default">Dodaj ksiazki</a>
+        <a href="<c:url value="/index/dodajLek"/>" class="btn btn-default">Dodaj lek</a>
     </sec:authorize>
 
 </center>

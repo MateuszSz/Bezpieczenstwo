@@ -22,13 +22,16 @@
     body {
         padding-top: 40px;
         padding-bottom: 40px;
-        background-color: #eee;
+        background-repeat: no-repeat;
+        background-color: burlywood;
+
     }
 
     .form-signin {
         max-width: 330px;
         padding: 15px;
         margin: 0 auto;
+
     }
 
     .form-signin .form-signin-heading,
@@ -66,8 +69,8 @@
         border-top-right-radius: 0;
     }
 </style>
-<body>
 
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="POST">
     <h2 class="form-signin-heading">Proszę się zalogować</h2>
     <label for="inputEmail" class="sr-only">Login</label>
@@ -85,6 +88,7 @@
     </select>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
 </form>
+
 <jsp:include page="footer.jsp"/>
 </body>
 

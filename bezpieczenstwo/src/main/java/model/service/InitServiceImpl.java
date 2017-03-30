@@ -66,9 +66,9 @@ public class InitServiceImpl {
 //  TWORZENIE LEKOW
         Lek lek = new Lek("Dwa razy dziennie", "Rutinoskorbin", "3");
         List<Lek> lista = new ArrayList<Lek>();
-        lista.add(new Lek("Dwa razy dziennie", "Rutinoskorbin", "3"));
+        lista.add(new Lek("Dwa razy dziennie, dwie tabletki po posiłku", "Ibuprom", "20"));
         lista.add(new Lek("Raz dziennie", "Trybiotyk", "3"));
-        lista.add(new Lek("trzy razy dziennie", "Stoperan", "30"));
+        lista.add(new Lek("Trzy razy dziennie", "Stoperan", "30"));
 
         for (Lek l : lista) {
             lekRepository.insert(l);

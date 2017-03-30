@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: mateu
@@ -24,7 +25,16 @@
             crossorigin="anonymous"></script>
 
 </head>
-<body>
+<style>
+    body{
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100px;
+    }
+
+
+</style>
+<body background="/resources/images/header.png">
 <div class="container">
 
     <!-- Static navbar -->
