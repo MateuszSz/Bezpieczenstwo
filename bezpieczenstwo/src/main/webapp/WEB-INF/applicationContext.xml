@@ -62,6 +62,9 @@
     <beans:bean id="uprawnienieRepository" class="model.repository.UprawnienieRepositoryImp"/>
     <beans:bean id="uprawnienieService" class="model.service.UprawnienieServiceImp"/>
 
+    <beans:bean id="ksiazkaRepository" class="model.repository.KsiazkaRepositoryImp"/>
+    <beans:bean id="ksiazkaService" class="model.service.KsiazkaServiceImp"/>
+
     <beans:bean id="initService" class="model.service.InitServiceImpl"/>
 
     <beans:bean id="customUsernamePasswordAuthenticationFilter"
