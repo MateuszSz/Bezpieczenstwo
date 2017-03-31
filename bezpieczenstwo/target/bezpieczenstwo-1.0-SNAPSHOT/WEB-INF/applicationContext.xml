@@ -53,6 +53,9 @@
     <beans:bean id="lekRepository" class="model.repository.LekRepositoryImp"/>
     <beans:bean id="lekService" class="model.service.LekServiceImp"/>
 
+    <beans:bean id="ksiazkaRepository" class="model.repository.KsiazkaRepositoryImp"/>
+    <beans:bean id="ksiazkaService" class="model.service.KsiazkaServiceImp"/>
+
     <beans:bean id="rolaRepository" class="model.repository.RolaRepositoryImp"/>
     <beans:bean id="rolaService" class="model.service.RolaServiceImp"/>
 
