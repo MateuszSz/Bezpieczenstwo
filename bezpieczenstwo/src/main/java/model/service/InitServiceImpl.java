@@ -82,12 +82,15 @@ public class InitServiceImpl {
 //  TWORZENIE UPRAWNIEN I POWIAZANIE ICH Z ROLAMI
         Uprawnienie uprawnienie1 = new Uprawnienie("READ_KSIAZKI");
         Uprawnienie uprawnienie = new Uprawnienie("READ_LEKI");
+        Uprawnienie uprawnienie3 = new Uprawnienie("READ_ROLE");
         Uprawnienie uprawnienie2 = new Uprawnienie("ADD_LEKI");
         rola3.getUprawnienia().add(uprawnienie);
         rola3.getUprawnienia().add(uprawnienie2);
         rola1.getUprawnienia().add(uprawnienie1);
+        rola1.getUprawnienia().add(uprawnienie3);
         rolaRepository.insert(rola1);
         rolaRepository.insert(rola3);
+        uprawnienieRepository.insert(uprawnienie3);
         uprawnienieRepository.insert(uprawnienie1);
         uprawnienieRepository.insert(uprawnienie);
         uprawnienieRepository.insert(uprawnienie2);

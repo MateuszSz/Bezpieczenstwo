@@ -3,6 +3,7 @@ package controller;
 import model.security.CustomPermissionEvaluator;
 import model.security.CustomUserDetails;
 import model.service.LekService;
+import model.service.RolaService;
 import model.service.UzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,6 +27,9 @@ public class SecurityController {
     private LekService lekService;
 
     @Autowired
+    private RolaService rolaService;
+
+    @Autowired
     private CustomPermissionEvaluator customPermissionEvaluator;
 
 
@@ -40,9 +44,13 @@ public class SecurityController {
         CustomUserDetails cs = (CustomUserDetails) authentication.getPrincipal();
 
         List leki = null;
+        List role = null;
 
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
+            role = rolaService.displayAll();
+
 
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
@@ -50,6 +58,7 @@ public class SecurityController {
         model.addAttribute("rola", cs.getWybranaRola());
         model.addAttribute("imieINazwisko", cs.getName());
         model.addAttribute("listaLekow", leki);
+        model.addAttribute("listaRol", role);
         return "index";
     }
 

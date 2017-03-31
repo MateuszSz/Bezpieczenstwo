@@ -44,6 +44,23 @@
 </center>
 <br><br>
 <center>
+    <sec:authorize access="hasPermission(#user, 'READ_ROLE')">
+        <table class="sortable">
+            <tr>
+                <th>Nazwa roli</th>
+            </tr>
+            <c:forEach items="${listaRol}" var="mapaRol">
+                <tr>
+                    <c:forEach items="${mapaRol}" var="rola">
+                        <td>${rola.value}</td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+        </table>
+    </sec:authorize>
+
+
+
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
     <table class="sortable">
         <tr>
