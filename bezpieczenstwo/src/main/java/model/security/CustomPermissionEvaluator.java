@@ -22,6 +22,7 @@ public class CustomPermissionEvaluator implements PermissionEvaluator {
         boolean hasPermission = false;
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
         if (customUserDetails != null && permission instanceof String) {
+
             Rola rola = rolaService.display(rolaService.findIdUsingName(customUserDetails.getWybranaRola()));
             for (Uprawnienie uprawnienie : rola.getUprawnienia()) {
                 if (uprawnienie.getUprawnienie().equals(permission))

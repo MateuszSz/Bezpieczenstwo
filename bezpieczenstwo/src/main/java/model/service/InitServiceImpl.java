@@ -53,11 +53,21 @@ public class InitServiceImpl {
         rolaRepository.insert(rola2);
         Rola rola3 = new Rola("HIGIENISTKA");
         rolaRepository.insert(rola3);
+        Rola rola4 = new Rola ( "NAUCZYCIEL");
+        rolaRepository.insert(rola4);
+        Rola rola5 = new Rola ("UCZEN");
+        rolaRepository.insert(rola5);
+        Rola rola6 = new  Rola("BIBLIOTEKARZ");
+        rolaRepository.insert(rola6);
 
 //  TWORZENIE URZYTKOWNIKOW I POLACZENIE ICH Z ROLAMI
         Uzytkownik uzytkownik = new Uzytkownik("ada@wp.pl", passwordEncoder.encode("mati"), "Ada Rynkowska");
         Uzytkownik uzytkownik2 = new Uzytkownik("mati@wp.pl", passwordEncoder.encode("ada"), "Mateusz Szymczak");
         uzytkownik.getRole().add(rola1);
+        uzytkownik.getRole().add(rola2);
+        uzytkownik.getRole().add(rola5);
+        uzytkownik.getRole().add(rola6);
+        uzytkownik2.getRole().add(rola4);
         uzytkownik2.getRole().add(rola1);
         uzytkownik2.getRole().add(rola3);
         uzytkownikRepository.insert(uzytkownik);
