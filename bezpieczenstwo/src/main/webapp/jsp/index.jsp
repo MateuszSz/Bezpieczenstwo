@@ -63,24 +63,44 @@
 
 
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
-    <table class="sortable">
-        <tr>
-            <th>Nazwa leku</th>
-            <th>Ilosc na stanie</th>
-            <th>Dawkowanie</th>
-        </tr>
-        <c:forEach items="${listaLekow}" var="mapaLekow">
+        <table class="sortable">
             <tr>
-                <c:forEach items="${mapaLekow}" var="lek">
-                    <td>${lek.value}</td>
-                </c:forEach>
+                <th>Nazwa leku</th>
+                <th>Ilosc na stanie</th>
+                <th>Dawkowanie</th>
             </tr>
-        </c:forEach>
-    </table>
+            <c:forEach items="${listaLekow}" var="mapaLekow">
+                <tr>
+                    <c:forEach items="${mapaLekow}" var="lek">
+                        <td>${lek.value}</td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+        </table>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_LEKI')">
         <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Dodaj lek</a>
+    </sec:authorize>
+
+
+    <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
+        <table class="sortable">
+            <tr>
+                <th>ISBN</th>
+                <th>Autor</th>
+                <th>Tytuł</th>
+                <th>Seria</th>
+                <th>Dostepnosc</th>
+            </tr>
+            <c:forEach items="${listaKsiazek}" var="mapaKsiazek">
+                <tr>
+                    <c:forEach items="${mapaKsiazek}" var="ksiazka">
+                        <td>${ksiazka.value}</td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+        </table>
     </sec:authorize>
 
 </center>
