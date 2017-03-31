@@ -48,6 +48,7 @@
         <table class="sortable">
             <tr>
                 <th>Nazwa roli</th>
+                <th>Imię i nazwisko posiadacza</th>
             </tr>
             <c:forEach items="${listaRol}" var="mapaRol">
                 <tr>
@@ -81,7 +82,7 @@
 
 
     <sec:authorize access="hasPermission(#user, 'ADD_LEKI')">
-        <a href="<c:url value="/index/dodajLek"/>" class="btn btn-default">Dodaj lek</a>
+        <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Dodaj lek</a>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
