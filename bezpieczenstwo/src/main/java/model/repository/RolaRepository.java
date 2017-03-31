@@ -15,4 +15,5 @@ public interface RolaRepository {
     int findIdUsingName(String nazwa);
 
     public List displayAll();
+    public List displayWithUserName();
 }

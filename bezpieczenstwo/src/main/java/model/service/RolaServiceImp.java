@@ -28,4 +28,8 @@ public class RolaServiceImp implements RolaService {
         return rolaRepository.displayAll();
     }
 
+    public List displayWithUserName() {
+        return rolaRepository.displayWithUserName();
+    }
+
 }
