@@ -2,6 +2,7 @@ package controller;
 
 import model.security.CustomPermissionEvaluator;
 import model.security.CustomUserDetails;
+import model.service.KsiazkaService;
 import model.service.LekService;
 import model.service.RolaService;
 import model.service.UzytkownikService;
@@ -30,6 +31,9 @@ public class SecurityController {
     private RolaService rolaService;
 
     @Autowired
+    private KsiazkaService ksiazkaService;
+
+    @Autowired
     private CustomPermissionEvaluator customPermissionEvaluator;
 
 
@@ -45,11 +49,14 @@ public class SecurityController {
 
         List leki = null;
         List role = null;
+        List ksiazki = null;
 
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
             role = rolaService.displayAll();
+        if(customPermissionEvaluator.hasPermission(authentication, null, "READ_KSIAZKI"))
+            ksiazki = ksiazkaService.displayAll();
 
 
         //dodawanie atrybutu do modelu.
@@ -59,6 +66,7 @@ public class SecurityController {
         model.addAttribute("imieINazwisko", cs.getName());
         model.addAttribute("listaLekow", leki);
         model.addAttribute("listaRol", role);
+        model.addAttribute("listaKsiazek", ksiazki);
         return "index";
     }
 

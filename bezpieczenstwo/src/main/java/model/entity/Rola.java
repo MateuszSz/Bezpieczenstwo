@@ -18,7 +18,7 @@ public class Rola {
     private String nazwa;
     @ManyToMany(mappedBy = "role")
     private Collection<Uzytkownik> uzytkownicy = new HashSet<Uzytkownik>();
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private Collection<Uprawnienie> uprawnienia = new HashSet<Uprawnienie>();
 
 

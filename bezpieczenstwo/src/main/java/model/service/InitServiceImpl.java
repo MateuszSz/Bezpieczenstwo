@@ -1,13 +1,7 @@
 package model.service;
 
-import model.entity.Lek;
-import model.entity.Rola;
-import model.entity.Uprawnienie;
-import model.entity.Uzytkownik;
-import model.repository.LekRepository;
-import model.repository.RolaRepository;
-import model.repository.UprawnienieRepository;
-import model.repository.UzytkownikRepository;
+import model.entity.*;
+import model.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -34,6 +28,9 @@ public class InitServiceImpl {
     private LekRepository lekRepository;
 
     @Autowired
+    private KsiazkaRepository ksiazkaRepository;
+
+    @Autowired
     private UprawnienieRepository uprawnienieRepository;
 
 
@@ -47,29 +44,29 @@ public class InitServiceImpl {
 
 
         //  TWORZENIE ROL
-        Rola rola1 = new Rola("ADMINISTRATOR");
-        rolaRepository.insert(rola1);
-        Rola rola2 = new Rola("DYREKTOR");
-        rolaRepository.insert(rola2);
-        Rola rola3 = new Rola("HIGIENISTKA");
-        rolaRepository.insert(rola3);
-        Rola rola4 = new Rola ( "NAUCZYCIEL");
-        rolaRepository.insert(rola4);
-        Rola rola5 = new Rola ("UCZEN");
-        rolaRepository.insert(rola5);
-        Rola rola6 = new  Rola("BIBLIOTEKARZ");
-        rolaRepository.insert(rola6);
+        Rola rolaAdmina = new Rola("ADMINISTRATOR");
+        rolaRepository.insert(rolaAdmina);
+        Rola rolaDyrektora = new Rola("DYREKTOR");
+        rolaRepository.insert(rolaDyrektora);
+        Rola rolaHigienistka = new Rola("HIGIENISTKA");
+        rolaRepository.insert(rolaHigienistka);
+        Rola rolaNauczyciel = new Rola ( "NAUCZYCIEL");
+        rolaRepository.insert(rolaNauczyciel);
+        Rola rolaUczen = new Rola ("UCZEN");
+        rolaRepository.insert(rolaUczen);
+        Rola rolaBibliotekarz = new  Rola("BIBLIOTEKARZ");
+        rolaRepository.insert(rolaBibliotekarz);
 
 //  TWORZENIE URZYTKOWNIKOW I POLACZENIE ICH Z ROLAMI
         Uzytkownik uzytkownik = new Uzytkownik("ada@wp.pl", passwordEncoder.encode("mati"), "Ada Rynkowska");
         Uzytkownik uzytkownik2 = new Uzytkownik("mati@wp.pl", passwordEncoder.encode("ada"), "Mateusz Szymczak");
-        uzytkownik.getRole().add(rola1);
-        uzytkownik.getRole().add(rola2);
-        uzytkownik.getRole().add(rola5);
-        uzytkownik.getRole().add(rola6);
-        uzytkownik2.getRole().add(rola4);
-        uzytkownik2.getRole().add(rola1);
-        uzytkownik2.getRole().add(rola3);
+        uzytkownik.getRole().add(rolaAdmina);
+        uzytkownik.getRole().add(rolaDyrektora);
+        uzytkownik.getRole().add(rolaUczen);
+        uzytkownik.getRole().add(rolaBibliotekarz);
+        uzytkownik2.getRole().add(rolaNauczyciel);
+        uzytkownik2.getRole().add(rolaAdmina);
+        uzytkownik2.getRole().add(rolaHigienistka);
         uzytkownikRepository.insert(uzytkownik);
         uzytkownikRepository.insert(uzytkownik2);
 
@@ -89,22 +86,35 @@ public class InitServiceImpl {
         uzytkownik2.getLeki().add(lek);
         uzytkownikRepository.insert(uzytkownik2);
 
-//  TWORZENIE UPRAWNIEN I POWIAZANIE ICH Z ROLAMI
-        Uprawnienie uprawnienie1 = new Uprawnienie("READ_KSIAZKI");
-        Uprawnienie uprawnienie = new Uprawnienie("READ_LEKI");
-        Uprawnienie uprawnienie3 = new Uprawnienie("READ_ROLE");
-        Uprawnienie uprawnienie2 = new Uprawnienie("ADD_LEKI");
-        rola3.getUprawnienia().add(uprawnienie);
-        rola3.getUprawnienia().add(uprawnienie2);
-        rola1.getUprawnienia().add(uprawnienie1);
-        rola1.getUprawnienia().add(uprawnienie3);
-        rolaRepository.insert(rola1);
-        rolaRepository.insert(rola3);
-        uprawnienieRepository.insert(uprawnienie3);
-        uprawnienieRepository.insert(uprawnienie1);
-        uprawnienieRepository.insert(uprawnienie);
-        uprawnienieRepository.insert(uprawnienie2);
+        //TWORZENIE KSIAZEK
 
+        List<Ksiazka>ksiazki= new ArrayList<Ksiazka>();
+        ksiazki.add(new Ksiazka("Brandon Sanderson", "987-83-7480-670-1", "Siewca Wojny ", "Rozjemca", "dostepna"));
+
+        for(Ksiazka k: ksiazki){
+            ksiazkaRepository.insert(k);
+            uzytkownik.getKsiazki().add(k);
+        }
+        uzytkownikRepository.insert(uzytkownik);
+
+//  TWORZENIE UPRAWNIEN I POWIAZANIE ICH Z ROLAMI
+        Uprawnienie uprawnienieReadKsiazki = new Uprawnienie("READ_KSIAZKI");
+        Uprawnienie uprawnienieReadLeki = new Uprawnienie("READ_LEKI");
+        Uprawnienie uprawnienieReadRole = new Uprawnienie("READ_ROLE");
+        Uprawnienie uprawnienieAddLeki = new Uprawnienie("ADD_LEKI");
+        rolaHigienistka.getUprawnienia().add(uprawnienieReadLeki);
+        rolaHigienistka.getUprawnienia().add(uprawnienieAddLeki);
+        rolaAdmina.getUprawnienia().add(uprawnienieReadKsiazki);
+        rolaAdmina.getUprawnienia().add(uprawnienieReadRole);
+        rolaBibliotekarz.getUprawnienia().add(uprawnienieReadKsiazki);
+
+        uprawnienieRepository.insert(uprawnienieReadRole);
+        uprawnienieRepository.insert(uprawnienieReadKsiazki);
+        uprawnienieRepository.insert(uprawnienieReadLeki);
+        uprawnienieRepository.insert(uprawnienieAddLeki);
+        rolaRepository.insert(rolaAdmina);
+        rolaRepository.insert(rolaHigienistka);
+        rolaRepository.insert(rolaBibliotekarz);
 
     }
 

@@ -21,9 +21,10 @@ public class Uzytkownik {
     @OneToMany(cascade = CascadeType.ALL)
     private Collection<Lek> leki = new HashSet<Lek>();
     @OneToMany(cascade = CascadeType.ALL)
-    private Collection<Ocena> oceny = new HashSet<Ocena>();
-    @OneToMany(cascade = CascadeType.ALL)
     private Collection<Ksiazka> ksiazki = new HashSet<Ksiazka>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Collection<Ocena> oceny = new HashSet<Ocena>();
+
     @ManyToMany(cascade = CascadeType.ALL)
     private Collection<Rola> role = new HashSet<Rola>();
 

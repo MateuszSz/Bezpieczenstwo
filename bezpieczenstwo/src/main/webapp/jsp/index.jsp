@@ -78,8 +78,29 @@
     </table>
     </sec:authorize>
 
+
+
     <sec:authorize access="hasPermission(#user, 'ADD_LEKI')">
         <a href="<c:url value="/index/dodajLek"/>" class="btn btn-default">Dodaj lek</a>
+    </sec:authorize>
+
+    <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
+        <table class="sortable">
+            <tr>
+                <th>ISBN</th>
+                <th>Autor</th>
+                <th>Tytuł</th>
+                <th>Seria</th>
+                <th>Dostepnosc</th>
+            </tr>
+            <c:forEach items="${listaKsiazek}" var="mapaKsiazek">
+                <tr>
+                    <c:forEach items="${mapaKsiazek}" var="ksiazka">
+                        <td>${ksiazka.value}</td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+        </table>
     </sec:authorize>
 
 </center>
