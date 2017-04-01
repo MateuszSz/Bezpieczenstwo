@@ -79,7 +79,7 @@
                     </c:forEach>
                     <td>
                         <sec:authorize access="hasPermission(#user, 'EDIT_LEKI')">
-                            <a href="<c:url value="/index/edytujLek.htm"/>?id=3" class="btn btn-default">Edytuj</a>
+                            <a href="<c:url value="/index/edytujLek.htm"/>?id=${listaParametrowLeku[0]}" class="btn btn-default">Edytuj</a>
                         </sec:authorize>
 
                     </td>

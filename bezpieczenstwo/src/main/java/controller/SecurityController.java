@@ -115,12 +115,13 @@ public class SecurityController {
 
     @PreAuthorize("hasPermission(authentication, 'EDIT_LEKI')")
     @RequestMapping(value = "/index/edytowanieLeku", method = RequestMethod.POST)
-    public String edytowanieLeku(@ModelAttribute Lek lek){
+    public String edytowanieLeku(ModelMap model, @ModelAttribute Lek lek, @RequestParam("id") int id){
 
-        Lek zmieniony= lekService.display(3); // w przyszlosci bedzie lek.getId();
+        Lek zmieniony= lekService.display(id); // w przyszlosci bedzie lek.getId();
         zmieniony.setDawkowanie(lek.getDawkowanie());
         zmieniony.setIlosc(lek.getIlosc());
         zmieniony.setNazwaLeku(lek.getNazwaLeku());
+        zmieniony.setId(id);
         lekService.insert(zmieniony);
         return "redirect:/index";
 

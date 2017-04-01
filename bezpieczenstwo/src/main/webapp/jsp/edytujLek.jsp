@@ -27,10 +27,10 @@
 
 <script type='text/javascript'>
         $( document ).ready(function() {
-        document.getElementById('inputNazwaLeku').value=${nazwaLeku};
-        document.getElementById('inputDawkowanieLeku').value=${dawkowanieLeku};
-        document.getElementById('inputIloscLeku').value=${iloscLeku};
-        alert(${idLeku});
+            document.getElementById('inputNazwaLeku').value="${idLeku}";
+            document.getElementById('inputNazwaLeku').value="${nazwaLeku}";
+            document.getElementById('inputDawkowanieLeku').value="${dawkowanieLeku}";
+            document.getElementById('inputIloscLeku').value="${iloscLeku}";
     });
 </script>
 
@@ -38,7 +38,8 @@
 
 
 <body>
-<form class="form-signin" action=" <c:url value="/index/edytowanieLeku"/>" method="POST">
+<form class="form-signin" action=" <c:url value="/index/edytowanieLeku"/>?id=${idLeku}" method="POST">
+
     <h2 class="form-signin-heading">Edytuj lek</h2>
     <input name="nazwaLeku" type="text" id="inputNazwaLeku" class="form-control" placeholder="Nazwa leku" required>
     <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie" required>
