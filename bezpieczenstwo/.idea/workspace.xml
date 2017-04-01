@@ -1160,7 +1160,7 @@
       <workItem from="1490889250026" duration="10199000" />
       <workItem from="1490954874810" duration="6208000" />
       <workItem from="1491074530027" duration="2638000" />
-      <workItem from="1491077229452" duration="72000" />
+      <workItem from="1491077229452" duration="82000" />
     </task>
     <task id="LOCAL-00001" summary="favicon.ico fix">
       <created>1490773701461</created>
@@ -1183,11 +1183,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491077296079</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="EDYCJA DZIAAAŁA">
+      <created>1491077310925</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1491077310925</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180366000" />
+    <option name="totallyTimeSpent" value="180376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1369" height="744" extended-state="0" />
