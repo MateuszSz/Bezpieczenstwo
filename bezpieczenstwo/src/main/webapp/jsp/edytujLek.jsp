@@ -27,9 +27,10 @@
 
 <script type='text/javascript'>
         $( document ).ready(function() {
-        document.getElementById('inputNazwaLeku').value=${nazwaLeku};
-        document.getElementById('inputDawkowanieLeku').value=${dawkowanieLeku};
-        document.getElementById('inputIloscLeku').value=${iloscLeku};
+        document.getElementById('inputNazwaLeku').value="${nazwaLeku}";
+        document.getElementById('inputDawkowanieLeku').value="${dawkowanieLeku}";
+        document.getElementById('inputIloscLeku').value="${iloscLeku}";
+
         alert(${idLeku});
     });
 </script>
