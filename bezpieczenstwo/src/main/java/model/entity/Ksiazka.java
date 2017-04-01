@@ -18,7 +18,7 @@ public class Ksiazka {
     private String seria;
     private String tytul;
     private String dostepnosc;
-    //Ada lubi ksiazki ;D
+
     public Ksiazka() {
     }
 

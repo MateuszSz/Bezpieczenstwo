@@ -29,7 +29,7 @@ public class KsiazkaRepositoryImp implements KsiazkaRepository {
     }
 
     public List displayAllByEmail(String email){
-        SQLQuery sqlQuery= sessionFactory.getCurrentSession().createSQLQuery("Select ksiazka.ISBN, ksiazka.autor, ksiazka.tytul, ksiazka.seria, ksiazka.dostepnosc "+
+        SQLQuery sqlQuery= sessionFactory.getCurrentSession().createSQLQuery("Select ksiazka.id, ksiazka.ISBN, ksiazka.autor, ksiazka.tytul, ksiazka.seria, ksiazka.dostepnosc "+
             "from ksiazka, uzytkownik_ksiazka, uzytkownik WHERE ksiazka.id=uzytkownik_ksiazka.ksiazki_id and uzytkownik_ksiazka.Uzytkownik_id=uzytkownik.id and uzytkownik.email = \"" + email + "\"");
         sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         List results = sqlQuery.list();
@@ -37,7 +37,7 @@ public class KsiazkaRepositoryImp implements KsiazkaRepository {
     }
 
     public List displayAll(){
-        SQLQuery sqlQuery= sessionFactory.getCurrentSession().createSQLQuery("Select ksiazka.ISBN, ksiazka.autor, ksiazka.tytul, ksiazka.seria, ksiazka.dostepnosc from ksiazka");
+        SQLQuery sqlQuery= sessionFactory.getCurrentSession().createSQLQuery("Select ksiazka.id, ksiazka.ISBN, ksiazka.autor, ksiazka.tytul, ksiazka.seria, ksiazka.dostepnosc from ksiazka");
         sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         List results = sqlQuery.list();
         return results;
