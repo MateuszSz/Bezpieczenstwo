@@ -49,18 +49,15 @@
                 <th>Nazwa roli</th>
                 <th>Imię i nazwisko posiadacza</th>
             </tr>
-            <c:forEach items="${listaRol}" var="mapaRol">
+            <c:forEach items="${listaRol}" var="tablicaRol">
                 <tr>
-                    <c:forEach items="${mapaRol}" var="rola">
-                        <td>${rola.value}</td>
+                    <c:forEach items="${tablicaRol}" var="rola">
+                        <td>${rola}</td>
                     </c:forEach>
                 </tr>
             </c:forEach>
         </table>
     </sec:authorize>
-
-
-
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
         <table class="sortable">
             <tr>
@@ -69,17 +66,14 @@
                 <th>Ilosc na stanie</th>
                 <th>Dawkowanie</th>
             </tr>
-            <c:forEach items="${listaLekow}" var="listaParametrowLeku">
+            <c:forEach items="${listaLekow}" var="tablicaLekow">
                 <tr>
-
-                    
-
-                    <c:forEach items="${listaParametrowLeku}" var="lek">
+                    <c:forEach items="${tablicaLekow}" var="lek">
                         <td>${lek}</td>
                     </c:forEach>
                     <td>
                         <sec:authorize access="hasPermission(#user, 'EDIT_LEKI')">
-                            <a href="<c:url value="/index/edytujLek.htm"/>?id=${listaParametrowLeku[0]}" class="btn btn-default">Edytuj</a>
+                            <a href="<c:url value="/index/edytujLek.htm"/>?id=${tablicaLekow[0]}" class="btn btn-default">Edytuj</a>
                         </sec:authorize>
 
                     </td>
@@ -105,10 +99,10 @@
                 <th>Seria</th>
                 <th>Dostepnosc</th>
             </tr>
-            <c:forEach items="${listaKsiazek}" var="mapaKsiazek">
+            <c:forEach items="${listaKsiazek}" var="tablicaKsiazek">
                 <tr>
-                    <c:forEach items="${mapaKsiazek}" var="ksiazka">
-                        <td>${ksiazka.value}</td>
+                    <c:forEach items="${tablicaKsiazek}" var="ksiazka">
+                        <td>${ksiazka}</td>
                     </c:forEach>
                     <td>
                         <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">

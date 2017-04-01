@@ -39,7 +39,6 @@ public class RolaRepositoryImp implements RolaRepository {
     @Transactional
     public List displayAll() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select rola.nazwa from rola");
-        sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         List results = sqlQuery.list();
         return results;
     }
@@ -48,7 +47,6 @@ public class RolaRepositoryImp implements RolaRepository {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uzytkownik.imieINazwisko, rola.nazwa from uzytkownik, rola, uzytkownik_rola " +
                 "where uzytkownik_rola.uzytkownicy_id = uzytkownik.id " +
                 "and uzytkownik_rola.role_id = rola.id");
-        sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         List results = sqlQuery.list();
         return results;
     }
