@@ -7,16 +7,23 @@ import model.service.KsiazkaService;
 import model.service.LekService;
 import model.service.RolaService;
 import model.service.UzytkownikService;
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import javax.servlet.http.HttpServletRequest;
 
+import model.entity.Ksiazka;
 import java.util.List;
 
 /**
@@ -40,6 +47,9 @@ public class SecurityController {
     @Autowired
     private CustomPermissionEvaluator customPermissionEvaluator;
 
+    @Autowired
+    private SessionFactory sessionFactory;
+
 
     @RequestMapping(value = "/login")
     public String login() {
@@ -54,6 +64,7 @@ public class SecurityController {
         List leki = null;
         List role = null;
         List ksiazki = null;
+
 
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
@@ -70,6 +81,7 @@ public class SecurityController {
         model.addAttribute("listaLekow", leki);
         model.addAttribute("listaRol", role);
         model.addAttribute("listaKsiazek", ksiazki);
+
         return "index";
     }
 
@@ -88,5 +100,31 @@ public class SecurityController {
 
     }
 
+
+    @PreAuthorize("hasPermission(authentication, 'EDIT_LEKI')")
+    @RequestMapping(value = "/index/edytujLek.htm")
+    public String edytujLek(ModelMap model, @RequestParam("id") int id) {
+        model.addAttribute("idLeku", id);
+        Lek wybrany= lekService.display(id);
+        model.addAttribute("idLeku", wybrany.getId());
+        model.addAttribute("nazwaLeku", wybrany.getNazwaLeku());
+        model.addAttribute("dawkowanieLeku", wybrany.getDawkowanie());
+        model.addAttribute("iloscLeku", wybrany.getIlosc());
+        return "edytujLek";
+    }
+
+    @PreAuthorize("hasPermission(authentication, 'EDIT_LEKI')")
+    @RequestMapping(value = "/index/edytowanieLeku", method = RequestMethod.POST)
+    public String edytowanieLeku(@ModelAttribute Lek lek){
+
+        Lek zmieniony= lekService.display(3); // w przyszlosci bedzie lek.getId();
+        zmieniony.setDawkowanie(lek.getDawkowanie());
+        zmieniony.setIlosc(lek.getIlosc());
+        zmieniony.setNazwaLeku(lek.getNazwaLeku());
+        lekService.insert(zmieniony);
+        return "redirect:/index";
+
+
+    }
 
 }

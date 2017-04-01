@@ -102,8 +102,11 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieReadLeki = new Uprawnienie("READ_LEKI");
         Uprawnienie uprawnienieReadRole = new Uprawnienie("READ_ROLE");
         Uprawnienie uprawnienieAddLeki = new Uprawnienie("ADD_LEKI");
+        Uprawnienie uprawnienieEditLeki = new Uprawnienie("EDIT_LEKI");
+
         rolaHigienistka.getUprawnienia().add(uprawnienieReadLeki);
         rolaHigienistka.getUprawnienia().add(uprawnienieAddLeki);
+        rolaHigienistka.getUprawnienia().add(uprawnienieEditLeki);
         rolaAdmina.getUprawnienia().add(uprawnienieReadKsiazki);
         rolaAdmina.getUprawnienia().add(uprawnienieReadRole);
         rolaBibliotekarz.getUprawnienia().add(uprawnienieReadKsiazki);
@@ -112,6 +115,8 @@ public class InitServiceImpl {
         uprawnienieRepository.insert(uprawnienieReadKsiazki);
         uprawnienieRepository.insert(uprawnienieReadLeki);
         uprawnienieRepository.insert(uprawnienieAddLeki);
+        uprawnienieRepository.insert(uprawnienieEditLeki);
+
         rolaRepository.insert(rolaAdmina);
         rolaRepository.insert(rolaHigienistka);
         rolaRepository.insert(rolaBibliotekarz);

@@ -32,7 +32,7 @@ public class LekRepositoryImp implements LekRepository {
 
     public List displayAllByEmail(String email) {
 
-        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select lek.nazwaLeku, lek.dawkowanie, lek.ilosc from lek, uzytkownik_lek, uzytkownik\n" +
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select lek.id, lek.nazwaLeku, lek.dawkowanie, lek.ilosc from lek, uzytkownik_lek, uzytkownik\n" +
                 "where lek.id=uzytkownik_lek.leki_id and uzytkownik_lek.Uzytkownik_id = uzytkownik.id and uzytkownik.email = \"" + email + "\"");
         sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         List results = sqlQuery.list();
@@ -40,8 +40,7 @@ public class LekRepositoryImp implements LekRepository {
     }
 
     public List displayAll() {
-        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select lek.nazwaLeku, lek.dawkowanie, lek.ilosc from lek");
-        sqlQuery.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select lek.id, lek.nazwaLeku, lek.dawkowanie, lek.ilosc from lek");
         List results = sqlQuery.list();
         return results;
     }

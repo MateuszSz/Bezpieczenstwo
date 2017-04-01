@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/xml" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -15,6 +16,7 @@
 <html>
 <head>
     <script c:url src="../resources/js/sortedTable.js"></script>
+    <script c:url src="../resources/js/funkcje.js"></script>
 </head>
 <style>
     body {
@@ -28,12 +30,8 @@
         content: " \25B4\25BE"
     }
 
-
-
-
-
-
 </style>
+
 <body>
 
 <jsp:include page="classic.jsp"/>
@@ -47,6 +45,7 @@
     <sec:authorize access="hasPermission(#user, 'READ_ROLE')">
         <table class="sortable">
             <tr>
+                <th>Lp.</th>
                 <th>Nazwa roli</th>
                 <th>Imię i nazwisko posiadacza</th>
             </tr>
@@ -65,16 +64,27 @@
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
         <table class="sortable">
             <tr>
+                <th>Id Leku</th>
                 <th>Nazwa leku</th>
                 <th>Ilosc na stanie</th>
                 <th>Dawkowanie</th>
             </tr>
-            <c:forEach items="${listaLekow}" var="mapaLekow">
+            <c:forEach items="${listaLekow}" var="listaParametrowLeku">
                 <tr>
-                    <c:forEach items="${mapaLekow}" var="lek">
-                        <td>${lek.value}</td>
+
+                    
+
+                    <c:forEach items="${listaParametrowLeku}" var="lek">
+                        <td>${lek}</td>
                     </c:forEach>
+                    <td>
+                        <sec:authorize access="hasPermission(#user, 'EDIT_LEKI')">
+                            <a href="<c:url value="/index/edytujLek.htm"/>?id=3" class="btn btn-default">Edytuj</a>
+                        </sec:authorize>
+
+                    </td>
                 </tr>
+
             </c:forEach>
         </table>
     </sec:authorize>
@@ -84,9 +94,11 @@
     </sec:authorize>
 
 
+
     <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
         <table class="sortable">
             <tr>
+                <th>Lp.</th>
                 <th>ISBN</th>
                 <th>Autor</th>
                 <th>Tytuł</th>
@@ -98,7 +110,14 @@
                     <c:forEach items="${mapaKsiazek}" var="ksiazka">
                         <td>${ksiazka.value}</td>
                     </c:forEach>
+                    <td>
+                        <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
+                            <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Edytuj</a>
+                        </sec:authorize>
+
+                    </td>
                 </tr>
+
             </c:forEach>
         </table>
     </sec:authorize>
@@ -106,6 +125,7 @@
 </center>
 <br>
 <jsp:include page="footer.jsp"/>
+
 
 </body>
 </html>
