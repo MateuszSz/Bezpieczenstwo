@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf85b038-7603-4761-b710-5d5e79cff6b2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/edytujLek.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/controller/SecurityController.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/controller/SecurityController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/LekRepositoryImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/LekRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/InitServiceImpl.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/InitServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/SecurityController.class" afterPath="$PROJECT_DIR$/target/classes/controller/SecurityController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/LekRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/LekRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/InitServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/model/service/InitServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/entity/Ksiazka.java" afterPath="$PROJECT_DIR$/src/main/java/model/entity/Ksiazka.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/entity/Uzytkownik.java" afterPath="$PROJECT_DIR$/src/main/java/model/entity/Uzytkownik.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/LekRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/LekRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/security/CustomPermissionEvaluator.java" afterPath="$PROJECT_DIR$/src/main/java/model/security/CustomPermissionEvaluator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/KsiazkaService.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/KsiazkaService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/KsiazkaServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/KsiazkaServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/dodajLek.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/dodajLek.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -151,7 +129,7 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GradleLocalSettings">
@@ -1174,7 +1152,7 @@
       <workItem from="1490863476890" duration="2095000" />
       <workItem from="1490889250026" duration="10199000" />
       <workItem from="1490954874810" duration="6208000" />
-      <workItem from="1491071160677" duration="1315000" />
+      <workItem from="1491071160677" duration="1427000" />
     </task>
     <task id="LOCAL-00001" summary="favicon.ico fix">
       <created>1490773701461</created>
@@ -1190,11 +1168,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490773789436</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="poprawienie dzialanosci edycji">
+      <created>1491072522403</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1491072522403</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178015000" />
+    <option name="totallyTimeSpent" value="178127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1286,7 +1271,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="favicon.ico fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="favicon.ico fix" />
+    <MESSAGE value="poprawienie dzialanosci edycji" />
+    <option name="LAST_COMMIT_MESSAGE" value="poprawienie dzialanosci edycji" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
