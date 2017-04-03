@@ -5,6 +5,8 @@ import model.repository.UzytkownikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by mateu on 19.03.2017.
  */
@@ -29,5 +31,13 @@ public class UzytkownikServiceImp implements UzytkownikService {
 
     public int findIdUsingEmail(String email) {
         return uzytkownikRepository.findIdUsingEmail(email);
+    }
+
+    public List displayAllNamesAndId() {
+        return uzytkownikRepository.displayAllNamesAndId();
+    }
+
+    public void merge(Uzytkownik uzytkownik) {
+        uzytkownikRepository.merge(uzytkownik);
     }
 }

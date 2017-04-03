@@ -11,9 +11,10 @@ public interface RolaRepository {
     void insert(Rola rola);
 
     Rola display(int id);
-
+    Rola displayWithoutPermission(int id);
     int findIdUsingName(String nazwa);
 
-    public List displayAll();
-    public List displayWithUserName();
+    List displayAll();
+    List displayWithUserName();
+    List displayAllNamesAndId();
 }

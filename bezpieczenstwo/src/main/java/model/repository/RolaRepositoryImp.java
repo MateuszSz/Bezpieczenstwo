@@ -25,10 +25,17 @@ public class RolaRepositoryImp implements RolaRepository {
     @Transactional
     public Rola display(int id) {
         Rola rola = (Rola) sessionFactory.getCurrentSession().get(Rola.class, id);
+        Hibernate.initialize(rola.getUzytkownicy());
         Hibernate.initialize(rola.getUprawnienia());
         return rola;
     }
 
+    @Transactional
+    public Rola displayWithoutPermission(int id) {
+        Rola rola = (Rola) sessionFactory.getCurrentSession().get(Rola.class, id);
+        Hibernate.initialize(rola.getUzytkownicy());
+        return rola;
+    }
 
     @Transactional
     public int findIdUsingName(String nazwa) {
@@ -39,6 +46,12 @@ public class RolaRepositoryImp implements RolaRepository {
     @Transactional
     public List displayAll() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select rola.nazwa from rola");
+        List results = sqlQuery.list();
+        return results;
+    }
+    @Transactional
+    public List displayAllNamesAndId() {
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select rola.id,rola.nazwa from rola");
         List results = sqlQuery.list();
         return results;
     }
