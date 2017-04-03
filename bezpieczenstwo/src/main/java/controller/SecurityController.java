@@ -126,21 +126,50 @@ public class SecurityController {
         return "redirect:/index";
 
     }
-/*
+
     @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
     @RequestMapping(value = "/index/dodajKsiazke.htm")
     public String dodajKsiazke() {
         return "dodajKsiazke";
     }
 
+
     @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
-    @RequestMapping(value = "/index/dodawanieLeku", method = RequestMethod.POST)
+    @RequestMapping(value = "/index/dodawanieKsiazki", method = RequestMethod.POST)
     public String dodawanieKsiazki(@ModelAttribute Ksiazka ksiazka){
         ksiazkaService.insert(ksiazka);
         return "redirect:/index";
 
     }
-    */
+
+    @PreAuthorize("hasPermission(authentication, 'EDIT_KSIAZKI')")
+    @RequestMapping(value = "/index/edytujKsiazki.htm")
+    public String edytujKsiazke(ModelMap model, @RequestParam("id") int id) {
+        model.addAttribute("idKsiazki", id);
+        Ksiazka wybrany= ksiazkaService.display(id);
+        model.addAttribute("autor", wybrany.getAutor());
+        model.addAttribute("tytul", wybrany.getTytul());
+        model.addAttribute("ISBN", wybrany.getISBN());
+        model.addAttribute("dostepnosc", wybrany.getDostepnosc());
+        model.addAttribute("seria", wybrany.getSeria());
+        return "edytujKsiazke";
+    }
+
+
+    @PreAuthorize("hasPermission(authentication, 'EDIT_KSIAZKI')")
+    @RequestMapping(value = "/index/edytowanieKsiazki", method = RequestMethod.POST)
+    public String edytowanieKsiazki(ModelMap model, @ModelAttribute Ksiazka ksiazka, @RequestParam("id") int id){
+
+        Ksiazka zmieniony= ksiazkaService.display(id);
+        zmieniony.setAutor(ksiazka.getAutor());
+        zmieniony.setDostepnosc(ksiazka.getDostepnosc());
+        zmieniony.setISBN(ksiazka.getISBN());
+        zmieniony.setSeria(ksiazka.getSeria());
+        zmieniony.setTytul(ksiazka.getTytul());
+        ksiazkaService.insert(zmieniony);
+        return "redirect:/index";
+
+    }
 
 
 
