@@ -106,9 +106,7 @@
                         <td>${ksiazka}</td>
                     </c:forEach>
                     <td>
-                        <sec:authorize access="hasPermission(#user, 'EDIT_KSIAZKI')">
-                            <a href="<c:url value="/index/edytujKsiazke.htm"/>" class="btn btn-default">Edytuj</a>
-                        </sec:authorize>
+
 
                     </td>
                 </tr>
