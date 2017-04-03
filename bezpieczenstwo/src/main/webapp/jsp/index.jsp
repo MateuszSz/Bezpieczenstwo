@@ -58,6 +58,7 @@
             </c:forEach>
         </table>
     </sec:authorize>
+
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
         <table class="sortable">
             <tr>
@@ -105,8 +106,8 @@
                         <td>${ksiazka}</td>
                     </c:forEach>
                     <td>
-                        <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
-                            <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Edytuj</a>
+                        <sec:authorize access="hasPermission(#user, 'EDIT_KSIAZKI')">
+                            <a href="<c:url value="/index/edytujKsiazke.htm"/>" class="btn btn-default">Edytuj</a>
                         </sec:authorize>
 
                     </td>

@@ -113,25 +113,25 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieEditRole = new Uprawnienie("EDIT_ROLE");
         Uprawnienie uprawnienieDeleteRole = new Uprawnienie("DELETE_ROLE");
 
-        Uprawnienie uprawnienieReadOcena= new Uprawnienie("READ_OCENA");
-        Uprawnienie uprawnienieAddOcena = new Uprawnienie("ADD_OCENA");
-        Uprawnienie uprawnienieEditOcena = new Uprawnienie("EDIT_OCENA");
-        Uprawnienie uprawnienieDeleteOcena = new Uprawnienie("DELETE_OCENA");
+        Uprawnienie uprawnienieReadOcena= new Uprawnienie("READ_OCENY");
+        Uprawnienie uprawnienieAddOcena = new Uprawnienie("ADD_OCENY");
+        Uprawnienie uprawnienieEditOcena = new Uprawnienie("EDIT_OCENY");
+        Uprawnienie uprawnienieDeleteOcena = new Uprawnienie("DELETE_OCENY");
 
-        Uprawnienie uprawnienieReadUzytkownik= new Uprawnienie("READ_UZYTKOWNIK");
-        Uprawnienie uprawnienieAddUzytkownik = new Uprawnienie("ADD_UZYTKOWNIK");
-        Uprawnienie uprawnienieEditUzytkownik = new Uprawnienie("EDIT_UZYTKOWNIK");
-        Uprawnienie uprawnienieDeleteUzytkownik = new Uprawnienie("DELETE_UZYTKOWNIK");
+        Uprawnienie uprawnienieReadUzytkownik= new Uprawnienie("READ_UZYTKOWNICY");
+        Uprawnienie uprawnienieAddUzytkownik = new Uprawnienie("ADD_UZYTKOWNICY");
+        Uprawnienie uprawnienieEditUzytkownik = new Uprawnienie("EDIT_UZYTKOWNICY");
+        Uprawnienie uprawnienieDeleteUzytkownik = new Uprawnienie("DELETE_UZYTKOWNCY");
 
-        Uprawnienie uprawnienieReadDzienPracy= new Uprawnienie("READ_DZIEN_PRACY");
-        Uprawnienie uprawnienieAddDzienPracy = new Uprawnienie("ADD_DZIEN_PRACY");
-        Uprawnienie uprawnienieEditDzienPracy = new Uprawnienie("EDIT_DZIEN_PRACY");
-        Uprawnienie uprawnienieDeleteDzienPracy = new Uprawnienie("DELETE_DZIEN_PRACY");
+        Uprawnienie uprawnienieReadDzienPracy= new Uprawnienie("READ_DNI_PRACY");
+        Uprawnienie uprawnienieAddDzienPracy = new Uprawnienie("ADD_DNI_PRACY");
+        Uprawnienie uprawnienieEditDzienPracy = new Uprawnienie("EDIT_DNI_PRACY");
+        Uprawnienie uprawnienieDeleteDzienPracy = new Uprawnienie("DELETE_DNI_PRACY");
 
-        Uprawnienie uprawnienieReadUprawnienie= new Uprawnienie("READ_UPRAWNIENIE");
-        Uprawnienie uprawnienieAddUprawnienie = new Uprawnienie("ADD_UPRAWNIENIE");
-        Uprawnienie uprawnienieEditUprawnienie = new Uprawnienie("EDIT_UPRAWNIENIE");
-        Uprawnienie uprawnienieDeleteUprawnienie = new Uprawnienie("DELETE_UPRAWNIENIE");
+        Uprawnienie uprawnienieReadUprawnienie= new Uprawnienie("READ_UPRAWNIENIA");
+        Uprawnienie uprawnienieAddUprawnienie = new Uprawnienie("ADD_UPRAWNIENIA");
+        Uprawnienie uprawnienieEditUprawnienie = new Uprawnienie("EDIT_UPRAWNIENIA");
+        Uprawnienie uprawnienieDeleteUprawnienie = new Uprawnienie("DELETE_UPRAWNIENIA");
 
 
         rolaHigienistka.getUprawnienia().add(uprawnienieReadLeki);

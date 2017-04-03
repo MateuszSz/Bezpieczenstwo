@@ -125,7 +125,27 @@ public class SecurityController {
         lekService.insert(zmieniony);
         return "redirect:/index";
 
+    }
+
+    @PreAuthorize("hasPermission(authentication, 'EDIT_KSIAZKI')")
+    @RequestMapping(value = "/index/dodajKsiazke.htm")
+    public String dodajKsiazke() {
+        return "dodajKsiazke";
+    }
+
+    @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
+    @RequestMapping(value = "/index/dodawanieLeku", method = RequestMethod.POST)
+    public String dodawanieKsiazki(@ModelAttribute Ksiazka ksiazka){
+        //lekService.insert(ksiazka);
+        return "redirect:/index";
 
     }
+
+
+
+
+
+
+
 
 }
