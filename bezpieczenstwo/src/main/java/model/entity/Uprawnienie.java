@@ -13,13 +13,13 @@ public class Uprawnienie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String uprawnienie;
+    private String nazwa;
 
     public Uprawnienie() {
     }
 
-    public Uprawnienie(String uprawnienie) {
-        this.uprawnienie = uprawnienie;
+    public Uprawnienie(String nazwa) {
+        this.nazwa = nazwa;
     }
 
     public int getId() {
@@ -30,12 +30,11 @@ public class Uprawnienie {
         this.id = id;
     }
 
-
-    public String getUprawnienie() {
-        return uprawnienie;
+    public String getNazwa() {
+        return nazwa;
     }
 
-    public void setUprawnienie(String uprawnienie) {
-        this.uprawnienie = uprawnienie;
+    public void setNazwa(String nazwa) {
+        this.nazwa = nazwa;
     }
 }

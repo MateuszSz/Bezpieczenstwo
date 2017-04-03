@@ -42,22 +42,7 @@
 </center>
 <br><br>
 <center>
-    <sec:authorize access="hasPermission(#user, 'READ_ROLE')">
-        <table class="sortable">
-            <tr>
-                <th>Lp.</th>
-                <th>Nazwa roli</th>
-                <th>Imię i nazwisko posiadacza</th>
-            </tr>
-            <c:forEach items="${listaRol}" var="tablicaRol">
-                <tr>
-                    <c:forEach items="${tablicaRol}" var="rola">
-                        <td>${rola}</td>
-                    </c:forEach>
-                </tr>
-            </c:forEach>
-        </table>
-    </sec:authorize>
+<jsp:include page="obslugaRol.jsp"/>
 
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
         <table class="sortable">
@@ -106,7 +91,9 @@
                         <td>${ksiazka}</td>
                     </c:forEach>
                     <td>
-
+                        <sec:authorize access="hasPermission(#user, 'EDIT_KSIAZKI')">
+                            <a href="<c:url value="/index/edytujKsiazki.htm"/>?id=${tablicaKsiazek[0]}" class="btn btn-default">Edytuj</a>
+                        </sec:authorize>
 
                     </td>
                 </tr>
@@ -115,6 +102,9 @@
         </table>
     </sec:authorize>
 
+    <sec:authorize access="hasPermission(#user, 'ADD_KSIAZKI')">
+        <a href="<c:url value="/index/dodajKsiazke.htm"/>" class="btn btn-default">Dodaj ksiazke</a>
+    </sec:authorize>
 </center>
 <br>
 <jsp:include page="footer.jsp"/>
