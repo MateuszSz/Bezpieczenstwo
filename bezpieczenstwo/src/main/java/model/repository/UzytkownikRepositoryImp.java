@@ -23,6 +23,8 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
         sessionFactory.getCurrentSession().saveOrUpdate(uzytkownik);
     }
 
+
+
     @Transactional
     public Uzytkownik display(int id) {
         Uzytkownik uzytkownik = (Uzytkownik) sessionFactory.getCurrentSession().get(Uzytkownik.class, id);
@@ -31,8 +33,21 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
             Hibernate.initialize(rola.getUprawnienia());
         }
         return uzytkownik;
+    }
+
+    @Transactional
+    public List displayAllNamesAndId() {
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select uzytkownik.id,uzytkownik.imieINazwisko from uzytkownik");
+        List results = sqlQuery.list();
+        return results;
+    }
+
+    public void merge(Uzytkownik uzytkownik) {
+        uzytkownik = (Uzytkownik) sessionFactory.getCurrentSession().merge(uzytkownik);
+        sessionFactory.getCurrentSession().update(uzytkownik);
 
     }
+
 
     @Transactional
     public boolean isLoginAndPasswodCorrect(String email, String haslo) {

@@ -20,6 +20,10 @@ public class RolaServiceImp implements RolaService {
         return rolaRepository.display(id);
     }
 
+    public Rola displayWithoutPermission(int id) {
+        return rolaRepository.displayWithoutPermission(id);
+    }
+
     public int findIdUsingName(String nazwa) {
         return rolaRepository.findIdUsingName(nazwa);
     }
@@ -30,6 +34,9 @@ public class RolaServiceImp implements RolaService {
 
     public List displayWithUserName() {
         return rolaRepository.displayWithUserName();
+    }
+    public List displayAllNamesAndId(){
+        return rolaRepository.displayAllNamesAndId();
     }
 
 }
