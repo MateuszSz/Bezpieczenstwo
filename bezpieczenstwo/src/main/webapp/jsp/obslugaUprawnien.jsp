@@ -12,8 +12,10 @@
             <th>Role</th>
             <th>Uprawnienia</th>
             <th>Ksiazki</th>
-            <th>Oceny</th>
+            <th>Wystawione oceny</th>
+            <th>Moje oceny</th>
             <th>Dni pracy</th>
+            <th>Użytkownicy</th>
         </tr>
         <c:forEach items="${listaUprawnien}" var="tablicaUprawnien">
             <tr>

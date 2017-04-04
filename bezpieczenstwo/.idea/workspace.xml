@@ -2,60 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf85b038-7603-4761-b710-5d5e79cff6b2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/obslugaUprawnien.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/controller/SecurityController.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/controller/SecurityController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/entity/Uprawnienie.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/entity/Uprawnienie.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/LekRepositoryImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/LekRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/RolaRepositoryImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/RolaRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UprawnienieRepository.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UprawnienieRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UprawnienieRepositoryImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UprawnienieRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UzytkownikRepositoryImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UzytkownikRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/security/CustomPermissionEvaluator.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/security/CustomPermissionEvaluator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/InitServiceImpl.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/InitServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/RolaServiceImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/RolaServiceImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/UprawnienieServiceImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/UprawnienieServiceImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/SecurityController.class" afterPath="$PROJECT_DIR$/target/classes/controller/SecurityController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/entity/Uprawnienie.class" afterPath="$PROJECT_DIR$/target/classes/model/entity/Uprawnienie.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/LekRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/LekRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/RolaRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/RolaRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/UprawnienieRepository.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/UprawnienieRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/UprawnienieRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/UprawnienieRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/UzytkownikRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/UzytkownikRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/security/CustomPermissionEvaluator.class" afterPath="$PROJECT_DIR$/target/classes/model/security/CustomPermissionEvaluator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/InitServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/model/service/InitServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/RolaServiceImp.class" afterPath="$PROJECT_DIR$/target/classes/model/service/RolaServiceImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/UprawnienieServiceImp.class" afterPath="$PROJECT_DIR$/target/classes/model/service/UprawnienieServiceImp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/entity/DzienPracy.java" afterPath="$PROJECT_DIR$/src/main/java/model/entity/DzienPracy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/LekRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/LekRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/RolaRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/RolaRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/RolaRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/RolaRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/KsiazkaServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/KsiazkaServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/RolaServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/RolaServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/UprawnienieServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/UprawnienieServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/classic.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/classic.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dodajLek.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/dodajLek.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dodajRoleUzytkownikowi.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/dodajRoleUzytkownikowi.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/edytujKsiazke.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/edytujKsiazke.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/edytujLek.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/edytujLek.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/sortedTable.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/sortedTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/classic.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/classic.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/dodajLek.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/dodajLek.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/header.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/resources/js/sortedTable.js" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/resources/js/sortedTable.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/obslugaUprawnien.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/obslugaUprawnien.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -92,10 +42,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
-              <folding>
-                <marker date="1491300840723" expanded="true" signature="744:766" ph="/*...*/" />
-                <marker date="1491300840723" expanded="true" signature="817:830" ph="/*...*/" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,8 +50,8 @@
       <file leaf-file-name="obslugaUprawnien.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/obslugaUprawnien.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85">
-              <caret line="2" column="77" lean-forward="false" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="77" />
+            <state relative-caret-position="289">
+              <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -115,9 +62,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -176,8 +121,8 @@
       <file leaf-file-name="SecurityController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/SecurityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2652">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="308" column="117" lean-forward="false" selection-start-line="308" selection-start-column="108" selection-end-line="308" selection-end-column="117" />
               <folding />
             </state>
           </provider>
@@ -196,8 +141,8 @@
       <file leaf-file-name="InitServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="136" column="51" lean-forward="false" selection-start-line="136" selection-start-column="51" selection-end-line="136" selection-end-column="51" />
+            <state relative-caret-position="3009">
+              <caret line="195" column="57" lean-forward="false" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -220,10 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>UZYTKOWNIK</find>
-      <find>hiberna</find>
-      <find>home</find>
-      <find>szkola</find>
       <find>securi</find>
       <find>secu</find>
       <find>login</find>
@@ -250,6 +191,10 @@
       <find>id-</find>
       <find>id</find>
       <find>id=</find>
+      <find>wysta</find>
+      <find>WYSTAWIONEOCENY</find>
+      <find>wystawioneoceny</find>
+      <find>mojeoceny</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Ada\Desktop\BSK\bezpieczenstwo</dir>
@@ -314,8 +259,8 @@
         <option value="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepositoryImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/service/UprawnienieServiceImp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/obslugaUprawnien.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" />
       </list>
@@ -1163,7 +1108,7 @@
       <workItem from="1491216870273" duration="798000" />
       <workItem from="1491217761016" duration="8539000" />
       <workItem from="1491250331741" duration="8671000" />
-      <workItem from="1491297985604" duration="3009000" />
+      <workItem from="1491297985604" duration="5681000" />
     </task>
     <task id="LOCAL-00001" summary="favicon.ico fix">
       <created>1490773701461</created>
@@ -1214,15 +1159,22 @@
       <option name="project" value="LOCAL" />
       <updated>1491253549948</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Funkcja wypisywania uprawnien">
+      <created>1491301065379</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1491301065379</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201753000" />
+    <option name="totallyTimeSpent" value="204425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1248,7 +1200,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18814056" sideWeight="0.3068182" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2344932" sideWeight="0.56624603" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2344932" sideWeight="0.56624603" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37188873" sideWeight="0.43375394" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.49121523" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1275,7 +1227,8 @@
     <MESSAGE value="Dodanie rol, przyporzadkowanie ich do uzytkownikow, dodanie encji &quot;DzienPracy&quot;" />
     <MESSAGE value="Dodanie stron &quot;dodajKsiazke&quot; i &quot;edytujKsiazke&quot;" />
     <MESSAGE value="Poprawa dodawania ról" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawa dodawania ról" />
+    <MESSAGE value="Funkcja wypisywania uprawnien" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funkcja wypisywania uprawnien" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1294,24 +1247,30 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/SecurityController.java</url>
-          <line>137</line>
+          <line>139</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/SecurityController.java</url>
-          <line>76</line>
+          <line>78</line>
           <properties />
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/SecurityController.java</url>
-          <line>70</line>
+          <line>72</line>
           <properties />
           <option name="timeStamp" value="54" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/SecurityController.java</url>
+          <line>236</line>
+          <properties />
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="57" />
+      <option name="time" value="58" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1704,26 +1663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="136" column="51" lean-forward="false" selection-start-line="136" selection-start-column="51" selection-end-line="136" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
@@ -1736,25 +1675,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3009">
+          <caret line="195" column="57" lean-forward="false" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="57" />
           <folding>
-            <marker date="1491300840723" expanded="true" signature="744:766" ph="/*...*/" />
-            <marker date="1491300840723" expanded="true" signature="817:830" ph="/*...*/" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/obslugaUprawnien.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="2" column="77" lean-forward="false" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="77" />
+        <state relative-caret-position="289">
+          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/SecurityController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2652">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="308" column="117" lean-forward="false" selection-start-line="308" selection-start-column="108" selection-end-line="308" selection-end-column="117" />
           <folding />
         </state>
       </provider>

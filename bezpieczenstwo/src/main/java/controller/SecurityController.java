@@ -28,13 +28,15 @@ import java.util.List;
 public class SecurityController {
 
     private final static int LICZBA_TABLIC = 6;
-    private final static int LICZBA_ROL = 7;
+    private final static int LICZBA_ROL = 9;
     private final static int LEKI = 1;
     private final static int ROLE = 2;
     private final static int UPRAWNIENIA = 3;
     private final static int KSIAZKI = 4;
-    private final static int OCENY = 5;
-    private final static int DNIPRACY = 6;
+    private final static int WYSTAWIONEOCENY = 5;
+    private final static int MOJEOCENY = 6;
+    private final static int DNIPRACY = 7;
+    private final static int UZYTKOWNICY = 8;
     private final static int READ = 0;
     private final static int WRITE = 1;
     private final static int EDIT = 2;
@@ -243,8 +245,15 @@ public class SecurityController {
                         tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'R', READ);
                     else if (nazwaUprawnienia.contains("DNIPRACY"))
                         tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'R', READ);
+                    else if (nazwaUprawnienia.contains("MOJEOCENY"))
+                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'R', READ);
+                    else if (nazwaUprawnienia.contains("WYSTAWIONEOCENY"))
+                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'R', READ);
                     else
-                        tablicaPozwolen.get(iterator)[OCENY] = zmienNapis(tablicaPozwolen.get(iterator)[OCENY], 'R', READ);
+                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'R', READ);
+
+
+
                 else if (nazwaUprawnienia.contains("ADD"))
                     if (nazwaUprawnienia.contains("LEKI"))
                         tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'A', WRITE);
@@ -256,8 +265,15 @@ public class SecurityController {
                         tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'A', WRITE);
                     else if (nazwaUprawnienia.contains("DNIPRACY"))
                         tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'A', WRITE);
+                    else if (nazwaUprawnienia.contains("MOJEOCENY"))
+                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'A', WRITE);
+                    else if (nazwaUprawnienia.contains("WYSTAWIONEOCENY"))
+                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'A', WRITE);
                     else
-                        tablicaPozwolen.get(iterator)[OCENY] = zmienNapis(tablicaPozwolen.get(iterator)[OCENY], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'A', WRITE);
+
+
+
 
                 else if (nazwaUprawnienia.contains("EDIT"))
                     if (nazwaUprawnienia.contains("LEKI"))
@@ -270,20 +286,31 @@ public class SecurityController {
                         tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'E', EDIT);
                     else if (nazwaUprawnienia.contains("DNIPRACY"))
                         tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'E', EDIT);
+                    else if (nazwaUprawnienia.contains("MOJEOCENY"))
+                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'E', EDIT);
+                    else if (nazwaUprawnienia.contains("WYSTAWIONEOCENY"))
+                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'E', EDIT);
                     else
-                        tablicaPozwolen.get(iterator)[OCENY] = zmienNapis(tablicaPozwolen.get(iterator)[OCENY], 'E', EDIT);
-                else if (nazwaUprawnienia.contains("LEKI"))
+                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'E', EDIT);
+
+
+                else if (nazwaUprawnienia.contains("DELETE"))
+                    if (nazwaUprawnienia.contains("LEKI"))
                     tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'D', DELETE);
-                else if (nazwaUprawnienia.contains("KSIAZKI"))
-                    tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'D', DELETE);
-                else if (nazwaUprawnienia.contains("ROLE"))
-                    tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'D', DELETE);
-                else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
-                    tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'D', DELETE);
-                else if (nazwaUprawnienia.contains("DNIPRACY"))
-                    tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'D', DELETE);
-                else
-                    tablicaPozwolen.get(iterator)[OCENY] = zmienNapis(tablicaPozwolen.get(iterator)[OCENY], 'D', DELETE);
+                    else if (nazwaUprawnienia.contains("KSIAZKI"))
+                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'D', DELETE);
+                    else if (nazwaUprawnienia.contains("ROLE"))
+                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'D', DELETE);
+                    else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
+                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'D', DELETE);
+                    else if (nazwaUprawnienia.contains("DNIPRACY"))
+                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'D', DELETE);
+                    else if (nazwaUprawnienia.contains("MOJEOCENY"))
+                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'D', DELETE);
+                    else if (nazwaUprawnienia.contains("WYSTAWIONEOCENY"))
+                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'D', DELETE);
+                    else
+                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'D', DELETE);
 
             }
             iterator++;

@@ -113,10 +113,10 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieEditRole = new Uprawnienie("EDIT_ROLE");
         Uprawnienie uprawnienieDeleteRole = new Uprawnienie("DELETE_ROLE");
 
-        Uprawnienie uprawnienieReadOcena = new Uprawnienie("READ_OCENY");
-        Uprawnienie uprawnienieAddOcena = new Uprawnienie("ADD_OCENY");
-        Uprawnienie uprawnienieEditOcena = new Uprawnienie("EDIT_OCENY");
-        Uprawnienie uprawnienieDeleteOcena = new Uprawnienie("DELETE_OCENY");
+        Uprawnienie uprawnienieReadWystawionaOcena = new Uprawnienie("READ_WYSTAWIONEOCENY");
+        Uprawnienie uprawnienieAddWystawionaOcena = new Uprawnienie("ADD_WYSTAWIONEOCENY");
+        Uprawnienie uprawnienieEditWystawionaOcena = new Uprawnienie("EDIT_WYSTAWIONEOCENY");
+        Uprawnienie uprawnienieDeleteWystawionaOcena = new Uprawnienie("DELETE_WYSTAWIONEOCENY");
 
         Uprawnienie uprawnienieReadUzytkownik = new Uprawnienie("READ_UZYTKOWNICY");
         Uprawnienie uprawnienieAddUzytkownik = new Uprawnienie("ADD_UZYTKOWNICY");
@@ -165,10 +165,10 @@ public class InitServiceImpl {
         rolaDyrektora.getUprawnienia().add(uprawnienieReadLeki);
 
         rolaNauczyciel.getUprawnienia().add(uprawnienieReadDzienPracy);
-        rolaNauczyciel.getUprawnienia().add(uprawnienieReadOcena);
-        rolaNauczyciel.getUprawnienia().add(uprawnienieAddOcena);
-        rolaNauczyciel.getUprawnienia().add(uprawnienieEditOcena);
-        rolaNauczyciel.getUprawnienia().add(uprawnienieDeleteOcena);
+        rolaNauczyciel.getUprawnienia().add(uprawnienieReadWystawionaOcena);
+        rolaNauczyciel.getUprawnienia().add(uprawnienieAddWystawionaOcena);
+        rolaNauczyciel.getUprawnienia().add(uprawnienieEditWystawionaOcena);
+        rolaNauczyciel.getUprawnienia().add(uprawnienieDeleteWystawionaOcena);
 
         rolaBibliotekarz.getUprawnienia().add(uprawnienieReadDzienPracy);
         rolaBibliotekarz.getUprawnienia().add(uprawnienieReadKsiazki);
@@ -176,7 +176,7 @@ public class InitServiceImpl {
         rolaBibliotekarz.getUprawnienia().add(uprawnienieEditKsiazki);
         rolaBibliotekarz.getUprawnienia().add(uprawnienieDeleteKsiazki);
 
-        rolaUczen.getUprawnienia().add(uprawnienieReadOcena);
+       // rolaUczen.getUprawnienia().add(uprawnienieReadOcena);
 
         uprawnienieRepository.insert(uprawnienieReadLeki);
         uprawnienieRepository.insert(uprawnienieAddLeki);
@@ -193,10 +193,10 @@ public class InitServiceImpl {
         uprawnienieRepository.insert(uprawnienieEditRole);
         uprawnienieRepository.insert(uprawnienieDeleteRole);
 
-        uprawnienieRepository.insert(uprawnienieReadOcena);
-        uprawnienieRepository.insert(uprawnienieAddOcena);
-        uprawnienieRepository.insert(uprawnienieEditOcena);
-        uprawnienieRepository.insert(uprawnienieDeleteOcena);
+        uprawnienieRepository.insert(uprawnienieReadWystawionaOcena);
+        uprawnienieRepository.insert(uprawnienieAddWystawionaOcena);
+        uprawnienieRepository.insert(uprawnienieEditWystawionaOcena);
+        uprawnienieRepository.insert(uprawnienieDeleteWystawionaOcena);
 
         uprawnienieRepository.insert(uprawnienieReadUzytkownik);
         uprawnienieRepository.insert(uprawnienieAddUzytkownik);
