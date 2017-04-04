@@ -27,15 +27,14 @@
 
 
 <script type='text/javascript'>
-    $( document ).ready(function() {
-        document.getElementById('inputAutor').value="${autor}";
-        document.getElementById('inputTytul').value="${tytul}";
-        document.getElementById('inputISBN').value="${ISBN}";
-        document.getElementById('inputSeria').value="${seria}";
-        document.getElementById('inputDostepnosc').value="${dostepnosc}";
+    $(document).ready(function () {
+        document.getElementById('inputAutor').value = "${autor}";
+        document.getElementById('inputTytul').value = "${tytul}";
+        document.getElementById('inputISBN').value = "${ISBN}";
+        document.getElementById('inputSeria').value = "${seria}";
+        document.getElementById('inputDostepnosc').value = "${dostepnosc}";
     });
 </script>
-
 
 
 <body>

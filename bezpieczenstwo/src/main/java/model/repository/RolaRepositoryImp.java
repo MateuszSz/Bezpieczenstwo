@@ -1,7 +1,6 @@
 package model.repository;
 
 import model.entity.Rola;
-import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
@@ -43,18 +42,21 @@ public class RolaRepositoryImp implements RolaRepository {
         List results = sqlQuery.list();
         return (Integer) results.get(0);
     }
+
     @Transactional
     public List displayAll() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select rola.nazwa from rola");
         List results = sqlQuery.list();
         return results;
     }
+
     @Transactional
     public List displayAllNamesAndId() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select rola.id,rola.nazwa from rola");
         List results = sqlQuery.list();
         return results;
     }
+
     @Transactional
     public List displayWithUserName() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uzytkownik.imieINazwisko, rola.nazwa from uzytkownik, rola, uzytkownik_rola " +

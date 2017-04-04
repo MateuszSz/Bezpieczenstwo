@@ -23,9 +23,11 @@
         padding-top: 40px;
         padding-bottom: 40px;
         /*
-        background: <c:url value="/resources/images/bodybg.png"/> ;
+        background:
+    <c:url value="/resources/images/bodybg.png"/>  ;
         */
     }
+
     table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
         content: " \25B4\25BE"
     }
@@ -42,8 +44,8 @@
 </center>
 <br><br>
 <center>
-<jsp:include page="obslugaRol.jsp"/>
-
+    <jsp:include page="obslugaRol.jsp"/>
+    <jsp:include page="obslugaUprawnien.jsp"/>
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
         <table class="sortable">
             <tr>
@@ -59,7 +61,8 @@
                     </c:forEach>
                     <td>
                         <sec:authorize access="hasPermission(#user, 'EDIT_LEKI')">
-                            <a href="<c:url value="/index/edytujLek.htm"/>?id=${tablicaLekow[0]}" class="btn btn-default">Edytuj</a>
+                            <a href="<c:url value="/index/edytujLek.htm"/>?id=${tablicaLekow[0]}"
+                               class="btn btn-default">Edytuj</a>
                         </sec:authorize>
 
                     </td>
@@ -72,7 +75,6 @@
     <sec:authorize access="hasPermission(#user, 'ADD_LEKI')">
         <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Dodaj lek</a>
     </sec:authorize>
-
 
 
     <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
@@ -92,7 +94,8 @@
                     </c:forEach>
                     <td>
                         <sec:authorize access="hasPermission(#user, 'EDIT_KSIAZKI')">
-                            <a href="<c:url value="/index/edytujKsiazki.htm"/>?id=${tablicaKsiazek[0]}" class="btn btn-default">Edytuj</a>
+                            <a href="<c:url value="/index/edytujKsiazki.htm"/>?id=${tablicaKsiazek[0]}"
+                               class="btn btn-default">Edytuj</a>
                         </sec:authorize>
 
                     </td>

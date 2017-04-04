@@ -26,7 +26,7 @@
 
 </head>
 <style>
-    body{
+    body {
         background-repeat: no-repeat;
         width: 100%;
         height: 100px;

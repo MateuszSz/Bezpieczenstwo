@@ -35,7 +35,8 @@ public class RolaServiceImp implements RolaService {
     public List displayWithUserName() {
         return rolaRepository.displayWithUserName();
     }
-    public List displayAllNamesAndId(){
+
+    public List displayAllNamesAndId() {
         return rolaRepository.displayAllNamesAndId();
     }
 

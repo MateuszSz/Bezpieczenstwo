@@ -17,6 +17,7 @@ public interface UzytkownikRepository {
     int findIdUsingEmail(String email);
 
     List displayAllNamesAndId();
+
     void merge(Uzytkownik uzytkownik);
 
 }

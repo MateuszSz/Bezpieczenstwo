@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<body background="<c:url value="/resources/images/header.png"/>" >
+<body background="<c:url value="/resources/images/header.png"/>">
 
 </body>
 

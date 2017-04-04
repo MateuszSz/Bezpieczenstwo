@@ -26,15 +26,13 @@
 </head>
 
 <script type='text/javascript'>
-        $( document ).ready(function() {
-            document.getElementById('inputNazwaLeku').value="${idLeku}";
-            document.getElementById('inputNazwaLeku').value="${nazwaLeku}";
-            document.getElementById('inputDawkowanieLeku').value="${dawkowanieLeku}";
-            document.getElementById('inputIloscLeku').value="${iloscLeku}";
+    $(document).ready(function () {
+        document.getElementById('inputNazwaLeku').value = "${idLeku}";
+        document.getElementById('inputNazwaLeku').value = "${nazwaLeku}";
+        document.getElementById('inputDawkowanieLeku').value = "${dawkowanieLeku}";
+        document.getElementById('inputIloscLeku').value = "${iloscLeku}";
     });
 </script>
-
-
 
 
 <body>
@@ -42,7 +40,8 @@
 
     <h2 class="form-signin-heading">Edytuj lek</h2>
     <input name="nazwaLeku" type="text" id="inputNazwaLeku" class="form-control" placeholder="Nazwa leku" required>
-    <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie" required>
+    <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie"
+           required>
     <input type="text" name="ilosc" id="inputIloscLeku" class="form-control" placeholder="Ilosc" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Edytuj lek</button>
 </form>

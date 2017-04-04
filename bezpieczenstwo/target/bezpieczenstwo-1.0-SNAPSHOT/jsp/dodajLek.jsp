@@ -66,7 +66,8 @@
     <label for="inputNazwaLeku" class="sr-only">Nazwa Leku</label>
     <input name="nazwaLeku" type="text" id="inputNazwaLeku" class="form-control" placeholder="nazwa leku" required>
     <label for="inputDawkowanieLeku" class="sr-only">Dawkowanie</label>
-    <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie" required>
+    <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie"
+           required>
     <label for="inputIloscLeku" class="sr-only">Ilość na stanie</label>
     <input type="text" name="ilosc" id="inputIloscLeku" class="form-control" placeholder="Ilosc" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nowy lek</button>

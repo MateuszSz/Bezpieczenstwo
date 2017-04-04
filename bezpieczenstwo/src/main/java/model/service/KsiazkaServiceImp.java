@@ -2,9 +2,6 @@ package model.service;
 
 import model.entity.Ksiazka;
 import model.repository.KsiazkaRepository;
-import model.repository.LekRepository;
-import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,20 +16,20 @@ public class KsiazkaServiceImp implements KsiazkaService {
     @Autowired
     private KsiazkaRepository ksiazkaRepository;
 
-    public void insert(Ksiazka ksiazka){
+    public void insert(Ksiazka ksiazka) {
         ksiazkaRepository.insert(ksiazka);
 
     }
 
-    public Ksiazka display(int id){
+    public Ksiazka display(int id) {
         return ksiazkaRepository.display(id);
     }
 
-    public List displayAllByEmail(String email){
+    public List displayAllByEmail(String email) {
         return ksiazkaRepository.displayAllByEmail(email);
     }
 
-    public List displayAll(){
+    public List displayAll() {
         return ksiazkaRepository.displayAll();
     }
 

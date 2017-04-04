@@ -6,10 +6,7 @@ import model.entity.Rola;
 import model.entity.Uzytkownik;
 import model.security.CustomPermissionEvaluator;
 import model.security.CustomUserDetails;
-import model.service.KsiazkaService;
-import model.service.LekService;
-import model.service.RolaService;
-import model.service.UzytkownikService;
+import model.service.*;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -31,7 +28,18 @@ import java.util.List;
 public class SecurityController {
 
     private final static int LICZBA_TABLIC = 6;
-    private final static int LICZBA_ROL = 6;
+    private final static int LICZBA_ROL = 7;
+    private final static int LEKI = 1;
+    private final static int ROLE = 2;
+    private final static int UPRAWNIENIA = 3;
+    private final static int KSIAZKI = 4;
+    private final static int OCENY = 5;
+    private final static int DNIPRACY = 6;
+    private final static int READ = 0;
+    private final static int WRITE = 1;
+    private final static int EDIT = 2;
+    private final static int DELETE = 3;
+
     @Autowired
     private UzytkownikService uzytkownikService;
     @Autowired
@@ -44,6 +52,8 @@ public class SecurityController {
     private CustomPermissionEvaluator customPermissionEvaluator;
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private UprawnienieService uprawnienieService;
 
     @RequestMapping(value = "/login")
     public String login() {
@@ -58,14 +68,16 @@ public class SecurityController {
         List leki = null;
         List role = null;
         List ksiazki = null;
-
-
+        List uprawnienia = null;
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
             role = rolaService.displayWithUserName();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_KSIAZKI"))
             ksiazki = ksiazkaService.displayAll();
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_UPRAWNIENIA"))
+            uprawnienia = tworzenieTablicyPozwolen();
+
 
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
@@ -75,25 +87,9 @@ public class SecurityController {
         model.addAttribute("listaLekow", leki);
         model.addAttribute("listaRol", role);
         model.addAttribute("listaKsiazek", ksiazki);
+        model.addAttribute("listaUprawnien", uprawnienia);
 
         return "index";
-    }
-
-    private List tworzenieTablicyPozwolen() {
-        ArrayList<String[]> tablicaPozwolen = new ArrayList<String[]>();
-
-        //indeksy w tablicyPozwolen odpowiadają różnym tablicom
-        //indeksy w tablicach odpowiadają różnym rolom
-        for (int i = 0; i < LICZBA_TABLIC; i++) {
-            String tablica[] = new String[LICZBA_ROL];
-            for (int j = 0; j < LICZBA_ROL; j++)
-                tablica[j] = "----";
-            tablicaPozwolen.add(tablica);
-        }
-        List role = rolaService.displayAll();
-
-        return null;
-
     }
 
     //Sprawdzenie czy, osoba która chce się dostać do tej metody ma uprawnienia dodawania lekow
@@ -215,4 +211,89 @@ public class SecurityController {
     }
 
 
+    private List tworzenieTablicyPozwolen() {
+        ArrayList<String[]> tablicaPozwolen = new ArrayList<String[]>();
+        List role = rolaService.displayAll();
+        List uprawnienia;
+        String[] nazwyTablic = new String[]{"Administrator", "Dyrektor", "Higienistka", "Nauczyciel", "Uczeń", "Bibliotekarz"};
+        String nazwaUprawnienia;
+        int iterator = 0;
+
+        //indeksy w tablicyPozwolen odpowiadają różnym tablicom
+        //indeksy w tablicach odpowiadają różnym rolom
+        for (int i = 0; i < LICZBA_TABLIC; i++) {
+            String tablica[] = new String[LICZBA_ROL];
+            for (int j = 0; j < LICZBA_ROL; j++)
+                tablica[j] = "----";
+            tablicaPozwolen.add(tablica);
+        }
+        for (Object r : role) {
+            uprawnienia = uprawnienieService.displayAllByRoleName(r.toString());
+            tablicaPozwolen.get(iterator)[0] = nazwyTablic[iterator];
+            for (Object o : uprawnienia) {
+                nazwaUprawnienia = o.toString();
+                if (nazwaUprawnienia.contains("READ"))
+                    if (nazwaUprawnienia.contains("LEKI"))
+                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'R', READ);
+                    else if (nazwaUprawnienia.contains("KSIAZKI"))
+                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'R', READ);
+                    else if (nazwaUprawnienia.contains("ROLE"))
+                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'R', READ);
+                    else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
+                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'R', READ);
+                    else if (nazwaUprawnienia.contains("DNIPRACY"))
+                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'R', READ);
+                    else
+                        tablicaPozwolen.get(iterator)[OCENY] = zmienNapis(tablicaPozwolen.get(iterator)[OCENY], 'R', READ);
+                else if (nazwaUprawnienia.contains("ADD"))
+                    if (nazwaUprawnienia.contains("LEKI"))
+                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'A', WRITE);
+                    else if (nazwaUprawnienia.contains("KSIAZKI"))
+                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'A', WRITE);
+                    else if (nazwaUprawnienia.contains("ROLE"))
+                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'A', WRITE);
+                    else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
+                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'A', WRITE);
+                    else if (nazwaUprawnienia.contains("DNIPRACY"))
+                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'A', WRITE);
+                    else
+                        tablicaPozwolen.get(iterator)[OCENY] = zmienNapis(tablicaPozwolen.get(iterator)[OCENY], 'A', WRITE);
+
+                else if (nazwaUprawnienia.contains("EDIT"))
+                    if (nazwaUprawnienia.contains("LEKI"))
+                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'E', EDIT);
+                    else if (nazwaUprawnienia.contains("KSIAZKI"))
+                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'E', EDIT);
+                    else if (nazwaUprawnienia.contains("ROLE"))
+                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'E', EDIT);
+                    else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
+                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'E', EDIT);
+                    else if (nazwaUprawnienia.contains("DNIPRACY"))
+                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'E', EDIT);
+                    else
+                        tablicaPozwolen.get(iterator)[OCENY] = zmienNapis(tablicaPozwolen.get(iterator)[OCENY], 'E', EDIT);
+                else if (nazwaUprawnienia.contains("LEKI"))
+                    tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'D', DELETE);
+                else if (nazwaUprawnienia.contains("KSIAZKI"))
+                    tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'D', DELETE);
+                else if (nazwaUprawnienia.contains("ROLE"))
+                    tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'D', DELETE);
+                else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
+                    tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'D', DELETE);
+                else if (nazwaUprawnienia.contains("DNIPRACY"))
+                    tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'D', DELETE);
+                else
+                    tablicaPozwolen.get(iterator)[OCENY] = zmienNapis(tablicaPozwolen.get(iterator)[OCENY], 'D', DELETE);
+
+            }
+            iterator++;
+        }
+        return tablicaPozwolen;
+    }
+
+    private String zmienNapis(String napis, char znak, int miejsce) {
+        char[] napisChar = napis.toCharArray();
+        napisChar[miejsce] = znak;
+        return String.valueOf(napisChar);
+    }
 }

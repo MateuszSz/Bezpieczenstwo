@@ -1,7 +1,6 @@
 package model.repository;
 
 import model.entity.Lek;
-import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

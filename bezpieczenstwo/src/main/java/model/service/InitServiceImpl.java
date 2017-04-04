@@ -50,11 +50,11 @@ public class InitServiceImpl {
         rolaRepository.insert(rolaDyrektora);
         Rola rolaHigienistka = new Rola("HIGIENISTKA");
         rolaRepository.insert(rolaHigienistka);
-        Rola rolaNauczyciel = new Rola ( "NAUCZYCIEL");
+        Rola rolaNauczyciel = new Rola("NAUCZYCIEL");
         rolaRepository.insert(rolaNauczyciel);
-        Rola rolaUczen = new Rola ("UCZEN");
+        Rola rolaUczen = new Rola("UCZEN");
         rolaRepository.insert(rolaUczen);
-        Rola rolaBibliotekarz = new  Rola("BIBLIOTEKARZ");
+        Rola rolaBibliotekarz = new Rola("BIBLIOTEKARZ");
         rolaRepository.insert(rolaBibliotekarz);
 
 //  TWORZENIE URZYTKOWNIKOW I POLACZENIE ICH Z ROLAMI
@@ -88,10 +88,10 @@ public class InitServiceImpl {
 
         //TWORZENIE KSIAZEK
 
-        List<Ksiazka>ksiazki= new ArrayList<Ksiazka>();
+        List<Ksiazka> ksiazki = new ArrayList<Ksiazka>();
         ksiazki.add(new Ksiazka("Brandon Sanderson", "987-83-7480-670-1", "Siewca Wojny ", "Rozjemca", "dostepna"));
 
-        for(Ksiazka k: ksiazki){
+        for (Ksiazka k : ksiazki) {
             ksiazkaRepository.insert(k);
             uzytkownik.getKsiazki().add(k);
         }
@@ -108,27 +108,27 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieEditKsiazki = new Uprawnienie("EDIT_KSIAZKI");
         Uprawnienie uprawnienieDeleteKsiazki = new Uprawnienie("DELETE_KSIAZKI");
 
-        Uprawnienie uprawnienieReadRole= new Uprawnienie("READ_ROLE");
+        Uprawnienie uprawnienieReadRole = new Uprawnienie("READ_ROLE");
         Uprawnienie uprawnienieAddRole = new Uprawnienie("ADD_ROLE");
         Uprawnienie uprawnienieEditRole = new Uprawnienie("EDIT_ROLE");
         Uprawnienie uprawnienieDeleteRole = new Uprawnienie("DELETE_ROLE");
 
-        Uprawnienie uprawnienieReadOcena= new Uprawnienie("READ_OCENY");
+        Uprawnienie uprawnienieReadOcena = new Uprawnienie("READ_OCENY");
         Uprawnienie uprawnienieAddOcena = new Uprawnienie("ADD_OCENY");
         Uprawnienie uprawnienieEditOcena = new Uprawnienie("EDIT_OCENY");
         Uprawnienie uprawnienieDeleteOcena = new Uprawnienie("DELETE_OCENY");
 
-        Uprawnienie uprawnienieReadUzytkownik= new Uprawnienie("READ_UZYTKOWNICY");
+        Uprawnienie uprawnienieReadUzytkownik = new Uprawnienie("READ_UZYTKOWNICY");
         Uprawnienie uprawnienieAddUzytkownik = new Uprawnienie("ADD_UZYTKOWNICY");
         Uprawnienie uprawnienieEditUzytkownik = new Uprawnienie("EDIT_UZYTKOWNICY");
         Uprawnienie uprawnienieDeleteUzytkownik = new Uprawnienie("DELETE_UZYTKOWNCY");
 
-        Uprawnienie uprawnienieReadDzienPracy= new Uprawnienie("READ_DNI_PRACY");
-        Uprawnienie uprawnienieAddDzienPracy = new Uprawnienie("ADD_DNI_PRACY");
-        Uprawnienie uprawnienieEditDzienPracy = new Uprawnienie("EDIT_DNI_PRACY");
-        Uprawnienie uprawnienieDeleteDzienPracy = new Uprawnienie("DELETE_DNI_PRACY");
+        Uprawnienie uprawnienieReadDzienPracy = new Uprawnienie("READ_DNIPRACY");
+        Uprawnienie uprawnienieAddDzienPracy = new Uprawnienie("ADD_DNIPRACY");
+        Uprawnienie uprawnienieEditDzienPracy = new Uprawnienie("EDIT_DNIPRACY");
+        Uprawnienie uprawnienieDeleteDzienPracy = new Uprawnienie("DELETE_DNIPRACY");
 
-        Uprawnienie uprawnienieReadUprawnienie= new Uprawnienie("READ_UPRAWNIENIA");
+        Uprawnienie uprawnienieReadUprawnienie = new Uprawnienie("READ_UPRAWNIENIA");
         Uprawnienie uprawnienieAddUprawnienie = new Uprawnienie("ADD_UPRAWNIENIA");
         Uprawnienie uprawnienieEditUprawnienie = new Uprawnienie("EDIT_UPRAWNIENIA");
         Uprawnienie uprawnienieDeleteUprawnienie = new Uprawnienie("DELETE_UPRAWNIENIA");

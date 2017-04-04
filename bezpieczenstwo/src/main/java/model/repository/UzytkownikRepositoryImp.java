@@ -24,7 +24,6 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
     }
 
 
-
     @Transactional
     public Uzytkownik display(int id) {
         Uzytkownik uzytkownik = (Uzytkownik) sessionFactory.getCurrentSession().get(Uzytkownik.class, id);

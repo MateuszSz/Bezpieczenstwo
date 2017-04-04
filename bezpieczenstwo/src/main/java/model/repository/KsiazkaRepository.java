@@ -1,6 +1,7 @@
 package model.repository;
 
 import model.entity.Ksiazka;
+
 import java.util.List;
 
 /**
@@ -9,8 +10,11 @@ import java.util.List;
 public interface KsiazkaRepository {
 
     void insert(Ksiazka ksiazka);
+
     Ksiazka display(int id);
+
     List displayAllByEmail(String email);
+
     List displayAll();
 
 }
