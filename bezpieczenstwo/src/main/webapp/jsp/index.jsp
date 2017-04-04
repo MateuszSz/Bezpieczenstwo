@@ -108,6 +108,73 @@
     <sec:authorize access="hasPermission(#user, 'ADD_KSIAZKI')">
         <a href="<c:url value="/index/dodajKsiazke.htm"/>" class="btn btn-default">Dodaj ksiazke</a>
     </sec:authorize>
+
+    <sec:authorize access="hasPermission(#user, 'READ_MOJEOCENY')">
+        <table class="sortable">
+            <tr>
+                <th>Przedmiot</th>
+                <th>Ocena</th>
+                <th>Nauczyciel</th>
+
+            </tr>
+            <c:forEach items="${listaMoichOcen}" var="tablicaOcen">
+                <tr>
+                    <c:forEach items="${tablicaOcen}" var="ocena">
+                        <td>${ocena}</td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+        </table>
+    </sec:authorize>
+
+    <sec:authorize access="hasPermission(#user, 'READ_WYSTAWIONEOCENY')">
+        <table class="sortable">
+            <tr>
+                <th>Lp.</th>
+                <th>Przedmiot</th>
+                <th>Ocena</th>
+                <th>Uczen</th>
+
+            </tr>
+            <c:forEach items="${listaWystawionychOcen}" var="tablicaKsiazek">
+                <tr>
+                    <c:forEach items="${tablicaKsiazek}" var="ksiazka">
+                        <td>${ksiazka}</td>
+                    </c:forEach>
+                    <td>
+                        <sec:authorize access="hasPermission(#user, 'EDIT_KSIAZKI')">
+                            <a href="<c:url value="/index/edytujKsiazki.htm"/>?id=${tablicaKsiazek[0]}"
+                               class="btn btn-default">Edytuj</a>
+                        </sec:authorize>
+
+                    </td>
+                </tr>
+
+            </c:forEach>
+        </table>
+    </sec:authorize>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </center>
 <br>
 <jsp:include page="footer.jsp"/>

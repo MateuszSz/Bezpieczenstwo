@@ -31,6 +31,9 @@ public class InitServiceImpl {
     private KsiazkaRepository ksiazkaRepository;
 
     @Autowired
+    private OcenaRepository ocenaRepository;
+
+    @Autowired
     private UprawnienieRepository uprawnienieRepository;
 
 
@@ -60,6 +63,9 @@ public class InitServiceImpl {
 //  TWORZENIE URZYTKOWNIKOW I POLACZENIE ICH Z ROLAMI
         Uzytkownik uzytkownik = new Uzytkownik("ada@wp.pl", passwordEncoder.encode("mati"), "Ada Rynkowska");
         Uzytkownik uzytkownik2 = new Uzytkownik("mati@wp.pl", passwordEncoder.encode("ada"), "Mateusz Szymczak");
+        Uzytkownik uzytkownik3 = new Uzytkownik("ania@wp.pl", passwordEncoder.encode("haslo"), "Ania Lisiecka");
+        Uzytkownik uzytkownik4 = new Uzytkownik("wolak@wp.pl", passwordEncoder.encode("haslo"), "Michal Wolak");
+
         uzytkownik.getRole().add(rolaAdmina);
         uzytkownik.getRole().add(rolaDyrektora);
         uzytkownik.getRole().add(rolaUczen);
@@ -67,8 +73,12 @@ public class InitServiceImpl {
         uzytkownik2.getRole().add(rolaNauczyciel);
         uzytkownik2.getRole().add(rolaAdmina);
         uzytkownik2.getRole().add(rolaHigienistka);
+        uzytkownik3.getRole().add(rolaUczen);
+        uzytkownik4.getRole().add(rolaUczen);
         uzytkownikRepository.insert(uzytkownik);
         uzytkownikRepository.insert(uzytkownik2);
+        uzytkownikRepository.insert(uzytkownik3);
+        uzytkownikRepository.insert(uzytkownik4);
 
 //  TWORZENIE LEKOW
         Lek lek = new Lek("Dwa razy dziennie", "Rutinoskorbin", "3");
@@ -97,6 +107,25 @@ public class InitServiceImpl {
         }
         uzytkownikRepository.insert(uzytkownik);
 
+        //Tworzenie ocen
+
+        List<Ocena> oceny = new ArrayList<Ocena>();
+        oceny.add(new Ocena(4, "Przyroda", uzytkownik2, uzytkownik3));
+        oceny.add(new Ocena(3, "Przyroda", uzytkownik2, uzytkownik4));
+        oceny.add(new Ocena(3, "Wf", uzytkownik2, uzytkownik3));
+        oceny.add(new Ocena(6, "Wf", uzytkownik2, uzytkownik4));
+        oceny.add(new Ocena(6, "Matematyka", uzytkownik2, uzytkownik3));
+        oceny.add(new Ocena(3, "Matematyka", uzytkownik2, uzytkownik4));
+        oceny.add(new Ocena(6, "J.angielski", uzytkownik2, uzytkownik3));
+        oceny.add(new Ocena(4, "J.angielski", uzytkownik2, uzytkownik4));
+
+        for (Ocena o : oceny) {
+            ocenaRepository.insert(o);
+
+        }
+
+
+
 //  TWORZENIE UPRAWNIEN I POWIAZANIE ICH Z ROLAMI
         Uprawnienie uprawnienieReadLeki = new Uprawnienie("READ_LEKI");
         Uprawnienie uprawnienieAddLeki = new Uprawnienie("ADD_LEKI");
@@ -117,6 +146,11 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieAddWystawionaOcena = new Uprawnienie("ADD_WYSTAWIONEOCENY");
         Uprawnienie uprawnienieEditWystawionaOcena = new Uprawnienie("EDIT_WYSTAWIONEOCENY");
         Uprawnienie uprawnienieDeleteWystawionaOcena = new Uprawnienie("DELETE_WYSTAWIONEOCENY");
+
+        Uprawnienie uprawnienieReadMojaOcena = new Uprawnienie("READ_MOJEOCENY");
+        Uprawnienie uprawnienieAddMojaOcena = new Uprawnienie("ADD_MOJEOCENY");
+        Uprawnienie uprawnienieEditMojaOcena = new Uprawnienie("EDIT_MOJEOCENY");
+        Uprawnienie uprawnienieDeleteMojaOcena = new Uprawnienie("DELETE_MOJEOCENY");
 
         Uprawnienie uprawnienieReadUzytkownik = new Uprawnienie("READ_UZYTKOWNICY");
         Uprawnienie uprawnienieAddUzytkownik = new Uprawnienie("ADD_UZYTKOWNICY");
@@ -176,7 +210,7 @@ public class InitServiceImpl {
         rolaBibliotekarz.getUprawnienia().add(uprawnienieEditKsiazki);
         rolaBibliotekarz.getUprawnienia().add(uprawnienieDeleteKsiazki);
 
-       // rolaUczen.getUprawnienia().add(uprawnienieReadOcena);
+        rolaUczen.getUprawnienia().add(uprawnienieReadMojaOcena);
 
         uprawnienieRepository.insert(uprawnienieReadLeki);
         uprawnienieRepository.insert(uprawnienieAddLeki);
@@ -197,6 +231,11 @@ public class InitServiceImpl {
         uprawnienieRepository.insert(uprawnienieAddWystawionaOcena);
         uprawnienieRepository.insert(uprawnienieEditWystawionaOcena);
         uprawnienieRepository.insert(uprawnienieDeleteWystawionaOcena);
+
+        uprawnienieRepository.insert(uprawnienieReadMojaOcena);
+        uprawnienieRepository.insert(uprawnienieAddMojaOcena);
+        uprawnienieRepository.insert(uprawnienieEditMojaOcena);
+        uprawnienieRepository.insert(uprawnienieDeleteMojaOcena);
 
         uprawnienieRepository.insert(uprawnienieReadUzytkownik);
         uprawnienieRepository.insert(uprawnienieAddUzytkownik);

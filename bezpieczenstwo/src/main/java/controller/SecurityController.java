@@ -47,6 +47,8 @@ public class SecurityController {
     @Autowired
     private KsiazkaService ksiazkaService;
     @Autowired
+    private OcenaService ocenaService;
+    @Autowired
     private LekService lekService;
     @Autowired
     private RolaService rolaService;
@@ -71,6 +73,9 @@ public class SecurityController {
         List role = null;
         List ksiazki = null;
         List uprawnienia = null;
+        List mojeOceny = null;
+        List wystawioneOceny= null;
+
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
@@ -79,7 +84,10 @@ public class SecurityController {
             ksiazki = ksiazkaService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_UPRAWNIENIA"))
             uprawnienia = tworzenieTablicyPozwolen();
-
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_WYSTAWIONEOCENY"))
+            wystawioneOceny=ocenaService.displayAllByIdNauczyciela(cs.getId());
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_MOJEOCENY"))
+            mojeOceny=ocenaService.displayAllByIdUcznia(cs.getId());
 
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
@@ -90,6 +98,8 @@ public class SecurityController {
         model.addAttribute("listaRol", role);
         model.addAttribute("listaKsiazek", ksiazki);
         model.addAttribute("listaUprawnien", uprawnienia);
+        model.addAttribute("listaWystawionychOcen", wystawioneOceny);
+        model.addAttribute("listaMoichOcen", mojeOceny);
 
         return "index";
     }
