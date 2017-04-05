@@ -5,6 +5,7 @@ import model.entity.Uzytkownik;
 import model.repository.UzytkownikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,7 +21,8 @@ import java.util.List;
  * Created by mateu on 25.03.2017.
  */
 public class CustomUserDetailsService implements UserDetailsService {
-
+    @Autowired
+    private SessionRegistry sessionRegistry;
 
     @Autowired
     private UzytkownikRepository uzytkownikRepository;
@@ -34,13 +36,23 @@ public class CustomUserDetailsService implements UserDetailsService {
         Uzytkownik uzytkownik = uzytkownikRepository.display(uzytkownikRepository.findIdUsingEmail(email));
 
 
+
         if (uzytkownik == null) {
             throw new UsernameNotFoundException("No such user: " + email);
         } else {
+
+            List<Object> principals = sessionRegistry.getAllPrincipals();
+            CustomUserDetails cs;
             List<SimpleGrantedAuthority> auths = new java.util.ArrayList<SimpleGrantedAuthority>();
             List<String> nazwy = new ArrayList<String>();
             Collection<Rola> role = uzytkownik.getRole();
 
+            for (Object principal: principals) {
+                cs = (CustomUserDetails) principal;
+                if(cs.getEmail().equals(uzytkownik.getEmail())){
+                    wybranaRola = cs.getWybranaRola();
+                }
+            }
             for (Rola r : role) {
                 nazwy.add(r.getNazwa());
                 auths.add(new SimpleGrantedAuthority(r.getNazwa()));
@@ -48,7 +60,8 @@ public class CustomUserDetailsService implements UserDetailsService {
             if (!nazwy.contains(wybranaRola)) {
                 throw new UsernameNotFoundException("Uzytkownik nie posiada roli " + wybranaRola);
             }
-            return new CustomUserDetails(uzytkownik.getId(), uzytkownik.getImieINazwisko(), uzytkownik.getEmail(), uzytkownik.getHaslo(), wybranaRola, true, true, true, true, auths);
+                return new CustomUserDetails(uzytkownik.getId(), uzytkownik.getImieINazwisko(), uzytkownik.getEmail(), uzytkownik.getHaslo(), wybranaRola, true, true, true, true, auths);
+
         }
 
     }

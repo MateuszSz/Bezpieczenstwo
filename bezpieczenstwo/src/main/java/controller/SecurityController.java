@@ -104,6 +104,11 @@ public class SecurityController {
         return "index";
     }
 
+
+    @RequestMapping(value="/wyloguj")
+    public String wyswietlWiadomoscWylogowania(){
+        return "logout";
+    }
     //Sprawdzenie czy, osoba która chce się dostać do tej metody ma uprawnienia dodawania lekow
     @PreAuthorize("hasPermission(authentication, 'ADD_LEKI')")
     @RequestMapping(value = "/index/dodajLek.htm")

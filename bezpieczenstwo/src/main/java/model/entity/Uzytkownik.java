@@ -37,6 +37,7 @@ public class Uzytkownik {
     public Uzytkownik() {
     }
 
+
     @Override
     public int hashCode() {
         return super.hashCode();
