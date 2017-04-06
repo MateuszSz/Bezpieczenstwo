@@ -37,6 +37,8 @@ public class UzytkownikServiceImp implements UzytkownikService {
         return uzytkownikRepository.displayAllNamesAndId();
     }
 
+    public List displayAllNamesAndIdByRole(String rola){ return  uzytkownikRepository.displayAllNamesAndIdByRole(rola);    }
+
     public void merge(Uzytkownik uzytkownik) {
         uzytkownikRepository.merge(uzytkownik);
     }

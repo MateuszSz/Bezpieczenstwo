@@ -154,7 +154,9 @@
         </table>
     </sec:authorize>
 
-
+    <sec:authorize access="hasPermission(#user, 'ADD_WYSTAWIONEOCENY')">
+        <a href="<c:url value="/index/dodajOcene.htm"/>" class="btn btn-default">Dodaj ocene</a>
+    </sec:authorize>
 
 
 

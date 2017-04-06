@@ -18,6 +18,8 @@ public interface UzytkownikRepository {
 
     List displayAllNamesAndId();
 
+    List displayAllNamesAndIdByRole(String rola);
+
     void merge(Uzytkownik uzytkownik);
 
 }

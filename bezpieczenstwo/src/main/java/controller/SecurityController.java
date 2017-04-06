@@ -75,6 +75,8 @@ public class SecurityController {
         List uprawnienia = null;
         List mojeOceny = null;
         List wystawioneOceny= null;
+        List uczniowie=null;
+
 
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
@@ -88,6 +90,8 @@ public class SecurityController {
             wystawioneOceny=ocenaService.displayAllByIdNauczyciela(cs.getId());
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_MOJEOCENY"))
             mojeOceny=ocenaService.displayAllByIdUcznia(cs.getId());
+        if (customPermissionEvaluator.hasPermission(authentication, null, "ADD_WYSTAWIONEOCENY"))
+            uczniowie=uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
 
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
@@ -100,132 +104,11 @@ public class SecurityController {
         model.addAttribute("listaUprawnien", uprawnienia);
         model.addAttribute("listaWystawionychOcen", wystawioneOceny);
         model.addAttribute("listaMoichOcen", mojeOceny);
-
+        model.addAttribute("uczniowie", uczniowie);
         return "index";
     }
 
 
-    @RequestMapping(value="/wyloguj")
-    public String wyswietlWiadomoscWylogowania(){
-        return "logout";
-    }
-    //Sprawdzenie czy, osoba która chce się dostać do tej metody ma uprawnienia dodawania lekow
-    @PreAuthorize("hasPermission(authentication, 'ADD_LEKI')")
-    @RequestMapping(value = "/index/dodajLek.htm")
-    public String dodajLek() {
-
-        return "dodajLek";
-    }
-
-    @PreAuthorize("hasPermission(authentication, 'ADD_LEKI')")
-    @RequestMapping(value = "/index/dodawanieLeku", method = RequestMethod.POST)
-    public String dodaj(@ModelAttribute Lek lek) {
-        lekService.insert(lek);
-        return "redirect:/index";
-
-    }
-
-
-    @PreAuthorize("hasPermission(authentication, 'EDIT_LEKI')")
-    @RequestMapping(value = "/index/edytujLek.htm")
-    public String edytujLek(ModelMap model, @RequestParam("id") int id) {
-        model.addAttribute("idLeku", id);
-        Lek wybrany = lekService.display(id);
-        model.addAttribute("idLeku", wybrany.getId());
-        model.addAttribute("nazwaLeku", wybrany.getNazwaLeku());
-        model.addAttribute("dawkowanieLeku", wybrany.getDawkowanie());
-        model.addAttribute("iloscLeku", wybrany.getIlosc());
-        return "edytujLek";
-    }
-
-    @PreAuthorize("hasPermission(authentication, 'EDIT_LEKI')")
-    @RequestMapping(value = "/index/edytowanieLeku", method = RequestMethod.POST)
-    public String edytowanieLeku(ModelMap model, @ModelAttribute Lek lek, @RequestParam("id") int id) {
-        Object j = model.get("idLeku");
-        Lek zmieniony = lekService.display(id); // w przyszlosci bedzie lek.getId();
-        zmieniony.setDawkowanie(lek.getDawkowanie());
-        zmieniony.setIlosc(lek.getIlosc());
-        zmieniony.setNazwaLeku(lek.getNazwaLeku());
-        zmieniony.setId(id);
-        lekService.insert(zmieniony);
-        return "redirect:/index";
-
-    }
-
-    @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
-    @RequestMapping(value = "/index/dodajKsiazke.htm")
-    public String dodajKsiazke() {
-        return "dodajKsiazke";
-    }
-
-
-    @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
-    @RequestMapping(value = "/index/dodawanieKsiazki", method = RequestMethod.POST)
-    public String dodawanieKsiazki(@ModelAttribute Ksiazka ksiazka) {
-        ksiazkaService.insert(ksiazka);
-        return "redirect:/index";
-
-    }
-
-    @PreAuthorize("hasPermission(authentication, 'EDIT_KSIAZKI')")
-    @RequestMapping(value = "/index/edytujKsiazki.htm")
-    public String edytujKsiazke(ModelMap model, @RequestParam("id") int id) {
-        model.addAttribute("idKsiazki", id);
-        Ksiazka wybrany = ksiazkaService.display(id);
-        model.addAttribute("autor", wybrany.getAutor());
-        model.addAttribute("tytul", wybrany.getTytul());
-        model.addAttribute("ISBN", wybrany.getISBN());
-        model.addAttribute("dostepnosc", wybrany.getDostepnosc());
-        model.addAttribute("seria", wybrany.getSeria());
-        return "edytujKsiazke";
-    }
-
-
-    @PreAuthorize("hasPermission(authentication, 'EDIT_KSIAZKI')")
-    @RequestMapping(value = "/index/edytowanieKsiazki", method = RequestMethod.POST)
-    public String edytowanieKsiazki(ModelMap model, @ModelAttribute Ksiazka ksiazka, @RequestParam("id") int id) {
-
-        Ksiazka zmieniony = ksiazkaService.display(id);
-        zmieniony.setAutor(ksiazka.getAutor());
-        zmieniony.setDostepnosc(ksiazka.getDostepnosc());
-        zmieniony.setISBN(ksiazka.getISBN());
-        zmieniony.setSeria(ksiazka.getSeria());
-        zmieniony.setTytul(ksiazka.getTytul());
-        ksiazkaService.insert(zmieniony);
-        return "redirect:/index";
-
-    }
-
-    @PreAuthorize("hasPermission(authentication, 'ADD_ROLE')")
-    @RequestMapping(value = "/index/dodawanieRoliUzytkownikowi", method = RequestMethod.POST)
-    public String dodawanieRoliUzytkownikowi(ModelMap model, @RequestParam("imieINazwisko") int idUzytkownika, @RequestParam("rola") int idRoli) {
-        Uzytkownik uzytkownik = uzytkownikService.display(idUzytkownika);
-        Rola rola = rolaService.displayWithoutPermission(idRoli);
-        for (Rola r : uzytkownik.getRole())
-            if (r.getNazwa().equals(rola.getNazwa())) {
-                model.addAttribute("wiadomosc", "Użytkownik już posiada daną rolę!");
-                return "redirect:/index";
-
-            }
-
-        uzytkownik.getRole().add(rola);
-        rola.getUzytkownicy().add(uzytkownik);
-        uzytkownikService.insert(uzytkownik);
-        rolaService.insert(rola);
-        model.addAttribute("wiadomosc", "Dodano nową rolę użytkownikowi");
-        return "redirect:/index";
-
-    }
-
-    @PreAuthorize("hasPermission(authentication, 'ADD_ROLE')")
-    @RequestMapping(value = "/index/dodajRoleUzytkownikowi.htm")
-    public String dodajRoleUzytkownikowi(ModelMap model) {
-        List role = rolaService.displayAllNamesAndId();
-        List uzytkownicy = uzytkownikService.displayAllNamesAndId();
-        model.addAttribute("listaUzytkownikow", uzytkownicy);
-        model.addAttribute("listaRol", role);
-        return "dodajRoleUzytkownikowi";
-    }
 
 
     private List tworzenieTablicyPozwolen() {
