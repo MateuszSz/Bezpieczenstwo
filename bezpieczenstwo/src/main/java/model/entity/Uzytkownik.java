@@ -24,6 +24,8 @@ public class Uzytkownik {
     private Collection<Ksiazka> ksiazki = new HashSet<Ksiazka>();
     @OneToMany(cascade = CascadeType.ALL)
     private Collection<Ocena> oceny = new HashSet<Ocena>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Collection<DzienPracy> dniPracy = new HashSet<DzienPracy>();
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Collection<Rola> role = new HashSet<Rola>();
@@ -70,6 +72,14 @@ public class Uzytkownik {
 
     public void setOceny(Collection<Ocena> oceny) {
         this.oceny = oceny;
+    }
+
+    public Collection<DzienPracy> getDniPracy() {
+        return dniPracy;
+    }
+
+    public void setDniPracy(Collection<DzienPracy> dniPracy) {
+        this.dniPracy = dniPracy;
     }
 
     public Collection<Lek> getLeki() {

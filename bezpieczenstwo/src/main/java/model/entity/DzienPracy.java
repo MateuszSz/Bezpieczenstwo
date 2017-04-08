@@ -1,10 +1,7 @@
 package model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.text.SimpleDateFormat;
+import javax.persistence.*;
+
 
 /**
  * Created by Ada on 2017-04-03.
@@ -15,17 +12,20 @@ public class DzienPracy {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String dzienTygodnia;
-    private SimpleDateFormat godzinaRozpoczecia = new SimpleDateFormat("HH:mm");
-    private SimpleDateFormat godzinaZakonczenia = new SimpleDateFormat("HH:mm");
+    private String godzinaRozpoczecia;
+    private String godzinaZakonczenia;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Uzytkownik uzytkownik;
 
     public DzienPracy() {
     }
 
-    public DzienPracy(String dzienTygodnia, SimpleDateFormat godzinaRozpoczecia, SimpleDateFormat godzinaZakonczenia) {
+    public DzienPracy(String dzienTygodnia, String godzinaRozpoczecia, String godzinaZakonczenia, Uzytkownik uzytkownik) {
 
         this.dzienTygodnia = dzienTygodnia;
         this.godzinaRozpoczecia = godzinaRozpoczecia;
         this.godzinaZakonczenia = godzinaZakonczenia;
+        this.uzytkownik = uzytkownik;
 
     }
 
@@ -37,19 +37,23 @@ public class DzienPracy {
         this.dzienTygodnia = dzienTygodnia;
     }
 
-    public SimpleDateFormat getGodzinaRozpoczecia() {
+    public String getGodzinaRozpoczecia() {
         return this.godzinaRozpoczecia;
     }
 
-    public void setGodzinaRozpoczecia(SimpleDateFormat godzinaRozpoczecia) {
+    public void setGodzinaRozpoczecia(String godzinaRozpoczecia) {
         this.godzinaRozpoczecia = godzinaRozpoczecia;
     }
 
-    public SimpleDateFormat getGodzinaZakonczenia() {
+    public String getGodzinaZakonczenia() {
         return this.godzinaZakonczenia;
     }
 
-    public void setGodzinaZakonczenia(SimpleDateFormat godzinaZakonczenia) {
+    public void setGodzinaZakonczenia(String godzinaZakonczenia) {
         this.godzinaZakonczenia = godzinaZakonczenia;
     }
+
+    public Uzytkownik getUzytkownik(){return this.uzytkownik;}
+
+    public void setUzytkownik(Uzytkownik uzytkownik){this.uzytkownik= uzytkownik;}
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +36,10 @@ public class InitServiceImpl {
 
     @Autowired
     private UprawnienieRepository uprawnienieRepository;
+
+
+    @Autowired
+    private DzienPracyRepository dzienPracyRepository;
 
 
     //METODA @POSTCONSTRUCT WYWOLA SIE GDY TE WSZYSTKIE AUTOWIRED NA GORZE ZOSTANA ZINICJALIZOWANE
@@ -70,6 +75,8 @@ public class InitServiceImpl {
         uzytkownik.getRole().add(rolaDyrektora);
         uzytkownik.getRole().add(rolaUczen);
         uzytkownik.getRole().add(rolaBibliotekarz);
+        uzytkownik.getRole().add(rolaNauczyciel);
+        uzytkownik2.getRole().add(rolaBibliotekarz);
         uzytkownik2.getRole().add(rolaNauczyciel);
         uzytkownik2.getRole().add(rolaAdmina);
         uzytkownik2.getRole().add(rolaHigienistka);
@@ -110,18 +117,44 @@ public class InitServiceImpl {
         //Tworzenie ocen
 
         List<Ocena> oceny = new ArrayList<Ocena>();
-        oceny.add(new Ocena(4, "Przyroda", uzytkownik2, uzytkownik3));
-        oceny.add(new Ocena(3, "Przyroda", uzytkownik2, uzytkownik4));
-        oceny.add(new Ocena(3, "Wf", uzytkownik2, uzytkownik3));
-        oceny.add(new Ocena(6, "Wf", uzytkownik2, uzytkownik4));
-        oceny.add(new Ocena(6, "Matematyka", uzytkownik2, uzytkownik3));
-        oceny.add(new Ocena(3, "Matematyka", uzytkownik2, uzytkownik4));
-        oceny.add(new Ocena(6, "J.angielski", uzytkownik2, uzytkownik3));
-        oceny.add(new Ocena(4, "J.angielski", uzytkownik2, uzytkownik4));
+        oceny.add(new Ocena("4", "Przyroda", uzytkownik2, uzytkownik3));
+        oceny.add(new Ocena("3", "Przyroda", uzytkownik2, uzytkownik4));
+        oceny.add(new Ocena("3", "Wf", uzytkownik2, uzytkownik3));
+        oceny.add(new Ocena("6", "Wf", uzytkownik2, uzytkownik4));
+        oceny.add(new Ocena("6", "Matematyka", uzytkownik2, uzytkownik3));
+        oceny.add(new Ocena("3", "Matematyka", uzytkownik2, uzytkownik4));
+        oceny.add(new Ocena("6", "J.angielski", uzytkownik2, uzytkownik3));
+        oceny.add(new Ocena("4", "J.angielski", uzytkownik2, uzytkownik4));
 
         for (Ocena o : oceny) {
             ocenaRepository.insert(o);
+            uzytkownik2.getOceny().add(o);
+        }
 
+        //Tworzenie dni pracy
+
+        List<DzienPracy> dniPracy = new ArrayList<DzienPracy>();
+        dniPracy.add(new DzienPracy("Poniedzialek", "08:00", "10:00",uzytkownik ));
+        dniPracy.add(new DzienPracy("Wtorek", "09:00", "15:00",uzytkownik ));
+        dniPracy.add(new DzienPracy("Sroda", "08:00", "13:00",uzytkownik ));
+        dniPracy.add(new DzienPracy("Czwartek", "11:00", "18:00",uzytkownik ));
+        dniPracy.add(new DzienPracy("Piatek", "08:00", "12:00",uzytkownik ));
+
+        for(DzienPracy d : dniPracy){
+            dzienPracyRepository.insert(d);
+            uzytkownik.getDniPracy().add(d);
+        }
+
+        List<DzienPracy> dniPracy2 = new ArrayList<DzienPracy>();
+        dniPracy2.add(new DzienPracy("Poniedzialek", "07:00", "15:00",uzytkownik2 ));
+        dniPracy2.add(new DzienPracy("Wtorek", "11:00", "15:00",uzytkownik2 ));
+        dniPracy2.add(new DzienPracy("Sroda", "09:00", "12:00",uzytkownik2 ));
+        dniPracy2.add(new DzienPracy("Czwartek", "10:00", "16:00",uzytkownik2 ));
+        dniPracy2.add(new DzienPracy("Piatek", "08:00", "15:00",uzytkownik2 ));
+
+        for(DzienPracy d : dniPracy2){
+            dzienPracyRepository.insert(d);
+            uzytkownik2.getDniPracy().add(d);
         }
 
 

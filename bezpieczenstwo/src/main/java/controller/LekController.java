@@ -69,7 +69,14 @@ public class LekController {
 
     }
 
+    @PreAuthorize("hasPermission(authentication, 'DELETE_LEKI')")
+    @RequestMapping(value = "/index/usunLek")
+    public String usunKsiazke(ModelMap model,  @RequestParam("id") int id) {
 
+        lekService.delete(id);
+        return "redirect:/index";
+
+    }
 
 
 

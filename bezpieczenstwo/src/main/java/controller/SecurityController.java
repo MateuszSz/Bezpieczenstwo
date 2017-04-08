@@ -58,6 +58,8 @@ public class SecurityController {
     private SessionFactory sessionFactory;
     @Autowired
     private UprawnienieService uprawnienieService;
+    @Autowired
+    private DzienPracyService dzienPracyService;
 
     @RequestMapping(value = "/login")
     public String login() {
@@ -76,6 +78,7 @@ public class SecurityController {
         List mojeOceny = null;
         List wystawioneOceny= null;
         List uczniowie=null;
+        List dniPracy= null;
 
 
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
@@ -92,6 +95,8 @@ public class SecurityController {
             mojeOceny=ocenaService.displayAllByIdUcznia(cs.getId());
         if (customPermissionEvaluator.hasPermission(authentication, null, "ADD_WYSTAWIONEOCENY"))
             uczniowie=uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_DNIPRACY"))
+            dniPracy=dzienPracyService.displayAllById(cs.getId());
 
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
@@ -104,7 +109,8 @@ public class SecurityController {
         model.addAttribute("listaUprawnien", uprawnienia);
         model.addAttribute("listaWystawionychOcen", wystawioneOceny);
         model.addAttribute("listaMoichOcen", mojeOceny);
-        model.addAttribute("uczniowie", uczniowie);
+        model.addAttribute("listaUczniow", uczniowie);
+        model.addAttribute("listaDniPracy", dniPracy);
         return "index";
     }
 

@@ -66,7 +66,14 @@ public class KsiazkaController {
     }
 
 
+    @PreAuthorize("hasPermission(authentication, 'DELETE_KSIAZKI')")
+    @RequestMapping(value = "/index/usunKsiazke")
+    public String usunKsiazke(ModelMap model,  @RequestParam("id") int id) {
 
+        ksiazkaService.delete(id);
+        return "redirect:/index";
+
+    }
 
 
 

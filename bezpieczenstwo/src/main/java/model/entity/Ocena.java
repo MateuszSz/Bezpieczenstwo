@@ -10,7 +10,7 @@ public class Ocena {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private float ocena;
+    private String ocena;
     private String przedmiot;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Uzytkownik nauczyciel;
@@ -19,7 +19,7 @@ public class Ocena {
 
     public Ocena(){}
 
-    public Ocena(float ocena, String przedmiot, Uzytkownik nauczyciel, Uzytkownik uczen){
+    public Ocena(String ocena, String przedmiot, Uzytkownik nauczyciel, Uzytkownik uczen){
         this.ocena=ocena;
         this.przedmiot=przedmiot;
         this.nauczyciel=nauczyciel;
@@ -36,11 +36,11 @@ public class Ocena {
         this.id = id;
     }
 
-    public float getOcena() {
+    public String getOcena() {
         return ocena;
     }
 
-    public void setOcena(float ocena) {
+    public void setOcena(String ocena) {
         this.ocena = ocena;
     }
 

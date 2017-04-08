@@ -21,6 +21,11 @@ public class KsiazkaServiceImp implements KsiazkaService {
 
     }
 
+    public void delete(int id) {
+        ksiazkaRepository.delete(id);
+
+    }
+
     public Ksiazka display(int id) {
         return ksiazkaRepository.display(id);
     }

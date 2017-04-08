@@ -11,6 +11,8 @@ public interface KsiazkaRepository {
 
     void insert(Ksiazka ksiazka);
 
+    void delete(int id);
+
     Ksiazka display(int id);
 
     List displayAllByEmail(String email);

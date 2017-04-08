@@ -25,6 +25,16 @@ public class LekRepositoryImp implements LekRepository {
         sessionFactory.getCurrentSession().saveOrUpdate(lek);
     }
 
+    public void delete(int id){
+
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik_lek WHERE uzytkownik_lek.leki_id ="+id);
+        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM lek WHERE lek.id="+id);
+        sqlQuery.executeUpdate();
+        sqlQuery2.executeUpdate();
+
+    }
+
+
     public Lek display(int id) {
         return (Lek) sessionFactory.getCurrentSession().get(Lek.class, id);
     }

@@ -64,7 +64,7 @@
 <form class="form-signin" action="<c:url value="/index/dodawanieLeku"/>" method="POST">
     <h2 class="form-signin-heading">Proszę wpisać dane nowego leku</h2>
     <label for="inputNazwaLeku" class="sr-only">Nazwa Leku</label>
-    <input name="nazwaLeku" type="text" id="inputNazwaLeku" class="form-control" placeholder="nazwa leku" required>
+    <input name="nazwaLeku" type="text" id="inputNazwaLeku" class="form-control" placeholder="Nazwa leku" required>
     <label for="inputDawkowanieLeku" class="sr-only">Dawkowanie</label>
     <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie"
            required>

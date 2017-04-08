@@ -56,6 +56,9 @@
     <beans:bean id="ksiazkaRepository" class="model.repository.KsiazkaRepositoryImp"/>
     <beans:bean id="ksiazkaService" class="model.service.KsiazkaServiceImp"/>
 
+    <beans:bean id="dzienPracyRepository" class="model.repository.DzienPracyRepositoryImp"/>
+    <beans:bean id="dzienPracyService" class="model.service.DzienPracyServiceImp"/>
+
     <beans:bean id="ocenaRepository" class="model.repository.OcenaRepositoryImp"/>
     <beans:bean id="ocenaService" class="model.service.OcenaServiceImp"/>
 

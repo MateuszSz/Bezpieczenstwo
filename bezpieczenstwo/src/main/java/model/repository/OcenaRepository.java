@@ -12,6 +12,8 @@ public interface OcenaRepository {
 
     void insert(Ocena ocena);
 
+    //void delete(int id);
+
     Ocena display(int id);
 
     List displayAllByIdNauczyciela(int id);
