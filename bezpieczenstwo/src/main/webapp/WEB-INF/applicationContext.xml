@@ -109,6 +109,7 @@
         <custom-filter before="FORM_LOGIN_FILTER" ref="customUsernamePasswordAuthenticationFilter"/>
         <intercept-url pattern="/login" access="permitAll"/>
         <intercept-url pattern="/favicon.ico" access="permitAll"/>
+        <intercept-url pattern="/resources/**" access="permitAll"/>
         <session-management session-authentication-strategy-ref="sas">
         </session-management>
         <intercept-url pattern="/wyloguj" access="permitAll"/>
