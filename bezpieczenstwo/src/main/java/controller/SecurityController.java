@@ -62,7 +62,9 @@ public class SecurityController {
     private DzienPracyService dzienPracyService;
 
     @RequestMapping(value = "/login")
-    public String login() {
+    public String login(ModelMap modelMap, @RequestParam(value = "login_error", required = false) boolean login_error) {
+        if(login_error)
+            modelMap.addAttribute("wiadomosc", "Wystąpił błąd przy logowaniu, proszę spróbować ponownie");
         return "login";
     }
 
@@ -79,7 +81,11 @@ public class SecurityController {
         List wystawioneOceny= null;
         List uczniowie=null;
         List dniPracy= null;
-
+        String wiadomosc = "";
+        if(cs.isRedirected()) {
+            wiadomosc = "Nastąpiło przekierowanie logowania na " + cs.getWybranaRola();
+             ((CustomUserDetails) authentication.getPrincipal()).setRedirected(false);
+        }
 
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
@@ -100,7 +106,7 @@ public class SecurityController {
 
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
-
+        model.addAttribute("wiadomosc", wiadomosc);
         model.addAttribute("rola", cs.getWybranaRola());
         model.addAttribute("imieINazwisko", cs.getName());
         model.addAttribute("listaLekow", leki);

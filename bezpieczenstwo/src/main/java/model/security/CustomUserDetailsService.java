@@ -36,7 +36,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         Uzytkownik uzytkownik = uzytkownikRepository.display(uzytkownikRepository.findIdUsingEmail(email));
 
 
-
         if (uzytkownik == null) {
             throw new UsernameNotFoundException("No such user: " + email);
         } else {
@@ -46,11 +45,15 @@ public class CustomUserDetailsService implements UserDetailsService {
             List<SimpleGrantedAuthority> auths = new java.util.ArrayList<SimpleGrantedAuthority>();
             List<String> nazwy = new ArrayList<String>();
             Collection<Rola> role = uzytkownik.getRole();
+            boolean isRedirected = false;
 
-            for (Object principal: principals) {
+            for (Object principal : principals) {
                 cs = (CustomUserDetails) principal;
-                if(cs.getEmail().equals(uzytkownik.getEmail())){
-                    wybranaRola = cs.getWybranaRola();
+                if (cs.getEmail().equals(uzytkownik.getEmail())) {
+                    if (!wybranaRola.equals(cs.getWybranaRola())) {
+                        isRedirected = true;
+                        wybranaRola = cs.getWybranaRola();
+                    }
                 }
             }
             for (Rola r : role) {
@@ -60,7 +63,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             if (!nazwy.contains(wybranaRola)) {
                 throw new UsernameNotFoundException("Uzytkownik nie posiada roli " + wybranaRola);
             }
-                return new CustomUserDetails(uzytkownik.getId(), uzytkownik.getImieINazwisko(), uzytkownik.getEmail(), uzytkownik.getHaslo(), wybranaRola, true, true, true, true, auths);
+            return new CustomUserDetails(uzytkownik.getId(), uzytkownik.getImieINazwisko(), uzytkownik.getEmail(), uzytkownik.getHaslo(), wybranaRola, true, true, true, isRedirected, true, auths);
 
         }
 

@@ -64,7 +64,9 @@ table{
     border-collapse: collapse;
 
 }
-
+.errorMessage{
+   color:red;
+}
 th{
     background-color: wheat;
     text-align: center;

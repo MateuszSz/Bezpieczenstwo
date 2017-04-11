@@ -12,12 +12,13 @@ public class CustomUserDetails implements UserDetails {
     private String password;
     private String wybranaRola;
     private boolean isAccountNonExpired;
+    private boolean isRedirected;
     private boolean isAccountNonLocked;
     private boolean isCredentialsNonExpired;
     private boolean isEnabled;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public CustomUserDetails(int id, String name, String email, String password, String wybranaRola, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled, Collection<? extends GrantedAuthority> authorities) {
+    public CustomUserDetails(int id, String name, String email, String password, String wybranaRola, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired,boolean isRedirected, boolean isEnabled, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -28,6 +29,7 @@ public class CustomUserDetails implements UserDetails {
         this.isCredentialsNonExpired = isCredentialsNonExpired;
         this.isEnabled = isEnabled;
         this.authorities = authorities;
+        this.isRedirected = isRedirected;
     }
 
     @Override
@@ -122,6 +124,14 @@ public class CustomUserDetails implements UserDetails {
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = authorities;
+    }
+
+    public boolean isRedirected() {
+        return isRedirected;
+    }
+
+    public void setRedirected(boolean redirected) {
+        isRedirected = redirected;
     }
 
     public boolean hasRole(String role) {
