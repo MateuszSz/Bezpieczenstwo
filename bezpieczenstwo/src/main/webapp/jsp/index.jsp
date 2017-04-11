@@ -111,6 +111,7 @@
     <jsp:include page="obslugaRol.jsp"/>
     <jsp:include page="obslugaUprawnien.jsp"/>
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
+        <p>Lista leków, które aktualnie znajdują się w pokoju 513.</p>
         <table class="sortable">
             <tr>
 
@@ -159,6 +160,7 @@
 
 
     <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
+        <p>Lista książek aktualnie znajdujących się w bilbiotece.</p>
         <table class="sortable">
             <tr>
                 <th>Lp.</th>
@@ -209,6 +211,7 @@
     </sec:authorize>
     <br/>
     <sec:authorize access="hasPermission(#user, 'READ_MOJEOCENY')">
+        <p>Elektorniczny dziennik ocen.</p>
         <table class="sortable">
             <tr>
                 <th>Przedmiot</th>
@@ -233,6 +236,7 @@
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_WYSTAWIONEOCENY')">
+        <p>Lista wystawionych przez Ciebie ocen.</p>
         <table class="sortable">
             <tr>
 
@@ -272,6 +276,7 @@
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_DNIPRACY')">
+        <p>Twój grafik.</p>
         <table class="sortable">
             <tr>
 

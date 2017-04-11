@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="<c:url value="/resources/CSS/main.css" />" rel="stylesheet">
+    <link type="text/css" href="<c:url value="/resources/CSS/main.css" />" rel="stylesheet">
     <script c:url src="../resources/js/sortedTable.js"></script>
     <script c:url src="../resources/js/funkcje.js"></script>
     <%--<link c:url href="../resources/CSS/mainCss.css" rel="stylesheet" type="text/css">--%>
@@ -98,7 +98,7 @@
 
 <%--</style>--%>
 
-<body background="<c:url value="/resources/images/bodybg.png"/> ">
+<body>
 
 <jsp:include page="classic.jsp"/>
 <br><br>
@@ -111,6 +111,7 @@
     <jsp:include page="obslugaRol.jsp"/>
     <jsp:include page="obslugaUprawnien.jsp"/>
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
+        <p>Lista leków, które aktualnie znajdują się w pokoju 513.</p>
         <table class="sortable">
             <tr>
 
@@ -131,18 +132,22 @@
                     <td>${tablicaLekow[2]}</td>
                     <td>${tablicaLekow[3]}</td>
 
-                    <td>
+
                         <sec:authorize access="hasPermission(#user, 'EDIT_LEKI')">
+                    <td>
                             <a href="<c:url value="/index/edytujLek.htm"/>?id=${tablicaLekow[0]}"
                                class="btn btn-default">Edytuj</a>
-                        </sec:authorize>
                     </td>
-                    <td>
+                        </sec:authorize>
+
+
                         <sec:authorize access="hasPermission(#user, 'DELETE_LEKI')">
+                    <td>
                             <a href="<c:url value="/index/usunLek"/>?id=${tablicaLekow[0]}"
                                class="btn btn-default">Usuń</a>
-                        </sec:authorize>
                     </td>
+                        </sec:authorize>
+
                 </tr>
 
             </c:forEach>
@@ -150,11 +155,12 @@
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_LEKI')">
-        <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Dodaj lek</a> <br/>
+        <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Dodaj lek</a> <br/><br/>
     </sec:authorize>
 
 
     <sec:authorize access="hasPermission(#user, 'READ_KSIAZKI')">
+        <p>Lista książek aktualnie znajdujących się w bilbiotece.</p>
         <table class="sortable">
             <tr>
                 <th>Lp.</th>
@@ -176,20 +182,24 @@
                     <c:forEach items="${tablicaKsiazek}" var="ksiazka">
                         <td>${ksiazka}</td>
                     </c:forEach>
-                    <td>
+
                         <sec:authorize access="hasPermission(#user, 'EDIT_KSIAZKI')">
+                    <td>
                             <a href="<c:url value="/index/edytujKsiazki.htm"/>?id=${tablicaKsiazek[0]}"
                                class="btn btn-default">Edytuj</a>
+                    </td>
                         </sec:authorize>
 
-                    </td>
-                    <td>
+
+
                         <sec:authorize access="hasPermission(#user, 'DELETE_KSIAZKI')">
+                    <td>
                             <a href="<c:url value="/index/usunKsiazke"/>?id=${tablicaKsiazek[0]}"
                                class="btn btn-default">Usuń</a>
+                    </td>
                         </sec:authorize>
 
-                    </td>
+
                 </tr>
 
             </c:forEach>
@@ -201,6 +211,7 @@
     </sec:authorize>
     <br/>
     <sec:authorize access="hasPermission(#user, 'READ_MOJEOCENY')">
+        <p>Elektorniczny dziennik ocen.</p>
         <table class="sortable">
             <tr>
                 <th>Przedmiot</th>
@@ -225,6 +236,7 @@
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_WYSTAWIONEOCENY')">
+        <p>Lista wystawionych przez Ciebie ocen.</p>
         <table class="sortable">
             <tr>
 
@@ -264,6 +276,7 @@
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_DNIPRACY')">
+        <p>Twój grafik.</p>
         <table class="sortable">
             <tr>
 
@@ -285,20 +298,24 @@
                     <td>${tablicaDni[1]}</td>
                     <td>${tablicaDni[2]}</td>
                     <td>${tablicaDni[3]}</td>
-                    <td>
+
                         <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
+                    <td>
                             <a href="<c:url value="/index/edytujDzienPracy.htm"/>?id=${tablicaDni[0]}"
                                class="btn btn-default">Edytuj</a>
+                    </td>
                         </sec:authorize>
 
-                    </td>
-                    <td>
+
+
                         <sec:authorize access="hasPermission(#user, 'DELETE_DNIPRACY')">
+                    <td>
                             <a href="<c:url value="/index/usunDzienPracy"/>?id=${tablicaDni[0]}"
                                class="btn btn-default">Usuń</a>
+                    </td>
                         </sec:authorize>
 
-                    </td>
+
                 </tr>
 
             </c:forEach>

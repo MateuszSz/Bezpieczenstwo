@@ -23,14 +23,14 @@
     <title>Title</title>
 </head>
 <style>
-    body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-repeat: repeat-y;
-        background-color: tan;
-        background-size: 100%;
-        color: #6b5633;
-    }
+    /*body {*/
+        /*padding-top: 40px;*/
+        /*padding-bottom: 40px;*/
+        /*background-repeat: repeat-y;*/
+        /*background-color: tan;*/
+        /*background-size: 100%;*/
+        /*color: #6b5633;*/
+    /*}*/
 
     .btn-primary {
         background-image: linear-gradient(to bottom, #6b5633 0%, rgba(226, 162, 50, 0.62) 100%);
@@ -45,7 +45,7 @@
 </style>
 
 
-<body background="<c:url value="/resources/images/bodybg.png"/>" >
+<body >
 <form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="POST">
     <h2 class="form-signin-heading">Proszę się zalogować</h2>
     <label for="inputEmail" class="sr-only">Login</label>

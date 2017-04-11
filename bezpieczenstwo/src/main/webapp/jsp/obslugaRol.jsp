@@ -5,6 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <sec:authorize access="hasPermission(#user, 'READ_ROLE')">
+    <p>Użytkownicy i ich role.</p>
     <table class="sortable">
         <tr>
             <th>Nazwa roli</th>
