@@ -15,26 +15,90 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="<c:url value="/resources/CSS/main.css" />" rel="stylesheet">
     <script c:url src="../resources/js/sortedTable.js"></script>
     <script c:url src="../resources/js/funkcje.js"></script>
+    <%--<link c:url href="../resources/CSS/mainCss.css" rel="stylesheet" type="text/css">--%>
 </head>
-<style>
-    body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        /*
-        background:
-    <c:url value="/resources/images/bodybg.png"/>  ;
-        */
-    }
+<%--<style>--%>
+    <%--body {--%>
+        <%--padding-top: 40px;--%>
+        <%--padding-bottom: 40px;--%>
+        <%--background-repeat: repeat-y;--%>
+        <%--background-color: tan;--%>
+        <%--background-size: 100%;--%>
+        <%--color: #6b5633;--%>
+    <%--}--%>
 
-    table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
-        content: " \25B4\25BE"
-    }
+    <%--.form-signin {--%>
+        <%--max-width: 330px;--%>
+        <%--padding: 15px;--%>
+        <%--margin: 0 auto;--%>
 
-</style>
+    <%--}--%>
 
-<body>
+    <%--.form-signin .form-signin-heading,--%>
+    <%--.form-signin .checkbox {--%>
+        <%--margin-bottom: 10px;--%>
+    <%--}--%>
+
+    <%--.form-signin .checkbox {--%>
+        <%--font-weight: normal;--%>
+    <%--}--%>
+
+    <%--.form-signin .form-control {--%>
+        <%--position: relative;--%>
+        <%--height: auto;--%>
+        <%---webkit-box-sizing: border-box;--%>
+        <%---moz-box-sizing: border-box;--%>
+        <%--box-sizing: border-box;--%>
+        <%--padding: 10px;--%>
+        <%--font-size: 16px;--%>
+    <%--}--%>
+
+    <%--.form-signin .form-control:focus {--%>
+        <%--z-index: 2;--%>
+    <%--}--%>
+
+    <%--.form-signin input[type="email"] {--%>
+        <%--margin-bottom: -1px;--%>
+        <%--border-bottom-right-radius: 0;--%>
+        <%--border-bottom-left-radius: 0;--%>
+    <%--}--%>
+
+    <%--.form-signin input[type="password"] {--%>
+        <%--margin-bottom: 10px;--%>
+        <%--border-top-left-radius: 0;--%>
+        <%--border-top-right-radius: 0;--%>
+    <%--}--%>
+    <%--.btn-primary {--%>
+        <%--background-image: linear-gradient(to bottom, #6b5633 0, rgba(226, 162, 50, 0.62) 100%);--%>
+        <%--border-color: #886933;--%>
+    <%--}--%>
+    <%--.btn-primary:hover {--%>
+        <%--background-image: linear-gradient(to bottom, #6b5633 0, rgba(226, 162, 50, 0.62) 100%);--%>
+        <%--border-color: #886933;--%>
+    <%--}--%>
+
+    <%--table{--%>
+        <%--padding: 15px;--%>
+        <%--border: 1px solid #6b5633;--%>
+        <%--border-collapse: collapse;--%>
+
+    <%--}--%>
+
+    <%--th{--%>
+        <%--background-color: wheat;--%>
+        <%--text-align: center;--%>
+        <%--padding: 5px;--%>
+    <%--}--%>
+    <%--td{--%>
+        <%--padding: 5px;--%>
+    <%--}--%>
+
+<%--</style>--%>
+
+<body background="<c:url value="/resources/images/bodybg.png"/> ">
 
 <jsp:include page="classic.jsp"/>
 <br><br>
@@ -53,6 +117,13 @@
                 <th>Nazwa leku</th>
                 <th>Ilosc na stanie</th>
                 <th>Dawkowanie</th>
+                <sec:authorize access="hasPermission(#user, 'EDIT_LEKI')">
+                    <th>Edytuj</th>
+                </sec:authorize>
+                <sec:authorize access="hasPermission(#user, 'DELETE_LEKI')">
+                    <th>Usuń</th>
+                </sec:authorize>
+
             </tr>
             <c:forEach items="${listaLekow}" var="tablicaLekow">
                 <tr>
@@ -75,11 +146,11 @@
                 </tr>
 
             </c:forEach>
-        </table>
+        </table><br/>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_LEKI')">
-        <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Dodaj lek</a>
+        <a href="<c:url value="/index/dodajLek.htm"/>" class="btn btn-default">Dodaj lek</a> <br/>
     </sec:authorize>
 
 
@@ -92,6 +163,13 @@
                 <th>Tytuł</th>
                 <th>Seria</th>
                 <th>Dostepnosc</th>
+                <sec:authorize access="hasPermission(#user, 'EDIT_KSIAZKI')">
+                    <th>Edytuj</th>
+                </sec:authorize>
+                <sec:authorize access="hasPermission(#user, 'DELETE_KSIAZKI')">
+                    <th>Usuń</th>
+                </sec:authorize>
+
             </tr>
             <c:forEach items="${listaKsiazek}" var="tablicaKsiazek">
                 <tr>
@@ -115,19 +193,25 @@
                 </tr>
 
             </c:forEach>
-        </table>
+        </table><br/>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_KSIAZKI')">
         <a href="<c:url value="/index/dodajKsiazke.htm"/>" class="btn btn-default">Dodaj ksiazke</a>
     </sec:authorize>
-
+    <br/>
     <sec:authorize access="hasPermission(#user, 'READ_MOJEOCENY')">
         <table class="sortable">
             <tr>
                 <th>Przedmiot</th>
                 <th>Ocena</th>
                 <th>Nauczyciel</th>
+                <sec:authorize access="hasPermission(#user, 'EDIT_MOJEOCENY')">
+                    <th>Edytuj</th>
+                </sec:authorize>
+                <sec:authorize access="hasPermission(#user, 'DELETE_MOJEOCENY')">
+                <th>Usuń</th>
+                </sec:authorize>
 
             </tr>
             <c:forEach items="${listaMoichOcen}" var="tablicaOcen">
@@ -137,7 +221,7 @@
                     </c:forEach>
                 </tr>
             </c:forEach>
-        </table>
+        </table> <br/>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_WYSTAWIONEOCENY')">
@@ -147,6 +231,13 @@
                 <th>Przedmiot</th>
                 <th>Ocena</th>
                 <th>Uczen</th>
+                <sec:authorize access="hasPermission(#user, 'EDIT_WYSTAWIONEOCENY')">
+                    <th>Edytuj</th>
+                </sec:authorize>
+                <sec:authorize access="hasPermission(#user, 'DELETE_WYSTAWIONEOCENY')">
+                    <th>Usuń</th>
+                </sec:authorize>
+
 
             </tr>
             <c:forEach items="${listaWystawionychOcen}" var="tablicaKsiazek">
@@ -165,11 +256,11 @@
                 </tr>
 
             </c:forEach>
-        </table>
+        </table><br/>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_WYSTAWIONEOCENY')">
-        <a href="<c:url value="/index/dodajOcene.htm"/>" class="btn btn-default">Dodaj ocene</a>
+        <a href="<c:url value="/index/dodajOcene.htm"/>" class="btn btn-default">Dodaj ocene</a>  <br/>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_DNIPRACY')">
@@ -179,6 +270,13 @@
                 <th>Dzień tygodnia</th>
                 <th>Godzina rozpoczecia</th>
                 <th>Godzina zakonczenia</th>
+                <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
+                    <th>Edytuj</th>
+                </sec:authorize>
+                <sec:authorize access="hasPermission(#user, 'DELETE_DNIPRACY')">
+                    <th>Usuń</th>
+                </sec:authorize>
+
 
             </tr>
             <c:forEach items="${listaDniPracy}" var="tablicaDni">
@@ -205,10 +303,11 @@
 
             </c:forEach>
         </table>
+        <br/>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_DNIPRACY')">
-        <a href="<c:url value="/index/dodajDzienPracy.htm"/>" class="btn btn-default">Dodaj dzień pracy</a>
+        <a href="<c:url value="/index/dodajDzienPracy.htm"/>" class="btn btn-default">Dodaj dzień pracy</a><br/>
     </sec:authorize>
 
 

@@ -27,27 +27,102 @@
 </head>
 <style>
     body {
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-repeat: repeat-y;
+        background-color: tan;
+        background-size: 100%;
+        color: #6b5633;
+    }
+
+    .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+
+    }
+
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+
+    .form-signin .checkbox {
+        font-weight: normal;
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .form-signin .form-control:focus {
+        z-index: 2;
+    }
+
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    .btn-primary {
+        background-image: linear-gradient(to bottom, #6b5633 0, rgba(226, 162, 50, 0.62) 100%);
+        border-color: #886933;
+    }
+    .btn-primary:hover {
+        background-image: linear-gradient(to bottom, #6b5633 0, rgba(226, 162, 50, 0.62) 100%);
+        border-color: #886933;
+    }
+
+    table{
+        padding: 15px;
+        border: 1px solid #6b5633;
+        border-collapse: collapse;
+
+    }
+
+    th{
+        background-color: wheat;
+        text-align: center;
+        padding: 5px;
+        border: 1px solid #6b5633;
+    }
+    td{
+        padding: 5px;
+        border: 1px solid #6b5633;
+    }
+    .container {
+        width: 80%;
+
     }
 
 
 </style>
-<body background="/resources/images/header.png">
+
 <div class="container">
 
     <!-- Static navbar -->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <%--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"--%>
+                        <%--aria-expanded="false" aria-controls="navbar">--%>
+                    <%--<span class="sr-only">Toggle navigation</span>--%>
+                    <%--<span class="icon-bar"></span>--%>
+                    <%--<span class="icon-bar"></span>--%>
+                    <%--<span class="icon-bar"></span>--%>
+                <%--</button>--%>
                 <a class="navbar-brand" href='<spring:url value="/index"/>'>Szkoła podstawowa numer 1</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
@@ -61,5 +136,5 @@
         </div><!--/.container-fluid -->
     </nav>
 </div>
-</body>
+
 </html>

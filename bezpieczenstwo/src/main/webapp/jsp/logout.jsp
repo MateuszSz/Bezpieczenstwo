@@ -19,16 +19,8 @@
     <title>Title</title>
 </head>
 <style>
-    body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-repeat: no-repeat;
-        background-color: burlywood;
-
-    }
-
     .form-signin {
-        max-width: 430px;
+        max-width: 330px;
         padding: 15px;
         margin: 0 auto;
 
@@ -57,19 +49,27 @@
         z-index: 2;
     }
 
-    .form-signin input[type="email"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
+    body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-repeat: repeat-y;
+        background-color: tan;
+        background-size: 100%;
+        color: #6b5633;
     }
 
-    .form-signin input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+    .btn-primary {
+        background-image: linear-gradient(to bottom, #6b5633 0%, rgba(226, 162, 50, 0.62) 100%);
+        border-color: #886933;
+        background-repeat: inherit;
     }
+    .btn-primary:hover {
+        background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
+        border-color: #886933;
+    }
+
 </style>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>" >
 <center>
 <%--<body background="<c:url value="/resources/images/bodybg.png"/>">--%>
     <h2 class="form-signin-heading">Wylogowano się pomyślnie. Miłego dnia!</h2>
