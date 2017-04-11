@@ -41,7 +41,9 @@
         background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
         border-color: #886933;
     }
-
+    .errorMessage{
+        color:red;
+    }
 </style>
 
 
@@ -63,7 +65,9 @@
     </select>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
 </form>
-
+<center>
+   <div class="errorMessage">${wiadomosc}</div>
+</center>
 <jsp:include page="footer.jsp"/>
 </body>
 

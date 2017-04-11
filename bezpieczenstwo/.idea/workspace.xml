@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf85b038-7603-4761-b710-5d5e79cff6b2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/controller/SecurityController.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/controller/SecurityController.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/controller/SecurityController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/security/CustomUserDetails.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/security/CustomUserDetails.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/security/CustomUserDetailsService.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/security/CustomUserDetailsService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/security/CustomUserDetails.class" afterPath="$PROJECT_DIR$/target/classes/model/security/CustomUserDetails.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/security/CustomUserDetailsService.class" afterPath="$PROJECT_DIR$/target/classes/model/security/CustomUserDetailsService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/security/CustomUserDetails.java" afterPath="$PROJECT_DIR$/src/main/java/model/security/CustomUserDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/security/CustomUserDetailsService.java" afterPath="$PROJECT_DIR$/src/main/java/model/security/CustomUserDetailsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/CSS/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/CSS/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/login.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/login.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1237,7 +1237,7 @@
       <workItem from="1491754128148" duration="8634000" />
       <workItem from="1491808936172" duration="3366000" />
       <workItem from="1491919755832" duration="4565000" />
-      <workItem from="1491928504635" duration="9772000" />
+      <workItem from="1491928504635" duration="9996000" />
     </task>
     <task id="LOCAL-00001" summary="favicon.ico fix">
       <created>1490773701461</created>
@@ -1330,11 +1330,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491939724437</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="dodano warrning przy logowaniu">
+      <created>1491943823685</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1491943823685</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275821000" />
+    <option name="totallyTimeSpent" value="276045000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1436,7 +1443,8 @@
     <MESSAGE value="Dodawanie, edycja i usuwanie Dni Pracy;&#10; czesciowe dodawanie, edycja i usuwanie Ocen;&#10; usuwanie Ksiazek i Leków" />
     <MESSAGE value="Rozwiązano problem z wyglądem tablic, oraz dodano pozwolenie na odczyt pliku css bez wymogu logowania" />
     <MESSAGE value="dodano opis tabel" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodano opis tabel" />
+    <MESSAGE value="dodano warrning przy logowaniu" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodano warrning przy logowaniu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

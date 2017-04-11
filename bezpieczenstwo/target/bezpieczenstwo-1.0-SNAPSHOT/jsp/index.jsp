@@ -105,6 +105,7 @@
 <center>
     <h2>Witaj ${imieINazwisko}!</h2>
     rola: ${rola}
+    <div class="errorMessage">${wiadomosc}</div>
 </center>
 <br><br>
 <center>
