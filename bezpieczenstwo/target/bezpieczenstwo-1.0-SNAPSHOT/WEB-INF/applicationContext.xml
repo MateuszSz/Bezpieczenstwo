@@ -11,7 +11,9 @@
 
     <context:component-scan base-package="controller">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
+
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/jsp/"/>
         <beans:property name="suffix" value=".jsp"/>
@@ -85,7 +87,7 @@
     </beans:bean>
     <beans:bean id="failureHandler"
                 class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
-        <beans:property name="defaultFailureUrl" value="/login.html?login_error=true"/>
+        <beans:property name="defaultFailureUrl" value="/login?login_error=true"/>
     </beans:bean>
 
     <beans:bean id="logoutSuccessHandler" class="model.security.CustomLogoutSuccessHandler" >
@@ -119,8 +121,7 @@
         <logout logout-url="/logout" success-handler-ref="logoutSuccessHandler"/>
     </http>
     <beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
-    <beans:bean id="sas"
-                class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy">
+    <beans:bean id="sas" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy">
         <beans:constructor-arg  ref="sessionRegistry" />
 
     </beans:bean>

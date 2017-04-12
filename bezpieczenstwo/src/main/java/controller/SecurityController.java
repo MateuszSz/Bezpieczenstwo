@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,9 +64,11 @@ public class SecurityController {
     private DzienPracyService dzienPracyService;
 
     @RequestMapping(value = "/login")
-    public String login(ModelMap modelMap, @RequestParam(value = "login_error", required = false) boolean login_error) {
-        if(login_error)
-            modelMap.addAttribute("wiadomosc", "Wystąpił błąd przy logowaniu, proszę spróbować ponownie");
+    public String login(HttpServletRequest request, ModelMap modelMap, @RequestParam(value = "login_error", required = false) boolean login_error) {
+        Object o = request.getSession().getAttribute("wiadomosc");
+        if(o != null)
+            modelMap.addAttribute("wiadomosc", o.toString());
+
         return "login";
     }
 

@@ -4,6 +4,7 @@ import model.entity.Rola;
 import model.entity.Uzytkownik;
 import model.repository.UzytkownikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,7 +38,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
         if (uzytkownik == null) {
-            throw new UsernameNotFoundException("No such user: " + email);
+            request.setAttribute("wiadomosc", "Błędny login lub hasło");
+            throw new RoleException("No such user: " + email);
         } else {
 
             List<Object> principals = sessionRegistry.getAllPrincipals();
@@ -47,22 +49,26 @@ public class CustomUserDetailsService implements UserDetailsService {
             Collection<Rola> role = uzytkownik.getRole();
             boolean isRedirected = false;
 
-            for (Object principal : principals) {
-                cs = (CustomUserDetails) principal;
-                if (cs.getEmail().equals(uzytkownik.getEmail())) {
-                    if (!wybranaRola.equals(cs.getWybranaRola())) {
-                        isRedirected = true;
-                        wybranaRola = cs.getWybranaRola();
-                    }
-                }
-            }
             for (Rola r : role) {
                 nazwy.add(r.getNazwa());
                 auths.add(new SimpleGrantedAuthority(r.getNazwa()));
             }
             if (!nazwy.contains(wybranaRola)) {
-                throw new UsernameNotFoundException("Uzytkownik nie posiada roli " + wybranaRola);
+                request.setAttribute("wiadomosc", "Użytkownik nie posiada roli: "+ wybranaRola);
+                throw new RoleException("Password incorrect");
+
             }
+
+            for (Object principal : principals) {
+                cs = (CustomUserDetails) principal;
+                if (cs.getEmail().equals(uzytkownik.getEmail())) {
+                    if (!wybranaRola.equals(cs.getWybranaRola())) {
+                        request.setAttribute("wiadomosc", "Użytkownik już zalogowany na innej roli: " + cs.getWybranaRola());
+                        throw new RoleException("user logged in with another computer: " + email);
+                    }
+                }
+            }
+
             return new CustomUserDetails(uzytkownik.getId(), uzytkownik.getImieINazwisko(), uzytkownik.getEmail(), uzytkownik.getHaslo(), wybranaRola, true, true, true, isRedirected, true, auths);
 
         }
