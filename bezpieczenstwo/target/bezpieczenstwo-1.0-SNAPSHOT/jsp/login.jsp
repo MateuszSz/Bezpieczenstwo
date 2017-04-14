@@ -24,12 +24,12 @@
 </head>
 <style>
     /*body {*/
-        /*padding-top: 40px;*/
-        /*padding-bottom: 40px;*/
-        /*background-repeat: repeat-y;*/
-        /*background-color: tan;*/
-        /*background-size: 100%;*/
-        /*color: #6b5633;*/
+    /*padding-top: 40px;*/
+    /*padding-bottom: 40px;*/
+    /*background-repeat: repeat-y;*/
+    /*background-color: tan;*/
+    /*background-size: 100%;*/
+    /*color: #6b5633;*/
     /*}*/
 
     .btn-primary {
@@ -46,6 +46,19 @@
     }
 </style>
 
+<script type='text/javascript'>
+    $(document).ready(function () {
+
+
+        var select = document.getElementById("inputRole");
+        <d:forEach items="${listaRol}" var="tablicaRol">
+        var el = document.createElement("option");
+        el.textContent = "<d:out value="${tablicaRol[1]}"/>";
+        el.value = "<d:out value="${tablicaRol[1]}"/>";
+        select.appendChild(el);
+        </d:forEach>
+    });
+</script>
 
 <body >
 <form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="POST">
@@ -55,18 +68,11 @@
     <label for="inputPassword" class="sr-only">Hasło</label>
     <input type="password" name="j_password" id="inputPassword" class="form-control" placeholder="Hasło" required>
     <label for="inputRole">Zaloguj jako:</label>
-    <select name="role" id="inputRole">
-        <option>UCZEN</option>
-        <option>ADMINISTRATOR</option>
-        <option>NAUCZYCIEL</option>
-        <option>DYREKTOR</option>
-        <option>BIBLIOTEKARZ</option>
-        <option>HIGIENISTKA</option>
-    </select>
+    <select name="role" id="inputRole"></select>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Zaloguj</button>
 </form>
 <center>
-   <div class="errorMessage">${wiadomosc}</div>
+    <div class="errorMessage">${wiadomosc}</div>
 </center>
 <jsp:include page="footer.jsp"/>
 </body>

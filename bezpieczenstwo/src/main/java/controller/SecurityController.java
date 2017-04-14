@@ -29,8 +29,7 @@ import java.util.List;
 @Controller
 public class SecurityController {
 
-    private final static int LICZBA_TABLIC = 6;
-    private final static int LICZBA_ROL = 9;
+    private final static int LICZBA_TABLIC = 9;
     private final static int LEKI = 1;
     private final static int ROLE = 2;
     private final static int UPRAWNIENIA = 3;
@@ -69,12 +68,14 @@ public class SecurityController {
         if(o != null)
             modelMap.addAttribute("wiadomosc", o.toString());
 
+        List role = rolaService.displayAllNamesAndId();
+        modelMap.addAttribute("listaRol", role);
         return "login";
     }
 
 
     @RequestMapping(value = {"/index", "/"})
-    public String index(ModelMap model, Authentication authentication) {
+    public String index(ModelMap model, Authentication authentication,  @RequestParam(value = "status", required = false)String status) {
         CustomUserDetails cs = (CustomUserDetails) authentication.getPrincipal();
 
         List leki = null;
@@ -86,11 +87,18 @@ public class SecurityController {
         List uczniowie=null;
         List dniPracy= null;
         String wiadomosc = "";
+        if(status != null){
+            if(status.equals("usuwanie_admina"))
+                wiadomosc = "Nie możesz usunąć roli Administratora!";
+            else if( status.equals("blad_dodawania_roli"))
+                wiadomosc = "Rola już istnieje!";
+        }
+
         if(cs.isRedirected()) {
             wiadomosc = "Nastąpiło przekierowanie logowania na " + cs.getWybranaRola();
              ((CustomUserDetails) authentication.getPrincipal()).setRedirected(false);
         }
-
+       Object k =  model.get("wiadomosc");
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
@@ -131,21 +139,21 @@ public class SecurityController {
         ArrayList<String[]> tablicaPozwolen = new ArrayList<String[]>();
         List role = rolaService.displayAll();
         List uprawnienia;
-        String[] nazwyTablic = new String[]{"Administrator", "Dyrektor", "Higienistka", "Nauczyciel", "Uczeń", "Bibliotekarz"};
+        Object[] nazwyRol =  role.toArray();
         String nazwaUprawnienia;
         int iterator = 0;
 
         //indeksy w tablicyPozwolen odpowiadają różnym tablicom
         //indeksy w tablicach odpowiadają różnym rolom
-        for (int i = 0; i < LICZBA_TABLIC; i++) {
-            String tablica[] = new String[LICZBA_ROL];
-            for (int j = 0; j < LICZBA_ROL; j++)
+        for (int i = 0; i < nazwyRol.length ; i++) {
+            String tablica[] = new String[LICZBA_TABLIC];
+            for (int j = 0; j < LICZBA_TABLIC; j++)
                 tablica[j] = "----";
             tablicaPozwolen.add(tablica);
         }
         for (Object r : role) {
             uprawnienia = uprawnienieService.displayAllByRoleName(r.toString());
-            tablicaPozwolen.get(iterator)[0] = nazwyTablic[iterator];
+            tablicaPozwolen.get(iterator)[0] = (String)nazwyRol[iterator];
             for (Object o : uprawnienia) {
                 nazwaUprawnienia = o.toString();
                 if (nazwaUprawnienia.contains("READ"))

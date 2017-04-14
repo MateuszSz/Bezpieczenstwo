@@ -16,6 +16,10 @@ public class RolaServiceImp implements RolaService {
         rolaRepository.insert(rola);
     }
 
+    public void delete(int id) {
+        rolaRepository.delete(id);
+    }
+
     public Rola display(int id) {
         return rolaRepository.display(id);
     }

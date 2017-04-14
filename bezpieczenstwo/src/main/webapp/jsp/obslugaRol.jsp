@@ -22,5 +22,16 @@
 </sec:authorize>
 
 <sec:authorize access="hasPermission(#user, 'ADD_ROLE')">
-    <a href="<c:url value="/index/dodajRoleUzytkownikowi.htm"/>" class="btn btn-default">Dodaj role</a><br/><br/>
+    <a href="<c:url value="/index/dodajRoleUzytkownikowi.htm"/>" class="btn btn-default">Przyporządkuj</a>
+</sec:authorize>
+
+<sec:authorize access="hasPermission(#user, 'ADD_ROLE')">
+    <a href="<c:url value="/index/dodajRole.htm"/>" class="btn btn-default">Dodaj nową rolę</a>
+</sec:authorize>
+<sec:authorize access="hasPermission(#user, 'EDIT_ROLE')">
+    <a href="<c:url value="/index/edytujRole.htm"/>" class="btn btn-default">Edytuj rolę</a>
+</sec:authorize>
+
+<sec:authorize access="hasPermission(#user, 'DELETE_ROLE')">
+    <a href="<c:url value="/index/usunRole.htm"/>" class="btn btn-default">Usuń rolę</a> <br/><br/>
 </sec:authorize>
