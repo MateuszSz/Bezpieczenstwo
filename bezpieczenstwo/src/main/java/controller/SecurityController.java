@@ -77,6 +77,14 @@ public class SecurityController {
     @RequestMapping(value = {"/index", "/"})
     public String index(ModelMap model, Authentication authentication,  @RequestParam(value = "status", required = false)String status) {
         CustomUserDetails cs = (CustomUserDetails) authentication.getPrincipal();
+        List roleDoSprawdzenia = rolaService.displayAll();
+        boolean czyRolaJestWBazie = false;
+        for(Object o : roleDoSprawdzenia)
+            if(o.toString().equals(cs.getWybranaRola()))
+                czyRolaJestWBazie = true;
+
+        if(!czyRolaJestWBazie)
+            return "redirect:/logout";
 
         List leki = null;
         List role = null;
@@ -98,7 +106,7 @@ public class SecurityController {
             wiadomosc = "Nastąpiło przekierowanie logowania na " + cs.getWybranaRola();
              ((CustomUserDetails) authentication.getPrincipal()).setRedirected(false);
         }
-       Object k =  model.get("wiadomosc");
+
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
