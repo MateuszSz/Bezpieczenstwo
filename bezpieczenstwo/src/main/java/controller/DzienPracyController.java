@@ -1,11 +1,9 @@
 package controller;
 
 import model.entity.DzienPracy;
-import model.entity.Ksiazka;
 import model.entity.Uzytkownik;
 import model.security.CustomUserDetails;
 import model.service.DzienPracyService;
-import model.service.KsiazkaService;
 import model.service.UzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -32,7 +30,7 @@ public class DzienPracyController {
     @PreAuthorize("hasPermission(authentication, 'ADD_DNIPRACY')")
     @RequestMapping(value = "/index/dodajDzienPracy.htm")
     public String dodajDzienPracy() {
-        return "dodajDzienPracy";
+        return "dzien_pracy/dodajDzienPracy";
     }
 
 
@@ -57,7 +55,7 @@ public class DzienPracyController {
         model.addAttribute("godzinaRozpoczecia", wybrany.getGodzinaRozpoczecia());
         model.addAttribute("godzinaZakonczenia", wybrany.getGodzinaZakonczenia());
 
-        return "edytujDzienPracy";
+        return "dzien_pracy/edytujDzienPracy";
     }
 
 
@@ -67,7 +65,7 @@ public class DzienPracyController {
 
         CustomUserDetails cs = (CustomUserDetails) authentication.getPrincipal();
         Uzytkownik pracownik = uzytkownikService.display(cs.getId());
-        DzienPracy zmieniony= dzienPracyService.display(id);
+        DzienPracy zmieniony = dzienPracyService.display(id);
         zmieniony.setUzytkownik(pracownik);
         zmieniony.setGodzinaRozpoczecia(dzienPracy.getGodzinaRozpoczecia());
         zmieniony.setGodzinaZakonczenia(dzienPracy.getGodzinaZakonczenia());
@@ -82,20 +80,12 @@ public class DzienPracyController {
 
     @PreAuthorize("hasPermission(authentication, 'DELETE_DNIPRACY')")
     @RequestMapping(value = "/index/usunDzienPracy")
-    public String usunDzienPracy(ModelMap model,  @RequestParam("id") int id) {
+    public String usunDzienPracy(ModelMap model, @RequestParam("id") int id) {
 
         dzienPracyService.delete(id);
         return "redirect:/index";
 
     }
-
-
-
-
-
-
-
-
 
 
 }

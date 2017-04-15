@@ -22,8 +22,6 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
 
-
-
     <mvc:annotation-driven/>
 
     <global-method-security secured-annotations="enabled" pre-post-annotations="enabled">

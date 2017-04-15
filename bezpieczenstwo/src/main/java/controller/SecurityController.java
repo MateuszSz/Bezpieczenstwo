@@ -1,25 +1,17 @@
 package controller;
 
-import model.entity.Ksiazka;
-import model.entity.Lek;
-import model.entity.Rola;
-import model.entity.Uzytkownik;
 import model.security.CustomPermissionEvaluator;
 import model.security.CustomUserDetails;
 import model.service.*;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +57,7 @@ public class SecurityController {
     @RequestMapping(value = "/login")
     public String login(HttpServletRequest request, ModelMap modelMap, @RequestParam(value = "login_error", required = false) boolean login_error) {
         Object o = request.getSession().getAttribute("wiadomosc");
-        if(o != null)
+        if (o != null)
             modelMap.addAttribute("wiadomosc", o.toString());
 
         List role = rolaService.displayAllNamesAndId();
@@ -75,15 +67,15 @@ public class SecurityController {
 
 
     @RequestMapping(value = {"/index", "/"})
-    public String index(ModelMap model, Authentication authentication,  @RequestParam(value = "status", required = false)String status) {
+    public String index(ModelMap model, Authentication authentication, @RequestParam(value = "status", required = false) String status) {
         CustomUserDetails cs = (CustomUserDetails) authentication.getPrincipal();
         List roleDoSprawdzenia = rolaService.displayAll();
         boolean czyRolaJestWBazie = false;
-        for(Object o : roleDoSprawdzenia)
-            if(o.toString().equals(cs.getWybranaRola()))
+        for (Object o : roleDoSprawdzenia)
+            if (o.toString().equals(cs.getWybranaRola()))
                 czyRolaJestWBazie = true;
 
-        if(!czyRolaJestWBazie)
+        if (!czyRolaJestWBazie)
             return "redirect:/logout";
 
         List leki = null;
@@ -91,20 +83,20 @@ public class SecurityController {
         List ksiazki = null;
         List uprawnienia = null;
         List mojeOceny = null;
-        List wystawioneOceny= null;
-        List uczniowie=null;
-        List dniPracy= null;
+        List wystawioneOceny = null;
+        List uczniowie = null;
+        List dniPracy = null;
         String wiadomosc = "";
-        if(status != null){
-            if(status.equals("usuwanie_admina"))
+        if (status != null) {
+            if (status.equals("usuwanie_admina"))
                 wiadomosc = "Nie możesz usunąć roli Administratora!";
-            else if( status.equals("blad_dodawania_roli"))
+            else if (status.equals("blad_dodawania_roli"))
                 wiadomosc = "Rola już istnieje!";
         }
 
-        if(cs.isRedirected()) {
+        if (cs.isRedirected()) {
             wiadomosc = "Nastąpiło przekierowanie logowania na " + cs.getWybranaRola();
-             ((CustomUserDetails) authentication.getPrincipal()).setRedirected(false);
+            ((CustomUserDetails) authentication.getPrincipal()).setRedirected(false);
         }
 
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
@@ -116,13 +108,13 @@ public class SecurityController {
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_UPRAWNIENIA"))
             uprawnienia = tworzenieTablicyPozwolen();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_WYSTAWIONEOCENY"))
-            wystawioneOceny=ocenaService.displayAllByIdNauczyciela(cs.getId());
+            wystawioneOceny = ocenaService.displayAllByIdNauczyciela(cs.getId());
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_MOJEOCENY"))
-            mojeOceny=ocenaService.displayAllByIdUcznia(cs.getId());
+            mojeOceny = ocenaService.displayAllByIdUcznia(cs.getId());
         if (customPermissionEvaluator.hasPermission(authentication, null, "ADD_WYSTAWIONEOCENY"))
-            uczniowie=uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
+            uczniowie = uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_DNIPRACY"))
-            dniPracy=dzienPracyService.displayAllById(cs.getId());
+            dniPracy = dzienPracyService.displayAllById(cs.getId());
 
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
@@ -141,19 +133,17 @@ public class SecurityController {
     }
 
 
-
-
     private List tworzenieTablicyPozwolen() {
         ArrayList<String[]> tablicaPozwolen = new ArrayList<String[]>();
         List role = rolaService.displayAll();
         List uprawnienia;
-        Object[] nazwyRol =  role.toArray();
+        Object[] nazwyRol = role.toArray();
         String nazwaUprawnienia;
         int iterator = 0;
 
         //indeksy w tablicyPozwolen odpowiadają różnym tablicom
         //indeksy w tablicach odpowiadają różnym rolom
-        for (int i = 0; i < nazwyRol.length ; i++) {
+        for (int i = 0; i < nazwyRol.length; i++) {
             String tablica[] = new String[LICZBA_TABLIC];
             for (int j = 0; j < LICZBA_TABLIC; j++)
                 tablica[j] = "----";
@@ -161,7 +151,7 @@ public class SecurityController {
         }
         for (Object r : role) {
             uprawnienia = uprawnienieService.displayAllByRoleName(r.toString());
-            tablicaPozwolen.get(iterator)[0] = (String)nazwyRol[iterator];
+            tablicaPozwolen.get(iterator)[0] = (String) nazwyRol[iterator];
             for (Object o : uprawnienia) {
                 nazwaUprawnienia = o.toString();
                 if (nazwaUprawnienia.contains("READ"))
@@ -183,7 +173,6 @@ public class SecurityController {
                         tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'R', READ);
 
 
-
                 else if (nazwaUprawnienia.contains("ADD"))
                     if (nazwaUprawnienia.contains("LEKI"))
                         tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'A', WRITE);
@@ -201,8 +190,6 @@ public class SecurityController {
                         tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'A', WRITE);
                     else
                         tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'A', WRITE);
-
-
 
 
                 else if (nazwaUprawnienia.contains("EDIT"))
@@ -226,7 +213,7 @@ public class SecurityController {
 
                 else if (nazwaUprawnienia.contains("DELETE"))
                     if (nazwaUprawnienia.contains("LEKI"))
-                    tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'D', DELETE);
+                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'D', DELETE);
                     else if (nazwaUprawnienia.contains("KSIAZKI"))
                         tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'D', DELETE);
                     else if (nazwaUprawnienia.contains("ROLE"))

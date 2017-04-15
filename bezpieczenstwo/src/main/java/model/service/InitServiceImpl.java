@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -134,29 +133,28 @@ public class InitServiceImpl {
         //Tworzenie dni pracy
 
         List<DzienPracy> dniPracy = new ArrayList<DzienPracy>();
-        dniPracy.add(new DzienPracy("Poniedzialek", "08:00", "10:00",uzytkownik ));
-        dniPracy.add(new DzienPracy("Wtorek", "09:00", "15:00",uzytkownik ));
-        dniPracy.add(new DzienPracy("Sroda", "08:00", "13:00",uzytkownik ));
-        dniPracy.add(new DzienPracy("Czwartek", "11:00", "18:00",uzytkownik ));
-        dniPracy.add(new DzienPracy("Piatek", "08:00", "12:00",uzytkownik ));
+        dniPracy.add(new DzienPracy("Poniedzialek", "08:00", "10:00", uzytkownik));
+        dniPracy.add(new DzienPracy("Wtorek", "09:00", "15:00", uzytkownik));
+        dniPracy.add(new DzienPracy("Sroda", "08:00", "13:00", uzytkownik));
+        dniPracy.add(new DzienPracy("Czwartek", "11:00", "18:00", uzytkownik));
+        dniPracy.add(new DzienPracy("Piatek", "08:00", "12:00", uzytkownik));
 
-        for(DzienPracy d : dniPracy){
+        for (DzienPracy d : dniPracy) {
             dzienPracyRepository.insert(d);
             uzytkownik.getDniPracy().add(d);
         }
 
         List<DzienPracy> dniPracy2 = new ArrayList<DzienPracy>();
-        dniPracy2.add(new DzienPracy("Poniedzialek", "07:00", "15:00",uzytkownik2 ));
-        dniPracy2.add(new DzienPracy("Wtorek", "11:00", "15:00",uzytkownik2 ));
-        dniPracy2.add(new DzienPracy("Sroda", "09:00", "12:00",uzytkownik2 ));
-        dniPracy2.add(new DzienPracy("Czwartek", "10:00", "16:00",uzytkownik2 ));
-        dniPracy2.add(new DzienPracy("Piatek", "08:00", "15:00",uzytkownik2 ));
+        dniPracy2.add(new DzienPracy("Poniedzialek", "07:00", "15:00", uzytkownik2));
+        dniPracy2.add(new DzienPracy("Wtorek", "11:00", "15:00", uzytkownik2));
+        dniPracy2.add(new DzienPracy("Sroda", "09:00", "12:00", uzytkownik2));
+        dniPracy2.add(new DzienPracy("Czwartek", "10:00", "16:00", uzytkownik2));
+        dniPracy2.add(new DzienPracy("Piatek", "08:00", "15:00", uzytkownik2));
 
-        for(DzienPracy d : dniPracy2){
+        for (DzienPracy d : dniPracy2) {
             dzienPracyRepository.insert(d);
             uzytkownik2.getDniPracy().add(d);
         }
-
 
 
 //  TWORZENIE UPRAWNIEN I POWIAZANIE ICH Z ROLAMI

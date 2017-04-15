@@ -20,9 +20,9 @@ public class DzienPracyRepositoryImp implements DzienPracyRepository {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public void delete(int id){
-        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik_dzienpracy WHERE uzytkownik_dzienpracy.dniPracy_id="+id);
-        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM dzienpracy WHERE dzienpracy.id="+id);
+    public void delete(int id) {
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik_dzienpracy WHERE uzytkownik_dzienpracy.dniPracy_id=" + id);
+        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM dzienpracy WHERE dzienpracy.id=" + id);
         sqlQuery.executeUpdate();
         sqlQuery2.executeUpdate();
 
@@ -37,7 +37,7 @@ public class DzienPracyRepositoryImp implements DzienPracyRepository {
     }
 
     public List displayAllById(int id) {
-        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT d.id, d.dzienTygodnia, d.godzinaRozpoczecia, d.godzinaZakonczenia FROM dzienpracy d WHERE d.uzytkownik_id="+id);
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT d.id, d.dzienTygodnia, d.godzinaRozpoczecia, d.godzinaZakonczenia FROM dzienpracy d WHERE d.uzytkownik_id=" + id);
         List results = sqlQuery.list();
         return results;
 

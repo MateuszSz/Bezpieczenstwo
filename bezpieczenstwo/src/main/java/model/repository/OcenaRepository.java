@@ -1,6 +1,5 @@
 package model.repository;
 
-import model.entity.Ksiazka;
 import model.entity.Ocena;
 
 import java.util.List;

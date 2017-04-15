@@ -1,12 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Ada
-  Date: 2017-04-03
-  Time: 14:16
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d" %>
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -22,17 +16,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <title>Edytuj ksiazke</title>
+
+    <title>Title</title>
 </head>
 
 
 <script type='text/javascript'>
     $(document).ready(function () {
-        document.getElementById('inputAutor').value = "${autor}";
-        document.getElementById('inputTytul').value = "${tytul}";
-        document.getElementById('inputISBN').value = "${ISBN}";
-        document.getElementById('inputSeria').value = "${seria}";
-        document.getElementById('inputDostepnosc').value = "${dostepnosc}";
+
+        var select = document.getElementById("inputRola");
+        <d:forEach items="${listaRol}" var="tablicaRol">
+        var el = document.createElement("option");
+        el.textContent = "<d:out value="${tablicaRol[1]}"/>";
+        el.value = <d:out value="${tablicaRol[0]}"/>;
+        select.appendChild(el);
+        </d:forEach>
     });
 </script>
 <style>
@@ -80,23 +78,26 @@
         border-color: #886933;
         background-repeat: inherit;
     }
+
     .btn-primary:hover {
         background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
         border-color: #886933;
     }
 
 </style>
-<body background="<c:url value="/resources/images/bodybg.png"/>" >
-<form class="form-signin" action="<c:url value="/index/edytowanieKsiazki"/>?id=${idKsiazki}" method="POST">
-    <h2 class="form-signin-heading">Edytuj ksiazke</h2>
-    <input name="autor" type="text" id="inputAutor" class="form-control" placeholder="Autor ksiazki" required>
-    <input type="text" name="tytul" id="inputTytul" class="form-control" placeholder="Tytyl" required>
-    <input type="text" name="ISBN" id="inputISBN" class="form-control" placeholder="ISBN" required>
-    <input type="text" name="seria" id="inputSeria" class="form-control" placeholder="Seria">
-    <input type="text" name="dostepnosc" id="inputDostepnosc" class="form-control" placeholder="Dostepnosc" required>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Zapisz</button>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
+<center>
+    <h2 class="form-signin-heading">Proszę wybrać użytkownika i jego nową rolę</h2>
+</center>
+<form class="form-signin" action="<c:url value="/index/edycjaRoli"/>" method="POST">
+    <label for="inputRola" class="sr-only">Podaj rolę</label>
+    <select name="rola" id="inputRola" class="form-control"></select>
+    <label for="inputNazwa" class="sr-only">Nowa nazwa roli</label>
+    <input name="nazwa" type="text" id="inputNazwa" class="form-control" placeholder="Nazwa" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Edytuj</button>
 </form>
 
+<jsp:include page="../footer.jsp"/>
 </body>
+
 </html>

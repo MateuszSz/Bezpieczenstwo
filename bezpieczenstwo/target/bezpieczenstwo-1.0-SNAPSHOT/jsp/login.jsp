@@ -19,7 +19,7 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="<d:url value="/resources/CSS/main.css" />" >
+    <link rel="stylesheet" href="<d:url value="/resources/CSS/main.css" />">
     <title>Title</title>
 </head>
 <style>
@@ -37,12 +37,14 @@
         border-color: #886933;
         background-repeat: inherit;
     }
+
     .btn-primary:hover {
         background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
         border-color: #886933;
     }
-    .errorMessage{
-        color:red;
+
+    .errorMessage {
+        color: red;
     }
 </style>
 
@@ -60,7 +62,7 @@
     });
 </script>
 
-<body >
+<body>
 <form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="POST">
     <h2 class="form-signin-heading">Proszę się zalogować</h2>
     <label for="inputEmail" class="sr-only">Login</label>

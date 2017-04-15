@@ -2,40 +2,21 @@
 <%--
   Created by IntelliJ IDEA.
   User: Ada
-  Date: 2017-04-08
-  Time: 11:43
+  Date: 2017-04-03
+  Time: 14:15
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-
-
-
-
-    <title>Edytuj ocene</title>
+    <title>Dodaj ksiazke</title>
 </head>
-<script type='text/javascript'>
-    $(document).ready(function () {
-        document.getElementById('inputPrzedmiot').value = "${przedmiot}";
-        document.getElementById('inputOcena').value = "${ocena}";
-        document.getElementById('inputUczen').value = "${nazwiskoUcznia}";
-
-    });
-</script>
 <style>
     .form-signin {
         max-width: 330px;
@@ -81,21 +62,29 @@
         border-color: #886933;
         background-repeat: inherit;
     }
+
     .btn-primary:hover {
         background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
         border-color: #886933;
     }
 
 </style>
-<body background="<c:url value="/resources/images/bodybg.png"/>" >
-<form class="form-signin" action="<c:url value="/index/edytowanieOceny" />?id=${idOceny}" method="POST">
-    <h2 class="form-signin-heading">Edytuj ocene</h2>
-    <input name="przedmiot" type="text" id="inputPrzedmiot" class="form-control" placeholder="Przedmiot" required>
-    <input type="text" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
-    <input type="text" name="uczen" id="inputUczen" class="form-control" placeholder="Uczen" required readonly>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
+<%--<body background="<c:url value="/resources/images/bodybg.png"/>">--%>
+<form class="form-signin" action="<c:url value="/index/dodawanieKsiazki"/>" method="POST">
+    <h2 class="form-signin-heading">Proszę wpisać dane nowej ksiazki</h2>
+    <label for="inputAutor" class="sr-only">Autor ksiazki</label>
+    <input name="autor" type="text" id="inputAutor" class="form-control" placeholder="Autor ksiazki" required>
+    <label for="inputTytul" class="sr-only">Tytuł</label>
+    <input type="text" name="tytul" id="inputTytul" class="form-control" placeholder="Tytyl" required>
+    <label for="inputISBN" class="sr-only">ISBN</label>
+    <input type="text" name="ISBN" id="inputISBN" class="form-control" placeholder="ISBN" required>
+    <label for="inputSeria" class="sr-only">Seria</label>
+    <input type="text" name="seria" id="inputSeria" class="form-control" placeholder="Seria">
+    <label for="inputDostepnosc" class="sr-only">Dostepnosc</label>
+    <input type="text" name="dostepnosc" id="inputDostepnosc" class="form-control" placeholder="Dostepnosc" required>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Zapisz</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nowa ksiazke</button>
 </form>
-
 </body>
 </html>

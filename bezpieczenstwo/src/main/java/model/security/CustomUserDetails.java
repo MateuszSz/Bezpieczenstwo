@@ -18,7 +18,7 @@ public class CustomUserDetails implements UserDetails {
     private boolean isEnabled;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public CustomUserDetails(int id, String name, String email, String password, String wybranaRola, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired,boolean isRedirected, boolean isEnabled, Collection<? extends GrantedAuthority> authorities) {
+    public CustomUserDetails(int id, String name, String email, String password, String wybranaRola, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isRedirected, boolean isEnabled, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -34,7 +34,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean equals(Object o) {
-       return super.equals(o);
+        return super.equals(o);
     }
 
     @Override

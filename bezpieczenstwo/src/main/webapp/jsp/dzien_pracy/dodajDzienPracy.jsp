@@ -1,22 +1,25 @@
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: Ada
+  Date: 2017-04-08
+  Time: 19:57
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-
-    <title>Title</title>
+    3
+    <title>Dodaj dzien pracy</title>
 </head>
 <style>
     .form-signin {
@@ -71,13 +74,19 @@
 
 </style>
 <body background="<c:url value="/resources/images/bodybg.png"/>">
-<center>
-    <%--<body background="<c:url value="/resources/images/bodybg.png"/>">--%>
-    <h2 class="form-signin-heading">Wylogowano się pomyślnie. Miłego dnia!</h2>
-    <a href="<c:url value="/index"/>" class="btn btn-default">Zaloguj się ponownie</a>
-</center>
+<form class="form-signin" action="<c:url value="/index/dodawanieDniaPracy"/> " method="POST">
+    <h2 class="form-signin-heading">Proszę wpisać dane nowego dnia pracy</h2>
+    <label for="inputDzien" class="sr-only">Dzień tygodnia</label>
+    <input name="dzienTygodnia" type="text" id="inputDzien" class="form-control" placeholder="Dzien tygodnia" required>
+    <label for="inputGodzinaRozpoczecia" class="sr-only">Godzina rozpoczecia pracy</label>
+    <input type="text" name="godzinaRozpoczecia" id="inputGodzinaRozpoczecia" class="form-control"
+           placeholder="Godzina rozpoczecia pracy" required>
+    <label for="inputGodzinaZakonczenia" class="sr-only">Godzina zakończenia pracy</label>
+    <input type="text" name="godzinaZakonczenia" id="inputGodzinaZakonczenia" class="form-control"
+           placeholder="Godzina zakończenia pracy" required>
 
-<jsp:include page="footer.jsp"/>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nowy dzien pracy</button>
+
 </body>
-
 </html>

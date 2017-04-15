@@ -1,8 +1,7 @@
 package controller;
 
-import model.entity.Uzytkownik;
 import model.entity.Ocena;
-import model.security.CustomUserDetails;
+import model.entity.Uzytkownik;
 import model.service.OcenaService;
 import model.service.UzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +28,7 @@ public class OcenaController {
     @PreAuthorize("hasPermission(authentication, 'ADD_WYSTAWIONEOCENY')")
     @RequestMapping(value = "/index/dodajOcene.htm")
     public String dodajOcene() {
-        return "dodajOcene";
+        return "Oceny/dodajOcene";
     }
 
 
@@ -49,12 +48,12 @@ public class OcenaController {
 
     @PreAuthorize("hasPermission(authentication, 'ADD_WYSTAWIONEOCENY')")
     @RequestMapping(value = "/index/dodawanieOceny", method = RequestMethod.POST)
-    public String dodawanieOceny(Authentication authentication,@ModelAttribute Ocena ocena) {
+    public String dodawanieOceny(Authentication authentication, @ModelAttribute Ocena ocena) {
 
 
-        Uzytkownik nauczyciel= uzytkownikService.display(1);
+        Uzytkownik nauczyciel = uzytkownikService.display(1);
         ocena.setNauczyciel(nauczyciel);
-        Uzytkownik uczen= uzytkownikService.display(3);
+        Uzytkownik uczen = uzytkownikService.display(3);
 
 
         ocena.setUczen(uczen);
@@ -71,18 +70,17 @@ public class OcenaController {
         Ocena wybrany = ocenaService.display(id);
         model.addAttribute("przedmiot", wybrany.getPrzedmiot());
         model.addAttribute("ocena", wybrany.getOcena());
-        String nazwiskoUcznia=wybrany.getUczen().getImieINazwisko();
+        String nazwiskoUcznia = wybrany.getUczen().getImieINazwisko();
         model.addAttribute("nazwiskoUcznia", nazwiskoUcznia);
 
 
-
-        return "edytujOcene";
+        return "Oceny/edytujOcene";
     }
 
 
     @PreAuthorize("hasPermission(authentication, 'EDIT_WYSTAWIONEOCENY')")
     @RequestMapping(value = "/index/edytowanieOceny", method = RequestMethod.POST)
-    public String edytowanieOceny( ModelMap model, @ModelAttribute("ocena") String ocena, @ModelAttribute("przedmiot") String przedmiot, @RequestParam("id") int id) {
+    public String edytowanieOceny(ModelMap model, @ModelAttribute("ocena") String ocena, @ModelAttribute("przedmiot") String przedmiot, @RequestParam("id") int id) {
         Ocena zmieniona = ocenaService.display(id);
         zmieniona.setOcena(ocena);
         zmieniona.setPrzedmiot(przedmiot);
@@ -90,9 +88,6 @@ public class OcenaController {
         return "redirect:/index";
 
     }
-
-
-
 
 
 }

@@ -42,10 +42,10 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
     }
 
     @Transactional
-    public List displayAllNamesAndIdByRole(String rola){
+    public List displayAllNamesAndIdByRole(String rola) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uzytkownik.id, uzytkownik.imieINazwisko from uzytkownik, rola, uzytkownik_rola " +
-                        "where uzytkownik_rola.uzytkownicy_id = uzytkownik.id " +
-                        "and uzytkownik_rola.role_id = rola.id and rola.nazwa = \""+rola+"\"");
+                "where uzytkownik_rola.uzytkownicy_id = uzytkownik.id " +
+                "and uzytkownik_rola.role_id = rola.id and rola.nazwa = \"" + rola + "\"");
         List results = sqlQuery.list();
         return results;
 

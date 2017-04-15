@@ -1,11 +1,6 @@
 package model.security;
 
-import model.entity.Uzytkownik;
-import model.service.UzytkownikService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 
 import javax.servlet.ServletException;

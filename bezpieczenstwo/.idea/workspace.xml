@@ -2,19 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf85b038-7603-4761-b710-5d5e79cff6b2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/dodajUprawnienie.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/edycjaUprawnien.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/edytujUprawnienie.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/usunUprawnienie.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/dodajLek.jsp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/controller/SecurityController.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/controller/SecurityController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/entity/Ocena.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/entity/Ocena.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/RolaRepositoryImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/RolaRepositoryImp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UprawnienieRepository.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UprawnienieRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UprawnienieRepositoryImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UprawnienieRepositoryImp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/security/CustomUserDetailsService.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/security/CustomUserDetailsService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/InitServiceImpl.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/InitServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/LekServiceImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/LekServiceImp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/UprawnienieServiceImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/UprawnienieServiceImp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/UzytkownikServiceImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/UzytkownikServiceImp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/SecurityController.class" afterPath="$PROJECT_DIR$/target/classes/controller/SecurityController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/entity/Ocena.class" afterPath="$PROJECT_DIR$/target/classes/model/entity/Ocena.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/RolaRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/RolaRepositoryImp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/UprawnienieRepository.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/UprawnienieRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/UprawnienieRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/UprawnienieRepositoryImp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/security/CustomUserDetailsService.class" afterPath="$PROJECT_DIR$/target/classes/model/security/CustomUserDetailsService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/InitServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/model/service/InitServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/LekServiceImp.class" afterPath="$PROJECT_DIR$/target/classes/model/service/LekServiceImp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/UprawnienieServiceImp.class" afterPath="$PROJECT_DIR$/target/classes/model/service/UprawnienieServiceImp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/UzytkownikServiceImp.class" afterPath="$PROJECT_DIR$/target/classes/model/service/UzytkownikServiceImp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/DzienPracyController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/DzienPracyController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/KsiazkaController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/KsiazkaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/LekController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/LekController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/OcenaController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/OcenaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/RolaController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/RolaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/UprawnieniaController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/UprawnieniaController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/entity/Uprawnienie.java" afterPath="$PROJECT_DIR$/src/main/java/model/entity/Uprawnienie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/entity/DzienPracy.java" afterPath="$PROJECT_DIR$/src/main/java/model/entity/DzienPracy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/entity/Ocena.java" afterPath="$PROJECT_DIR$/src/main/java/model/entity/Ocena.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/DzienPracyRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/DzienPracyRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/DzienPracyRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/DzienPracyRepositoryImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepositoryImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/LekRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/LekRepositoryImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/RolaRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/RolaRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/RolaRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/RolaRepositoryImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/UprawnienieServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/UprawnienieServiceImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/security/CustomLogoutSuccessHandler.java" afterPath="$PROJECT_DIR$/src/main/java/model/security/CustomLogoutSuccessHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/security/CustomUserDetails.java" afterPath="$PROJECT_DIR$/src/main/java/model/security/CustomUserDetails.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/security/CustomUserDetailsService.java" afterPath="$PROJECT_DIR$/src/main/java/model/security/CustomUserDetailsService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/DzienPracyServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/DzienPracyServiceImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/LekServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/LekServiceImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/OcenaServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/OcenaServiceImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/UzytkownikServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/UzytkownikServiceImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/classic.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/classic.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/logout.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/logout.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/dodajUprawnienie.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/dodajUprawnienie.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/obslugaUprawnien.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/obslugaUprawnien.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/CSS/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/CSS/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/dispatcher-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/classic.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/classic.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/obslugaUprawnien.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/obslugaUprawnien.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/login.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/login.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dodajDzienPracy.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/dzien_pracy/dodajDzienPracy.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dodajKsiazke.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/ksiazki/dodajKsiazke.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dodajLek.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/leki/dodajLek.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dodajOcene.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/Oceny/dodajOcene.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dodajRole.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/role/dodajRole.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/dodajRoleUzytkownikowi.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/role/dodajRoleUzytkownikowi.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/edytujDzienPracy.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/dzien_pracy/edytujDzienPracy.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/edytujKsiazke.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/ksiazki/edytujKsiazke.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/edytujLek.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/leki/edytujLek.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/edytujOcene.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/Oceny/edytujOcene.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/edytujRole.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/role/edytujRole.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/obslugaRol.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/role/obslugaRol.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/usunRole.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/role/usunRole.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,77 +116,74 @@
       <file leaf-file-name="SecurityController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/SecurityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
-                <element signature="e#6052#6062#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UprawnieniaController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/UprawnieniaController.java">
+      <file leaf-file-name="edytujUprawnienie.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/edytujUprawnienie.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+            <state relative-caret-position="174">
+              <caret line="92" column="50" lean-forward="false" selection-start-line="92" selection-start-column="50" selection-end-line="92" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UprawnienieRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Uprawnienie.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/entity/Uprawnienie.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UprawnienieService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/service/UprawnienieService.java">
+      <file leaf-file-name="DzienPracyRepository.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/DzienPracyRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UprawnienieServiceImp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/service/UprawnienieServiceImp.java">
+      <file leaf-file-name="DzienPracyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/DzienPracyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="31" column="54" lean-forward="false" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+            <state relative-caret-position="200">
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding>
-                <element signature="e#757#758#0" expanded="true" />
-                <element signature="e#818#819#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UprawnienieRepositoryImp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepositoryImp.java">
+      <file leaf-file-name="usunUprawnienie.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/usunUprawnienie.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="30" column="141" lean-forward="false" selection-start-line="30" selection-start-column="141" selection-end-line="30" selection-end-column="141" />
+            <state relative-caret-position="202">
+              <caret line="93" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dodajUprawnienie.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/dodajUprawnienie.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="99" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OcenaController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/OcenaController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="77" column="5" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="77" selection-end-column="5" />
               <folding>
-                <marker date="1492274619014" expanded="true" signature="929:996" ph="select upraw... uprawnienie" />
-                <marker date="1492274619014" expanded="true" signature="929:1010" ph="select upraw... uprawnienie" />
-                <marker date="1492274619014" expanded="true" signature="1263:1455" ph="select upraw... uprawnienie" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -128,33 +192,32 @@
       <file leaf-file-name="obslugaUprawnien.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/obslugaUprawnien.jsp">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="40" column="102" lean-forward="false" selection-start-line="40" selection-start-column="102" selection-end-line="40" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UprawnieniaController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/UprawnieniaController.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
-              <caret line="32" column="100" lean-forward="false" selection-start-line="32" selection-start-column="100" selection-end-line="32" selection-end-column="100" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RolaRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/RolaRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UzytkownikRepositoryImp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="75" selection-end-column="5" />
+              <caret line="109" column="52" lean-forward="false" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="52" />
               <folding>
-                <marker date="1491928048276" expanded="true" signature="1197:1258" ph="Select uzytk... uzytkownik" />
-                <marker date="1491928048276" expanded="true" signature="1488:1752" ph="select uzytk... uzytkownik" />
-                <marker date="1491928048276" expanded="true" signature="2717:2796" ph="select uzytk... uzytkownik" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#4221#4229#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edycjaUprawnien.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/edycjaUprawnien.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="95" column="73" lean-forward="false" selection-start-line="95" selection-start-column="73" selection-end-line="95" selection-end-column="73" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -239,14 +302,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/webapp/jsp/dodajOcene.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/jsp/Oceny/dodajOcene.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/model/repository/LekRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/service/LekServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/repository/LekRepositoryImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/service/DzienPracyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/repository/DzienPracyRepository.java" />
@@ -288,13 +348,16 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/RolaController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/SecurityController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/dodajUprawnienie.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/obslugaUprawnien.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/dodajUprawnienie.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/model/entity/Uprawnienie.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/service/UprawnienieServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepositoryImp.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/usunUprawnienie.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/controller/UprawnieniaController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/obslugaUprawnien.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/edycjaUprawnien.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/edytujUprawnienie.jsp" />
       </list>
     </option>
   </component>
@@ -354,6 +417,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -368,7 +432,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -426,36 +489,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bezpieczenstwo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bezpieczenstwo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uprawnienia" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -603,7 +636,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -619,11 +652,16 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="model.security" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model" />
+      <recent name="controller" />
     </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp\jsp\dzien_pracy" />
+      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp\jsp\leki" />
+      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp\jsp\role" />
+      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp\jsp\Oceny" />
+      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp\jsp\ksiazki" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mateu\IdeaProjects\bezpieczenstwo\src\main\java\model\service" />
@@ -632,16 +670,11 @@
       <recent name="C:\Users\mateu\IdeaProjects\bezpieczenstwo\src\main\java\model" />
       <recent name="C:\Users\mateu\IdeaProjects\bezpieczenstwo\src\main\webapp\WEB-INF" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="model" />
-      <recent name="controller" />
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp\jsp\uprawnienia" />
-      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp\jsp" />
-      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp\resources\images" />
-      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\resurces" />
-      <recent name="D:\Bezpieczenstwo\bezpieczenstwo\src\main\webapp" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="model.security" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1265,7 +1298,8 @@
       <workItem from="1492238250133" duration="111000" />
       <workItem from="1492253331488" duration="302000" />
       <workItem from="1492257981208" duration="634000" />
-      <workItem from="1492262196850" duration="9126000" />
+      <workItem from="1492262196850" duration="9177000" />
+      <workItem from="1492280314945" duration="7966000" />
     </task>
     <task id="LOCAL-00001" summary="favicon.ico fix">
       <created>1490773701461</created>
@@ -1393,11 +1427,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492236401205</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Dodano funckję dodawania uprawnień">
+      <created>1492275024379</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1492275024379</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307335000" />
+    <option name="totallyTimeSpent" value="315352000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1410,11 +1451,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39116204" sideWeight="0.35325265" order="15" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4091653" sideWeight="0.19742814" order="15" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0109809665" sideWeight="0.4858044" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1424,7 +1464,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39116204" sideWeight="0.64674735" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39116204" sideWeight="0.6429652" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.48789713" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33878887" sideWeight="0.4334342" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1432,12 +1472,13 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15548281" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4091653" sideWeight="0.811649" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4091653" sideWeight="0.80257183" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18814056" sideWeight="0.3068182" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945538" sideWeight="0.52590674" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2632375" sideWeight="0.52590674" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24304539" sideWeight="0.47409326" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.49121523" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1448,7 +1489,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0109809665" sideWeight="0.51419556" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.49121523" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1473,7 +1513,8 @@
     <MESSAGE value="Usunięto przekierowanie na zalogowaną rolę, dodano powiadomienie o zajęciu roli" />
     <MESSAGE value="Dodano komunikaty, dodawanie ról, usuwanie ról i edycję ról" />
     <MESSAGE value="Naprawiono błąd przy usuwaniu ról, gdy generował wyjątek" />
-    <option name="LAST_COMMIT_MESSAGE" value="Naprawiono błąd przy usuwaniu ról, gdy generował wyjątek" />
+    <MESSAGE value="Dodano funckję dodawania uprawnień" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodano funckję dodawania uprawnień" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1502,8 +1543,14 @@
           <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/UprawnieniaController.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="99" />
+      <option name="time" value="103" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1512,42 +1559,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/LekController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/OcenaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="84" column="51" lean-forward="false" selection-start-line="84" selection-start-column="51" selection-end-line="84" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/CSS/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="66" column="1" lean-forward="false" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="48" lean-forward="false" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.1.1.RELEASE/spring-web-4.1.1.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/security/CustomUserDetails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1377">
@@ -1561,9 +1572,9 @@
         <state relative-caret-position="1547">
           <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding>
-            <marker date="1492030748682" expanded="true" signature="7744:8405" ph="SELECT rola.... rola" />
-            <marker date="1492030748682" expanded="true" signature="8471:9141" ph="SELECT uzytk... uzytkownik" />
-            <marker date="1492030748682" expanded="true" signature="9199:9286" ph="SELECT uzytk... uzytkownik" />
+            <marker date="1492288120861" expanded="true" signature="7786:8447" ph="SELECT rola.... rola" />
+            <marker date="1492288120861" expanded="true" signature="8513:9183" ph="SELECT uzytk... uzytkownik" />
+            <marker date="1492288120861" expanded="true" signature="9241:9328" ph="SELECT uzytk... uzytkownik" />
           </folding>
         </state>
       </provider>
@@ -1632,7 +1643,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/edytujRole.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/role/edytujRole.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="96" column="7" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
@@ -1662,10 +1673,10 @@
             <element signature="imports" expanded="false" />
             <element signature="e#1057#1058#0" expanded="false" />
             <element signature="e#1147#1148#0" expanded="false" />
-            <marker date="1492196110815" expanded="true" signature="747:814" ph="DELETE FROM " />
-            <marker date="1492196110815" expanded="true" signature="901:938" ph="DELETE FROM " />
-            <marker date="1492196110815" expanded="true" signature="1279:1580" ph="Select ksiaz... ksiazka" />
-            <marker date="1492196110815" expanded="true" signature="1765:1874" ph="Select ksiaz... ksiazka" />
+            <marker date="1492288121574" expanded="true" signature="748:815" ph="DELETE FROM " />
+            <marker date="1492288121574" expanded="true" signature="904:941" ph="DELETE FROM " />
+            <marker date="1492288121574" expanded="true" signature="1284:1585" ph="Select ksiaz... ksiazka" />
+            <marker date="1492288121574" expanded="true" signature="1770:1879" ph="Select ksiaz... ksiazka" />
           </folding>
         </state>
       </provider>
@@ -1678,13 +1689,13 @@
             <element signature="imports" expanded="false" />
             <element signature="e#540#541#0" expanded="false" />
             <element signature="e#609#610#0" expanded="false" />
-            <marker date="1492197149233" expanded="true" signature="1261:1322" ph="select rola.... rola" />
-            <marker date="1492197149233" expanded="true" signature="1543:1570" ph="Select rola.... rola" />
-            <marker date="1492197149233" expanded="true" signature="1784:1819" ph="Select rola.... rola" />
-            <marker date="1492197149233" expanded="true" signature="2032:2247" ph="select uzytk... uzytkownik" />
-            <marker date="1492197149233" expanded="true" signature="2451:2509" ph="DELETE FROM " />
-            <marker date="1492197149233" expanded="true" signature="2596:2639" ph="DELETE FROM " />
-            <marker date="1492197149233" expanded="true" signature="2726:2757" ph="DELETE FROM " />
+            <marker date="1492288117668" expanded="true" signature="1261:1322" ph="select rola.... rola" />
+            <marker date="1492288117668" expanded="true" signature="1543:1570" ph="Select rola.... rola" />
+            <marker date="1492288117668" expanded="true" signature="1784:1819" ph="Select rola.... rola" />
+            <marker date="1492288117668" expanded="true" signature="2032:2247" ph="select uzytk... uzytkownik" />
+            <marker date="1492288117668" expanded="true" signature="2453:2511" ph="DELETE FROM " />
+            <marker date="1492288117668" expanded="true" signature="2600:2643" ph="DELETE FROM " />
+            <marker date="1492288117668" expanded="true" signature="2732:2763" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1712,14 +1723,14 @@
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#600#601#0" expanded="false" />
-            <element signature="e#655#656#0" expanded="false" />
-            <element signature="e#696#697#0" expanded="false" />
-            <element signature="e#751#752#0" expanded="false" />
-            <element signature="e#793#794#0" expanded="false" />
-            <element signature="e#855#856#0" expanded="false" />
-            <element signature="e#887#888#0" expanded="false" />
-            <element signature="e#943#944#0" expanded="false" />
+            <element signature="e#551#552#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
+            <element signature="e#702#703#0" expanded="false" />
+            <element signature="e#744#745#0" expanded="false" />
+            <element signature="e#806#807#0" expanded="false" />
+            <element signature="e#838#839#0" expanded="false" />
+            <element signature="e#894#895#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1760,7 +1771,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/usunRole.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/role/usunRole.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="90" column="67" lean-forward="false" selection-start-line="90" selection-start-column="67" selection-end-line="90" selection-end-column="67" />
@@ -1768,7 +1779,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/dodajKsiazke.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/ksiazki/dodajKsiazke.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="76" column="11" lean-forward="false" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
@@ -1776,7 +1787,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/dodajLek.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/leki/dodajLek.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="71" selection-end-column="66" />
@@ -1784,7 +1795,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/dodajOcene.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/Oceny/dodajOcene.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
           <caret line="96" column="66" lean-forward="false" selection-start-line="96" selection-start-column="66" selection-end-line="96" selection-end-column="66" />
@@ -1792,7 +1803,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/dodajRole.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/role/dodajRole.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
           <caret line="74" column="19" lean-forward="true" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
@@ -1800,7 +1811,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/dodajRoleUzytkownikowi.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/role/dodajRoleUzytkownikowi.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
@@ -1816,18 +1827,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/obslugaRol.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/role/obslugaRol.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="29" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/DzienPracyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1836,14 +1839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="99" column="34" lean-forward="false" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/dodajUprawnienie.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="87" column="73" lean-forward="false" selection-start-line="87" selection-start-column="73" selection-end-line="87" selection-end-column="73" />
           <folding />
         </state>
       </provider>
@@ -1858,12 +1853,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="986">
           <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="75" selection-end-column="5" />
           <folding>
-            <marker date="1491928048276" expanded="true" signature="1197:1258" ph="Select uzytk... uzytkownik" />
-            <marker date="1491928048276" expanded="true" signature="1488:1752" ph="select uzytk... uzytkownik" />
-            <marker date="1491928048276" expanded="true" signature="2717:2796" ph="select uzytk... uzytkownik" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#611#612#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+            <marker date="1492288118302" expanded="true" signature="1197:1258" ph="Select uzytk... uzytkownik" />
+            <marker date="1492288118302" expanded="true" signature="1489:1741" ph="select uzytk... uzytkownik" />
+            <marker date="1492288118302" expanded="true" signature="2706:2785" ph="select uzytk... uzytkownik" />
           </folding>
         </state>
       </provider>
@@ -1878,28 +1876,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/service/UprawnienieServiceImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
+        <state relative-caret-position="374">
           <caret line="31" column="54" lean-forward="false" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
           <folding>
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#537#538#0" expanded="false" />
+            <element signature="e#609#610#0" expanded="false" />
+            <element signature="e#651#652#0" expanded="false" />
+            <element signature="e#707#708#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/RolaRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="238">
           <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/obslugaUprawnien.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="32" column="100" lean-forward="false" selection-start-line="32" selection-start-column="100" selection-end-line="32" selection-end-column="100" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1907,44 +1902,132 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#424#425#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="false" />
+            <element signature="e#484#485#0" expanded="false" />
+            <element signature="e#509#510#0" expanded="false" />
+            <element signature="e#542#543#0" expanded="false" />
+            <element signature="e#570#571#0" expanded="false" />
+            <element signature="e#602#603#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+            <element signature="e#672#673#0" expanded="false" />
+            <element signature="e#706#707#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/UprawnienieRepositoryImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="357">
           <caret line="30" column="141" lean-forward="false" selection-start-line="30" selection-start-column="141" selection-end-line="30" selection-end-column="141" />
           <folding>
-            <marker date="1492274619014" expanded="true" signature="929:996" ph="select upraw... uprawnienie" />
-            <marker date="1492274619014" expanded="true" signature="929:1010" ph="select upraw... uprawnienie" />
-            <marker date="1492274619014" expanded="true" signature="1263:1455" ph="select upraw... uprawnienie" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#544#545#0" expanded="false" />
+            <element signature="e#620#621#0" expanded="false" />
+            <marker date="1492288119593" expanded="true" signature="929:996" ph="select upraw... uprawnienie" />
+            <marker date="1492288119593" expanded="true" signature="929:1010" ph="select upraw... uprawnienie" />
+            <marker date="1492288119593" expanded="true" signature="1262:1454" ph="select upraw... uprawnienie" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/OcenaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="77" column="5" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="77" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/SecurityController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
-            <element signature="e#6052#6062#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/dodajUprawnienie.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="99" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/usunUprawnienie.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="93" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/DzienPracyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/UprawnieniaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+        <state relative-caret-position="259">
+          <caret line="109" column="52" lean-forward="false" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4221#4229#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/obslugaUprawnien.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="40" column="102" lean-forward="false" selection-start-line="40" selection-start-column="102" selection-end-line="40" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/edycjaUprawnien.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="95" column="73" lean-forward="false" selection-start-line="95" selection-start-column="73" selection-end-line="95" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/uprawnienia/edytujUprawnienie.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="92" column="50" lean-forward="false" selection-start-line="92" selection-start-column="50" selection-end-line="92" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/DzienPracyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding />
         </state>
       </provider>

@@ -53,7 +53,11 @@ public class DzienPracy {
         this.godzinaZakonczenia = godzinaZakonczenia;
     }
 
-    public Uzytkownik getUzytkownik(){return this.uzytkownik;}
+    public Uzytkownik getUzytkownik() {
+        return this.uzytkownik;
+    }
 
-    public void setUzytkownik(Uzytkownik uzytkownik){this.uzytkownik= uzytkownik;}
+    public void setUzytkownik(Uzytkownik uzytkownik) {
+        this.uzytkownik = uzytkownik;
+    }
 }

@@ -1,7 +1,6 @@
 package model.repository;
 
 import model.entity.DzienPracy;
-import model.entity.Ksiazka;
 
 import java.util.List;
 
@@ -19,8 +18,6 @@ public interface DzienPracyRepository {
     List displayAllById(int id);
 
     List displayAll();
-
-
 
 
 }

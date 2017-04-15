@@ -1,12 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Ada
-  Date: 2017-04-01
-  Time: 13:28
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d" %>
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -22,15 +16,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <title>Edytuj lek</title>
+
+    <title>Title</title>
 </head>
+
 
 <script type='text/javascript'>
     $(document).ready(function () {
-        document.getElementById('inputNazwaLeku').value = "${idLeku}";
-        document.getElementById('inputNazwaLeku').value = "${nazwaLeku}";
-        document.getElementById('inputDawkowanieLeku').value = "${dawkowanieLeku}";
-        document.getElementById('inputIloscLeku').value = "${iloscLeku}";
+        var select = document.getElementById("inputImieINazwisko");
+        <d:forEach items="${listaUzytkownikow}" var="tablicaUzytkownikow">
+        var el = document.createElement("option");
+        el.textContent = "<d:out value="${tablicaUzytkownikow[1]}"/>";
+        el.value = <d:out value="${tablicaUzytkownikow[0]}"/>;
+        select.appendChild(el);
+        </d:forEach>
+
+        select = document.getElementById("inputRola");
+        <d:forEach items="${listaRol}" var="tablicaRol">
+        el = document.createElement("option");
+        el.textContent = "<d:out value="${tablicaRol[1]}"/>";
+        el.value = <d:out value="${tablicaRol[0]}"/>;
+        select.appendChild(el);
+        </d:forEach>
     });
 </script>
 <style>
@@ -78,22 +85,24 @@
         border-color: #886933;
         background-repeat: inherit;
     }
+
     .btn-primary:hover {
         background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
         border-color: #886933;
     }
 
 </style>
-<body background="<c:url value="/resources/images/bodybg.png"/>" >
-<form class="form-signin" action=" <c:url value="/index/edytowanieLeku"/>?id=${idLeku}" method="POST">
-
-    <h2 class="form-signin-heading">Edytuj lek</h2>
-    <input name="nazwaLeku" type="text" id="inputNazwaLeku" class="form-control" placeholder="Nazwa leku" required>
-    <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie"
-           required>
-    <input type="text" name="ilosc" id="inputIloscLeku" class="form-control" placeholder="Ilosc" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Edytuj lek</button>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
+<form class="form-signin" action="<c:url value="/index/dodawanieRoliUzytkownikowi"/>" method="POST">
+    <h2 class="form-signin-heading">Proszę wybrać użytkownika i jego nową rolę</h2>
+    <label for="inputImieINazwisko" class="sr-only">Podaj imię i naziwsko</label>
+    <select name="imieINazwisko" id="inputImieINazwisko" class="form-control"></select>
+    <label for="inputRola" class="sr-only">Podaj rolę</label>
+    <select name="rola" id="inputRola" class="form-control"></select>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj</button>
 </form>
 
+<jsp:include page="../footer.jsp"/>
 </body>
+
 </html>

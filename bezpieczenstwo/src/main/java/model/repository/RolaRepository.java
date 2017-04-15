@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface RolaRepository {
     void insert(Rola rola);
+
     void delete(int id);
+
     Rola display(int id);
 
     Rola displayWithoutPermission(int id);

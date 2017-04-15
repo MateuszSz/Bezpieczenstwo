@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d" %>
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -18,6 +19,20 @@
 
     <title>Title</title>
 </head>
+
+
+<script type='text/javascript'>
+    $(document).ready(function () {
+
+        var select = document.getElementById("inputRola");
+        <d:forEach items="${listaRol}" var="tablicaRol">
+        var el = document.createElement("option");
+        el.textContent = "<d:out value="${tablicaRol}"/>";
+        el.value = "<d:out value="${tablicaRol}"/>";
+        select.appendChild(el);
+        </d:forEach>
+    });
+</script>
 <style>
     .form-signin {
         max-width: 330px;
@@ -63,27 +78,34 @@
         border-color: #886933;
         background-repeat: inherit;
     }
+
     .btn-primary:hover {
         background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
         border-color: #886933;
     }
 
 </style>
-<body background="<c:url value="/resources/images/bodybg.png"/>" >
-<%--<body background="<c:url value="/resources/images/bodybg.png"/>">--%>
-<form class="form-signin" action="<c:url value="/index/dodawanieLeku"/>" method="POST">
-    <h2 class="form-signin-heading">Proszę wpisać dane nowego leku</h2>
-    <label for="inputNazwaLeku" class="sr-only">Nazwa Leku</label>
-    <input name="nazwaLeku" type="text" id="inputNazwaLeku" class="form-control" placeholder="Nazwa leku" required>
-    <label for="inputDawkowanieLeku" class="sr-only">Dawkowanie</label>
-    <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie"
-           required>
-    <label for="inputIloscLeku" class="sr-only">Ilość na stanie</label>
-    <input type="text" name="ilosc" id="inputIloscLeku" class="form-control" placeholder="Ilosc" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nowy lek</button>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
+<center>
+    <h2 class="form-signin-heading">Proszę wybrać rolę, tablicę i uprawnienie do edycji</h2>
+</center>
+<form class="form-signin" action="<c:url value="/index/edycjaUprawnien"/>" method="POST">
+    <label for="inputTablica" class="sr-only">Podaj nazwę tablicy </label>
+    <select name="tablica" id="inputTablica" class="form-control">
+        <option value="LEKI">Leki</option>
+        <option value="KSIAZKI">Książki</option>
+        <option value="UPRAWNIENIA">Uprawnienia</option>
+        <option value="DNIPRACY">Dni pracy</option>
+        <option value="MOJEOCENY">Oceny uczniów</option>
+        <option value="WYSTAWIONEOCENY">Oceny wystawione przez nauczycieli</option>
+        <option value="UZYTKOWNICY">Użytkownicy</option>
+    </select>
+    <label for="inputRola" class="sr-only">Podaj rolę</label>
+    <select name="rola" id="inputRola" class="form-control"></select>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Przejdz do edycji</button>
 </form>
 
-<jsp:include page="footer.jsp"/>
+<jsp:include page="../footer.jsp"/>
 </body>
 
 </html>

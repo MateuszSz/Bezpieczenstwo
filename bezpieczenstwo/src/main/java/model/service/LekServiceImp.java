@@ -16,7 +16,9 @@ public class LekServiceImp implements LekService {
     @Autowired
     private LekRepository lekRepository;
 
-    public void delete(int id){ lekRepository.delete(id);}
+    public void delete(int id) {
+        lekRepository.delete(id);
+    }
 
     public void insert(Lek lek) {
         lekRepository.insert(lek);

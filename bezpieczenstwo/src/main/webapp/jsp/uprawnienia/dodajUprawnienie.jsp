@@ -78,13 +78,14 @@
         border-color: #886933;
         background-repeat: inherit;
     }
+
     .btn-primary:hover {
         background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
         border-color: #886933;
     }
 
 </style>
-<body background="<c:url value="/resources/images/bodybg.png"/>" >
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <form class="form-signin" action="<c:url value="/index/dodawanieUprawnien"/>" method="POST">
     <h2 class="form-signin-heading">Proszę wybrać rolę, tablicę i uprawnienie</h2>
     <label for="inputTablica" class="sr-only">Podaj nazwę tablicy aby nadać uprawnienia</label>

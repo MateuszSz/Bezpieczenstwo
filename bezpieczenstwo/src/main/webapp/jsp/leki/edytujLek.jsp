@@ -2,24 +2,37 @@
 <%--
   Created by IntelliJ IDEA.
   User: Ada
-  Date: 2017-04-08
-  Time: 19:57
+  Date: 2017-04-01
+  Time: 13:28
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>3
-    <title>Dodaj dzien pracy</title>
+            crossorigin="anonymous"></script>
+    <title>Edytuj lek</title>
 </head>
+
+<script type='text/javascript'>
+    $(document).ready(function () {
+        document.getElementById('inputNazwaLeku').value = "${idLeku}";
+        document.getElementById('inputNazwaLeku').value = "${nazwaLeku}";
+        document.getElementById('inputDawkowanieLeku').value = "${dawkowanieLeku}";
+        document.getElementById('inputIloscLeku').value = "${iloscLeku}";
+    });
+</script>
 <style>
     .form-signin {
         max-width: 330px;
@@ -65,24 +78,23 @@
         border-color: #886933;
         background-repeat: inherit;
     }
+
     .btn-primary:hover {
         background-image: linear-gradient(to bottom, #6b5633 100%, rgba(226, 162, 50, 0.62) 0%);
         border-color: #886933;
     }
 
 </style>
-<body background="<c:url value="/resources/images/bodybg.png"/>" >
-<form class="form-signin" action="<c:url value="/index/dodawanieDniaPracy"/> " method="POST">
-    <h2 class="form-signin-heading">Proszę wpisać dane nowego dnia pracy</h2>
-    <label for="inputDzien" class="sr-only">Dzień tygodnia</label>
-    <input name="dzienTygodnia" type="text" id="inputDzien" class="form-control" placeholder="Dzien tygodnia" required>
-    <label for="inputGodzinaRozpoczecia" class="sr-only">Godzina rozpoczecia pracy</label>
-    <input type="text" name="godzinaRozpoczecia" id="inputGodzinaRozpoczecia" class="form-control" placeholder="Godzina rozpoczecia pracy" required>
-    <label for="inputGodzinaZakonczenia" class="sr-only">Godzina zakończenia pracy</label>
-    <input type="text" name="godzinaZakonczenia" id="inputGodzinaZakonczenia" class="form-control" placeholder="Godzina zakończenia pracy" required>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
+<form class="form-signin" action=" <c:url value="/index/edytowanieLeku"/>?id=${idLeku}" method="POST">
 
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nowy dzien pracy</button>
+    <h2 class="form-signin-heading">Edytuj lek</h2>
+    <input name="nazwaLeku" type="text" id="inputNazwaLeku" class="form-control" placeholder="Nazwa leku" required>
+    <input type="text" name="dawkowanie" id="inputDawkowanieLeku" class="form-control" placeholder="Dawkowanie"
+           required>
+    <input type="text" name="ilosc" id="inputIloscLeku" class="form-control" placeholder="Ilosc" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Edytuj lek</button>
+</form>
 
 </body>
 </html>

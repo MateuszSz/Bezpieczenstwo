@@ -30,7 +30,7 @@ public class UprawnienieRepositoryImp implements UprawnienieRepository {
     public Uprawnienie findByName(String name) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uprawnienie.id from uprawnienie where uprawnienie.nazwa = \"" + name + "\"");
         List results = sqlQuery.list();
-        return display ((Integer) results.get(0));
+        return display((Integer) results.get(0));
     }
 
     @Transactional

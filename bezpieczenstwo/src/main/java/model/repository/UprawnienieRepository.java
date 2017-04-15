@@ -13,5 +13,6 @@ public interface UprawnienieRepository {
     List displayAllByRoleName(String nazwa);
 
     Uprawnienie display(int id);
+
     Uprawnienie findByName(String name);
 }

@@ -24,7 +24,7 @@ public class KsiazkaController {
     @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
     @RequestMapping(value = "/index/dodajKsiazke.htm")
     public String dodajKsiazke() {
-        return "dodajKsiazke";
+        return "ksiazki/dodajKsiazke";
     }
 
 
@@ -46,7 +46,7 @@ public class KsiazkaController {
         model.addAttribute("ISBN", wybrany.getISBN());
         model.addAttribute("dostepnosc", wybrany.getDostepnosc());
         model.addAttribute("seria", wybrany.getSeria());
-        return "edytujKsiazke";
+        return "ksiazki/edytujKsiazke";
     }
 
 
@@ -68,15 +68,12 @@ public class KsiazkaController {
 
     @PreAuthorize("hasPermission(authentication, 'DELETE_KSIAZKI')")
     @RequestMapping(value = "/index/usunKsiazke")
-    public String usunKsiazke(ModelMap model,  @RequestParam("id") int id) {
+    public String usunKsiazke(ModelMap model, @RequestParam("id") int id) {
 
         ksiazkaService.delete(id);
         return "redirect:/index";
 
     }
-
-
-
 
 
 }

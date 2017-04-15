@@ -76,32 +76,36 @@
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
+
     .btn-primary {
         background-image: linear-gradient(to bottom, #6b5633 0, rgba(226, 162, 50, 0.62) 100%);
         border-color: #886933;
     }
+
     .btn-primary:hover {
         background-image: linear-gradient(to bottom, #6b5633 0, rgba(226, 162, 50, 0.62) 100%);
         border-color: #886933;
     }
 
-    table{
+    table {
         padding: 15px;
         border: 1px solid #6b5633;
         border-collapse: collapse;
 
     }
 
-    th{
+    th {
         background-color: wheat;
         text-align: center;
         padding: 5px;
         border: 1px solid #6b5633;
     }
-    td{
+
+    td {
         padding: 5px;
         border: 1px solid #6b5633;
     }
+
     .container {
         width: 80%;
 
@@ -117,11 +121,11 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <%--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"--%>
-                        <%--aria-expanded="false" aria-controls="navbar">--%>
-                    <%--<span class="sr-only">Toggle navigation</span>--%>
-                    <%--<span class="icon-bar"></span>--%>
-                    <%--<span class="icon-bar"></span>--%>
-                    <%--<span class="icon-bar"></span>--%>
+                <%--aria-expanded="false" aria-controls="navbar">--%>
+                <%--<span class="sr-only">Toggle navigation</span>--%>
+                <%--<span class="icon-bar"></span>--%>
+                <%--<span class="icon-bar"></span>--%>
+                <%--<span class="icon-bar"></span>--%>
                 <%--</button>--%>
                 <a class="navbar-brand" href='<spring:url value="/index"/>'>Szkoła podstawowa numer 1</a>
             </div>

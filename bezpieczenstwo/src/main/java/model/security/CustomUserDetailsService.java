@@ -4,7 +4,6 @@ import model.entity.Rola;
 import model.entity.Uzytkownik;
 import model.repository.UzytkownikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -54,7 +53,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 auths.add(new SimpleGrantedAuthority(r.getNazwa()));
             }
             if (!nazwy.contains(wybranaRola)) {
-                request.setAttribute("wiadomosc", "Użytkownik nie posiada roli: "+ wybranaRola);
+                request.setAttribute("wiadomosc", "Użytkownik nie posiada roli: " + wybranaRola);
                 throw new RoleException("Password incorrect");
 
             }

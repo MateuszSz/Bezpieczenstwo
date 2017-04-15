@@ -18,7 +18,8 @@
                 </c:forEach>
             </tr>
         </c:forEach>
-    </table><br/>
+    </table>
+    <br/>
 </sec:authorize>
 
 <sec:authorize access="hasPermission(#user, 'ADD_ROLE')">

@@ -29,6 +29,14 @@
     </table>
 </sec:authorize>
 
-<sec:authorize access="hasPermission(#user, 'ADD_ROLE')">
+<sec:authorize access="hasPermission(#user, 'ADD_UPRAWNIENIA')">
     <a href="<c:url value="/index/dodajUprawnienie.htm"/>" class="btn btn-default">Dodaj uprawnienie</a>
+</sec:authorize>
+
+<sec:authorize access="hasPermission(#user, 'DELETE_UPRAWNIENIA')">
+    <a href="<c:url value="/index/usunUprawnienie.htm"/>" class="btn btn-default">Usuń uprawnienie</a>
+</sec:authorize>
+
+<sec:authorize access="hasPermission(#user, 'EDIT_UPRAWNIENIA')">
+    <a href="<c:url value="/index/edytujUprawnienie.htm"/>" class="btn btn-default">Edytuj uprawnienia</a><br><br>
 </sec:authorize>

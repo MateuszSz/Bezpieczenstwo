@@ -17,13 +17,14 @@ public class Ocena {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Uzytkownik uczen;
 
-    public Ocena(){}
+    public Ocena() {
+    }
 
-    public Ocena(String ocena, String przedmiot, Uzytkownik nauczyciel, Uzytkownik uczen){
-        this.ocena=ocena;
-        this.przedmiot=przedmiot;
-        this.nauczyciel=nauczyciel;
-        this.uczen=uczen;
+    public Ocena(String ocena, String przedmiot, Uzytkownik nauczyciel, Uzytkownik uczen) {
+        this.ocena = ocena;
+        this.przedmiot = przedmiot;
+        this.nauczyciel = nauczyciel;
+        this.uczen = uczen;
 
 
     }

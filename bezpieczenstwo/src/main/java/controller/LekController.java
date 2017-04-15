@@ -22,16 +22,17 @@ public class LekController {
     private LekService lekService;
 
 
-    @RequestMapping(value="/wyloguj")
-    public String wyswietlWiadomoscWylogowania(){
+    @RequestMapping(value = "/wyloguj")
+    public String wyswietlWiadomoscWylogowania() {
         return "logout";
     }
+
     //Sprawdzenie czy, osoba która chce się dostać do tej metody ma uprawnienia dodawania lekow
     @PreAuthorize("hasPermission(authentication, 'ADD_LEKI')")
     @RequestMapping(value = "/index/dodajLek.htm")
     public String dodajLek() {
 
-        return "dodajLek";
+        return "leki/dodajLek";
     }
 
     @PreAuthorize("hasPermission(authentication, 'ADD_LEKI')")
@@ -52,7 +53,7 @@ public class LekController {
         model.addAttribute("nazwaLeku", wybrany.getNazwaLeku());
         model.addAttribute("dawkowanieLeku", wybrany.getDawkowanie());
         model.addAttribute("iloscLeku", wybrany.getIlosc());
-        return "edytujLek";
+        return "leki/edytujLek";
     }
 
     @PreAuthorize("hasPermission(authentication, 'EDIT_LEKI')")
@@ -71,13 +72,12 @@ public class LekController {
 
     @PreAuthorize("hasPermission(authentication, 'DELETE_LEKI')")
     @RequestMapping(value = "/index/usunLek")
-    public String usunKsiazke(ModelMap model,  @RequestParam("id") int id) {
+    public String usunKsiazke(ModelMap model, @RequestParam("id") int id) {
 
         lekService.delete(id);
         return "redirect:/index";
 
     }
-
 
 
 }

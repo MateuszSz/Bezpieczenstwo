@@ -1,4 +1,11 @@
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: Ada
+  Date: 2017-04-08
+  Time: 11:43
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,8 +23,17 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
 
-    <title>Title</title>
+
+    <title>Edytuj ocene</title>
 </head>
+<script type='text/javascript'>
+    $(document).ready(function () {
+        document.getElementById('inputPrzedmiot').value = "${przedmiot}";
+        document.getElementById('inputOcena').value = "${ocena}";
+        document.getElementById('inputUczen').value = "${nazwiskoUcznia}";
+
+    });
+</script>
 <style>
     .form-signin {
         max-width: 330px;
@@ -71,13 +87,14 @@
 
 </style>
 <body background="<c:url value="/resources/images/bodybg.png"/>">
-<center>
-    <%--<body background="<c:url value="/resources/images/bodybg.png"/>">--%>
-    <h2 class="form-signin-heading">Wylogowano się pomyślnie. Miłego dnia!</h2>
-    <a href="<c:url value="/index"/>" class="btn btn-default">Zaloguj się ponownie</a>
-</center>
+<form class="form-signin" action="<c:url value="/index/edytowanieOceny" />?id=${idOceny}" method="POST">
+    <h2 class="form-signin-heading">Edytuj ocene</h2>
+    <input name="przedmiot" type="text" id="inputPrzedmiot" class="form-control" placeholder="Przedmiot" required>
+    <input type="text" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
+    <input type="text" name="uczen" id="inputUczen" class="form-control" placeholder="Uczen" required readonly>
 
-<jsp:include page="footer.jsp"/>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Zapisz</button>
+</form>
+
 </body>
-
 </html>

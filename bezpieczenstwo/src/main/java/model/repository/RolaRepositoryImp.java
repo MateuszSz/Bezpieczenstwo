@@ -65,11 +65,12 @@ public class RolaRepositoryImp implements RolaRepository {
         List results = sqlQuery.list();
         return results;
     }
+
     @Transactional
-    public void delete(int id){
-        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik_rola WHERE uzytkownik_rola.role_id="+id);
-        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM rola_uprawnienie WHERE rola_id="+id);
-        SQLQuery sqlQuery3 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM rola WHERE rola.id="+id);
+    public void delete(int id) {
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik_rola WHERE uzytkownik_rola.role_id=" + id);
+        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM rola_uprawnienie WHERE rola_id=" + id);
+        SQLQuery sqlQuery3 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM rola WHERE rola.id=" + id);
         sqlQuery.executeUpdate();
         sqlQuery2.executeUpdate();
         sqlQuery3.executeUpdate();
