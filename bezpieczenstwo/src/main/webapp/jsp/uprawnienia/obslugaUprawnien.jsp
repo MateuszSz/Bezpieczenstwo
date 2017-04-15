@@ -28,3 +28,7 @@
         </c:forEach>
     </table>
 </sec:authorize>
+
+<sec:authorize access="hasPermission(#user, 'ADD_ROLE')">
+    <a href="<c:url value="/index/dodajUprawnienie.htm"/>" class="btn btn-default">Dodaj uprawnienie</a>
+</sec:authorize>

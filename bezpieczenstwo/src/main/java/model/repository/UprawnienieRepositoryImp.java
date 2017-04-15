@@ -27,6 +27,13 @@ public class UprawnienieRepositoryImp implements UprawnienieRepository {
     }
 
     @Transactional
+    public Uprawnienie findByName(String name) {
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uprawnienie.id from uprawnienie where uprawnienie.nazwa = \"" + name + "\"");
+        List results = sqlQuery.list();
+        return display ((Integer) results.get(0));
+    }
+
+    @Transactional
     public List displayAllByRoleName(String nazwa) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uprawnienie.nazwa from uprawnienie, rola_uprawnienie, rola WHERE rola_uprawnienie.Rola_id = rola.id and rola_uprawnienie.uprawnienia_id = uprawnienie.id and rola.nazwa = '" + nazwa + "'");
         List results = sqlQuery.list();

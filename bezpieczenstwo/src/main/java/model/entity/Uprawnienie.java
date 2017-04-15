@@ -37,4 +37,5 @@ public class Uprawnienie {
     public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
+
 }

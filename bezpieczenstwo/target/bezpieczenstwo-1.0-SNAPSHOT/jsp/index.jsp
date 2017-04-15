@@ -110,7 +110,7 @@
 <br><br>
 <center>
     <jsp:include page="obslugaRol.jsp"/>
-    <jsp:include page="obslugaUprawnien.jsp"/>
+    <jsp:include page="uprawnienia/obslugaUprawnien.jsp"/>
     <sec:authorize access="hasPermission(#user, 'READ_LEKI')">
         <p>Lista leków, które aktualnie znajdują się w pokoju 513.</p>
         <table class="sortable">

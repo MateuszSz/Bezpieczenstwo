@@ -27,4 +27,8 @@ public class UprawnienieServiceImp implements UprawnienieService {
     public Uprawnienie display(int id) {
         return uprawnienieRepository.display(id);
     }
+
+    public Uprawnienie findByName(String name) {
+        return uprawnienieRepository.findByName(name);
+    }
 }
