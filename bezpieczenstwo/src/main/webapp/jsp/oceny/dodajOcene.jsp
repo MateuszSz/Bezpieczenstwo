@@ -37,7 +37,7 @@
         el.textContent = "<d:out value="${uczen[1]}"/>";
         el.value = "<d:out value="${uczen[0]}"/>";
         select.appendChild(el);
-        alert("Hello! I am an alert box!!");
+
         </d:forEach>
 
 
@@ -96,14 +96,23 @@
 
 </style>
 <body background="<c:url value="/resources/images/bodybg.png"/>">
+<center>
+    <h2 class="form-signin-heading">Proszę wybrać ucznia, przedmiot oraz podać ocenę.</h2>
+</center>
 <form class="form-signin" action="<c:url value="/index/dodawanieOceny"/> " method="POST">
-    <h2 class="form-signin-heading">Proszę wybrać ucznia, wpisać przedmiot oraz ocenę.</h2>
-    <!--<label for="inputImieINazwisko" class="sr-only">Podaj imię i naziwsko</label>
-    <select name="imieINazwisko" id="inputImieINazwisko" class="form-control"></select>-->
+    <label for="inputImieINazwisko" class="sr-only">Podaj imię i naziwsko</label>
+    <select name="imieINazwisko" id="inputImieINazwisko" class="form-control"></select>
     <label for="inputOcena" class="sr-only">Ocena</label>
-    <input type="text" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
+    <input type="number" step="0.01" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
     <label for="inputPrzedmiot" class="sr-only">Przedmiot</label>
-    <input type="text" name="przedmiot" id="inputPrzedmiot" class="form-control" placeholder="Przedmiot" required>
+    <select name="przedmiot" id="inputPrzedmiot" class="form-control">
+        <option value="Przyroda">Przyroda</option>
+        <option value="Historia">Historia</option>
+        <option value="J.polski">J.Polski</option>
+        <option value="J.angielski">J.Angielski</option>
+        <option value="WF">WF</option>
+        <option value="Matematyka">Matematyka</option>
+    </select>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj</button>
 </form>
 

@@ -209,7 +209,7 @@
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_KSIAZKI')">
-        <a href="<c:url value="/index/dodajKsiazke.htm"/>" class="btn btn-default">Dodaj ksiazke</a>
+        <a href="<c:url value="/index/dodajKsiazke.htm"/>" class="btn btn-default">Dodaj ksiazke</a><br>
     </sec:authorize>
     <br/>
     <sec:authorize access="hasPermission(#user, 'READ_MOJEOCENY')">
@@ -235,7 +235,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <br/>
+        <br/><br>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_WYSTAWIONEOCENY')">
@@ -261,13 +261,21 @@
                     <td>${tablicaKsiazek[2]}</td>
                     <td>${tablicaKsiazek[3]}</td>
 
-                    <td>
+
                         <sec:authorize access="hasPermission(#user, 'EDIT_WYSTAWIONEOCENY')">
+                    <td>
                             <a href="<c:url value="/index/edytujOcene.htm"/>?id=${tablicaKsiazek[0]}"
                                class="btn btn-default">Edytuj</a>
+                    </td>
                         </sec:authorize>
 
-                    </td>
+                    <sec:authorize access="hasPermission(#user, 'DELETE_WYSTAWIONEOCENY')">
+                        <td>
+                            <a href="<c:url value="/index/usunOcene"/>?id=${tablicaKsiazek[0]}"
+                               class="btn btn-default">Usuń</a>
+                        </td>
+                    </sec:authorize>
+
                 </tr>
 
             </c:forEach>
@@ -276,7 +284,7 @@
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'ADD_WYSTAWIONEOCENY')">
-        <a href="<c:url value="/index/dodajOcene.htm"/>" class="btn btn-default">Dodaj ocene</a> <br/>
+        <a href="<c:url value="/index/dodajOcene.htm"/>" class="btn btn-default">Dodaj ocene</a> <br/><br>
     </sec:authorize>
 
     <sec:authorize access="hasPermission(#user, 'READ_DNIPRACY')">

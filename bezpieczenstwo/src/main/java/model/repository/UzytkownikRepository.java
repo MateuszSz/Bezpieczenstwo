@@ -22,4 +22,8 @@ public interface UzytkownikRepository {
 
     void merge(Uzytkownik uzytkownik);
 
+    Uzytkownik displayWithMarks(int id);
+
+    int findIdUsingName(String name);
+
 }

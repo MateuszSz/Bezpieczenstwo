@@ -44,4 +44,12 @@ public class UzytkownikServiceImp implements UzytkownikService {
     public void merge(Uzytkownik uzytkownik) {
         uzytkownikRepository.merge(uzytkownik);
     }
+
+    public Uzytkownik displayWithMarks(int id) {
+        return uzytkownikRepository.displayWithMarks(id);
+    }
+
+    public int findIdUsingName(String name) {
+        return uzytkownikRepository.findIdUsingName(name);
+    }
 }

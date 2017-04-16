@@ -12,9 +12,9 @@ public class Ocena {
     private int id;
     private String ocena;
     private String przedmiot;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     private Uzytkownik nauczyciel;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     private Uzytkownik uczen;
 
     public Ocena() {

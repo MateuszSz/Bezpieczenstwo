@@ -127,7 +127,7 @@ public class InitServiceImpl {
 
         for (Ocena o : oceny) {
             ocenaRepository.insert(o);
-            uzytkownik2.getOceny().add(o);
+            uzytkownik2.getOcenyNauczyciel().add(o);
         }
 
         //Tworzenie dni pracy

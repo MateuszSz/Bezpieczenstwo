@@ -31,8 +31,18 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
         for (Rola rola : uzytkownik.getRole()) {
             Hibernate.initialize(rola.getUprawnienia());
         }
+      //  Hibernate.initialize(uzytkownik.getOceny());
         return uzytkownik;
     }
+
+    @Transactional
+    public Uzytkownik displayWithMarks(int id) {
+        Uzytkownik uzytkownik = (Uzytkownik) sessionFactory.getCurrentSession().get(Uzytkownik.class, id);
+        Hibernate.initialize(uzytkownik.getOcenyNauczyciel());
+        Hibernate.initialize(uzytkownik.getOcenyUczen());
+        return uzytkownik;
+    }
+
 
     @Transactional
     public List displayAllNamesAndId() {
@@ -74,6 +84,11 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
         List results = sqlQuery.list();
         return (Integer) results.get(0);
     }
-
+    @Transactional
+    public int findIdUsingName(String name) {
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uzytkownik.id from uzytkownik where uzytkownik.imieINazwisko = \"" + name + "\"");
+        List results = sqlQuery.list();
+        return (Integer) results.get(0);
+    }
 
 }

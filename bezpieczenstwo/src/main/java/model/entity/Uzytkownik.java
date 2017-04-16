@@ -18,13 +18,17 @@ public class Uzytkownik {
     private String email;
     private String haslo;
     private String imieINazwisko;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "")
     private Collection<Lek> leki = new HashSet<Lek>();
     @OneToMany(cascade = CascadeType.ALL)
     private Collection<Ksiazka> ksiazki = new HashSet<Ksiazka>();
-    @OneToMany(cascade = CascadeType.ALL)
-    private Collection<Ocena> oceny = new HashSet<Ocena>();
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "nauczyciel")
+    private Collection<Ocena> ocenyNauczyciel = new HashSet<Ocena>();
+
+    @OneToMany(mappedBy = "uczen")
+    private Collection<Ocena> ocenyUczen = new HashSet<Ocena>();
+
+    @OneToMany(mappedBy = "uzytkownik")
     private Collection<DzienPracy> dniPracy = new HashSet<DzienPracy>();
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -66,12 +70,20 @@ public class Uzytkownik {
         this.ksiazki = ksiazki;
     }
 
-    public Collection<Ocena> getOceny() {
-        return oceny;
+    public Collection<Ocena> getOcenyNauczyciel() {
+        return ocenyNauczyciel;
     }
 
-    public void setOceny(Collection<Ocena> oceny) {
-        this.oceny = oceny;
+    public void setOcenyNauczyciel(Collection<Ocena> ocenyNauczyciel) {
+        this.ocenyNauczyciel = ocenyNauczyciel;
+    }
+
+    public Collection<Ocena> getOcenyUczen() {
+        return ocenyUczen;
+    }
+
+    public void setOcenyUczen(Collection<Ocena> ocenyUczen) {
+        this.ocenyUczen = ocenyUczen;
     }
 
     public Collection<DzienPracy> getDniPracy() {

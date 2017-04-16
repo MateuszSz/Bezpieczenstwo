@@ -90,7 +90,7 @@
 <form class="form-signin" action="<c:url value="/index/edytowanieOceny" />?id=${idOceny}" method="POST">
     <h2 class="form-signin-heading">Edytuj ocene</h2>
     <input name="przedmiot" type="text" id="inputPrzedmiot" class="form-control" placeholder="Przedmiot" required>
-    <input type="text" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
+    <input type="number" step="0.01" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
     <input type="text" name="uczen" id="inputUczen" class="form-control" placeholder="Uczen" required readonly>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Zapisz</button>

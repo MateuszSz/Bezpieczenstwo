@@ -2,6 +2,7 @@ package controller;
 
 import model.entity.Ocena;
 import model.entity.Uzytkownik;
+import model.security.CustomUserDetails;
 import model.service.OcenaService;
 import model.service.UzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * Created by Ada on 2017-04-06.
@@ -27,7 +30,10 @@ public class OcenaController {
 
     @PreAuthorize("hasPermission(authentication, 'ADD_WYSTAWIONEOCENY')")
     @RequestMapping(value = "/index/dodajOcene.htm")
-    public String dodajOcene() {
+    public String dodajOcene(ModelMap model) {
+
+        List uczniowie = uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
+        model.addAttribute("listaUczniow" , uczniowie);
         return "Oceny/dodajOcene";
     }
 
@@ -48,16 +54,12 @@ public class OcenaController {
 
     @PreAuthorize("hasPermission(authentication, 'ADD_WYSTAWIONEOCENY')")
     @RequestMapping(value = "/index/dodawanieOceny", method = RequestMethod.POST)
-    public String dodawanieOceny(Authentication authentication, @ModelAttribute Ocena ocena) {
-
-
-        Uzytkownik nauczyciel = uzytkownikService.display(1);
+    public String dodawanieOceny(Authentication authentication, @RequestParam("imieINazwisko")int imieINazwisko, @ModelAttribute Ocena ocena) {
+        CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+        Uzytkownik nauczyciel = uzytkownikService.displayWithMarks(customUserDetails.getId());
         ocena.setNauczyciel(nauczyciel);
-        Uzytkownik uczen = uzytkownikService.display(3);
-
-
-        ocena.setUczen(uczen);
-
+        Uzytkownik uczen = uzytkownikService.displayWithMarks(imieINazwisko);
+       ocena.setUczen(uczen);
         ocenaService.insert(ocena);
         return "redirect:/index";
 
@@ -89,5 +91,28 @@ public class OcenaController {
 
     }
 
+    @PreAuthorize("hasPermission(authentication, 'DELETE_WYSTAWIONEOCENY')")
+    @RequestMapping(value="/index/usunOcene", method = RequestMethod.GET)
+    public String usuwanieOceny(ModelMap model, @RequestParam("id") int id) {
+        Ocena usunieta = ocenaService.display(id);
+        Uzytkownik nauczyciel = uzytkownikService.displayWithMarks(usunieta.getNauczyciel().getId());
+        Uzytkownik uczen = uzytkownikService.displayWithMarks(usunieta.getUczen().getId());
 
+        for(Ocena o :nauczyciel.getOcenyNauczyciel()){
+            if(o.getId() == usunieta.getId())
+                usunieta = o;
+        }
+        nauczyciel.getOcenyNauczyciel().remove(usunieta);
+
+        for(Ocena o : uczen.getOcenyUczen()){
+            if(o.getId() == usunieta.getId())
+                usunieta = o;
+        }
+        uczen.getOcenyUczen().remove(usunieta);
+
+        uzytkownikService.insert(nauczyciel);
+        uzytkownikService.insert(uczen);
+        return "redirect:/index";
+
+    }
 }

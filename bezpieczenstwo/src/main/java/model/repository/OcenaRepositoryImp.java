@@ -1,6 +1,7 @@
 package model.repository;
 
 import model.entity.Ocena;
+import org.hibernate.Hibernate;
 import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,10 @@ public class OcenaRepositoryImp implements OcenaRepository {
     }
 
     public Ocena display(int id) {
-        return (Ocena) sessionFactory.getCurrentSession().get(Ocena.class, id);
+        Ocena ocena =  (Ocena) sessionFactory.getCurrentSession().get(Ocena.class, id);
+        Hibernate.initialize(ocena.getNauczyciel());
+        Hibernate.initialize(ocena.getUczen());
+        return ocena;
 
     }
 
