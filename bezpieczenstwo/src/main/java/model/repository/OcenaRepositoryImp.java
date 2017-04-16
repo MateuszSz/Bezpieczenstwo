@@ -32,6 +32,14 @@ public class OcenaRepositoryImp implements OcenaRepository {
 
     }
 
+    public void delete(int id) {
+        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM ocena WHERE ocena.id=" + id);
+        sqlQuery2.executeUpdate();
+
+    }
+
+
+
     public List displayAllByIdNauczyciela(int id) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery
                 ("Select o.id, o.przedmiot, o.ocena, u.imieINazwisko from ocena o, uzytkownik u WHERE o.nauczyciel_id=" + id + " and u.id=o.uczen_id");

@@ -19,6 +19,10 @@ public class OcenaServiceImp implements OcenaService {
         ocenaRepository.insert(ocena);
     }
 
+    public void delete(int id) {
+        ocenaRepository.delete(id);
+    }
+
     public Ocena display(int id) {
         return ocenaRepository.display(id);
 

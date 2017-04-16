@@ -10,7 +10,7 @@ import java.util.List;
 public interface OcenaRepository {
 
     void insert(Ocena ocena);
-
+    void delete(int id);
     //void delete(int id);
 
     Ocena display(int id);

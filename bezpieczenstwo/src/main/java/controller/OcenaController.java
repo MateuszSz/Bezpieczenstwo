@@ -112,6 +112,7 @@ public class OcenaController {
 
         uzytkownikService.insert(nauczyciel);
         uzytkownikService.insert(uczen);
+        ocenaService.delete(usunieta.getId());
         return "redirect:/index";
 
     }

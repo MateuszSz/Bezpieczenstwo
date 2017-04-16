@@ -2,30 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf85b038-7603-4761-b710-5d5e79cff6b2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/entity/Ocena.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/entity/Ocena.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/entity/Uzytkownik.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/entity/Uzytkownik.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UzytkownikRepository.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UzytkownikRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UzytkownikRepositoryImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/repository/UzytkownikRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/InitServiceImpl.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/InitServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/UzytkownikServiceImp.class" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/WEB-INF/classes/model/service/UzytkownikServiceImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/entity/Ocena.class" afterPath="$PROJECT_DIR$/target/classes/model/entity/Ocena.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/entity/Uzytkownik.class" afterPath="$PROJECT_DIR$/target/classes/model/entity/Uzytkownik.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/UzytkownikRepository.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/UzytkownikRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/repository/UzytkownikRepositoryImp.class" afterPath="$PROJECT_DIR$/target/classes/model/repository/UzytkownikRepositoryImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/InitServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/model/service/InitServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/model/service/UzytkownikServiceImp.class" afterPath="$PROJECT_DIR$/target/classes/model/service/UzytkownikServiceImp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/OcenaController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/OcenaController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/entity/Ocena.java" afterPath="$PROJECT_DIR$/src/main/java/model/entity/Ocena.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/entity/Uzytkownik.java" afterPath="$PROJECT_DIR$/src/main/java/model/entity/Uzytkownik.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepository.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/InitServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/UzytkownikServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/UzytkownikServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/oceny/dodajOcene.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/oceny/dodajOcene.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/jsp/oceny/edytujOcene.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/oceny/edytujOcene.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/service/OcenaServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/model/service/OcenaServiceImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" afterPath="$PROJECT_DIR$/target/bezpieczenstwo-1.0-SNAPSHOT/jsp/index.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,35 +39,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OcenaController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OcenaController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/OcenaController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-148">
-              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OcenaRepositoryImp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-              <folding>
-                <marker date="1492370064639" expanded="true" signature="1057:1187" ph="Select o.id,... ocena" />
-                <marker date="1492370064639" expanded="true" signature="1406:1530" ph="Select o.prz... ocena" />
-                <marker date="1492370064639" expanded="true" signature="1733:1844" ph="Select ocena... ocena" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DzienPracyController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/DzienPracyController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state relative-caret-position="222">
+              <caret line="113" column="40" lean-forward="true" selection-start-line="113" selection-start-column="40" selection-end-line="113" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -137,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KsiazkaRepositoryImp.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KsiazkaRepositoryImp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepositoryImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="30" column="34" lean-forward="true" selection-start-line="27" selection-start-column="79" selection-end-line="30" selection-end-column="34" />
+            <state relative-caret-position="154">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <marker date="1492288121574" expanded="true" signature="748:815" ph="DELETE FROM " />
                 <marker date="1492288121574" expanded="true" signature="904:941" ph="DELETE FROM " />
@@ -152,12 +110,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dodajRole.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/role/dodajRole.jsp">
+      <file leaf-file-name="OcenaRepositoryImp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="74" column="19" lean-forward="true" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
+            <state relative-caret-position="153">
+              <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="30" />
+              <folding>
+                <marker date="1492372241933" expanded="true" signature="1022:1055" ph="DELETE FROM " />
+                <marker date="1492372241933" expanded="true" signature="1257:1387" ph="Select o.id,... ocena" />
+                <marker date="1492372241933" expanded="true" signature="1606:1730" ph="Select o.prz... ocena" />
+                <marker date="1492372241933" expanded="true" signature="1933:2044" ph="Select ocena... ocena" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OcenaRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/OcenaRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OcenaServiceImp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/service/OcenaServiceImp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="e#508#509#0" expanded="true" />
+                <element signature="e#550#551#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -257,8 +243,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/jsp/dodajLek.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/jsp/dodajOcene.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/dodajRoleUzytkownikowi.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/edytujDzienPracy.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/edytujKsiazke.jsp" />
@@ -304,10 +288,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/oceny/edytujOcene.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/oceny/dodajOcene.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/oceny/usunOcene.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/repository/UzytkownikRepositoryImp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/OcenaController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/repository/OcenaRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/service/OcenaServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/OcenaController.java" />
       </list>
     </option>
   </component>
@@ -1281,7 +1267,7 @@
       <workItem from="1492262196850" duration="9177000" />
       <workItem from="1492280314945" duration="8088000" />
       <workItem from="1492321923398" duration="11292000" />
-      <workItem from="1492356298281" duration="14260000" />
+      <workItem from="1492356298281" duration="14834000" />
     </task>
     <task id="LOCAL-00001" summary="favicon.ico fix">
       <created>1490773701461</created>
@@ -1430,11 +1416,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492341341318</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Poprawiono edycję ocen, TODO usuwanie ocen">
+      <created>1492371893505</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1492371893505</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="341026000" />
+    <option name="totallyTimeSpent" value="341600000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1451,7 +1444,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39116204" sideWeight="0.40242058" order="15" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4091653" sideWeight="0.2473525" order="15" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0109809665" sideWeight="0.4858044" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1461,7 +1454,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39116204" sideWeight="0.5975794" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39116204" sideWeight="0.5975794" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.48789713" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33878887" sideWeight="0.42738277" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1469,7 +1462,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15548281" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4091653" sideWeight="0.75718606" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4091653" sideWeight="0.7526475" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.010590015" sideWeight="0.51419556" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -1513,7 +1506,8 @@
     <MESSAGE value="Dodano funckję dodawania uprawnień" />
     <MESSAGE value="Dodano funckję usuwania uprawnień, interfejs do edycji, i pogrupowno pliki jsp w foldery" />
     <MESSAGE value="Dodano funkcjonalnosc edycji uprawnien" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodano funkcjonalnosc edycji uprawnien" />
+    <MESSAGE value="Poprawiono edycję ocen, TODO usuwanie ocen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Poprawiono edycję ocen, TODO usuwanie ocen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1576,20 +1570,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/service/RolaServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/RolaRepositoryImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="70" column="120" lean-forward="false" selection-start-line="70" selection-start-column="120" selection-end-line="70" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/security/RoleUsernamePasswordAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1968,15 +1948,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-          <folding>
-            <marker date="1492370064639" expanded="true" signature="1057:1187" ph="Select o.id,... ocena" />
-            <marker date="1492370064639" expanded="true" signature="1406:1530" ph="Select o.prz... ocena" />
-            <marker date="1492370064639" expanded="true" signature="1733:1844" ph="Select ocena... ocena" />
-          </folding>
+        <state relative-caret-position="140">
+          <caret line="286" column="106" lean-forward="false" selection-start-line="286" selection-start-column="106" selection-end-line="286" selection-end-column="106" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1994,32 +1970,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/OcenaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="286" column="106" lean-forward="false" selection-start-line="286" selection-start-column="106" selection-end-line="286" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/KsiazkaRepositoryImp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="30" column="34" lean-forward="true" selection-start-line="27" selection-start-column="79" selection-end-line="30" selection-end-column="34" />
+        <state relative-caret-position="154">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <marker date="1492288121574" expanded="true" signature="748:815" ph="DELETE FROM " />
             <marker date="1492288121574" expanded="true" signature="904:941" ph="DELETE FROM " />
             <marker date="1492288121574" expanded="true" signature="1284:1585" ph="Select ksiaz... ksiazka" />
             <marker date="1492288121574" expanded="true" signature="1770:1879" ph="Select ksiaz... ksiazka" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/OcenaRepositoryImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="30" />
+          <folding>
+            <marker date="1492372241933" expanded="true" signature="1022:1055" ph="DELETE FROM " />
+            <marker date="1492372241933" expanded="true" signature="1257:1387" ph="Select o.id,... ocena" />
+            <marker date="1492372241933" expanded="true" signature="1606:1730" ph="Select o.prz... ocena" />
+            <marker date="1492372241933" expanded="true" signature="1933:2044" ph="Select ocena... ocena" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/repository/OcenaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/service/OcenaServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/OcenaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="113" column="40" lean-forward="true" selection-start-line="113" selection-start-column="40" selection-end-line="113" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
