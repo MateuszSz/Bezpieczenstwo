@@ -94,6 +94,7 @@
     <select name="tablica" id="inputTablica" class="form-control">
         <option value="LEKI">Leki</option>
         <option value="KSIAZKI">Książki</option>
+        <option value="ROLE">Role</option>
         <option value="UPRAWNIENIA">Uprawnienia</option>
         <option value="DNIPRACY">Dni pracy</option>
         <option value="MOJEOCENY">Oceny uczniów</option>

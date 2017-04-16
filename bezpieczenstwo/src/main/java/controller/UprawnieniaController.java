@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -105,12 +106,55 @@ public class UprawnieniaController {
             if (u.getNazwa().contains(nazwaTablicy))
                 listaUprawnien.add(u.getNazwa());
         }
+        model.addAttribute("idRoli", rola.getId());
         model.addAttribute("listaUprawnien", listaUprawnien);
         model.addAttribute("rola", nazwaRoli);
         model.addAttribute("tablica", nazwaTablicy);
         return "uprawnienia/edycjaUprawnien";
 
     }
+    @PreAuthorize("hasPermission(authentication, 'EDIT_UPRAWNIENIA')")
+    @RequestMapping(value = "/index/dokonajEdycjiUprawnien")
+    public String dokonajEdycji(@RequestParam(value = "SELECT", required = false)boolean select,
+                                @RequestParam(value = "INSERT", required = false)boolean insert,
+                                @RequestParam(value = "UPDATE", required = false)boolean update,
+                                @RequestParam(value = "DELETE", required = false)boolean delete,
+                                @RequestParam(value = "id")int id,
+                                @RequestParam(value = "nazwa")String nazwa){
+
+        Rola rola = rolaService.display(id);
+        List<Uprawnienie> uprawnienia = new ArrayList<Uprawnienie>();
+        for (Uprawnienie u : rola.getUprawnienia()) {
+            if (u.getNazwa().contains(nazwa))
+                uprawnienia.add(u);
+               // rola.getUprawnienia().remove(u);
+        }
+        for(Uprawnienie uprawnienie : uprawnienia){
+            rola.getUprawnienia().remove(uprawnienie);
+        }
+        rolaService.insert(rola);
+        if(insert) {
+            Uprawnienie u = uprawnienieService.findByName("ADD" + "_" + nazwa);
+            rola.getUprawnienia().add(u);
+        }
+        if(update) {
+            Uprawnienie u = uprawnienieService.findByName("EDIT" + "_" + nazwa);
+            rola.getUprawnienia().add(u);
+        }
+
+        if(select) {
+            Uprawnienie u = uprawnienieService.findByName("READ" + "_" + nazwa);
+            rola.getUprawnienia().add(u);
+        }
+        if(delete) {
+            Uprawnienie u = uprawnienieService.findByName("DELETE" + "_" + nazwa);
+            rola.getUprawnienia().add(u);
+        }
+        rolaService.insert(rola);
+        return "redirect:/index";
+    }
+
+
 
 
 }
