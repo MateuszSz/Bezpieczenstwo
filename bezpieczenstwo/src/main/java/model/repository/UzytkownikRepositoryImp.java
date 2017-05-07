@@ -1,7 +1,10 @@
 package model.repository;
 
+import model.entity.DzienPracy;
 import model.entity.Rola;
 import model.entity.Uzytkownik;
+import model.security.CustomPermissionEvaluator;
+import model.service.*;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.SQLQuery;
@@ -10,13 +13,30 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
 
 
 public class UzytkownikRepositoryImp implements UzytkownikRepository {
 
     @Autowired
+    private UzytkownikService uzytkownikService;
+    @Autowired
+    private KsiazkaService ksiazkaService;
+    @Autowired
+    private OcenaService ocenaService;
+    @Autowired
+    private LekService lekService;
+    @Autowired
+    private RolaService rolaService;
+    @Autowired
+    private CustomPermissionEvaluator customPermissionEvaluator;
+    @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private UprawnienieService uprawnienieService;
+    @Autowired
+    private DzienPracyService dzienPracyService;
 
     @Transactional
     public void insert(Uzytkownik uzytkownik) {
@@ -89,6 +109,19 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uzytkownik.id from uzytkownik where uzytkownik.imieINazwisko = \"" + name + "\"");
         List results = sqlQuery.list();
         return (Integer) results.get(0);
+    }
+
+    @Transactional
+    public List displayAllWithoutPassword(){
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uzytkownik.id, uzytkownik.email, uzytkownik.imieINazwisko from uzytkownik");
+        return sqlQuery.list();
+
+    }
+    @Transactional
+    public void delete(int id) {
+        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik WHERE uzytkownik.id=" + id);
+        sqlQuery2.executeUpdate();
+
     }
 
 }

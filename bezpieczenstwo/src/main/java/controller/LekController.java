@@ -2,6 +2,7 @@ package controller;
 
 import model.entity.Lek;
 import model.service.LekService;
+import model.service.UzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -11,12 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
+
 /**
  * Created by Ada on 2017-04-06.
  */
 
 @Controller
 public class LekController {
+
+    @Autowired
+    private UzytkownikService uzytkownikService;
 
     @Autowired
     private LekService lekService;
@@ -37,7 +43,8 @@ public class LekController {
 
     @PreAuthorize("hasPermission(authentication, 'ADD_LEKI')")
     @RequestMapping(value = "/index/dodawanieLeku", method = RequestMethod.POST)
-    public String dodaj(@ModelAttribute Lek lek) {
+    public String dodaj(Principal principal, @ModelAttribute Lek lek) {
+        lek.setUzytkownik(uzytkownikService.display(uzytkownikService.findIdUsingEmail(principal.getName())));
         lekService.insert(lek);
         return "redirect:/index";
 

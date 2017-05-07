@@ -2,6 +2,8 @@ package model.entity;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.REMOVE;
+
 
 /**
  * Created by Ada on 2017-04-03.
@@ -14,7 +16,7 @@ public class DzienPracy {
     private String dzienTygodnia;
     private String godzinaRozpoczecia;
     private String godzinaZakonczenia;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     private Uzytkownik uzytkownik;
 
     public DzienPracy() {

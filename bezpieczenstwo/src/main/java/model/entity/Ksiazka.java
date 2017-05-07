@@ -1,9 +1,6 @@
 package model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by mateu on 20.03.2017.
@@ -18,6 +15,8 @@ public class Ksiazka {
     private String seria;
     private String tytul;
     private String dostepnosc;
+    @ManyToOne
+    private Uzytkownik uzytkownik;
 
     public Ksiazka() {
     }
@@ -28,6 +27,31 @@ public class Ksiazka {
         this.seria = seria;
         this.tytul = tytul;
         this.dostepnosc = dostepnosc;
+    }
+
+    public Ksiazka(String autor, String ISBN, String seria, String tytul, String dostepnosc, Uzytkownik uzytkownik) {
+        this.autor = autor;
+        this.ISBN = ISBN;
+        this.seria = seria;
+        this.tytul = tytul;
+        this.dostepnosc = dostepnosc;
+        this.uzytkownik = uzytkownik;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Uzytkownik getUzytkownik() {
+        return uzytkownik;
+    }
+
+    public void setUzytkownik(Uzytkownik uzytkownik) {
+        this.uzytkownik = uzytkownik;
     }
 
     public String getAutor() {

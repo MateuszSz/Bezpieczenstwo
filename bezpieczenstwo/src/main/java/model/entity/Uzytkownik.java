@@ -18,17 +18,17 @@ public class Uzytkownik {
     private String email;
     private String haslo;
     private String imieINazwisko;
-    @OneToMany(mappedBy = "")
+    @OneToMany(mappedBy = "uzytkownik", orphanRemoval=true)
     private Collection<Lek> leki = new HashSet<Lek>();
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "uzytkownik", orphanRemoval=true)
     private Collection<Ksiazka> ksiazki = new HashSet<Ksiazka>();
-    @OneToMany(mappedBy = "nauczyciel")
+    @OneToMany(mappedBy = "nauczyciel", orphanRemoval=true)
     private Collection<Ocena> ocenyNauczyciel = new HashSet<Ocena>();
 
-    @OneToMany(mappedBy = "uczen")
+    @OneToMany(mappedBy = "uczen", orphanRemoval=true)
     private Collection<Ocena> ocenyUczen = new HashSet<Ocena>();
 
-    @OneToMany(mappedBy = "uzytkownik")
+    @OneToMany(mappedBy = "uzytkownik", orphanRemoval=true, cascade = CascadeType.ALL)
     private Collection<DzienPracy> dniPracy = new HashSet<DzienPracy>();
 
     @ManyToMany(cascade = CascadeType.ALL)

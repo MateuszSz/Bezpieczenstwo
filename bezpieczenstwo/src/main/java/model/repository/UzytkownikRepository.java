@@ -26,4 +26,7 @@ public interface UzytkownikRepository {
 
     int findIdUsingName(String name);
 
+    List displayAllWithoutPassword();
+    void delete(int id);
+
 }

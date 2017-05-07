@@ -87,11 +87,11 @@ public class InitServiceImpl {
         uzytkownikRepository.insert(uzytkownik4);
 
 //  TWORZENIE LEKOW
-        Lek lek = new Lek("Dwa razy dziennie", "Rutinoskorbin", "3");
+        Lek lek = new Lek("Dwa razy dziennie", "Rutinoskorbin", "3",uzytkownik2);
         List<Lek> lista = new ArrayList<Lek>();
-        lista.add(new Lek("Dwa razy dziennie, dwie tabletki po posiłku", "Ibuprom", "20"));
-        lista.add(new Lek("Raz dziennie", "Trybiotyk", "3"));
-        lista.add(new Lek("Trzy razy dziennie", "Stoperan", "30"));
+        lista.add(new Lek("Dwa razy dziennie, dwie tabletki po posiłku", "Ibuprom", "20", uzytkownik2));
+        lista.add(new Lek("Raz dziennie", "Trybiotyk", "3", uzytkownik2));
+        lista.add(new Lek("Trzy razy dziennie", "Stoperan", "30", uzytkownik2));
 
         for (Lek l : lista) {
             lekRepository.insert(l);
@@ -105,7 +105,7 @@ public class InitServiceImpl {
         //TWORZENIE KSIAZEK
 
         List<Ksiazka> ksiazki = new ArrayList<Ksiazka>();
-        ksiazki.add(new Ksiazka("Brandon Sanderson", "987-83-7480-670-1", "Siewca Wojny ", "Rozjemca", "dostepna"));
+        ksiazki.add(new Ksiazka("Brandon Sanderson", "987-83-7480-670-1", "Siewca Wojny ", "Rozjemca", "dostepna", uzytkownik2));
 
         for (Ksiazka k : ksiazki) {
             ksiazkaRepository.insert(k);
@@ -186,7 +186,7 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieReadUzytkownik = new Uprawnienie("READ_UZYTKOWNICY");
         Uprawnienie uprawnienieAddUzytkownik = new Uprawnienie("ADD_UZYTKOWNICY");
         Uprawnienie uprawnienieEditUzytkownik = new Uprawnienie("EDIT_UZYTKOWNICY");
-        Uprawnienie uprawnienieDeleteUzytkownik = new Uprawnienie("DELETE_UZYTKOWNCY");
+        Uprawnienie uprawnienieDeleteUzytkownik = new Uprawnienie("DELETE_UZYTKOWNICY");
 
         Uprawnienie uprawnienieReadDzienPracy = new Uprawnienie("READ_DNIPRACY");
         Uprawnienie uprawnienieAddDzienPracy = new Uprawnienie("ADD_DNIPRACY");

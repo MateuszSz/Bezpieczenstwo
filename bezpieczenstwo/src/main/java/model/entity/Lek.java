@@ -1,9 +1,6 @@
 package model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by mateu on 19.03.2017.
@@ -16,16 +13,32 @@ public class Lek {
     private String dawkowanie;
     private String nazwaLeku;
     private String ilosc;
+    @ManyToOne
+    private Uzytkownik uzytkownik;
 
+    public Lek(String dawkowanie, String nazwaLeku, String ilosc, Uzytkownik uzytkownik) {
+        this.dawkowanie = dawkowanie;
+        this.nazwaLeku = nazwaLeku;
+        this.ilosc = ilosc;
+        this.uzytkownik = uzytkownik;
+
+    }
 
     public Lek(String dawkowanie, String nazwaLeku, String ilosc) {
         this.dawkowanie = dawkowanie;
         this.nazwaLeku = nazwaLeku;
         this.ilosc = ilosc;
-
     }
 
     public Lek() {
+    }
+
+    public Uzytkownik getUzytkownik() {
+        return uzytkownik;
+    }
+
+    public void setUzytkownik(Uzytkownik uzytkownik) {
+        this.uzytkownik = uzytkownik;
     }
 
     public int getId() {

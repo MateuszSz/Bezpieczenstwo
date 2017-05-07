@@ -2,6 +2,7 @@ package controller;
 
 import model.entity.Ksiazka;
 import model.service.KsiazkaService;
+import model.service.UzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.security.Principal;
 
 /**
  * Created by Ada on 2017-04-06.
@@ -20,6 +23,8 @@ public class KsiazkaController {
     @Autowired
     private KsiazkaService ksiazkaService;
 
+    @Autowired
+    private UzytkownikService uzytkownikService;
 
     @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
     @RequestMapping(value = "/index/dodajKsiazke.htm")
@@ -30,7 +35,8 @@ public class KsiazkaController {
 
     @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
     @RequestMapping(value = "/index/dodawanieKsiazki", method = RequestMethod.POST)
-    public String dodawanieKsiazki(@ModelAttribute Ksiazka ksiazka) {
+    public String dodawanieKsiazki(Principal principal, @ModelAttribute Ksiazka ksiazka) {
+        ksiazka.setUzytkownik(uzytkownikService.display(uzytkownikService.findIdUsingEmail(principal.getName())));
         ksiazkaService.insert(ksiazka);
         return "redirect:/index";
 

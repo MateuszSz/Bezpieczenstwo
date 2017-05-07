@@ -52,4 +52,12 @@ public class UzytkownikServiceImp implements UzytkownikService {
     public int findIdUsingName(String name) {
         return uzytkownikRepository.findIdUsingName(name);
     }
+
+    public List displayAllWithoutPassword() {
+        return uzytkownikRepository.displayAllWithoutPassword();
+    }
+
+    public void delete(int id) {
+        uzytkownikRepository.delete(id);
+    }
 }

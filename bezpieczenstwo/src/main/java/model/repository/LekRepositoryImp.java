@@ -26,10 +26,8 @@ public class LekRepositoryImp implements LekRepository {
     }
 
     public void delete(int id) {
-
-        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik_lek WHERE uzytkownik_lek.leki_id =" + id);
+        
         SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM lek WHERE lek.id=" + id);
-        sqlQuery.executeUpdate();
         sqlQuery2.executeUpdate();
 
     }
@@ -49,8 +47,7 @@ public class LekRepositoryImp implements LekRepository {
 
     public List displayAll() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select lek.id, lek.nazwaLeku, lek.dawkowanie, lek.ilosc from lek");
-        List results = sqlQuery.list();
-        return results;
+        return sqlQuery.list();
     }
 
 }

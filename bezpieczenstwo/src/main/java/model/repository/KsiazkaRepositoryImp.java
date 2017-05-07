@@ -25,9 +25,7 @@ public class KsiazkaRepositoryImp implements KsiazkaRepository {
     }
 
     public void delete(int id) {
-        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik_ksiazka WHERE uzytkownik_ksiazka.ksiazki_id=" + id);
         SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM ksiazka WHERE ksiazka.id=" + id);
-        sqlQuery.executeUpdate();
         sqlQuery2.executeUpdate();
 
     }

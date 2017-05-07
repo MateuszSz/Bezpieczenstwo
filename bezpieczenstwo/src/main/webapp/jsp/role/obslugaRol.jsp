@@ -36,3 +36,16 @@
 <sec:authorize access="hasPermission(#user, 'DELETE_ROLE')">
     <a href="<c:url value="/index/usunRole.htm"/>" class="btn btn-default">Usuń rolę</a> <br/><br/>
 </sec:authorize>
+
+
+<sec:authorize access="hasPermission(#user, 'ADD_UZYTKOWNICY')">
+    <a href="<c:url value="/index/dodajUzytkownika.htm"/>" class="btn btn-default">Stwórz użytkownika</a>
+</sec:authorize>
+
+<sec:authorize access="hasPermission(#user, 'DELETE_UZYTKOWNICY')">
+    <a href="<c:url value="/index/usunUzytkownika.htm"/>" class="btn btn-default">Usuń użytkownika</a>
+</sec:authorize>
+
+<sec:authorize access="hasPermission(#user, 'EDIT_UZYTKOWNICY')">
+    <a href="<c:url value="/index/edytujUzytkownika.htm"/>" class="btn btn-default">Edycja użytkownika</a> <br/><br/>
+</sec:authorize>
