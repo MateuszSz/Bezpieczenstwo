@@ -18,85 +18,33 @@
     <link type="text/css" href="<c:url value="/resources/CSS/main.css" />" rel="stylesheet">
     <script c:url src="../resources/js/sortedTable.js"></script>
     <script c:url src="../resources/js/funkcje.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <%--<link c:url href="../resources/CSS/mainCss.css" rel="stylesheet" type="text/css">--%>
 </head>
-<%--<style>--%>
-<%--body {--%>
-<%--padding-top: 40px;--%>
-<%--padding-bottom: 40px;--%>
-<%--background-repeat: repeat-y;--%>
-<%--background-color: tan;--%>
-<%--background-size: 100%;--%>
-<%--color: #6b5633;--%>
-<%--}--%>
 
-<%--.form-signin {--%>
-<%--max-width: 330px;--%>
-<%--padding: 15px;--%>
-<%--margin: 0 auto;--%>
+<script type='text/javascript'>
+    $(document).ready(function () {
+        if("${isAuthorizeAny}" == true){
 
-<%--}--%>
+                alert('hi Admini');
 
-<%--.form-signin .form-signin-heading,--%>
-<%--.form-signin .checkbox {--%>
-<%--margin-bottom: 10px;--%>
-<%--}--%>
+        }
 
-<%--.form-signin .checkbox {--%>
-<%--font-weight: normal;--%>
-<%--}--%>
+        if("${haRoleUser}" == true){
 
-<%--.form-signin .form-control {--%>
-<%--position: relative;--%>
-<%--height: auto;--%>
-<%---webkit-box-sizing: border-box;--%>
-<%---moz-box-sizing: border-box;--%>
-<%--box-sizing: border-box;--%>
-<%--padding: 10px;--%>
-<%--font-size: 16px;--%>
-<%--}--%>
+                alert('hei User');
 
-<%--.form-signin .form-control:focus {--%>
-<%--z-index: 2;--%>
-<%--}--%>
+        }
 
-<%--.form-signin input[type="email"] {--%>
-<%--margin-bottom: -1px;--%>
-<%--border-bottom-right-radius: 0;--%>
-<%--border-bottom-left-radius: 0;--%>
-<%--}--%>
 
-<%--.form-signin input[type="password"] {--%>
-<%--margin-bottom: 10px;--%>
-<%--border-top-left-radius: 0;--%>
-<%--border-top-right-radius: 0;--%>
-<%--}--%>
-<%--.btn-primary {--%>
-<%--background-image: linear-gradient(to bottom, #6b5633 0, rgba(226, 162, 50, 0.62) 100%);--%>
-<%--border-color: #886933;--%>
-<%--}--%>
-<%--.btn-primary:hover {--%>
-<%--background-image: linear-gradient(to bottom, #6b5633 0, rgba(226, 162, 50, 0.62) 100%);--%>
-<%--border-color: #886933;--%>
-<%--}--%>
 
-<%--table{--%>
-<%--padding: 15px;--%>
-<%--border: 1px solid #6b5633;--%>
-<%--border-collapse: collapse;--%>
+    });
+</script>
 
-<%--}--%>
 
-<%--th{--%>
-<%--background-color: wheat;--%>
-<%--text-align: center;--%>
-<%--padding: 5px;--%>
-<%--}--%>
-<%--td{--%>
-<%--padding: 5px;--%>
-<%--}--%>
-
-<%--</style>--%>
 
 <body>
 
@@ -287,39 +235,45 @@
         <a href="<c:url value="/index/dodajOcene.htm"/>" class="btn btn-default">Dodaj ocene</a> <br/><br>
     </sec:authorize>
 
-    <sec:authorize access="hasPermission(#user, 'READ_DNIPRACY')">
-        <p>Twój grafik.</p>
+    <sec:authorize access="hasPermission(#user, 'READ_MOJEDNIPRACY')" var="isAuthorizeAny"></sec:authorize>
+    <sec:authorize access="hasPermission(#user, 'READ_WSZYSTKIEDNIPRACY')" var="haRoleUser"></sec:authorize>
+
+
+    <sec:authorize access="hasPermission(#user, 'READ_MOJEDNIPRACY')||hasPermission(#user, 'READ_WSZYSTKIEDNIPRACY')   ">
+    </sec:authorize>
+
+    <sec:authorize access="hasPermission(#user, 'READ_MOJEDNIPRACY')  ">
+        <p>Grafik</p>
         <table class="sortable">
             <tr>
 
                 <th>Dzień tygodnia</th>
                 <th>Godzina rozpoczecia</th>
                 <th>Godzina zakonczenia</th>
-                <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
+
+                <sec:authorize access="hasPermission(#user, 'EDIT_MOJEDNIPRACY')">
                     <th>Edytuj</th>
                 </sec:authorize>
-                <sec:authorize access="hasPermission(#user, 'DELETE_DNIPRACY')">
+                <sec:authorize access="hasPermission(#user, 'DELETE_MOJEDNIPRACY')">
                     <th>Usuń</th>
                 </sec:authorize>
-
-
             </tr>
-            <c:forEach items="${listaDniPracy}" var="tablicaDni">
+            <c:forEach items="${listaMoichDniPracy}" var="tablicaDni">
                 <tr>
 
                     <td>${tablicaDni[1]}</td>
                     <td>${tablicaDni[2]}</td>
                     <td>${tablicaDni[3]}</td>
 
-                    <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
+                    <sec:authorize access="hasPermission(#user, 'EDIT_MOJEDNIPRACY')">
                         <td>
-                            <a href="<c:url value="/index/edytujDzienPracy.htm"/>?id=${tablicaDni[0]}"
+                            <a href="<c:url value="/index/edytujDzienPracy.htm"/>?id=${tablicaDni[0]}&idPracownika="${idUzytkownika}"}"
                                class="btn btn-default">Edytuj</a>
                         </td>
                     </sec:authorize>
 
 
-                    <sec:authorize access="hasPermission(#user, 'DELETE_DNIPRACY')">
+                    <sec:authorize access="hasPermission(#user, 'DELETE_MOJEDNIPRACY')">
                         <td>
                             <a href="<c:url value="/index/usunDzienPracy"/>?id=${tablicaDni[0]}"
                                class="btn btn-default">Usuń</a>
@@ -334,7 +288,59 @@
         <br/>
     </sec:authorize>
 
-    <sec:authorize access="hasPermission(#user, 'ADD_DNIPRACY')">
+    <sec:authorize access="hasPermission(#user, 'ADD_MOJEDNIPRACY')">
+        <a href="<c:url value="/index/dodajDzienPracy.htm"/>" class="btn btn-default">Dodaj dzień pracy</a><br/>
+    </sec:authorize>
+
+    <sec:authorize access="hasPermission(#user, 'READ_WSZYSTKIEDNIPRACY')">
+        <p>Twój grafik.</p>
+        <table class="sortable">
+            <tr>
+
+                <th>Dzień tygodnia</th>
+                <th>Godzina rozpoczecia</th>
+                <th>Godzina zakonczenia</th>
+                <th>Osoba</th>
+                <sec:authorize access="hasPermission(#user, 'EDIT_WSZYSTKIEDNIPRACY')">
+                    <th>Edytuj</th>
+                </sec:authorize>
+                <sec:authorize access="hasPermission(#user, 'DELETE_WSZYSTKIEDNIPRACY')">
+                    <th>Usuń</th>
+                </sec:authorize>
+
+
+            </tr>
+            <c:forEach items="${listaWszystkichDniPracy}" var="tablicaDni">
+                <tr>
+
+                    <td>${tablicaDni[1]}</td>
+                    <td>${tablicaDni[2]}</td>
+                    <td>${tablicaDni[3]}</td>
+                    <td>${tablicaDni[4]}</td>
+                    <sec:authorize access="hasPermission(#user, 'EDIT_WSZYSTKIEDNIPRACY')">
+                        <td>
+                            <a href="<c:url value="/index/edytujDzienPracy.htm"/>?id=${tablicaDni[0]}&idPracownika=${tablicaDni[0]}"
+                               class="btn btn-default">Edytuj</a>
+                        </td>
+                    </sec:authorize>
+
+
+                    <sec:authorize access="hasPermission(#user, 'DELETE_WSZYSTKIEDNIPRACY')">
+                        <td>
+                            <a href="<c:url value="/index/usunDzienPracy"/>?id=${tablicaDni[0]}"
+                               class="btn btn-default">Usuń</a>
+                        </td>
+                    </sec:authorize>
+
+
+                </tr>
+
+            </c:forEach>
+        </table>
+        <br/>
+    </sec:authorize>
+
+    <sec:authorize access="hasPermission(#user, 'ADD_MOJEDNIPRACY')">
         <a href="<c:url value="/index/dodajDzienPracy.htm"/>" class="btn btn-default">Dodaj dzień pracy</a><br/>
     </sec:authorize>
 

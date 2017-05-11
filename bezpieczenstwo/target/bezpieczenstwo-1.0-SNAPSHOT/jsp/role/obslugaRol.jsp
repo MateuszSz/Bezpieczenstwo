@@ -43,7 +43,7 @@
 </sec:authorize>
 
 <sec:authorize access="hasPermission(#user, 'DELETE_UZYTKOWNICY')">
-    <a href="<c:url value="/index/usunUzytkownika.htm"/>" class="btn btn-default">Usuń użytkownika</a> 
+    <a href="<c:url value="/index/usunUzytkownika.htm"/>" class="btn btn-default">Usuń użytkownika</a>
 </sec:authorize>
 
 <sec:authorize access="hasPermission(#user, 'EDIT_UZYTKOWNICY')">

@@ -45,26 +45,27 @@ public class DzienPracyController {
 
     }
 
-    @PreAuthorize("hasPermission(authentication, 'EDIT_DNIPRACY')")
+    @PreAuthorize("hasPermission(authentication, 'EDIT_MOJEDNIPRACY')||hasPermission(authentication, 'EDIT_WSZYSTKIEDNIPRACY')")
     @RequestMapping(value = "/index/edytujDzienPracy.htm")
-    public String edytujDzienPracy(ModelMap model, @RequestParam("id") int id) {
+    public String edytujDzienPracy(ModelMap model, @RequestParam("id") int id,@RequestParam("idPracownika") int idPracownika) {
 
         DzienPracy wybrany = dzienPracyService.display(id);
         model.addAttribute("idDnia", id);
         model.addAttribute("dzienTygodnia", wybrany.getDzienTygodnia());
         model.addAttribute("godzinaRozpoczecia", wybrany.getGodzinaRozpoczecia());
         model.addAttribute("godzinaZakonczenia", wybrany.getGodzinaZakonczenia());
-
+        model.addAttribute("idPracownika", idPracownika);
         return "dzien_pracy/edytujDzienPracy";
     }
 
 
-    @PreAuthorize("hasPermission(authentication, 'EDIT_DNIPRACY')")
+    @PreAuthorize("hasPermission(authentication, 'EDIT_MOJEDNIPRACY')||hasPermission(authentication, 'EDIT_WSZYSTKIEDNIPRACY')")
     @RequestMapping(value = "/index/edytowanieDniaPracy", method = RequestMethod.POST)
-    public String edytowanieDniaPracy(ModelMap model, @ModelAttribute DzienPracy dzienPracy, @RequestParam("id") int id, Authentication authentication) {
+    public String edytowanieDniaPracy(ModelMap model, @ModelAttribute DzienPracy dzienPracy, @RequestParam("id") int id, @RequestParam("idPracownika") int idPracownika, Authentication authentication) {
 
         CustomUserDetails cs = (CustomUserDetails) authentication.getPrincipal();
-        Uzytkownik pracownik = uzytkownikService.display(cs.getId());
+        //Uzytkownik pracownik = uzytkownikService.display(cs.getId());
+        Uzytkownik pracownik = uzytkownikService.display(idPracownika);
         DzienPracy zmieniony = dzienPracyService.display(id);
         zmieniony.setUzytkownik(pracownik);
         zmieniony.setGodzinaRozpoczecia(dzienPracy.getGodzinaRozpoczecia());
@@ -78,7 +79,7 @@ public class DzienPracyController {
     }
 
 
-    @PreAuthorize("hasPermission(authentication, 'DELETE_DNIPRACY')")
+    @PreAuthorize("hasPermission(authentication, 'DELETE_MOJEDNIPRACY')")
     @RequestMapping(value = "/index/usunDzienPracy")
     public String usunDzienPracy(ModelMap model, @RequestParam("id") int id) {
 

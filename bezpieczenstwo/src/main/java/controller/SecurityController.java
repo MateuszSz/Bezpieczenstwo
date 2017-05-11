@@ -85,7 +85,8 @@ public class SecurityController {
         List mojeOceny = null;
         List wystawioneOceny = null;
         List uczniowie = null;
-        List dniPracy = null;
+        List dniMojejPracy = null;
+        List wszystkieDniPracy = null;
         String wiadomosc = "";
         if (status != null) {
             if (status.equals("usuwanie_admina"))
@@ -113,11 +114,13 @@ public class SecurityController {
             mojeOceny = ocenaService.displayAllByIdUcznia(cs.getId());
         if (customPermissionEvaluator.hasPermission(authentication, null, "ADD_WYSTAWIONEOCENY"))
             uczniowie = uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
-        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_DNIPRACY"))
-            dniPracy = dzienPracyService.displayAllById(cs.getId());
-
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_MOJEDNIPRACY"))
+            dniMojejPracy = dzienPracyService.displayAllById(cs.getId());
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_WSZYSTKIEDNIPRACY"))
+            wszystkieDniPracy = dzienPracyService.displayAll();
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
+        model.addAttribute("idUzytkownika", cs.getId());
         model.addAttribute("wiadomosc", wiadomosc);
         model.addAttribute("rola", cs.getWybranaRola());
         model.addAttribute("imieINazwisko", cs.getName());
@@ -128,7 +131,8 @@ public class SecurityController {
         model.addAttribute("listaWystawionychOcen", wystawioneOceny);
         model.addAttribute("listaMoichOcen", mojeOceny);
         model.addAttribute("listaUczniow", uczniowie);
-        model.addAttribute("listaDniPracy", dniPracy);
+        model.addAttribute("listaMoichDniPracy", dniMojejPracy);
+        model.addAttribute("listaWszystkichDniPracy", wszystkieDniPracy);
         return "index";
     }
 

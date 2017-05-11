@@ -188,10 +188,15 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieEditUzytkownik = new Uprawnienie("EDIT_UZYTKOWNICY");
         Uprawnienie uprawnienieDeleteUzytkownik = new Uprawnienie("DELETE_UZYTKOWNICY");
 
-        Uprawnienie uprawnienieReadDzienPracy = new Uprawnienie("READ_DNIPRACY");
-        Uprawnienie uprawnienieAddDzienPracy = new Uprawnienie("ADD_DNIPRACY");
-        Uprawnienie uprawnienieEditDzienPracy = new Uprawnienie("EDIT_DNIPRACY");
-        Uprawnienie uprawnienieDeleteDzienPracy = new Uprawnienie("DELETE_DNIPRACY");
+        Uprawnienie uprawnienieReadMojeDzienPracy = new Uprawnienie("READ_MOJEDNIPRACY");
+        Uprawnienie uprawnienieAddMojeDzienPracy = new Uprawnienie("ADD_MOJEDNIPRACY");
+        Uprawnienie uprawnienieEditMojeDzienPracy = new Uprawnienie("EDIT_MOJEDNIPRACY");
+        Uprawnienie uprawnienieDeleteMojeDzienPracy = new Uprawnienie("DELETE_MOJEDNIPRACY");
+
+        Uprawnienie uprawnienieReadWszystkieDzienPracy = new Uprawnienie("READ_WSZYSTKIEDNIPRACY");
+        Uprawnienie uprawnienieAddWszystkieDzienPracy = new Uprawnienie("ADD_WSZYSTKIEDNIPRACY");
+        Uprawnienie uprawnienieEditWszystkieDzienPracy = new Uprawnienie("EDIT_WSZYSTKIEDNIPRACY");
+        Uprawnienie uprawnienieDeleteWszystkieDzienPracy = new Uprawnienie("DELETE_WSZYSTKIEDNIPRACY");
 
         Uprawnienie uprawnienieReadUprawnienie = new Uprawnienie("READ_UPRAWNIENIA");
         Uprawnienie uprawnienieAddUprawnienie = new Uprawnienie("ADD_UPRAWNIENIA");
@@ -203,7 +208,7 @@ public class InitServiceImpl {
         rolaHigienistka.getUprawnienia().add(uprawnienieAddLeki);
         rolaHigienistka.getUprawnienia().add(uprawnienieEditLeki);
         rolaHigienistka.getUprawnienia().add(uprawnienieDeleteLeki);
-        rolaHigienistka.getUprawnienia().add(uprawnienieReadDzienPracy);
+        rolaHigienistka.getUprawnienia().add(uprawnienieReadMojeDzienPracy);
 
         rolaAdmina.getUprawnienia().add(uprawnienieReadUzytkownik);
         rolaAdmina.getUprawnienia().add(uprawnienieAddUzytkownik);
@@ -213,29 +218,33 @@ public class InitServiceImpl {
         rolaAdmina.getUprawnienia().add(uprawnienieAddRole);
         rolaAdmina.getUprawnienia().add(uprawnienieEditRole);
         rolaAdmina.getUprawnienia().add(uprawnienieDeleteRole);
-        rolaAdmina.getUprawnienia().add(uprawnienieReadDzienPracy);
-        rolaAdmina.getUprawnienia().add(uprawnienieAddDzienPracy);
-        rolaAdmina.getUprawnienia().add(uprawnienieEditDzienPracy);
-        rolaAdmina.getUprawnienia().add(uprawnienieDeleteDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieReadMojeDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieAddMojeDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieEditMojeDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieDeleteMojeDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieReadWszystkieDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieAddWszystkieDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieEditWszystkieDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieDeleteWszystkieDzienPracy);
         rolaAdmina.getUprawnienia().add(uprawnienieReadUprawnienie);
         rolaAdmina.getUprawnienia().add(uprawnienieAddUprawnienie);
         rolaAdmina.getUprawnienia().add(uprawnienieEditUprawnienie);
         rolaAdmina.getUprawnienia().add(uprawnienieDeleteUprawnienie);
 
-        rolaDyrektora.getUprawnienia().add(uprawnienieReadDzienPracy);
-        rolaDyrektora.getUprawnienia().add(uprawnienieAddDzienPracy);
-        rolaDyrektora.getUprawnienia().add(uprawnienieEditDzienPracy);
-        rolaDyrektora.getUprawnienia().add(uprawnienieDeleteDzienPracy);
+        rolaDyrektora.getUprawnienia().add(uprawnienieReadMojeDzienPracy);
+        rolaDyrektora.getUprawnienia().add(uprawnienieAddMojeDzienPracy);
+        rolaDyrektora.getUprawnienia().add(uprawnienieEditMojeDzienPracy);
+        rolaDyrektora.getUprawnienia().add(uprawnienieDeleteMojeDzienPracy);
         rolaDyrektora.getUprawnienia().add(uprawnienieReadKsiazki);
         rolaDyrektora.getUprawnienia().add(uprawnienieReadLeki);
 
-        rolaNauczyciel.getUprawnienia().add(uprawnienieReadDzienPracy);
+        rolaNauczyciel.getUprawnienia().add(uprawnienieReadMojeDzienPracy);
         rolaNauczyciel.getUprawnienia().add(uprawnienieReadWystawionaOcena);
         rolaNauczyciel.getUprawnienia().add(uprawnienieAddWystawionaOcena);
         rolaNauczyciel.getUprawnienia().add(uprawnienieEditWystawionaOcena);
         rolaNauczyciel.getUprawnienia().add(uprawnienieDeleteWystawionaOcena);
 
-        rolaBibliotekarz.getUprawnienia().add(uprawnienieReadDzienPracy);
+        rolaBibliotekarz.getUprawnienia().add(uprawnienieReadMojeDzienPracy);
         rolaBibliotekarz.getUprawnienia().add(uprawnienieReadKsiazki);
         rolaBibliotekarz.getUprawnienia().add(uprawnienieAddKsiazki);
         rolaBibliotekarz.getUprawnienia().add(uprawnienieEditKsiazki);
@@ -273,10 +282,15 @@ public class InitServiceImpl {
         uprawnienieRepository.insert(uprawnienieEditUzytkownik);
         uprawnienieRepository.insert(uprawnienieDeleteUzytkownik);
 
-        uprawnienieRepository.insert(uprawnienieReadDzienPracy);
-        uprawnienieRepository.insert(uprawnienieAddDzienPracy);
-        uprawnienieRepository.insert(uprawnienieEditDzienPracy);
-        uprawnienieRepository.insert(uprawnienieDeleteDzienPracy);
+        uprawnienieRepository.insert(uprawnienieReadMojeDzienPracy);
+        uprawnienieRepository.insert(uprawnienieAddMojeDzienPracy);
+        uprawnienieRepository.insert(uprawnienieEditMojeDzienPracy);
+        uprawnienieRepository.insert(uprawnienieDeleteMojeDzienPracy );
+
+        uprawnienieRepository.insert(uprawnienieReadWszystkieDzienPracy);
+        uprawnienieRepository.insert(uprawnienieAddWszystkieDzienPracy);
+        uprawnienieRepository.insert(uprawnienieEditWszystkieDzienPracy);
+        uprawnienieRepository.insert(uprawnienieDeleteWszystkieDzienPracy);
 
         uprawnienieRepository.insert(uprawnienieReadUprawnienie);
         uprawnienieRepository.insert(uprawnienieAddUprawnienie);

@@ -86,7 +86,7 @@
 
 </style>
 <body background="<c:url value="/resources/images/bodybg.png"/>">
-<form class="form-signin" action="<c:url value="/index/edytowanieDniaPracy"/>?id=${idDnia}" method="POST">
+<form class="form-signin" action="<c:url value="/index/edytowanieDniaPracy"/>?id=${idDnia}&idPracownika=${idPracownika}" method="POST">
     <h2 class="form-signin-heading">Edytuj dzien pracy</h2>
     <input name="dzienTygodnia" type="text" id="inputDzien" class="form-control" placeholder="Dzien tygodnia" required>
     <input type="text" name="godzinaRozpoczecia" id="inputGodzinaRozpoczecia" class="form-control"
