@@ -80,6 +80,7 @@ public class InitServiceImpl {
         uzytkownik2.getRole().add(rolaAdmina);
         uzytkownik2.getRole().add(rolaHigienistka);
         uzytkownik3.getRole().add(rolaUczen);
+        uzytkownik3.getRole().add(rolaHigienistka);
         uzytkownik4.getRole().add(rolaUczen);
         uzytkownikRepository.insert(uzytkownik);
         uzytkownikRepository.insert(uzytkownik2);
@@ -106,7 +107,7 @@ public class InitServiceImpl {
 
         List<Ksiazka> ksiazki = new ArrayList<Ksiazka>();
         ksiazki.add(new Ksiazka("Brandon Sanderson", "987-83-7480-670-1", "Siewca Wojny ", "Rozjemca", "dostepna", uzytkownik2));
-
+        ksiazki.add(new Ksiazka("Jane Austen", "187-87-0120-780-8", "", "Duma i uprzedzenie", "dostepna", uzytkownik2));
         for (Ksiazka k : ksiazki) {
             ksiazkaRepository.insert(k);
             uzytkownik.getKsiazki().add(k);
@@ -138,7 +139,7 @@ public class InitServiceImpl {
         dniPracy.add(new DzienPracy("Sroda", "08:00", "13:00", uzytkownik));
         dniPracy.add(new DzienPracy("Czwartek", "11:00", "18:00", uzytkownik));
         dniPracy.add(new DzienPracy("Piatek", "08:00", "12:00", uzytkownik));
-
+        dniPracy.add(new DzienPracy("Sroda", "08:00", "10:00", uzytkownik3));
         for (DzienPracy d : dniPracy) {
             dzienPracyRepository.insert(d);
             uzytkownik.getDniPracy().add(d);
@@ -193,10 +194,10 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieEditMojeDzienPracy = new Uprawnienie("EDIT_DNIPRACY");
         Uprawnienie uprawnienieDeleteMojeDzienPracy = new Uprawnienie("DELETE_DNIPRACY");
 
-//        Uprawnienie uprawnienieReadWszystkieDzienPracy = new Uprawnienie("READ_WSZYSTKIEDNIPRACY");
-//        Uprawnienie uprawnienieAddWszystkieDzienPracy = new Uprawnienie("ADD_WSZYSTKIEDNIPRACY");
-//        Uprawnienie uprawnienieEditWszystkieDzienPracy = new Uprawnienie("EDIT_WSZYSTKIEDNIPRACY");
-//        Uprawnienie uprawnienieDeleteWszystkieDzienPracy = new Uprawnienie("DELETE_WSZYSTKIEDNIPRACY");
+       Uprawnienie uprawnienieReadWszystkieDzienPracy = new Uprawnienie("READ_WSZYSTKIEDNIPRACY");
+       Uprawnienie uprawnienieAddWszystkieDzienPracy = new Uprawnienie("ADD_WSZYSTKIEDNIPRACY");
+       Uprawnienie uprawnienieEditWszystkieDzienPracy = new Uprawnienie("EDIT_WSZYSTKIEDNIPRACY");
+       Uprawnienie uprawnienieDeleteWszystkieDzienPracy = new Uprawnienie("DELETE_WSZYSTKIEDNIPRACY");
 
         Uprawnienie uprawnienieReadUprawnienie = new Uprawnienie("READ_UPRAWNIENIA");
         Uprawnienie uprawnienieAddUprawnienie = new Uprawnienie("ADD_UPRAWNIENIA");
@@ -222,10 +223,10 @@ public class InitServiceImpl {
         rolaAdmina.getUprawnienia().add(uprawnienieAddMojeDzienPracy);
         rolaAdmina.getUprawnienia().add(uprawnienieEditMojeDzienPracy);
         rolaAdmina.getUprawnienia().add(uprawnienieDeleteMojeDzienPracy);
-//        rolaAdmina.getUprawnienia().add(uprawnienieReadWszystkieDzienPracy);
-//        rolaAdmina.getUprawnienia().add(uprawnienieAddWszystkieDzienPracy);
-//        rolaAdmina.getUprawnienia().add(uprawnienieEditWszystkieDzienPracy);
-//        rolaAdmina.getUprawnienia().add(uprawnienieDeleteWszystkieDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieReadWszystkieDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieAddWszystkieDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieEditWszystkieDzienPracy);
+        rolaAdmina.getUprawnienia().add(uprawnienieDeleteWszystkieDzienPracy);
         rolaAdmina.getUprawnienia().add(uprawnienieReadUprawnienie);
         rolaAdmina.getUprawnienia().add(uprawnienieAddUprawnienie);
         rolaAdmina.getUprawnienia().add(uprawnienieEditUprawnienie);
@@ -287,10 +288,10 @@ public class InitServiceImpl {
         uprawnienieRepository.insert(uprawnienieEditMojeDzienPracy);
         uprawnienieRepository.insert(uprawnienieDeleteMojeDzienPracy );
 
-//        uprawnienieRepository.insert(uprawnienieReadWszystkieDzienPracy);
-//        uprawnienieRepository.insert(uprawnienieAddWszystkieDzienPracy);
-//        uprawnienieRepository.insert(uprawnienieEditWszystkieDzienPracy);
-//        uprawnienieRepository.insert(uprawnienieDeleteWszystkieDzienPracy);
+        uprawnienieRepository.insert(uprawnienieReadWszystkieDzienPracy);
+        uprawnienieRepository.insert(uprawnienieAddWszystkieDzienPracy);
+        uprawnienieRepository.insert(uprawnienieEditWszystkieDzienPracy);
+        uprawnienieRepository.insert(uprawnienieDeleteWszystkieDzienPracy);
 
         uprawnienieRepository.insert(uprawnienieReadUprawnienie);
         uprawnienieRepository.insert(uprawnienieAddUprawnienie);
