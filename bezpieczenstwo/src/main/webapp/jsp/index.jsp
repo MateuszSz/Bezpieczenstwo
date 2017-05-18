@@ -25,26 +25,6 @@
     <%--<link c:url href="../resources/CSS/mainCss.css" rel="stylesheet" type="text/css">--%>
 </head>
 
-<script type='text/javascript'>
-    $(document).ready(function () {
-        if("${isAuthorizeAny}" == true){
-
-                alert('hi Admini');
-
-        }
-
-        if("${haRoleUser}" == true){
-
-                alert('hei User');
-
-        }
-
-
-
-    });
-</script>
-
-
 
 <body>
 
@@ -203,23 +183,23 @@
 
 
             </tr>
-            <c:forEach items="${listaWystawionychOcen}" var="tablicaKsiazek">
+            <c:forEach items="${listaWystawionychOcen}" var="tablicaWystawionychOcen">
                 <tr>
-                    <td>${tablicaKsiazek[1]}</td>
-                    <td>${tablicaKsiazek[2]}</td>
-                    <td>${tablicaKsiazek[3]}</td>
+                    <td>${tablicaWystawionychOcen[1]}</td>
+                    <td>${tablicaWystawionychOcen[2]}</td>
+                    <td>${tablicaWystawionychOcen[3]}</td>
 
 
                         <sec:authorize access="hasPermission(#user, 'EDIT_WYSTAWIONEOCENY')">
                     <td>
-                            <a href="<c:url value="/index/edytujOcene.htm"/>?id=${tablicaKsiazek[0]}"
+                            <a href="<c:url value="/index/edytujOcene.htm"/>?id=${tablicaWystawionychOcen[0]}"
                                class="btn btn-default">Edytuj</a>
                     </td>
                         </sec:authorize>
 
                     <sec:authorize access="hasPermission(#user, 'DELETE_WYSTAWIONEOCENY')">
                         <td>
-                            <a href="<c:url value="/index/usunOcene"/>?id=${tablicaKsiazek[0]}"
+                            <a href="<c:url value="/index/usunOcene"/>?id=${tablicaWystawionychOcen[0]}"
                                class="btn btn-default">Usuń</a>
                         </td>
                     </sec:authorize>
@@ -235,14 +215,9 @@
         <a href="<c:url value="/index/dodajOcene.htm"/>" class="btn btn-default">Dodaj ocene</a> <br/><br>
     </sec:authorize>
 
-    <sec:authorize access="hasPermission(#user, 'READ_MOJEDNIPRACY')" var="isAuthorizeAny"></sec:authorize>
-    <sec:authorize access="hasPermission(#user, 'READ_WSZYSTKIEDNIPRACY')" var="haRoleUser"></sec:authorize>
 
 
-    <sec:authorize access="hasPermission(#user, 'READ_MOJEDNIPRACY')||hasPermission(#user, 'READ_WSZYSTKIEDNIPRACY')   ">
-    </sec:authorize>
-
-    <sec:authorize access="hasPermission(#user, 'READ_MOJEDNIPRACY')  ">
+    <sec:authorize access="hasPermission(#user, 'READ_DNIPRACY')  ">
         <p>Grafik</p>
         <table class="sortable">
             <tr>
@@ -251,10 +226,10 @@
                 <th>Godzina rozpoczecia</th>
                 <th>Godzina zakonczenia</th>
 
-                <sec:authorize access="hasPermission(#user, 'EDIT_MOJEDNIPRACY')">
+                <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
                     <th>Edytuj</th>
                 </sec:authorize>
-                <sec:authorize access="hasPermission(#user, 'DELETE_MOJEDNIPRACY')">
+                <sec:authorize access="hasPermission(#user, 'DELETE_DNIPRACY')">
                     <th>Usuń</th>
                 </sec:authorize>
             </tr>
@@ -265,15 +240,15 @@
                     <td>${tablicaDni[2]}</td>
                     <td>${tablicaDni[3]}</td>
 
-                    <sec:authorize access="hasPermission(#user, 'EDIT_MOJEDNIPRACY')">
+                    <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
                         <td>
-                            <a href="<c:url value="/index/edytujDzienPracy.htm"/>?id=${tablicaDni[0]}&idPracownika="${idUzytkownika}"}"
+                            <a href="<c:url value="/index/edytujDzienPracy.htm"/>?id=${tablicaDni[0]}"
                                class="btn btn-default">Edytuj</a>
                         </td>
                     </sec:authorize>
 
 
-                    <sec:authorize access="hasPermission(#user, 'DELETE_MOJEDNIPRACY')">
+                    <sec:authorize access="hasPermission(#user, 'DELETE_DNIPRACY')">
                         <td>
                             <a href="<c:url value="/index/usunDzienPracy"/>?id=${tablicaDni[0]}"
                                class="btn btn-default">Usuń</a>
@@ -288,62 +263,15 @@
         <br/>
     </sec:authorize>
 
-    <sec:authorize access="hasPermission(#user, 'ADD_MOJEDNIPRACY')">
+    <sec:authorize access="hasPermission(#user, 'ADD_DNIPRACY')">
         <a href="<c:url value="/index/dodajDzienPracy.htm"/>" class="btn btn-default">Dodaj dzień pracy</a><br/>
+        <br>
     </sec:authorize>
-
-    <sec:authorize access="hasPermission(#user, 'READ_WSZYSTKIEDNIPRACY')">
-        <p>Twój grafik.</p>
-        <table class="sortable">
-            <tr>
-
-                <th>Dzień tygodnia</th>
-                <th>Godzina rozpoczecia</th>
-                <th>Godzina zakonczenia</th>
-                <th>Osoba</th>
-                <sec:authorize access="hasPermission(#user, 'EDIT_WSZYSTKIEDNIPRACY')">
-                    <th>Edytuj</th>
-                </sec:authorize>
-                <sec:authorize access="hasPermission(#user, 'DELETE_WSZYSTKIEDNIPRACY')">
-                    <th>Usuń</th>
-                </sec:authorize>
-
-
-            </tr>
-            <c:forEach items="${listaWszystkichDniPracy}" var="tablicaDni">
-                <tr>
-
-                    <td>${tablicaDni[1]}</td>
-                    <td>${tablicaDni[2]}</td>
-                    <td>${tablicaDni[3]}</td>
-                    <td>${tablicaDni[4]}</td>
-                    <sec:authorize access="hasPermission(#user, 'EDIT_WSZYSTKIEDNIPRACY')">
-                        <td>
-                            <a href="<c:url value="/index/edytujDzienPracy.htm"/>?id=${tablicaDni[0]}&idPracownika=${tablicaDni[0]}"
-                               class="btn btn-default">Edytuj</a>
-                        </td>
-                    </sec:authorize>
-
-
-                    <sec:authorize access="hasPermission(#user, 'DELETE_WSZYSTKIEDNIPRACY')">
-                        <td>
-                            <a href="<c:url value="/index/usunDzienPracy"/>?id=${tablicaDni[0]}"
-                               class="btn btn-default">Usuń</a>
-                        </td>
-                    </sec:authorize>
-
-
-                </tr>
-
-            </c:forEach>
-        </table>
-        <br/>
+    <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
+        <sec:authorize access="hasPermission(#user, 'READ_UZYTKOWNICY')">
+            <a href="<c:url value="/index/pokazDniPracyInnychPracownikow"/>" class="btn btn-default">Ustal grafiki</a><br/>
+        </sec:authorize>
     </sec:authorize>
-
-    <sec:authorize access="hasPermission(#user, 'ADD_MOJEDNIPRACY')">
-        <a href="<c:url value="/index/dodajDzienPracy.htm"/>" class="btn btn-default">Dodaj dzień pracy</a><br/>
-    </sec:authorize>
-
 
 </center>
 <br>

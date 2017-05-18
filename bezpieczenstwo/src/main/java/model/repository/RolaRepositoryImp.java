@@ -46,15 +46,13 @@ public class RolaRepositoryImp implements RolaRepository {
     @Transactional
     public List displayAll() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select rola.nazwa from rola");
-        List results = sqlQuery.list();
-        return results;
+        return sqlQuery.list();
     }
 
     @Transactional
     public List displayAllNamesAndId() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select rola.id,rola.nazwa from rola");
-        List results = sqlQuery.list();
-        return results;
+        return sqlQuery.list();
     }
 
     @Transactional

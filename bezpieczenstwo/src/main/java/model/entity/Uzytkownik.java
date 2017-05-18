@@ -15,6 +15,7 @@ public class Uzytkownik {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(unique = true)
     private String email;
     private String haslo;
     private String imieINazwisko;

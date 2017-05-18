@@ -103,7 +103,7 @@
     <label for="inputImieINazwisko" class="sr-only">Podaj imię i naziwsko</label>
     <select name="imieINazwisko" id="inputImieINazwisko" class="form-control"></select>
     <label for="inputOcena" class="sr-only">Ocena</label>
-    <input type="number" step="0.01" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
+    <input type="number" min="1" max="6" step="0.01" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
     <label for="inputPrzedmiot" class="sr-only">Przedmiot</label>
     <select name="przedmiot" id="inputPrzedmiot" class="form-control">
         <option value="Przyroda">Przyroda</option>

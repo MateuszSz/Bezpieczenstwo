@@ -2,10 +2,13 @@ package controller;
 
 import model.entity.Ksiazka;
 import model.entity.Uzytkownik;
+import model.security.CustomUserDetails;
 import model.service.KsiazkaService;
 import model.service.UzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,6 +31,9 @@ public class UzytkownikController {
 
     @Autowired
     private UzytkownikService uzytkownikService;
+
+    @Autowired
+    private SessionRegistry sessionRegistry;
 
     @PreAuthorize("hasPermission(authentication, 'ADD_UZYTKOWNICY')")
     @RequestMapping(value = "/index/dodajUzytkownika.htm")
@@ -58,8 +64,23 @@ public class UzytkownikController {
 
     @PreAuthorize("hasPermission(authentication, 'DELETE_UZYTKOWNICY')")
     @RequestMapping(value = "/index/usuwanieUzytkownika", method = RequestMethod.POST)
-    public String usuwanieRoli(ModelMap model, @RequestParam("uzytkownik") int idUzytkownika) {
+    public String usuwanieRoli(Authentication authentication, ModelMap model, @RequestParam("uzytkownik") int idUzytkownika) {
+
+        List<Object> principals = sessionRegistry.getAllPrincipals();
+
+        CustomUserDetails cs;
+        for (Object principal : principals) {
+            cs = (CustomUserDetails) principal;
+            if (cs.getId() == idUzytkownika) {
+                cs.setEmail("loggedOut");
+                cs.setAuthorities(null);
+            }
+        }
+
         uzytkownikService.delete(idUzytkownika);
+        CustomUserDetails cs2 = (CustomUserDetails) authentication.getPrincipal();
+        if(cs2.getId() == idUzytkownika )
+            return "redirect:/logout";
         model.addAttribute("status", "powodzenie");
         return "redirect:/index";
     }

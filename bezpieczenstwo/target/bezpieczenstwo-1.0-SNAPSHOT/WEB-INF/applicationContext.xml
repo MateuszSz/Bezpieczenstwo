@@ -20,11 +20,13 @@
         <beans:property name="suffix" value=".jsp"/>
     </beans:bean>
 
+    <context:property-placeholder location="classpath*:application.properties"/>
+
     <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <beans:property name="url" value="jdbc:mysql://localhost:3306/test"/>
-        <beans:property name="username" value="root"/>
-        <beans:property name="password" value=""/>
+        <beans:property name="driverClassName" value="${database.connection.driver}"/>
+        <beans:property name="url" value="${database.connection.url}"/>
+        <beans:property name="username" value="${database.user.name}"/>
+        <beans:property name="password" value="${database.user.password}"/>
         <beans:property name="validationQuery" value="SELECT 1"/>
     </beans:bean>
 
@@ -34,13 +36,14 @@
         <beans:property name="hibernateProperties">
             <beans:props>
                 <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</beans:prop>
-                <beans:prop key="hibernate.show_sql">true</beans:prop>
-                <beans:prop key="hibernate.hbm2ddl.auto">create</beans:prop>
-                <beans:prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/test</beans:prop>
-                <beans:prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</beans:prop>
+                <beans:prop key="hibernate.show_sql">${hibernate.show_sql}</beans:prop>
+                <beans:prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</beans:prop>
+                <beans:prop key="hibernate.connection.url">${database.connection.url}</beans:prop>
+                <beans:prop key="hibernate.connection.driver_class">${database.connection.driver}</beans:prop>
             </beans:props>
         </beans:property>
     </beans:bean>
+
 
     <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <beans:property name="sessionFactory" ref="sessionFactory"/>

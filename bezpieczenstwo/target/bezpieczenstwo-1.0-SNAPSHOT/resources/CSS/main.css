@@ -15,6 +15,28 @@ body {
 
 }
 
+
+h2 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+    color: red;
+}
+.centered {
+    max-width: 300px;
+    text-align: center;
+    position: relative;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+
+}
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
     margin-bottom: 10px;

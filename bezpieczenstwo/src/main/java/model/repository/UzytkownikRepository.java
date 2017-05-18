@@ -29,4 +29,6 @@ public interface UzytkownikRepository {
     List displayAllWithoutPassword();
     void delete(int id);
 
+    List displayAllLecturers();
+
 }

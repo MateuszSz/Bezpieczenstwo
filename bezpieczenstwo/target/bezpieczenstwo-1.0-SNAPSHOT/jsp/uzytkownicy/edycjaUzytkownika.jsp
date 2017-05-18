@@ -93,12 +93,23 @@
     }
 
 </style>
+<script>
+    function check(input) {
+        if (input.value !== document.getElementById('inputHaslo').value) {
+            input.setCustomValidity('Hasła muszą sie zgadzać');
+        } else {
+            // input is valid -- reset the error message
+            input.setCustomValidity('');
+        }
+    }
+</script>
 <body background="<c:url value="/resources/images/bodybg.png"/>">
 <form class="form-signin" action="<c:url value="/index/edytowanieUzytkownika"/>?id=${id}" method="POST">
     <h2 class="form-signin-heading">Edytuj użytkownika</h2>
     <input name="email" type="email" id="inputEmail" class="form-control" placeholder="email" required>
-    <input type="text" name="" id="inputImieINazwisko" class="form-control" placeholder="Imię i naziwsko" required>
+    <input type="text" name="imieINazwisko" id="inputImieINazwisko" class="form-control" placeholder="Imię i naziwsko" required>
     <input type="password" name="haslo" id="inputHaslo" class="form-control" placeholder="Haslo" required>
+    <input type="password" name="powtorzHaslo" id="inputPowtorzHaslo" class="form-control" oninput="check(this)" placeholder="Powtórz hasło" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Zapisz</button>
 </form>
 

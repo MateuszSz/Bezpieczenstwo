@@ -44,7 +44,7 @@ public class DzienPracyRepositoryImp implements DzienPracyRepository {
     }
 
     public List displayAll() {
-        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT d.id,d.dzienTygodnia, d.godzinaRozpoczecia, d.godzinaZakonczenia, u.imieINazwisko FROM dzienpracy d, uzytkownik u WHERE d.uzytkownik_id=u.id");
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT d.id,d.dzienTygodnia, d.godzinaRozpoczecia, d.godzinaZakonczenia, u.imieINazwisko, u.id as 'u.id' FROM dzienpracy d, uzytkownik u WHERE d.uzytkownik_id=u.id");
         List results = sqlQuery.list();
         return results;
 

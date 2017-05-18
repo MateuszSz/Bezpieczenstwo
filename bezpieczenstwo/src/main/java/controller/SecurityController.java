@@ -1,5 +1,6 @@
 package controller;
 
+import model.entity.Uzytkownik;
 import model.security.CustomPermissionEvaluator;
 import model.security.CustomUserDetails;
 import model.service.*;
@@ -77,8 +78,11 @@ public class SecurityController {
 
         if (!czyRolaJestWBazie)
             return "redirect:/logout";
-
+        if(cs.getEmail().equals("loggedOut"))
+            return "redirect:/logout";
+        List uzytkownicy = null;
         List leki = null;
+        List roleZUzytkownikami = null;
         List role = null;
         List ksiazki = null;
         List uprawnienia = null;
@@ -100,10 +104,17 @@ public class SecurityController {
             ((CustomUserDetails) authentication.getPrincipal()).setRedirected(false);
         }
 
+        if(customPermissionEvaluator.hasPermission(authentication, null, "READ_UZYTKOWNICY")){
+            uzytkownicy = uzytkownikService.displayAllWithoutPassword();
+        }
+
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
-        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
-            role = rolaService.displayWithUserName();
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE") &&
+                customPermissionEvaluator.hasPermission(authentication, null, "READ_UZYTKOWNICY") )
+            roleZUzytkownikami = rolaService.displayWithUserName();
+        if(customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
+            role = rolaService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_KSIAZKI"))
             ksiazki = ksiazkaService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_UPRAWNIENIA"))
@@ -114,7 +125,7 @@ public class SecurityController {
             mojeOceny = ocenaService.displayAllByIdUcznia(cs.getId());
         if (customPermissionEvaluator.hasPermission(authentication, null, "ADD_WYSTAWIONEOCENY"))
             uczniowie = uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
-        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_MOJEDNIPRACY"))
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_DNIPRACY"))
             dniMojejPracy = dzienPracyService.displayAllById(cs.getId());
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_WSZYSTKIEDNIPRACY"))
             wszystkieDniPracy = dzienPracyService.displayAll();
@@ -125,7 +136,7 @@ public class SecurityController {
         model.addAttribute("rola", cs.getWybranaRola());
         model.addAttribute("imieINazwisko", cs.getName());
         model.addAttribute("listaLekow", leki);
-        model.addAttribute("listaRol", role);
+        model.addAttribute("listaRolZUzytkownikami", roleZUzytkownikami);
         model.addAttribute("listaKsiazek", ksiazki);
         model.addAttribute("listaUprawnien", uprawnienia);
         model.addAttribute("listaWystawionychOcen", wystawioneOceny);
@@ -133,6 +144,8 @@ public class SecurityController {
         model.addAttribute("listaUczniow", uczniowie);
         model.addAttribute("listaMoichDniPracy", dniMojejPracy);
         model.addAttribute("listaWszystkichDniPracy", wszystkieDniPracy);
+        model.addAttribute("listaUzytkownikow", uzytkownicy);
+        model.addAttribute("listaRol", role);
         return "index";
     }
 

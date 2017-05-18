@@ -60,4 +60,8 @@ public class UzytkownikServiceImp implements UzytkownikService {
     public void delete(int id) {
         uzytkownikRepository.delete(id);
     }
+
+    public List displayAllLecturers() {
+        return uzytkownikRepository.displayAllLecturers();
+    }
 }

@@ -119,9 +119,29 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
     }
     @Transactional
     public void delete(int id) {
-        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik WHERE uzytkownik.id=" + id);
+        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("delete from dzienpracy WHERE dzienpracy.uzytkownik_id = " + id);
         sqlQuery2.executeUpdate();
+        SQLQuery sqlQuery3 = sessionFactory.getCurrentSession().createSQLQuery("delete from uzytkownik_rola where uzytkownik_rola.uzytkownicy_id =" + id);
+        sqlQuery3.executeUpdate();
 
+        SQLQuery sqlQuery4 = sessionFactory.getCurrentSession().createSQLQuery("UPDATE lek SET lek.uzytkownik_id = NULL WHERE lek.uzytkownik_id =" + id);
+        sqlQuery4.executeUpdate();
+
+        SQLQuery sqlQuery5 = sessionFactory.getCurrentSession().createSQLQuery("DELETE from ocena where ocena.nauczyciel_id =" + id);
+        sqlQuery5.executeUpdate();
+
+        SQLQuery sqlQuery6 = sessionFactory.getCurrentSession().createSQLQuery("DELETE from ocena where ocena.uczen_id =" + id);
+        sqlQuery6.executeUpdate();
+        SQLQuery sqlQuery7 = sessionFactory.getCurrentSession().createSQLQuery("UPDATE ksiazka SET ksiazka.uzytkownik_id = NULL WHERE ksiazka.uzytkownik_id =" + id);
+        sqlQuery7.executeUpdate();
+        SQLQuery sqlQuery8 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik WHERE uzytkownik.id=" + id);
+        sqlQuery8.executeUpdate();
+
+    }
+    @Transactional
+    public List displayAllLecturers(){
+       SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uzytkownik.id, uzytkownik.imieINazwisko, uzytkownik.email FROM uzytkownik, uzytkownik_rola, rola WHERE uzytkownik.id = uzytkownik_rola.uzytkownicy_id AND uzytkownik_rola.role_id = rola.id AND rola.nazwa=\"NAUCZYCIEL\"");
+        return sqlQuery.list();
     }
 
 }
