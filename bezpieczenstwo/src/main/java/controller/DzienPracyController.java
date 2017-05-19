@@ -56,7 +56,8 @@ public class DzienPracyController {
 
         dzienPracy.setUzytkownik(pracownik);
         dzienPracyService.insert(dzienPracy);
-        return "redirect:/index/pokazDniPracyInnychPracownikow";
+        //return "redirect:/index/pokazDniPracyInnychPracownikow";
+        return "redirect:/index";
 
     }
 

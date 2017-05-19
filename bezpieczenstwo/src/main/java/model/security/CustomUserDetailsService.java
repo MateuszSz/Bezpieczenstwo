@@ -37,7 +37,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
         if (uzytkownik == null) {
-            request.setAttribute("wiadomosc", "Błędny login lub hasło");
+            request.setAttribute("wiadomosc", "Błędny login, hasło lub źle wybrana rola");
             throw new RoleException("No such user: " + email);
         } else {
 
@@ -53,7 +53,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 auths.add(new SimpleGrantedAuthority(r.getNazwa()));
             }
             if (!nazwy.contains(wybranaRola)) {
-                request.setAttribute("wiadomosc", "Użytkownik nie posiada roli: " + wybranaRola);
+                request.setAttribute("wiadomosc", "Błędny login, hasło lub źle wybrana rola");
                 throw new RoleException("Password incorrect");
 
             }

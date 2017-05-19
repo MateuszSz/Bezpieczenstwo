@@ -140,7 +140,7 @@ public class UzytkownikRepositoryImp implements UzytkownikRepository {
     }
     @Transactional
     public List displayAllLecturers(){
-       SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select uzytkownik.id, uzytkownik.imieINazwisko, uzytkownik.email FROM uzytkownik, uzytkownik_rola, rola WHERE uzytkownik.id = uzytkownik_rola.uzytkownicy_id AND uzytkownik_rola.role_id = rola.id AND rola.nazwa=\"NAUCZYCIEL\"");
+       SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("select DISTINCT uzytkownik.id, uzytkownik.imieINazwisko, uzytkownik.email FROM uzytkownik, uzytkownik_rola, rola, rola_uprawnienie, uprawnienie WHERE uzytkownik.id = uzytkownik_rola.uzytkownicy_id AND uzytkownik_rola.role_id = rola.id and rola_uprawnienie.Rola_id = rola.id and rola_uprawnienie.uprawnienia_id = uprawnienie.id and uprawnienie.nazwa = \"READ_DNIPRACY\"");
         return sqlQuery.list();
     }
 

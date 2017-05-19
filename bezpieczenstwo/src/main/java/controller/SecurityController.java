@@ -55,14 +55,25 @@ public class SecurityController {
     @Autowired
     private DzienPracyService dzienPracyService;
 
+
+    @RequestMapping(value = "/403")
+    public String accessDenied(){
+        return "403";
+    }
+
     @RequestMapping(value = "/login")
     public String login(HttpServletRequest request, ModelMap modelMap, @RequestParam(value = "login_error", required = false) boolean login_error) {
         Object o = request.getSession().getAttribute("wiadomosc");
+        String wiadomosc = "";
+        if(login_error)
+            wiadomosc = "Błędny login, hasło lub źle wybrana rola";
         if (o != null)
-            modelMap.addAttribute("wiadomosc", o.toString());
+           wiadomosc = o.toString();
 
+        modelMap.addAttribute("wiadomosc", wiadomosc);
         List role = rolaService.displayAllNamesAndId();
         modelMap.addAttribute("listaRol", role);
+
         return "login";
     }
 
@@ -173,59 +184,59 @@ public class SecurityController {
                 nazwaUprawnienia = o.toString();
                 if (nazwaUprawnienia.contains("READ"))
                     if (nazwaUprawnienia.contains("LEKI"))
-                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'R', READ);
+                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'S', READ);
                     else if (nazwaUprawnienia.contains("KSIAZKI"))
-                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'R', READ);
+                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'S', READ);
                     else if (nazwaUprawnienia.contains("ROLE"))
-                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'R', READ);
+                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'S', READ);
                     else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
-                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'R', READ);
+                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'S', READ);
                     else if (nazwaUprawnienia.contains("DNIPRACY"))
-                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'R', READ);
+                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'S', READ);
                     else if (nazwaUprawnienia.contains("MOJEOCENY"))
-                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'R', READ);
+                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'S', READ);
                     else if (nazwaUprawnienia.contains("WYSTAWIONEOCENY"))
-                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'R', READ);
+                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'S', READ);
                     else
-                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'R', READ);
+                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'S', READ);
 
 
                 else if (nazwaUprawnienia.contains("ADD"))
                     if (nazwaUprawnienia.contains("LEKI"))
-                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'I', WRITE);
                     else if (nazwaUprawnienia.contains("KSIAZKI"))
-                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'I', WRITE);
                     else if (nazwaUprawnienia.contains("ROLE"))
-                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'I', WRITE);
                     else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
-                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'I', WRITE);
                     else if (nazwaUprawnienia.contains("DNIPRACY"))
-                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'I', WRITE);
                     else if (nazwaUprawnienia.contains("MOJEOCENY"))
-                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'I', WRITE);
                     else if (nazwaUprawnienia.contains("WYSTAWIONEOCENY"))
-                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'I', WRITE);
                     else
-                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'A', WRITE);
+                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'I', WRITE);
 
 
                 else if (nazwaUprawnienia.contains("EDIT"))
                     if (nazwaUprawnienia.contains("LEKI"))
-                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'E', EDIT);
+                        tablicaPozwolen.get(iterator)[LEKI] = zmienNapis(tablicaPozwolen.get(iterator)[LEKI], 'U', EDIT);
                     else if (nazwaUprawnienia.contains("KSIAZKI"))
-                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'E', EDIT);
+                        tablicaPozwolen.get(iterator)[KSIAZKI] = zmienNapis(tablicaPozwolen.get(iterator)[KSIAZKI], 'U', EDIT);
                     else if (nazwaUprawnienia.contains("ROLE"))
-                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'E', EDIT);
+                        tablicaPozwolen.get(iterator)[ROLE] = zmienNapis(tablicaPozwolen.get(iterator)[ROLE], 'U', EDIT);
                     else if (nazwaUprawnienia.contains("UPRAWNIENIA"))
-                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'E', EDIT);
+                        tablicaPozwolen.get(iterator)[UPRAWNIENIA] = zmienNapis(tablicaPozwolen.get(iterator)[UPRAWNIENIA], 'U', EDIT);
                     else if (nazwaUprawnienia.contains("DNIPRACY"))
-                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'E', EDIT);
+                        tablicaPozwolen.get(iterator)[DNIPRACY] = zmienNapis(tablicaPozwolen.get(iterator)[DNIPRACY], 'U', EDIT);
                     else if (nazwaUprawnienia.contains("MOJEOCENY"))
-                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'E', EDIT);
+                        tablicaPozwolen.get(iterator)[MOJEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[MOJEOCENY], 'U', EDIT);
                     else if (nazwaUprawnienia.contains("WYSTAWIONEOCENY"))
-                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'E', EDIT);
+                        tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY] = zmienNapis(tablicaPozwolen.get(iterator)[WYSTAWIONEOCENY], 'U', EDIT);
                     else
-                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'E', EDIT);
+                        tablicaPozwolen.get(iterator)[UZYTKOWNICY] = zmienNapis(tablicaPozwolen.get(iterator)[UZYTKOWNICY], 'U', EDIT);
 
 
                 else if (nazwaUprawnienia.contains("DELETE"))

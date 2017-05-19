@@ -45,8 +45,8 @@
             <tr>
 
                 <th>Nazwa leku</th>
-                <th>Ilosc na stanie</th>
                 <th>Dawkowanie</th>
+                <th>Ilosc na stanie</th>
                 <sec:authorize access="hasPermission(#user, 'EDIT_LEKI')">
                     <th>Edytuj</th>
                 </sec:authorize>
