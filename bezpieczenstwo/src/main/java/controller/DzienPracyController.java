@@ -24,13 +24,16 @@ import java.util.List;
 @Controller
 public class DzienPracyController {
 
-    @Autowired
     private DzienPracyService dzienPracyService;
-    @Autowired
     private UzytkownikService uzytkownikService;
-    @Autowired
     private CustomPermissionEvaluator customPermissionEvaluator;
 
+    @Autowired
+    public DzienPracyController(DzienPracyService dzienPracyService, UzytkownikService uzytkownikService, CustomPermissionEvaluator customPermissionEvaluator) {
+        this.dzienPracyService = dzienPracyService;
+        this.uzytkownikService = uzytkownikService;
+        this.customPermissionEvaluator = customPermissionEvaluator;
+    }
 
     @PreAuthorize("hasPermission(authentication, 'ADD_DNIPRACY')")
     @RequestMapping(value = "/index/dodajDzienPracy.htm")
@@ -56,7 +59,6 @@ public class DzienPracyController {
 
         dzienPracy.setUzytkownik(pracownik);
         dzienPracyService.insert(dzienPracy);
-        //return "redirect:/index/pokazDniPracyInnychPracownikow";
         return "redirect:/index";
 
     }

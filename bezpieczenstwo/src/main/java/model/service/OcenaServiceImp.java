@@ -12,8 +12,13 @@ import java.util.List;
  */
 @Service
 public class OcenaServiceImp implements OcenaService {
-    @Autowired
+
     private OcenaRepository ocenaRepository;
+
+    @Autowired
+    public OcenaServiceImp(OcenaRepository ocenaRepository) {
+        this.ocenaRepository = ocenaRepository;
+    }
 
     public void insert(Ocena ocena) {
         ocenaRepository.insert(ocena);

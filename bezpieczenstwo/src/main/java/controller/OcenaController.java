@@ -23,10 +23,16 @@ import java.util.List;
 @Controller
 public class OcenaController {
 
-    @Autowired
+
     private OcenaService ocenaService;
-    @Autowired
     private UzytkownikService uzytkownikService;
+
+    @Autowired
+    public OcenaController(OcenaService ocenaService, UzytkownikService uzytkownikService) {
+        this.ocenaService = ocenaService;
+        this.uzytkownikService = uzytkownikService;
+    }
+
 
     @PreAuthorize("hasPermission(authentication, 'ADD_WYSTAWIONEOCENY')")
     @RequestMapping(value = "/index/dodajOcene.htm")

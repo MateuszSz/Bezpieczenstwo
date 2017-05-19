@@ -12,6 +12,8 @@ public interface RolaRepository {
 
     void delete(int id);
 
+    void deleteRoleFromUser(int idRoli, int idUzytkownika);
+
     Rola display(int id);
 
     Rola displayWithoutPermission(int id);

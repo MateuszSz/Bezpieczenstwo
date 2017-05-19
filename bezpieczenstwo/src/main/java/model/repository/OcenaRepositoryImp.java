@@ -17,8 +17,13 @@ import java.util.List;
 @Transactional
 public class OcenaRepositoryImp implements OcenaRepository {
 
-    @Autowired
+
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public OcenaRepositoryImp(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public void insert(Ocena ocena) {
         sessionFactory.getCurrentSession().saveOrUpdate(ocena);

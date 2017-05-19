@@ -36,25 +36,27 @@ public class SecurityController {
     private final static int EDIT = 2;
     private final static int DELETE = 3;
 
-    @Autowired
     private UzytkownikService uzytkownikService;
-    @Autowired
     private KsiazkaService ksiazkaService;
-    @Autowired
     private OcenaService ocenaService;
-    @Autowired
     private LekService lekService;
-    @Autowired
     private RolaService rolaService;
-    @Autowired
     private CustomPermissionEvaluator customPermissionEvaluator;
-    @Autowired
-    private SessionFactory sessionFactory;
-    @Autowired
     private UprawnienieService uprawnienieService;
-    @Autowired
     private DzienPracyService dzienPracyService;
 
+
+    @Autowired
+    public SecurityController(UzytkownikService uzytkownikService, KsiazkaService ksiazkaService, OcenaService ocenaService, LekService lekService, RolaService rolaService, CustomPermissionEvaluator customPermissionEvaluator, UprawnienieService uprawnienieService, DzienPracyService dzienPracyService) {
+        this.uzytkownikService = uzytkownikService;
+        this.ksiazkaService = ksiazkaService;
+        this.ocenaService = ocenaService;
+        this.lekService = lekService;
+        this.rolaService = rolaService;
+        this.customPermissionEvaluator = customPermissionEvaluator;
+        this.uprawnienieService = uprawnienieService;
+        this.dzienPracyService = dzienPracyService;
+    }
 
     @RequestMapping(value = "/403")
     public String accessDenied(){

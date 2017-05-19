@@ -24,12 +24,17 @@ import java.util.List;
 @Controller
 public class RolaController {
 
-    @Autowired
+
     private UzytkownikService uzytkownikService;
-    @Autowired
     private RolaService rolaService;
-    @Autowired
     private SessionRegistry sessionRegistry;
+
+    @Autowired
+    public RolaController(UzytkownikService uzytkownikService, RolaService rolaService, SessionRegistry sessionRegistry) {
+        this.uzytkownikService = uzytkownikService;
+        this.rolaService = rolaService;
+        this.sessionRegistry = sessionRegistry;
+    }
 
     @PreAuthorize("hasPermission(authentication, 'ADD_ROLE')")
     @RequestMapping(value = "/index/dodawanieRoliUzytkownikowi", method = RequestMethod.POST)
@@ -50,6 +55,24 @@ public class RolaController {
         // model.addAttribute("wiadomosc", "Dodano nową rolę użytkownikowi");
         return "redirect:/index";
 
+    }
+
+    @PreAuthorize("hasPermission(authentication, 'DELETE_ROLE')")
+    @RequestMapping(value = "/index/usuwanieRoliUzytkownikowi", method = RequestMethod.POST)
+    public String usuwanieRoliUzytkownikowi(ModelMap model, @RequestParam("imieINazwisko") int idUzytkownika, @RequestParam("rola") int idRoli) {
+        rolaService.deleteRoleFromUser(idRoli, idUzytkownika);
+        return "redirect:/index";
+
+    }
+
+    @PreAuthorize("hasPermission(authentication, 'ADD_ROLE')")
+    @RequestMapping(value = "/index/usunRoleUzytkownikowi.htm")
+    public String usunRoleUzytkownikowi(ModelMap model) {
+        List role = rolaService.displayAllNamesAndId();
+        List uzytkownicy = uzytkownikService.displayAllNamesAndId();
+        model.addAttribute("listaUzytkownikow", uzytkownicy);
+        model.addAttribute("listaRol", role);
+        return "role/usunRoleUzytkownikowi";
     }
 
     @PreAuthorize("hasPermission(authentication, 'ADD_ROLE')")

@@ -17,15 +17,18 @@ import java.util.List;
 public class DzienPracyRepositoryImp implements DzienPracyRepository {
 
 
-    @Autowired
+
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public DzienPracyRepositoryImp(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public void delete(int id) {
 
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM dzienpracy WHERE dzienpracy.id=" + id);
         sqlQuery.executeUpdate();
-
-
     }
 
     public void insert(DzienPracy dzienPracy) {
@@ -38,15 +41,13 @@ public class DzienPracyRepositoryImp implements DzienPracyRepository {
 
     public List displayAllById(int id) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT d.id, d.dzienTygodnia, d.godzinaRozpoczecia, d.godzinaZakonczenia FROM dzienpracy d WHERE d.uzytkownik_id=" + id);
-        List results = sqlQuery.list();
-        return results;
+        return sqlQuery.list();
 
     }
 
     public List displayAll() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT d.id,d.dzienTygodnia, d.godzinaRozpoczecia, d.godzinaZakonczenia, u.imieINazwisko, u.id as 'u.id' FROM dzienpracy d, uzytkownik u WHERE d.uzytkownik_id=u.id");
-        List results = sqlQuery.list();
-        return results;
+        return sqlQuery.list();
 
 
     }

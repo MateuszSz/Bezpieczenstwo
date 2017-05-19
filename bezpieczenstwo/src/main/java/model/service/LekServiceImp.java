@@ -13,8 +13,13 @@ import java.util.List;
 @Service
 public class LekServiceImp implements LekService {
 
-    @Autowired
+
     private LekRepository lekRepository;
+
+    @Autowired
+    public LekServiceImp(LekRepository lekRepository) {
+        this.lekRepository = lekRepository;
+    }
 
     public void delete(int id) {
         lekRepository.delete(id);

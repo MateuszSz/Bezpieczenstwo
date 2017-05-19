@@ -13,8 +13,15 @@ import java.util.List;
 @Service
 public class UzytkownikServiceImp implements UzytkownikService {
 
-    @Autowired
+
     private UzytkownikRepository uzytkownikRepository;
+
+    @Autowired
+    public UzytkownikServiceImp(UzytkownikRepository uzytkownikRepository) {
+        this.uzytkownikRepository = uzytkownikRepository;
+    }
+
+
 
 
     public void insert(Uzytkownik uzytkownik) {

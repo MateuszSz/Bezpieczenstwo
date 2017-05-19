@@ -11,7 +11,7 @@ import java.io.IOException;
 public class CustomLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
 
 
-    // Just for setting the default target URL
+
     public CustomLogoutSuccessHandler(String defaultTargetURL) {
         this.setDefaultTargetUrl(defaultTargetURL);
     }

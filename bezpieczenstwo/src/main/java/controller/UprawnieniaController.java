@@ -22,12 +22,15 @@ import java.util.List;
  */
 @Controller
 public class UprawnieniaController {
-    @Autowired
+
     private RolaService rolaService;
-    @Autowired
-    private SessionFactory sessionFactory;
-    @Autowired
     private UprawnienieService uprawnienieService;
+
+    @Autowired
+    public UprawnieniaController(RolaService rolaService, UprawnienieService uprawnienieService) {
+        this.rolaService = rolaService;
+        this.uprawnienieService = uprawnienieService;
+    }
 
     @PreAuthorize("hasPermission(authentication, 'ADD_UPRAWNIENIA')")
     @RequestMapping(value = "/index/dodawanieUprawnien", method = RequestMethod.POST)

@@ -13,8 +13,13 @@ import java.util.List;
 @Service
 public class KsiazkaServiceImp implements KsiazkaService {
 
-    @Autowired
+
     private KsiazkaRepository ksiazkaRepository;
+
+    @Autowired
+    public KsiazkaServiceImp(KsiazkaRepository ksiazkaRepository) {
+        this.ksiazkaRepository = ksiazkaRepository;
+    }
 
     public void insert(Ksiazka ksiazka) {
         ksiazkaRepository.insert(ksiazka);

@@ -87,7 +87,7 @@
 </style>
 <body background="<c:url value="/resources/images/bodybg.png"/>">
 <center>
-    <h2 class="form-signin-heading">Proszę wybrać rolę do usunięcia</h2>
+    <h2 class="form-signin-heading">Proszę wybrać użytkownika do usunięcia</h2>
 </center>
 <form class="form-signin" action="<c:url value="/index/usuwanieUzytkownika"/>" method="POST">
     <label for="inputUzytkownik" class="sr-only">Podaj rolę</label>

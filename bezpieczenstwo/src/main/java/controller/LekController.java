@@ -21,11 +21,16 @@ import java.security.Principal;
 @Controller
 public class LekController {
 
-    @Autowired
     private UzytkownikService uzytkownikService;
+    private LekService lekService;
 
     @Autowired
-    private LekService lekService;
+    public LekController(UzytkownikService uzytkownikService, LekService lekService) {
+        this.uzytkownikService = uzytkownikService;
+        this.lekService = lekService;
+    }
+
+
 
 
     @RequestMapping(value = "/wyloguj")

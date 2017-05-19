@@ -16,10 +16,13 @@ import java.util.List;
 @Transactional
 public class LekRepositoryImp implements LekRepository {
 
-    //tworzy się automatycznie bez konstruktora
-    @Autowired
+
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public LekRepositoryImp(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public void insert(Lek lek) {
         sessionFactory.getCurrentSession().saveOrUpdate(lek);

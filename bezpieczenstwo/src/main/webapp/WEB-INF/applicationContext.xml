@@ -50,29 +50,58 @@
     </beans:bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
     <beans:bean id="userPermision" class="model.security.UserPermision"/>
-    <beans:bean id="uzytkownikRepository" class="model.repository.UzytkownikRepositoryImp"/>
-    <beans:bean id="uzytkownikService" class="model.service.UzytkownikServiceImp"/>
 
 
-    <beans:bean id="lekRepository" class="model.repository.LekRepositoryImp"/>
-    <beans:bean id="lekService" class="model.service.LekServiceImp"/>
+    <beans:bean id="uzytkownikRepository" class="model.repository.UzytkownikRepositoryImp">
+        <beans:constructor-arg ref="sessionFactory"/>
+    </beans:bean>
 
-    <beans:bean id="ksiazkaRepository" class="model.repository.KsiazkaRepositoryImp"/>
-    <beans:bean id="ksiazkaService" class="model.service.KsiazkaServiceImp"/>
+    <beans:bean id="uzytkownikService" class="model.service.UzytkownikServiceImp">
+        <beans:constructor-arg ref="uzytkownikRepository"/>
+    </beans:bean>
 
-    <beans:bean id="dzienPracyRepository" class="model.repository.DzienPracyRepositoryImp"/>
-    <beans:bean id="dzienPracyService" class="model.service.DzienPracyServiceImp"/>
+    <beans:bean id="lekRepository" class="model.repository.LekRepositoryImp">
+        <beans:constructor-arg ref="sessionFactory"/>
+    </beans:bean>
+    <beans:bean id="lekService" class="model.service.LekServiceImp">
+        <beans:constructor-arg ref="lekRepository"/>
+    </beans:bean>
 
-    <beans:bean id="ocenaRepository" class="model.repository.OcenaRepositoryImp"/>
-    <beans:bean id="ocenaService" class="model.service.OcenaServiceImp"/>
+    <beans:bean id="ksiazkaRepository" class="model.repository.KsiazkaRepositoryImp">
+        <beans:constructor-arg ref="sessionFactory"/>
+    </beans:bean>
+    <beans:bean id="ksiazkaService" class="model.service.KsiazkaServiceImp">
+        <beans:constructor-arg ref="ksiazkaRepository"/>
+    </beans:bean>
 
-    <beans:bean id="rolaRepository" class="model.repository.RolaRepositoryImp"/>
-    <beans:bean id="rolaService" class="model.service.RolaServiceImp"/>
+    <beans:bean id="dzienPracyRepository" class="model.repository.DzienPracyRepositoryImp">
+        <beans:constructor-arg ref="sessionFactory"/>
+    </beans:bean>
+    <beans:bean id="dzienPracyService" class="model.service.DzienPracyServiceImp">
+        <beans:constructor-arg ref="dzienPracyRepository"/>
+    </beans:bean>
 
-    <beans:bean id="uprawnienieRepository" class="model.repository.UprawnienieRepositoryImp"/>
-    <beans:bean id="uprawnienieService" class="model.service.UprawnienieServiceImp"/>
+    <beans:bean id="ocenaRepository" class="model.repository.OcenaRepositoryImp">
+        <beans:constructor-arg ref="sessionFactory"/>
+    </beans:bean>
+    <beans:bean id="ocenaService" class="model.service.OcenaServiceImp">
+        <beans:constructor-arg ref="ocenaRepository"/>
+    </beans:bean>
+
+    <beans:bean id="rolaRepository" class="model.repository.RolaRepositoryImp">
+        <beans:constructor-arg ref="sessionFactory"/>
+    </beans:bean>
+    <beans:bean id="rolaService" class="model.service.RolaServiceImp">
+        <beans:constructor-arg ref="rolaRepository"/>
+    </beans:bean>
+
+    <beans:bean id="uprawnienieRepository" class="model.repository.UprawnienieRepositoryImp">
+        <beans:constructor-arg ref="sessionFactory"/>
+    </beans:bean>
+    <beans:bean id="uprawnienieService" class="model.service.UprawnienieServiceImp">
+        <beans:constructor-arg ref="uprawnienieRepository"/>
+    </beans:bean>
 
 
     <beans:bean id="initService" class="model.service.InitServiceImpl"/>
@@ -114,14 +143,13 @@
         <expression-handler ref="webExpressionHandler"/>
         <custom-filter before="FORM_LOGIN_FILTER" ref="customUsernamePasswordAuthenticationFilter"/>
         <access-denied-handler error-page="/403"/>
-        <intercept-url pattern="/login" access="permitAll"/>
-        <intercept-url pattern="/favicon.ico" access="permitAll"/>
-        <intercept-url pattern="/resources/**" access="permitAll"/>
+        <intercept-url pattern="/login" requires-channel="https" access="permitAll"/>
+        <intercept-url pattern="/favicon.ico" requires-channel="https" access="permitAll"/>
+        <intercept-url pattern="/resources/**" requires-channel="https" access="permitAll"/>
         <session-management session-authentication-strategy-ref="sas">
         </session-management>
-        <intercept-url pattern="/wyloguj" access="permitAll"/>
-        <intercept-url pattern="/**"
-                       access="hasAnyRole('ADMINISTRATOR','UCZEN','HIGIENISTKA', 'NAUCZYCIEL', 'DYREKTOR', 'BIBLIOTEKARZ')"/>
+        <intercept-url pattern="/wyloguj" requires-channel="https" access="permitAll"/>
+        <intercept-url requires-channel="https" pattern="/**" access="isAuthenticated()"/>
         <form-login login-page='/login'/>
         <logout logout-url="/logout" success-handler-ref="logoutSuccessHandler"/>
     </http>
@@ -145,21 +173,21 @@
             <password-encoder ref="encoder"/>
             <jdbc-user-service data-source-ref="dataSource"
 
-                               group-authorities-by-username-query="SELECT rola.id, rola.nazwa, uprawnienie.uprawnienie from rola
-                                                                join uzytkownik_rola on uzytkownik_rola.role_id = rola.id
-                                                                join uzytkownik on uzytkownik.id = uzytkownik_rola.uzytkownicy_id
-                                                                join rola_uprawnienie on rola.id = rola_uprawnienie.Rola_id
-                                                                join uprawnienie on uprawnienie.id = rola_uprawnienie.uprawnienia_id
-                                                                where uzytkownik.email = ?"
+                               group-authorities-by-username-query="SELECT rola.id, rola.nazwa, uprawnienie.uprawnienie FROM rola
+                                                                JOIN uzytkownik_rola ON uzytkownik_rola.role_id = rola.id
+                                                                JOIN uzytkownik ON uzytkownik.id = uzytkownik_rola.uzytkownicy_id
+                                                                JOIN rola_uprawnienie ON rola.id = rola_uprawnienie.Rola_id
+                                                                JOIN uprawnienie ON uprawnienie.id = rola_uprawnienie.uprawnienia_id
+                                                                WHERE uzytkownik.email = ?"
 
 
-                               authorities-by-username-query="SELECT uzytkownik.email, rola.nazwa, uprawnienie.uprawnienie from uzytkownik
-                                                                join uzytkownik_rola on uzytkownik.id = uzytkownik_rola.uzytkownicy_id
-                                                                join rola on uzytkownik_rola.role_id = rola.id
-                                                                join rola_uprawnienie on rola.id = rola_uprawnienie.Rola_id
-                                                                join uprawnienie on uprawnienie.id = rola_uprawnienie.uprawnienia_id
-                                                                where uzytkownik.email = ?"
-                               users-by-username-query="SELECT uzytkownik.email, uzytkownik.haslo, 1 from uzytkownik where uzytkownik.email = ?"/>
+                               authorities-by-username-query="SELECT uzytkownik.email, rola.nazwa, uprawnienie.uprawnienie FROM uzytkownik
+                                                                JOIN uzytkownik_rola ON uzytkownik.id = uzytkownik_rola.uzytkownicy_id
+                                                                JOIN rola ON uzytkownik_rola.role_id = rola.id
+                                                                JOIN rola_uprawnienie ON rola.id = rola_uprawnienie.Rola_id
+                                                                JOIN uprawnienie ON uprawnienie.id = rola_uprawnienie.uprawnienia_id
+                                                                WHERE uzytkownik.email = ?"
+                               users-by-username-query="SELECT uzytkownik.email, uzytkownik.haslo, 1 FROM uzytkownik WHERE uzytkownik.email = ?"/>
 
         </authentication-provider>
     </authentication-manager>

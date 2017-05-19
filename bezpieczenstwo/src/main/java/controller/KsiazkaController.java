@@ -20,11 +20,14 @@ import java.security.Principal;
 @Controller
 public class KsiazkaController {
 
-    @Autowired
     private KsiazkaService ksiazkaService;
+    private UzytkownikService uzytkownikService;
 
     @Autowired
-    private UzytkownikService uzytkownikService;
+    public KsiazkaController(KsiazkaService ksiazkaService, UzytkownikService uzytkownikService) {
+        this.ksiazkaService = ksiazkaService;
+        this.uzytkownikService = uzytkownikService;
+    }
 
     @PreAuthorize("hasPermission(authentication, 'ADD_KSIAZKI')")
     @RequestMapping(value = "/index/dodajKsiazke.htm")

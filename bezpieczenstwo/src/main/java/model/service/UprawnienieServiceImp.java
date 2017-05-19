@@ -11,9 +11,13 @@ import java.util.List;
  */
 public class UprawnienieServiceImp implements UprawnienieService {
 
-    @Autowired
+
     private UprawnienieRepository uprawnienieRepository;
 
+    @Autowired
+    public UprawnienieServiceImp(UprawnienieRepository uprawnienieRepository) {
+        this.uprawnienieRepository = uprawnienieRepository;
+    }
 
     public void insert(Uprawnienie uprawnienie) {
         uprawnienieRepository.insert(uprawnienie);

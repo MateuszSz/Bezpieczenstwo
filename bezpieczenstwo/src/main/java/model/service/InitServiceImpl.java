@@ -36,16 +36,15 @@ public class InitServiceImpl {
     @Autowired
     private UprawnienieRepository uprawnienieRepository;
 
-
     @Autowired
     private DzienPracyRepository dzienPracyRepository;
 
 
-    //METODA @POSTCONSTRUCT WYWOLA SIE GDY TE WSZYSTKIE AUTOWIRED NA GORZE ZOSTANA ZINICJALIZOWANE
+
     @PostConstruct
     private void init() {
 
-        // TODO ZMIENIC NAZWE INSERT NA insertOrUpdate
+
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 

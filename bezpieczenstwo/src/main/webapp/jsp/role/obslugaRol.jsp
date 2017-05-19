@@ -49,18 +49,24 @@
                 </tr>
             </c:forEach>
         </table>
-        <br><br>
+        <br>
     </sec:authorize>
 </sec:authorize>
 
 <sec:authorize access="hasPermission(#user, 'READ_ROLE')">
     <sec:authorize access="hasPermission(#user, 'EDIT_UZYTKOWNICY')">
-        <a href="<c:url value="/index/dodajRoleUzytkownikowi.htm"/>" class="btn btn-default">Przyporządkuj</a>
+        <a href="<c:url value="/index/dodajRoleUzytkownikowi.htm"/>" class="btn btn-default">Dodaj rolę użytkownikowi</a>
     </sec:authorize>
 </sec:authorize>
 
-
 <sec:authorize access="hasPermission(#user, 'READ_ROLE')">
+    <sec:authorize access="hasPermission(#user, 'EDIT_UZYTKOWNICY')">
+        <a href="<c:url value="/index/usunRoleUzytkownikowi.htm"/>" class="btn btn-default">Zabierz rolę użytkownikowi</a>
+    </sec:authorize>
+</sec:authorize>
+<br>
+<sec:authorize access="hasPermission(#user, 'READ_ROLE')">
+    <br>
         <p>Role.</p>
         <table class="sortable">
             <tr>

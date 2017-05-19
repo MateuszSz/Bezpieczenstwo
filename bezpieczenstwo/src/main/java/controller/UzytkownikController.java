@@ -26,14 +26,17 @@ import java.util.List;
 @Controller
 public class UzytkownikController {
 
-    @Autowired
-    private KsiazkaService ksiazkaService;
 
-    @Autowired
     private UzytkownikService uzytkownikService;
+    private SessionRegistry sessionRegistry;
 
     @Autowired
-    private SessionRegistry sessionRegistry;
+    public UzytkownikController(UzytkownikService uzytkownikService, SessionRegistry sessionRegistry) {
+        this.uzytkownikService = uzytkownikService;
+        this.sessionRegistry = sessionRegistry;
+    }
+
+
 
     @PreAuthorize("hasPermission(authentication, 'ADD_UZYTKOWNICY')")
     @RequestMapping(value = "/index/dodajUzytkownika.htm")
@@ -44,7 +47,7 @@ public class UzytkownikController {
 
     @PreAuthorize("hasPermission(authentication, 'ADD_UZYTKOWNICY')")
     @RequestMapping(value = "/index/dodawanieUzytkownika", method = RequestMethod.POST)
-    public String dodawanieKsiazki(Principal principal, @ModelAttribute Uzytkownik uzytkownik) {
+    public String dodawanieKsiazki( @ModelAttribute Uzytkownik uzytkownik) {
         String password = uzytkownik.getHaslo();
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         uzytkownik.setHaslo(passwordEncoder.encode(password));
@@ -85,7 +88,7 @@ public class UzytkownikController {
         return "redirect:/index";
     }
 
-    ///index/edytujUzytkownika.htm
+
     @PreAuthorize("hasPermission(authentication, 'EDIT_UZYTKOWNICY')")
     @RequestMapping(value = "index/edytujUzytkownika.htm")
     public String edytujRole(ModelMap model) {

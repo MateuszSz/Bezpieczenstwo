@@ -13,8 +13,13 @@ import java.util.List;
 @Service
 public class DzienPracyServiceImp implements DzienPracyService {
 
-    @Autowired
+
     private DzienPracyRepository dzienPracyRepository;
+
+    @Autowired
+    public DzienPracyServiceImp(DzienPracyRepository dzienPracyRepository) {
+        this.dzienPracyRepository = dzienPracyRepository;
+    }
 
     public void delete(int id) {
         dzienPracyRepository.delete(id);

@@ -9,8 +9,13 @@ import java.util.List;
 
 public class RolaServiceImp implements RolaService {
 
-    @Autowired
+
     private RolaRepository rolaRepository;
+
+    @Autowired
+    public RolaServiceImp(RolaRepository rolaRepository) {
+        this.rolaRepository = rolaRepository;
+    }
 
     public void insert(Rola rola) {
         rolaRepository.insert(rola);
@@ -18,6 +23,10 @@ public class RolaServiceImp implements RolaService {
 
     public void delete(int id) {
         rolaRepository.delete(id);
+    }
+
+    public void deleteRoleFromUser(int idRoli, int idUzytkownika) {
+        rolaRepository.deleteRoleFromUser(idRoli,idUzytkownika);
     }
 
     public Rola display(int id) {

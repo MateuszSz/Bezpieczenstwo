@@ -16,8 +16,13 @@ import java.util.List;
 @Transactional
 public class KsiazkaRepositoryImp implements KsiazkaRepository {
 
-    @Autowired
+
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public KsiazkaRepositoryImp(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public void insert(Ksiazka ksiazka) {
         sessionFactory.getCurrentSession().saveOrUpdate(ksiazka);
@@ -37,14 +42,12 @@ public class KsiazkaRepositoryImp implements KsiazkaRepository {
     public List displayAllByEmail(String email) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select ksiazka.id, ksiazka.ISBN, ksiazka.autor, ksiazka.tytul, ksiazka.seria, ksiazka.dostepnosc " +
                 "from ksiazka, uzytkownik_ksiazka, uzytkownik WHERE ksiazka.id=uzytkownik_ksiazka.ksiazki_id and uzytkownik_ksiazka.Uzytkownik_id=uzytkownik.id and uzytkownik.email = \"" + email + "\"");
-        List results = sqlQuery.list();
-        return results;
+        return sqlQuery.list();
     }
 
     public List displayAll() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("Select ksiazka.id, ksiazka.ISBN, ksiazka.autor, ksiazka.tytul, ksiazka.seria, ksiazka.dostepnosc from ksiazka");
-        List results = sqlQuery.list();
-        return results;
+        return sqlQuery.list();
     }
 
 }

@@ -1,5 +1,8 @@
 package model.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
@@ -10,7 +13,9 @@ import java.util.HashSet;
  * Created by mateu on 20.03.2017.
  */
 @Entity
-@Transactional
+@Getter
+@Setter
+@NoArgsConstructor
 public class Rola {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,44 +26,8 @@ public class Rola {
     @ManyToMany(cascade = CascadeType.ALL)
     private Collection<Uprawnienie> uprawnienia = new HashSet<Uprawnienie>();
 
-
-    public Rola() {
-    }
-
     public Rola(String nazwa) {
         this.nazwa = nazwa;
     }
 
-    @Transactional
-    public Collection<Uprawnienie> getUprawnienia() {
-        return uprawnienia;
-    }
-
-    public void setUprawnienia(Collection<Uprawnienie> uprawnienia) {
-        this.uprawnienia = uprawnienia;
-    }
-
-    public Collection<Uzytkownik> getUzytkownicy() {
-        return uzytkownicy;
-    }
-
-    public void setUzytkownicy(Collection<Uzytkownik> uzytkownicy) {
-        this.uzytkownicy = uzytkownicy;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNazwa() {
-        return nazwa;
-    }
-
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
 }
