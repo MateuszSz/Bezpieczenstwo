@@ -113,6 +113,7 @@
     <http auto-config="false" use-expressions="true">
         <expression-handler ref="webExpressionHandler"/>
         <custom-filter before="FORM_LOGIN_FILTER" ref="customUsernamePasswordAuthenticationFilter"/>
+        <access-denied-handler error-page="/403"/>
         <intercept-url pattern="/login" access="permitAll"/>
         <intercept-url pattern="/favicon.ico" access="permitAll"/>
         <intercept-url pattern="/resources/**" access="permitAll"/>
