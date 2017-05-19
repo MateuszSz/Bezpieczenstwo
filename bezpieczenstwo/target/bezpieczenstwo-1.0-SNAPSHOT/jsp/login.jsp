@@ -75,7 +75,6 @@
 </form>
 <center>
     <div class="errorMessage">${wiadomosc}</div>
-    ${login_error}
 </center>
 <jsp:include page="footer.jsp"/>
 </body>
