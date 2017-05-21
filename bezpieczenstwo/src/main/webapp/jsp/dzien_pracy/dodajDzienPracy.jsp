@@ -59,7 +59,7 @@
            placeholder="Godzina zakończenia pracy" required>
 
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nowy dzien pracy</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nowy dzień pracy</button>
 </form>
 </body>
 </html>

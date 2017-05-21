@@ -84,7 +84,7 @@
     <label for="inputDostepnosc" class="sr-only">Dostepnosc</label>
     <input type="text" name="dostepnosc" id="inputDostepnosc" class="form-control" placeholder="Dostepnosc" required>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nowa ksiazke</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj nową ksiazkę</button>
 </form>
 </body>
 </html>

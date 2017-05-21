@@ -56,7 +56,7 @@
         <option value="EDIT">UPDATE</option>
         <option value="DELETE">DELETE</option>
     </select>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Usuń</button>
 </form>
 
 <jsp:include page="../footer.jsp"/>

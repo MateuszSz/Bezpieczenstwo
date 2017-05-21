@@ -36,7 +36,7 @@
 <center>
     <jsp:include page="/jsp/classic.jsp"/>
 <sec:authorize access="hasPermission(#user, 'READ_DNIPRACY')">
-    <p>Twój grafik.</p>
+    <p>Grafiki</p>
     <table class="sortable">
         <tr>
 

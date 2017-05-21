@@ -49,7 +49,7 @@
 
 <body background="<c:url value="/resources/images/bodybg.png"/>">
 <center>
-    <h2 class="form-signin-heading">Proszę wybrać rolę, tablicę i uprawnienie do edycji</h2>
+    <h2 class="form-signin-heading">Proszę zaznaczyć które uprawnienia ma posiadać rola</h2>
 </center>
 <form class="form-signin" action="<c:url value="/index/dokonajEdycjiUprawnien?id=${idRoli}&nazwa=${tablica}"/>" method="POST">
     <center> <label for="inputSelect">SELECT</label> </center>

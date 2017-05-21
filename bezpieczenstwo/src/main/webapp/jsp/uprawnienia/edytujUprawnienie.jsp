@@ -35,7 +35,7 @@
 </script>
 <body>
 <center>
-    <h2 class="form-signin-heading">Proszę wybrać rolę, tablicę i uprawnienie do edycji</h2>
+    <h2 class="form-signin-heading">Proszę wybrać rolę i tablicę do edycji uprawnień</h2>
 </center>
 <form class="form-signin" action="<c:url value="/index/edycjaUprawnien"/>" method="POST">
     <label for="inputTablica" class="sr-only">Podaj nazwę tablicy </label>
@@ -51,7 +51,7 @@
     </select>
     <label for="inputRola" class="sr-only">Podaj rolę</label>
     <select name="rola" id="inputRola" class="form-control"></select>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Przejdz do edycji</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Przejdź do edycji</button>
 </form>
 
 <jsp:include page="../footer.jsp"/>
