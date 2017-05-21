@@ -25,4 +25,8 @@ public interface RolaRepository {
     List displayWithUserName();
 
     List displayAllNamesAndId();
+
+    List displayAllSeperateRoles(String name);
+
+    List displayAllRolesAndSeperateRoles();
 }

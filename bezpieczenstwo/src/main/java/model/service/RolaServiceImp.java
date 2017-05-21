@@ -3,10 +3,11 @@ package model.service;
 import model.entity.Rola;
 import model.repository.RolaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public class RolaServiceImp implements RolaService {
 
 
@@ -51,6 +52,14 @@ public class RolaServiceImp implements RolaService {
 
     public List displayAllNamesAndId() {
         return rolaRepository.displayAllNamesAndId();
+    }
+
+    public List displayAllSeperateRoles(String name) {
+        return rolaRepository.displayAllSeperateRoles(name);
+    }
+
+    public List displayAllRolesAndSeperateRoles() {
+        return rolaRepository.displayAllRolesAndSeperateRoles();
     }
 
 }

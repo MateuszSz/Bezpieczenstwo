@@ -58,10 +58,20 @@ public class InitServiceImpl {
         rolaRepository.insert(rolaHigienistka);
         Rola rolaNauczyciel = new Rola("NAUCZYCIEL");
         rolaRepository.insert(rolaNauczyciel);
-        Rola rolaUczen = new Rola("UCZEN");
-        rolaRepository.insert(rolaUczen);
         Rola rolaBibliotekarz = new Rola("BIBLIOTEKARZ");
         rolaRepository.insert(rolaBibliotekarz);
+        Rola rolaUczen = new Rola("UCZEN");
+        rolaUczen.getSeperacjaRol().add(rolaNauczyciel);
+        rolaUczen.getSeperacjaRol().add(rolaAdmina);
+        rolaUczen.getSeperacjaRol().add(rolaDyrektora);
+        rolaUczen.getSeperacjaRol().add(rolaHigienistka);
+        rolaUczen.getSeperacjaRol().add(rolaBibliotekarz);
+        rolaRepository.insert(rolaUczen);
+
+        rolaNauczyciel.getSeperacjaRol().add(rolaUczen);
+        rolaRepository.insert(rolaNauczyciel);
+
+
 
 //  TWORZENIE URZYTKOWNIKOW I POLACZENIE ICH Z ROLAMI
         Uzytkownik uzytkownik = new Uzytkownik("ada@wp.pl", passwordEncoder.encode("mati"), "Ada Rynkowska");
@@ -79,7 +89,7 @@ public class InitServiceImpl {
         uzytkownik2.getRole().add(rolaAdmina);
         uzytkownik2.getRole().add(rolaHigienistka);
         uzytkownik3.getRole().add(rolaUczen);
-        uzytkownik3.getRole().add(rolaHigienistka);
+        //uzytkownik3.getRole().add(rolaHigienistka);
         uzytkownik4.getRole().add(rolaUczen);
         uzytkownikRepository.insert(uzytkownik);
         uzytkownikRepository.insert(uzytkownik2);

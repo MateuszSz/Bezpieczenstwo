@@ -43,16 +43,25 @@ public class RolaController {
         Rola rola = rolaService.displayWithoutPermission(idRoli);
         for (Rola r : uzytkownik.getRole())
             if (r.getNazwa().equals(rola.getNazwa())) {
-                //model.addAttribute("wiadomosc", "Użytkownik już posiada daną rolę!");
+                model.addAttribute("wiadomosc", "Uzytkownik_posiada_dana_role");
                 return "redirect:/index";
-
             }
+            List seperacyjna;
+        for(Rola r: uzytkownik.getRole()){
+            seperacyjna = rolaService.displayAllSeperateRoles(r.getNazwa());
+            for(Object s : seperacyjna)
+            if(s.toString().equals(rola.getNazwa())) {
+                model.addAttribute("wiadomosc", "Nie_mozna_przydzielic_roli");
+                return "redirect:/index";
+            }
+        }
+
 
         uzytkownik.getRole().add(rola);
         rola.getUzytkownicy().add(uzytkownik);
         uzytkownikService.insert(uzytkownik);
         rolaService.insert(rola);
-        // model.addAttribute("wiadomosc", "Dodano nową rolę użytkownikowi");
+        model.addAttribute("wiadomosc", "Dodano_role_uzytkownikowi");
         return "redirect:/index";
 
     }
@@ -61,11 +70,12 @@ public class RolaController {
     @RequestMapping(value = "/index/usuwanieRoliUzytkownikowi", method = RequestMethod.POST)
     public String usuwanieRoliUzytkownikowi(ModelMap model, @RequestParam("imieINazwisko") int idUzytkownika, @RequestParam("rola") int idRoli) {
         rolaService.deleteRoleFromUser(idRoli, idUzytkownika);
+        model.addAttribute("wiadomosc", "Usunieto_role_uzytkownikowi");
         return "redirect:/index";
 
     }
 
-    @PreAuthorize("hasPermission(authentication, 'ADD_ROLE')")
+    @PreAuthorize("hasPermission(authentication, 'DELETE_ROLE')")
     @RequestMapping(value = "/index/usunRoleUzytkownikowi.htm")
     public String usunRoleUzytkownikowi(ModelMap model) {
         List role = rolaService.displayAllNamesAndId();

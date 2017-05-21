@@ -38,8 +38,9 @@
         <p>Użytkownicy i ich role.</p>
         <table class="sortable">
             <tr>
-                <th>Nazwa roli</th>
                 <th>Imię i nazwisko posiadacza</th>
+                <th>Nazwa roli</th>
+
             </tr>
             <c:forEach items="${listaRolZUzytkownikami}" var="tablicaRol">
                 <tr>
@@ -96,3 +97,28 @@
 </sec:authorize>
 <br>
 
+<sec:authorize access="hasPermission(#user, 'READ_ROLE')">
+    <br>
+    <p>Role i nazwy ról rozłącznych</p>
+    <table class="sortable">
+        <tr>
+            <th>Nazwa roli</th>
+            <th>Nazwa roli rozłącznej</th>
+        </tr>
+        <c:forEach items="${listaRolSeperacyjnych}" var="tablicaRol">
+            <tr>
+                <c:forEach items="${tablicaRol}" var="rola">
+                    <td>${rola}</td>
+                </c:forEach>
+            </tr>
+        </c:forEach>
+    </table>
+
+</sec:authorize>
+<sec:authorize access="hasPermission(#user, 'ADD_ROLE')">
+    <a href="<c:url value="/index/dodajRole.htm"/>" class="btn btn-default">Rozłącz role</a>
+</sec:authorize>
+<sec:authorize access="hasPermission(#user, 'EDIT_ROLE')">
+    <a href="<c:url value="/index/edytujRole.htm"/>" class="btn btn-default">Usuń rozłączenie</a>
+</sec:authorize>
+<br/><br>

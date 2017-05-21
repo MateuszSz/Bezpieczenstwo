@@ -25,6 +25,11 @@
     </listener>
 
     <listener>
+        <listener-class>
+            ContextListenerExample
+        </listener-class>
+    </listener>
+    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <!-- Loads Spring Security config file -->

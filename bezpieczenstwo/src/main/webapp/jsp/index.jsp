@@ -31,9 +31,24 @@
 <jsp:include page="classic.jsp"/>
 <br><br>
 <center>
+    <c:if test="${wiadomosc.equals('Nie_mozna_przydzielic_roli')}">
+        <div class="errorMessage">Nie można przydzielić roli - statyczna separacja ról!</div>
+    </c:if>
+    <c:if test="${wiadomosc.equals('Uzytkownik_posiada_dana_role')}">
+        <div class="errorMessage">Nie można przydzielić roli - użytkownik już ją posiada!</div>
+    </c:if>
+    <c:if test="${wiadomosc.equals('Dodano_role_uzytkownikowi')}">
+        <div class="successMessage">Rola została przydzielona!</div>
+    </c:if>
+    <c:if test="${wiadomosc.equals('Usunieto_role_uzytkownikowi')}">
+        <div class="successMessage">Rola została usunięta!</div>
+    </c:if>
     <h2>Witaj ${imieINazwisko}!</h2>
     rola: ${rola}
-    <div class="errorMessage">${wiadomosc}</div>
+    <h2></h2>
+    <%--<div class="errorMessage">${wiadomosc}</div>--%>
+    Usunieto_role_uzytkownikowi
+
 </center>
 <br><br>
 <center>

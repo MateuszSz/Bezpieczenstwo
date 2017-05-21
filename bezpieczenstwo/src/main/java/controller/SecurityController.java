@@ -64,9 +64,9 @@ public class SecurityController {
     }
 
     @RequestMapping(value = "/login")
-    public String login(HttpServletRequest request, ModelMap modelMap, @RequestParam(value = "login_error", required = false) boolean login_error) {
+    public String login(HttpServletRequest request, ModelMap modelMap, @RequestParam(value = "login_error", required = false) boolean login_error, @RequestParam(value = "wiadomosc", required = false) String wiadomosc) {
         Object o = request.getSession().getAttribute("wiadomosc");
-        String wiadomosc = "";
+
         if(login_error)
             wiadomosc = "Błędny login, hasło lub źle wybrana rola";
         if (o != null)
@@ -81,8 +81,9 @@ public class SecurityController {
 
 
     @RequestMapping(value = {"/index", "/"})
-    public String index(ModelMap model, Authentication authentication, @RequestParam(value = "status", required = false) String status) {
+    public String index(HttpServletRequest request, ModelMap model, Authentication authentication, @RequestParam(value = "wiadomosc", required = false) String status) {
         CustomUserDetails cs = (CustomUserDetails) authentication.getPrincipal();
+        Object o1 = request.getSession().getAttribute("wiadomosc");
         List roleDoSprawdzenia = rolaService.displayAll();
         boolean czyRolaJestWBazie = false;
         for (Object o : roleDoSprawdzenia)
@@ -104,22 +105,14 @@ public class SecurityController {
         List uczniowie = null;
         List dniMojejPracy = null;
         List wszystkieDniPracy = null;
-        String wiadomosc = "";
-        if (status != null) {
-            if (status.equals("usuwanie_admina"))
-                wiadomosc = "Nie możesz usunąć roli Administratora!";
-            else if (status.equals("blad_dodawania_roli"))
-                wiadomosc = "Rola już istnieje!";
-        }
-
-        if (cs.isRedirected()) {
-            wiadomosc = "Nastąpiło przekierowanie logowania na " + cs.getWybranaRola();
-            ((CustomUserDetails) authentication.getPrincipal()).setRedirected(false);
-        }
+        List roleSeperacyjne = null;
 
         if(customPermissionEvaluator.hasPermission(authentication, null, "READ_UZYTKOWNICY")){
             uzytkownicy = uzytkownikService.displayAllWithoutPassword();
         }
+
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_ROLE"))
+            roleSeperacyjne = rolaService.displayAllRolesAndSeperateRoles();
 
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_LEKI"))
             leki = lekService.displayAll();
@@ -145,7 +138,7 @@ public class SecurityController {
         //dodawanie atrybutu do modelu.
         //Model jest przekazywany do index jsp samoczynnie w returnie
         model.addAttribute("idUzytkownika", cs.getId());
-        model.addAttribute("wiadomosc", wiadomosc);
+        model.addAttribute("wiadomosc", status);
         model.addAttribute("rola", cs.getWybranaRola());
         model.addAttribute("imieINazwisko", cs.getName());
         model.addAttribute("listaLekow", leki);
@@ -159,6 +152,7 @@ public class SecurityController {
         model.addAttribute("listaWszystkichDniPracy", wszystkieDniPracy);
         model.addAttribute("listaUzytkownikow", uzytkownicy);
         model.addAttribute("listaRol", role);
+        model.addAttribute("listaRolSeperacyjnych", roleSeperacyjne);
         return "index";
     }
 

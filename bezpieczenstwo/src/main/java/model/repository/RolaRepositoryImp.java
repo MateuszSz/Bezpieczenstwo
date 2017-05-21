@@ -61,6 +61,16 @@ public class RolaRepositoryImp implements RolaRepository {
         return sqlQuery.list();
     }
 
+    public List displayAllSeperateRoles(String name){
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT r2.nazwa FROM rola r, rola r2, rola_rola WHERE r.id = rola_rola.Rola_id AND r2.id = rola_rola.seperacjaRol_id and r.nazwa = \""+ name +"\"");
+        return sqlQuery.list();
+    }
+
+    public List displayAllRolesAndSeperateRoles(){
+        SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT DISTINCT r.nazwa as 'Rola', r2.nazwa as 'Seperacja' FROM rola r, rola r2, rola_rola WHERE r.id = rola_rola.Rola_id AND r2.id = rola_rola.seperacjaRol_id");
+        return sqlQuery.list();
+
+    }
 
     public List displayWithUserName() {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT uzytkownik.imieINazwisko, rola.nazwa FROM uzytkownik, rola, uzytkownik_rola " +

@@ -26,6 +26,10 @@ public class Rola {
     @ManyToMany(cascade = CascadeType.ALL)
     private Collection<Uprawnienie> uprawnienia = new HashSet<Uprawnienie>();
 
+    @ManyToMany
+    private Collection<Rola> seperacjaRol = new HashSet<Rola>();
+
+
     public Rola(String nazwa) {
         this.nazwa = nazwa;
     }
