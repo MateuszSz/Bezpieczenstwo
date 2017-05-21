@@ -43,11 +43,20 @@
     <c:if test="${wiadomosc.equals('Usunieto_role_uzytkownikowi')}">
         <div class="successMessage">Rola została usunięta!</div>
     </c:if>
+    <c:if test="${wiadomosc.equals('usun_role')}">
+        <div class="errorMessage">Istnieje użytkownik o tych dwóch rolach, zabierz mu je albo usuń użytkownika!</div>
+    </c:if>
+    <c:if test="${wiadomosc.equals('usuwanie_admina')}">
+        <div class="errorMessage">Roli admina nie można usunąć!</div>
+    </c:if>
+    <c:if test="${wiadomosc.equals('powodzenie')}">
+    <div class="successMessage">Prawidłowo dokonano operacji!</div>
+</c:if>
     <h2>Witaj ${imieINazwisko}!</h2>
     rola: ${rola}
     <h2></h2>
     <%--<div class="errorMessage">${wiadomosc}</div>--%>
-    Usunieto_role_uzytkownikowi
+
 
 </center>
 <br><br>

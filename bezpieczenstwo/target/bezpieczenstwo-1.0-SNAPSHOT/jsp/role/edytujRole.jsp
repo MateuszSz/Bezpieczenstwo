@@ -34,7 +34,7 @@
     });
 </script>
 <body>
-    <h2 class="form-signin-heading">Proszę wybrać użytkownika i jego nową rolę</h2>
+    <h2 class="form-signin-heading">Proszę wybrać rolę i jej nową nazwę</h2>
 <form class="form-signin" action="<c:url value="/index/edycjaRoli"/>" method="POST">
     <label for="inputRola" class="sr-only">Podaj rolę</label>
     <select name="rola" id="inputRola" class="form-control"></select>

@@ -94,6 +94,9 @@ public class SecurityController {
             return "redirect:/logout";
         if(cs.getEmail().equals("loggedOut"))
             return "redirect:/logout";
+        if(!cs.isAccountNonLocked())
+            return "redirect:/logout";
+
         List uzytkownicy = null;
         List leki = null;
         List roleZUzytkownikami = null;

@@ -32,6 +32,7 @@ public class RolaRepositoryImp implements RolaRepository {
         Rola rola = (Rola) sessionFactory.getCurrentSession().get(Rola.class, id);
         Hibernate.initialize(rola.getUzytkownicy());
         Hibernate.initialize(rola.getUprawnienia());
+        Hibernate.initialize(rola.getSeperacjaRol());
         return rola;
     }
 

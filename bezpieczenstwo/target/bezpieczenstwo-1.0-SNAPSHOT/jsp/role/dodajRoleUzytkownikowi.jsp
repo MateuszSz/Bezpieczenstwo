@@ -27,7 +27,7 @@
         <d:forEach items="${listaUzytkownikow}" var="tablicaUzytkownikow">
         var el = document.createElement("option");
         el.textContent = "<d:out value="${tablicaUzytkownikow[1]}"/>";
-        el.value = <d:out value="${tablicaUzytkownikow[0]}"/>;
+        el.value = <d:out value="${tablicaUzytkownikzow[0]}"/>;
         select.appendChild(el);
         </d:forEach>
 

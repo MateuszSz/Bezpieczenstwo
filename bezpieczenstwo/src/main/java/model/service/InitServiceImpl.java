@@ -81,7 +81,6 @@ public class InitServiceImpl {
 
         uzytkownik.getRole().add(rolaAdmina);
         uzytkownik.getRole().add(rolaDyrektora);
-        uzytkownik.getRole().add(rolaUczen);
         uzytkownik.getRole().add(rolaBibliotekarz);
         uzytkownik.getRole().add(rolaNauczyciel);
         uzytkownik2.getRole().add(rolaBibliotekarz);

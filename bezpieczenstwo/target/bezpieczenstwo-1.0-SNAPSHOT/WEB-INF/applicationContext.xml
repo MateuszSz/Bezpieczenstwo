@@ -23,9 +23,6 @@
     <beans:bean id="setupSSL"
           class="org.springframework.batch.support.SystemPropertyInitializer"
           p:keyName="javax.net.debug" p:defaultValue="all"
-
-
-
     />
 
 

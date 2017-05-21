@@ -116,9 +116,9 @@
 
 </sec:authorize>
 <sec:authorize access="hasPermission(#user, 'ADD_ROLE')">
-    <a href="<c:url value="/index/dodajRole.htm"/>" class="btn btn-default">Rozłącz role</a>
+    <a href="<c:url value="/index/rozlaczRole.htm"/>" class="btn btn-default">Rozłącz role</a>
 </sec:authorize>
-<sec:authorize access="hasPermission(#user, 'EDIT_ROLE')">
-    <a href="<c:url value="/index/edytujRole.htm"/>" class="btn btn-default">Usuń rozłączenie</a>
+<sec:authorize access="hasPermission(#user, 'DELETE_ROLE')">
+    <a href="<c:url value="/index/usunRozlaczenie.htm"/>" class="btn btn-default">Usuń rozłączenie</a>
 </sec:authorize>
 <br/><br>

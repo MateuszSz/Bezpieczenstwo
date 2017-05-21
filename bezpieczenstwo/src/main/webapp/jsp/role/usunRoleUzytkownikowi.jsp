@@ -49,7 +49,7 @@
     <select name="imieINazwisko" id="inputImieINazwisko" class="form-control"></select>
     <label for="inputRola" class="sr-only">Podaj rolę</label>
     <select name="rola" id="inputRola" class="form-control"></select>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Usuń</button>
 </form>
 
 <jsp:include page="../footer.jsp"/>
