@@ -132,7 +132,7 @@ public class RolaController {
 
     @PreAuthorize("hasPermission(authentication, 'ADD_ROLE')")
     @RequestMapping(value = "/index/rozlaczRole", method = RequestMethod.POST)
-    public String drozlaczRole(ModelMap model, @RequestParam("rola") int idRoli, @RequestParam("rolaRozlaczona") int idRoliRozlaczonej) {
+    public String rozlaczRole(ModelMap model, @RequestParam("rola") int idRoli, @RequestParam("rolaRozlaczona") int idRoliRozlaczonej) {
         if(idRoli == idRoliRozlaczonej){
             model.addAttribute("wiadomosc", "dwie_takie_same_role");
             return "redirect:/index";
@@ -214,6 +214,17 @@ public class RolaController {
         return "role/usunRoleRozlaczna";
     }
 
+    @PreAuthorize("hasPermission(authentication, 'ADD_ROLE')")
+    @RequestMapping(value = "/index/usuwanieRozlaczeniaRol", method = RequestMethod.POST)
+    public String usuwanieRozlaczeniaRol(ModelMap model, @RequestParam("rola") int idRoli, @RequestParam("rolaRozlaczona") int idRoliRozlaczonej) {
+        if(idRoli == idRoliRozlaczonej){
+            model.addAttribute("wiadomosc", "dwie_takie_same_role");
+            return "redirect:/index";
+        }
+        rolaService.deleteSeparateRole(idRoli, idRoliRozlaczonej);
+        model.addAttribute("wiadomosc", "powodzenie");
+        return "redirect:/index";
+    }
 
     @PreAuthorize("hasPermission(authentication, 'DELETE_ROLE')")
     @RequestMapping(value = "/index/usuwanieRoli", method = RequestMethod.POST)

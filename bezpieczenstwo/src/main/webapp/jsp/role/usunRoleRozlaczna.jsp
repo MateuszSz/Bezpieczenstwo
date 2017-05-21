@@ -49,7 +49,7 @@
     <label for="inputRola" class="sr-only">Podaj rolę</label>
     <select name="rola" id="inputRola" class="form-control"></select>
     <label for="inputRola2" class="sr-only">Podaj rolę</label>
-    <select name="rolaRozlaczna" id="inputRola2" class="form-control"></select>
+    <select name="rolaRozlaczona" id="inputRola2" class="form-control"></select>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Usuń rozłączność</button>
 </form>
 

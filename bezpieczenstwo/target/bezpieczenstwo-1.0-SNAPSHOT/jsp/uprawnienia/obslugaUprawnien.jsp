@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <sec:authorize access="hasPermission(#user, 'READ_UPRAWNIENIA')">
-    <p>Role i ich uprawnienia do odczytania, dodawania, eydcji i usuwania pól w tablicach.</p>
+    <p>Role i ich uprawnienia do odczytania, dodawania, edycji i usuwania pól w tablicach.</p>
     <table class="sortable">
         <tr>
             <th></th>

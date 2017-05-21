@@ -30,6 +30,10 @@ public class RolaServiceImp implements RolaService {
         rolaRepository.deleteRoleFromUser(idRoli,idUzytkownika);
     }
 
+    public void deleteSeparateRole(int idRoli, int idSepRoli) {
+        rolaRepository.deleteSeparateRole(idRoli,idSepRoli);
+    }
+
     public Rola display(int id) {
         return rolaRepository.display(id);
     }

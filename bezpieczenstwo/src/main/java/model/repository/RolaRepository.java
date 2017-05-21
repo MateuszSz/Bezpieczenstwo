@@ -14,6 +14,8 @@ public interface RolaRepository {
 
     void deleteRoleFromUser(int idRoli, int idUzytkownika);
 
+    void deleteSeparateRole(int idRoli, int idSepRoli);
+
     Rola display(int id);
 
     Rola displayWithoutPermission(int id);
@@ -29,4 +31,5 @@ public interface RolaRepository {
     List displayAllSeperateRoles(String name);
 
     List displayAllRolesAndSeperateRoles();
+
 }

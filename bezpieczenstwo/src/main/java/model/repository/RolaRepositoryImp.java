@@ -81,12 +81,17 @@ public class RolaRepositoryImp implements RolaRepository {
     }
 
 
+
     public void delete(int id) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM uzytkownik_rola WHERE uzytkownik_rola.role_id=" + id);
         SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM rola_uprawnienie WHERE rola_id=" + id);
         SQLQuery sqlQuery3 = sessionFactory.getCurrentSession().createSQLQuery("DELETE FROM rola WHERE rola.id=" + id);
+        SQLQuery sqlQuery4 = sessionFactory.getCurrentSession().createSQLQuery("DELETE from rola_rola where rola_rola.Rola_id =" + id);
+        SQLQuery sqlQuery5 = sessionFactory.getCurrentSession().createSQLQuery("DELETE from rola_rola where rola_rola.seperacjaRol_id =" + id);
         sqlQuery.executeUpdate();
         sqlQuery2.executeUpdate();
+        sqlQuery4.executeUpdate();
+        sqlQuery5.executeUpdate();
         sqlQuery3.executeUpdate();
     }
 
@@ -94,6 +99,13 @@ public class RolaRepositoryImp implements RolaRepository {
     public void deleteRoleFromUser(int idRoli, int idUzytkownika) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery("delete from uzytkownik_rola WHERE uzytkownik_rola.role_id = " +idRoli + " and uzytkownik_rola.uzytkownicy_id = " + idUzytkownika + "");
         sqlQuery.executeUpdate();
+    }
+
+    public void deleteSeparateRole(int idRoli, int idSepRoli) {
+        SQLQuery sqlQuery1 = sessionFactory.getCurrentSession().createSQLQuery("DELETE from rola_rola where rola_rola.Rola_id = "+ idRoli +" and rola_rola.seperacjaRol_id = "+ idSepRoli +"");
+        SQLQuery sqlQuery2 = sessionFactory.getCurrentSession().createSQLQuery("DELETE from rola_rola where rola_rola.Rola_id = "+ idSepRoli +" and rola_rola.seperacjaRol_id = "+ idRoli +"");
+        sqlQuery1.executeUpdate();
+        sqlQuery2.executeUpdate();
     }
 
 }

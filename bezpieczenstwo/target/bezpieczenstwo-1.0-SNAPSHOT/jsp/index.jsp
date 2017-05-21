@@ -52,6 +52,9 @@
     <c:if test="${wiadomosc.equals('powodzenie')}">
     <div class="successMessage">Prawidłowo dokonano operacji!</div>
 </c:if>
+    <c:if test="${wiadomosc.equals('dwie_takie_same_role')}">
+        <div class="errorMessage">Wybrano dwie takie same role!</div>
+    </c:if>
     <h2>Witaj ${imieINazwisko}!</h2>
     rola: ${rola}
     <h2></h2>
