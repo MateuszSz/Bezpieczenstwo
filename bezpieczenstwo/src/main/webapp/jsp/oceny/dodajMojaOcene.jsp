@@ -1,9 +1,11 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Ada
-  Date: 2017-04-08
-  Time: 11:43
+  Date: 2017-04-06
+  Time: 23:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -24,16 +26,9 @@
             crossorigin="anonymous"></script>
 
 
-    <title>Edytuj ocene</title>
+    <title>Dodaj Ocene</title>
 </head>
-<script type='text/javascript'>
-    $(document).ready(function () {
-        document.getElementById('inputPrzedmiot').value = "${przedmiot}";
-        document.getElementById('inputOcena').value = "${ocena}";
-        document.getElementById('inputUczen').value = "${nazwiskoUcznia}";
 
-    });
-</script>
 <style>
     .form-signin {
         max-width: 330px;
@@ -87,8 +82,13 @@
 
 </style>
 <body background="<c:url value="/resources/images/bodybg.png"/>">
-<form class="form-signin" action="<c:url value="/index/edytowanieOceny" />?id=${idOceny}" method="POST">
-    <h2 class="form-signin-heading">Edytuj ocene</h2>
+<center>
+    <h2 class="form-signin-heading">Proszę wybrać przedmiot oraz podać ocenę.</h2>
+</center>
+<form class="form-signin" action="<c:url value="/index/dodawanieMojejOceny"/> " method="POST">
+    <label for="inputOcena" class="sr-only">Ocena</label>
+    <input type="number" min="1" max="6" step="0.01" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
+    <label for="inputPrzedmiot" class="sr-only">Przedmiot</label>
     <select name="przedmiot" id="inputPrzedmiot" class="form-control">
         <option value="Przyroda">Przyroda</option>
         <option value="Historia">Historia</option>
@@ -97,11 +97,9 @@
         <option value="WF">WF</option>
         <option value="Matematyka">Matematyka</option>
     </select>
-    <input type="number" min="1" max="6" step="0.01" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
-    <input type="text" name="uczen" id="inputUczen" class="form-control" placeholder="Uczen" required readonly>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Zapisz</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Dodaj</button>
 </form>
+
 
 </body>
 </html>

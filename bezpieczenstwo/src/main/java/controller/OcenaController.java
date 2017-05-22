@@ -63,7 +63,36 @@ public class OcenaController {
 
     }
 
-    @PreAuthorize("hasPermission(authentication, 'EDIT_WYSTAWIONEOCENY')")
+    @PreAuthorize("hasPermission(authentication, 'ADD_MOJEOCENY')")
+    @RequestMapping(value = "/index/dodajMojaOcene.htm")
+    public String dodajMojaOcene(ModelMap model) {
+
+        //List uczniowie = uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
+        //model.addAttribute("listaUczniow" , uczniowie);
+        return "oceny/dodajMojaOcene";
+    }
+
+
+    @PreAuthorize("hasPermission(authentication, 'ADD_MOJEOCENY')")
+    @RequestMapping(value = "/index/dodawanieMojejOceny", method = RequestMethod.POST)
+    public String dodawanieMojejOceny(Authentication authentication, @ModelAttribute Ocena ocena) {
+        //ocenaService.insert(ocena);
+        CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+        Uzytkownik nauczyciel = uzytkownikService.displayWithMarks(customUserDetails.getId());
+        ocena.setNauczyciel(nauczyciel);
+        Uzytkownik uczen = uzytkownikService.displayWithMarks(customUserDetails.getId());
+        ocena.setUczen(uczen);
+        uzytkownikService.insert(nauczyciel);
+        uzytkownikService.insert(uczen);
+        ocenaService.insert(ocena);
+        return "redirect:/index";
+
+    }
+
+
+
+
+    @PreAuthorize("hasPermission(authentication, 'EDIT_WYSTAWIONEOCENY')|| hasPermission(authentication, 'EDIT_MOJEOCENY')")
     @RequestMapping(value = "/index/edytujOcene.htm")
     public String edytujOcene(ModelMap model, @RequestParam("id") int id) {
         model.addAttribute("idOceny", id);
@@ -78,7 +107,7 @@ public class OcenaController {
     }
 
 
-    @PreAuthorize("hasPermission(authentication, 'EDIT_WYSTAWIONEOCENY')")
+    @PreAuthorize("hasPermission(authentication, 'EDIT_WYSTAWIONEOCENY')|| hasPermission(authentication, 'EDIT_MOJEOCENY')")
     @RequestMapping(value = "/index/edytowanieOceny", method = RequestMethod.POST)
     public String edytowanieOceny(ModelMap model, @ModelAttribute("ocena") String ocena, @ModelAttribute("przedmiot") String przedmiot, @RequestParam("id") int id) {
         Ocena zmieniona = ocenaService.display(id);
@@ -89,7 +118,7 @@ public class OcenaController {
 
     }
 
-    @PreAuthorize("hasPermission(authentication, 'DELETE_WYSTAWIONEOCENY')")
+    @PreAuthorize("hasPermission(authentication, 'DELETE_WYSTAWIONEOCENY')|| hasPermission(authentication, 'DELETE_MOJEOCENY')")
     @RequestMapping(value="/index/usunOcene", method = RequestMethod.GET)
     public String usuwanieOceny(ModelMap model, @RequestParam("id") int id) {
         ocenaService.delete(id);

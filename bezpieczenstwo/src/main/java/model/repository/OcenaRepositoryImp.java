@@ -55,7 +55,7 @@ public class OcenaRepositoryImp implements OcenaRepository {
 
     public List displayAllByIdUcznia(int id) {
         SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery
-                ("Select o.przedmiot, o.ocena, u.imieINazwisko from ocena o, uzytkownik u WHERE o.uczen_id=" + id + " and u.id=o.nauczyciel_id");
+                ("Select o.id, o.przedmiot, o.ocena, u.imieINazwisko from ocena o, uzytkownik u WHERE o.uczen_id=" + id + " and u.id=o.nauczyciel_id");
         List results = sqlQuery.list();
         return results;
 

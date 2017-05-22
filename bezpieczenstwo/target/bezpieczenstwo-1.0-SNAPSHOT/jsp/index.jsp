@@ -173,6 +173,8 @@
         <a href="<c:url value="/index/dodajKsiazke.htm"/>" class="btn btn-default">Dodaj ksiazke</a><br>
     </sec:authorize>
     <br/>
+
+
     <sec:authorize access="hasPermission(#user, 'READ_MOJEOCENY')">
         <p>Elektorniczny dziennik ocen.</p>
         <table class="sortable">
@@ -190,14 +192,31 @@
             </tr>
             <c:forEach items="${listaMoichOcen}" var="tablicaOcen">
                 <tr>
-                    <c:forEach items="${tablicaOcen}" var="ocena">
-                        <td>${ocena}</td>
-                    </c:forEach>
+                    <td>${tablicaOcen[1]}</td>
+                    <td>${tablicaOcen[2]}</td>
+                    <td>${tablicaOcen[3]}</td>
+                    <sec:authorize access="hasPermission(#user, 'EDIT_MOJEOCENY')">
+                        <td>
+                            <a href="<c:url value="/index/edytujOcene.htm"/>?id=${tablicaOcen[0]}"
+                               class="btn btn-default">Edytuj</a>
+                        </td>
+                    </sec:authorize>
+
+                    <sec:authorize access="hasPermission(#user, 'DELETE_MOJEOCENY')">
+                        <td>
+                            <a href="<c:url value="/index/usunOcene"/>?id=${tablicaOcen[0]}"
+                               class="btn btn-default">Usuń</a>
+                        </td>
+                    </sec:authorize>
                 </tr>
             </c:forEach>
         </table>
         <br/><br>
     </sec:authorize>
+    <sec:authorize access="hasPermission(#user, 'ADD_MOJEOCENY')">
+        <a href="<c:url value="/index/dodajMojaOcene.htm"/>" class="btn btn-default">Dodaj ocene</a> <br/><br>
+    </sec:authorize>
+
 
     <sec:authorize access="hasPermission(#user, 'READ_WYSTAWIONEOCENY')">
         <p>Lista wystawionych przez Ciebie ocen.</p>

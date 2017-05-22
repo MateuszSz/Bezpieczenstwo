@@ -89,7 +89,14 @@
 <body background="<c:url value="/resources/images/bodybg.png"/>">
 <form class="form-signin" action="<c:url value="/index/edytowanieOceny" />?id=${idOceny}" method="POST">
     <h2 class="form-signin-heading">Edytuj ocene</h2>
-    <input name="przedmiot" type="text" id="inputPrzedmiot" class="form-control" placeholder="Przedmiot" required>
+    <select name="przedmiot" id="inputPrzedmiot" class="form-control">
+        <option value="Przyroda">Przyroda</option>
+        <option value="Historia">Historia</option>
+        <option value="J.polski">J.Polski</option>
+        <option value="J.angielski">J.Angielski</option>
+        <option value="WF">WF</option>
+        <option value="Matematyka">Matematyka</option>
+    </select>
     <input type="number" min="1" max="6" step="0.01" name="ocena" id="inputOcena" class="form-control" placeholder="Ocena" required>
     <input type="text" name="uczen" id="inputUczen" class="form-control" placeholder="Uczen" required readonly>
 
