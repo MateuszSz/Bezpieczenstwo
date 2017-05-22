@@ -47,11 +47,12 @@ public class UzytkownikController {
 
     @PreAuthorize("hasPermission(authentication, 'ADD_UZYTKOWNICY')")
     @RequestMapping(value = "/index/dodawanieUzytkownika", method = RequestMethod.POST)
-    public String dodawanieKsiazki( @ModelAttribute Uzytkownik uzytkownik) {
+    public String dodawanieKsiazki( ModelMap model,  @ModelAttribute Uzytkownik uzytkownik) {
         String password = uzytkownik.getHaslo();
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         uzytkownik.setHaslo(passwordEncoder.encode(password));
         uzytkownikService.insert(uzytkownik);
+        model.addAttribute("wiadomosc", "dodano_uzytkownika");
         return "redirect:/index";
 
     }
@@ -84,7 +85,7 @@ public class UzytkownikController {
         CustomUserDetails cs2 = (CustomUserDetails) authentication.getPrincipal();
         if(cs2.getId() == idUzytkownika )
             return "redirect:/logout";
-        model.addAttribute("status", "powodzenie");
+        model.addAttribute("wiadomosc", "powodzenie");
         return "redirect:/index";
     }
 
@@ -120,7 +121,7 @@ public class UzytkownikController {
         zmieniony.setImieINazwisko(uzytkownik.getImieINazwisko());
         zmieniony.setHaslo(passwordEncoder.encode(password));
         uzytkownikService.insert(zmieniony);
-
+        model.addAttribute("wiadomosc", "dokonano_educjo");
         return "redirect:/index";
 
     }
