@@ -68,6 +68,10 @@ public class InitServiceImpl {
         rolaUczen.getSeperacjaRol().add(rolaBibliotekarz);
         rolaRepository.insert(rolaUczen);
 
+        rolaAdmina.getSeperacjaRol().add(rolaUczen);
+        rolaBibliotekarz.getSeperacjaRol().add(rolaUczen);
+        rolaDyrektora.getSeperacjaRol().add(rolaUczen);
+        rolaHigienistka.getSeperacjaRol().add(rolaUczen);
         rolaNauczyciel.getSeperacjaRol().add(rolaUczen);
         rolaRepository.insert(rolaNauczyciel);
 
@@ -114,8 +118,15 @@ public class InitServiceImpl {
         //TWORZENIE KSIAZEK
 
         List<Ksiazka> ksiazki = new ArrayList<Ksiazka>();
-        ksiazki.add(new Ksiazka("Brandon Sanderson", "987-83-7480-670-1", "Siewca Wojny ", "Rozjemca", "dostepna", uzytkownik2));
+        ksiazki.add(new Ksiazka("Brandon Sanderson", "987-83-7480-670-1", "Siewca Wojny ", "Rozjemca", "wypożyczona", uzytkownik2));
+        ksiazki.add(new Ksiazka("Alan Alexander Milne", "132-19-11-234-1", "Kubuś Puchatek ", "Kubuś Puchatek i przyjaciele", "dostepna", uzytkownik2));
+        ksiazki.add(new Ksiazka("Henryk Sienkiewicz", "958-994-74-321-6", "Trylogia", "Potop", "dostepna", uzytkownik2));
+        ksiazki.add(new Ksiazka("Brandon Sanderson", "983-342-70-204-64", "Ostatnie Imperium", "Z mgły zrodzony", "dostepna", uzytkownik2));
         ksiazki.add(new Ksiazka("Jane Austen", "187-87-0120-780-8", "", "Duma i uprzedzenie", "dostepna", uzytkownik2));
+
+
+
+
         for (Ksiazka k : ksiazki) {
             ksiazkaRepository.insert(k);
             uzytkownik.getKsiazki().add(k);
@@ -202,10 +213,10 @@ public class InitServiceImpl {
         Uprawnienie uprawnienieEditMojeDzienPracy = new Uprawnienie("EDIT_DNIPRACY");
         Uprawnienie uprawnienieDeleteMojeDzienPracy = new Uprawnienie("DELETE_DNIPRACY");
 
-       Uprawnienie uprawnienieReadWszystkieDzienPracy = new Uprawnienie("READ_WSZYSTKIEDNIPRACY");
-       Uprawnienie uprawnienieAddWszystkieDzienPracy = new Uprawnienie("ADD_WSZYSTKIEDNIPRACY");
-       Uprawnienie uprawnienieEditWszystkieDzienPracy = new Uprawnienie("EDIT_WSZYSTKIEDNIPRACY");
-       Uprawnienie uprawnienieDeleteWszystkieDzienPracy = new Uprawnienie("DELETE_WSZYSTKIEDNIPRACY");
+        Uprawnienie uprawnienieReadWszystkieDzienPracy = new Uprawnienie("READ_WSZYSTKIEDNIPRACY");
+        Uprawnienie uprawnienieAddWszystkieDzienPracy = new Uprawnienie("ADD_WSZYSTKIEDNIPRACY");
+        Uprawnienie uprawnienieEditWszystkieDzienPracy = new Uprawnienie("EDIT_WSZYSTKIEDNIPRACY");
+        Uprawnienie uprawnienieDeleteWszystkieDzienPracy = new Uprawnienie("DELETE_WSZYSTKIEDNIPRACY");
 
         Uprawnienie uprawnienieReadUprawnienie = new Uprawnienie("READ_UPRAWNIENIA");
         Uprawnienie uprawnienieAddUprawnienie = new Uprawnienie("ADD_UPRAWNIENIA");

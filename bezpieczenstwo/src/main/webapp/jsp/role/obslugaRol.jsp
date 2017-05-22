@@ -120,5 +120,5 @@
 </sec:authorize>
 <sec:authorize access="hasPermission(#user, 'DELETE_ROLE')">
     <a href="<c:url value="/index/usunRozlaczenie.htm"/>" class="btn btn-default">Usuń rozłączenie</a>
+    <br/><br>
 </sec:authorize>
-<br/><br>
