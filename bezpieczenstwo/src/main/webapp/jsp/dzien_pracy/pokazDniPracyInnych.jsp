@@ -32,7 +32,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
    <title>Plany pracowników</title>
 </head>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <center>
     <jsp:include page="/jsp/classic.jsp"/>
 <sec:authorize access="hasPermission(#user, 'READ_DNIPRACY')">

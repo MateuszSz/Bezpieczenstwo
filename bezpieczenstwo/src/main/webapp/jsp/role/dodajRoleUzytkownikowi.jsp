@@ -41,7 +41,7 @@
     });
 </script>
 <h2 class="form-signin-heading">Proszę wybrać użytkownika i jego nową rolę</h2>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <form class="form-signin" action="<c:url value="/index/dodawanieRoliUzytkownikowi"/>" method="POST">
     <label for="inputImieINazwisko" class="sr-only">Podaj imię i naziwsko</label>
     <select name="imieINazwisko" id="inputImieINazwisko" class="form-control"></select>

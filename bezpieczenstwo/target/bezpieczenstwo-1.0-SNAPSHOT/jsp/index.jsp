@@ -26,7 +26,7 @@
 </head>
 
 
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 
 <jsp:include page="classic.jsp"/>
 <br><br>

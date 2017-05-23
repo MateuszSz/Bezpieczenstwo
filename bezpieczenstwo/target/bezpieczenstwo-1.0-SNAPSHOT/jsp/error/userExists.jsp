@@ -20,7 +20,7 @@
     <title>Błąd!</title>
     <link rel="stylesheet" href="<d:url value="/resources/CSS/main.css"/>">
 </head>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 
 
 <h2 class="form-signin-heading">Błąd operacji</h2>

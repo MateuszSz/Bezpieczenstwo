@@ -33,7 +33,7 @@
         </d:forEach>
     });
 </script>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <center>
     <h2 class="form-signin-heading">Proszę wybrać rolę i tablicę do edycji uprawnień</h2>
 </center>

@@ -33,7 +33,7 @@
         </d:forEach>
     });
 </script>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
     <h2 class="form-signin-heading">Proszę wybrać rolę i jej nową nazwę</h2>
 <form class="form-signin" action="<c:url value="/index/edycjaRoli"/>" method="POST">
     <label for="inputRola" class="sr-only">Podaj rolę</label>

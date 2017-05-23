@@ -43,7 +43,7 @@
     });
 </script>
 
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <h2 class="form-signin-heading">Proszę wybrać rolę i jej rolę rozłączną aby usunąć separację</h2>
 <form class="form-signin" action="<c:url value="/index/usuwanieRozlaczeniaRol"/>" method="POST">
     <label for="inputRola" class="sr-only">Podaj rolę</label>

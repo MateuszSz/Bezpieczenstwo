@@ -28,7 +28,7 @@
         }
     }
 </script>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <%--<body background="<c:url value="/resources/images/bodybg.png"/>">--%>
 <form class="form-signin" action="<c:url value="/index/dodawanieUzytkownika"/>" method="POST">
     <h2 class="form-signin-heading">Proszę wpisać dane nowego użytkownika</h2>

@@ -17,7 +17,7 @@ public class CustomPermissionEvaluator implements PermissionEvaluator {
     @Autowired
     private RolaService rolaService;
 
-    @Transactional
+
     public boolean hasPermission(Authentication authentication, Object o, Object permission) {
         boolean hasPermission = false;
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();

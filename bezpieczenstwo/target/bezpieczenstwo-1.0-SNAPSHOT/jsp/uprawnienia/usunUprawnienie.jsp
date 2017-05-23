@@ -33,7 +33,7 @@
         </d:forEach>
     });
 </script>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <h2 class="form-signin-heading">Proszę wybrać rolę, tablicę i uprawnienie do usunięcia</h2>
 <form class="form-signin" action="<c:url value="/index/usuwanieUprawnien"/>" method="POST">
     <label for="inputTablica" class="sr-only">Podaj nazwę tablicy aby usunąć uprawnienia</label>
