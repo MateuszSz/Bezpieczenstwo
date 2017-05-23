@@ -1,8 +1,10 @@
 package controller;
 
+import model.entity.DzienPracy;
 import model.entity.Ksiazka;
 import model.entity.Uzytkownik;
 import model.security.CustomUserDetails;
+import model.service.DzienPracyService;
 import model.service.KsiazkaService;
 import model.service.UzytkownikService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,12 +31,14 @@ public class UzytkownikController {
 
 
     private UzytkownikService uzytkownikService;
+    private DzienPracyService dzienPracyService;
     private SessionRegistry sessionRegistry;
 
     @Autowired
-    public UzytkownikController(UzytkownikService uzytkownikService, SessionRegistry sessionRegistry) {
+    public UzytkownikController(UzytkownikService uzytkownikService, SessionRegistry sessionRegistry, DzienPracyService dzienPracyService) {
         this.uzytkownikService = uzytkownikService;
         this.sessionRegistry = sessionRegistry;
+        this.dzienPracyService = dzienPracyService;
     }
 
 
@@ -53,6 +58,33 @@ public class UzytkownikController {
         uzytkownik.setHaslo(passwordEncoder.encode(password));
         uzytkownikService.insert(uzytkownik);
         model.addAttribute("wiadomosc", "dodano_uzytkownika");
+
+
+
+
+
+
+//        List<DzienPracy> dniPracy2 = new ArrayList<DzienPracy>();
+//        dniPracy2.add(new DzienPracy("Poniedzialek", "07:00", "15:00", uzytkownik));
+//        dniPracy2.add(new DzienPracy("Wtorek", "11:00", "15:00", uzytkownik));
+//        dniPracy2.add(new DzienPracy("Sroda", "09:00", "12:00", uzytkownik));
+//        dniPracy2.add(new DzienPracy("Czwartek", "10:00", "16:00", uzytkownik));
+//        dniPracy2.add(new DzienPracy("Piatek", "08:00", "15:00", uzytkownik));
+//
+//        for (DzienPracy d : dniPracy2) {
+//            dzienPracyService.insert(d);
+//            uzytkownik.getDniPracy().add(d);
+//        }
+//        uzytkownikService.insert(uzytkownik);
+
+
+
+
+
+
+
+
+
         return "redirect:/index";
 
     }

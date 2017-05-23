@@ -61,12 +61,15 @@
     <c:if test="${wiadomosc.equals('dokonano_educjo')}">
         <div class="successMessage">Dokonano edycji użytkownika!</div>
     </c:if>
+    <c:if test="${wiadomosc.equals('uprawnienie_posiadane')}">
+        <div class="errorMessage">Użytkownik już posiada uprawnienie!</div>
+    </c:if>
     <h2>Witaj ${imieINazwisko}!</h2>
     rola: ${rola}
     <h2></h2>
     <%--<div class="errorMessage">${wiadomosc}</div>--%>
 
-
+//uprawnienie_posiadane
 </center>
 <br><br>
 <center>

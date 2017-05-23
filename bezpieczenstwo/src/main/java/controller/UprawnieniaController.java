@@ -39,11 +39,15 @@ public class UprawnieniaController {
         Uprawnienie uprawnienie = uprawnienieService.findByName(nazwaUprawnienia + "_" + nazwaTablicy);
         Rola rola = rolaService.display(rolaService.findIdUsingName(nazwaRoli));
         for (Uprawnienie uprawnienie1 : rola.getUprawnienia()) {
-            if (uprawnienie1.getNazwa().equals(uprawnienie.getNazwa()))
+            if (uprawnienie1.getNazwa().equals(uprawnienie.getNazwa())){
+                model.addAttribute("wiadomosc", "uprawnienie_posiadane");
                 return "redirect:/index";
+            }
+
         }
         rola.getUprawnienia().add(uprawnienie);
         rolaService.insert(rola);
+        model.addAttribute("wiadomosc", "powodzenie");
         return "redirect:/index";
 
     }
