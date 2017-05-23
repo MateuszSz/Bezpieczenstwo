@@ -69,7 +69,7 @@
     <h2></h2>
     <%--<div class="errorMessage">${wiadomosc}</div>--%>
 
-//uprawnienie_posiadane
+
 </center>
 <br><br>
 <center>
@@ -184,7 +184,7 @@
             <tr>
                 <th>Przedmiot</th>
                 <th>Ocena</th>
-                <th>Nauczyciel</th>
+                <th>Wystawił</th>
                 <sec:authorize access="hasPermission(#user, 'EDIT_MOJEOCENY')">
                     <th>Edytuj</th>
                 </sec:authorize>
@@ -228,7 +228,8 @@
 
                 <th>Przedmiot</th>
                 <th>Ocena</th>
-                <th>Uczen</th>
+                <%--<th>Wystawił</th>--%>
+                <th>Uczeń</th>
                 <sec:authorize access="hasPermission(#user, 'EDIT_WYSTAWIONEOCENY')">
                     <th>Edytuj</th>
                 </sec:authorize>
@@ -243,6 +244,7 @@
                     <td>${tablicaWystawionychOcen[1]}</td>
                     <td>${tablicaWystawionychOcen[2]}</td>
                     <td>${tablicaWystawionychOcen[3]}</td>
+                    <%--<td>${tablicaWystawionychOcen[4]}</td>--%>
 
 
                         <sec:authorize access="hasPermission(#user, 'EDIT_WYSTAWIONEOCENY')">
@@ -280,6 +282,7 @@
                 <th>Dzień tygodnia</th>
                 <th>Godzina rozpoczecia</th>
                 <th>Godzina zakonczenia</th>
+                <%--<th>Imie i nazwisko</th>--%>
 
                 <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
                     <th>Edytuj</th>
@@ -294,7 +297,7 @@
                     <td>${tablicaDni[1]}</td>
                     <td>${tablicaDni[2]}</td>
                     <td>${tablicaDni[3]}</td>
-
+                    <%--<td>${tablicaDni[4]}</td>--%>
                     <sec:authorize access="hasPermission(#user, 'EDIT_DNIPRACY')">
                         <td>
                             <a href="<c:url value="/index/edytujDzienPracy.htm"/>?id=${tablicaDni[0]}"

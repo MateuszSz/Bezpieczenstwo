@@ -128,14 +128,21 @@ public class SecurityController {
             ksiazki = ksiazkaService.displayAll();
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_UPRAWNIENIA"))
             uprawnienia = tworzenieTablicyPozwolen();
-        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_WYSTAWIONEOCENY"))
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_WYSTAWIONEOCENY")){
             wystawioneOceny = ocenaService.displayAllByIdNauczyciela(cs.getId());
-        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_MOJEOCENY"))
+//            wystawioneOceny = ocenaService.displayAll();
+        }
+
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_MOJEOCENY")) {
             mojeOceny = ocenaService.displayAllByIdUcznia(cs.getId());
+//            mojeOceny = ocenaService.displayAll();
+        }
         if (customPermissionEvaluator.hasPermission(authentication, null, "ADD_WYSTAWIONEOCENY"))
             uczniowie = uzytkownikService.displayAllNamesAndIdByRole("UCZEN");
-        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_DNIPRACY"))
+        if (customPermissionEvaluator.hasPermission(authentication, null, "READ_DNIPRACY")) {
             dniMojejPracy = dzienPracyService.displayAllById(cs.getId());
+//            dniMojejPracy = dzienPracyService.displayAll();
+        }
         if (customPermissionEvaluator.hasPermission(authentication, null, "READ_WSZYSTKIEDNIPRACY"))
             wszystkieDniPracy = dzienPracyService.displayAll();
         //dodawanie atrybutu do modelu.

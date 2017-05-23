@@ -19,7 +19,7 @@
     <link type="text/css" href="<c:url value="/resources/CSS/main.css" />" rel="stylesheet">
     <title>Błąd autoryzacji</title>
 </head>
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <h2 class="form-signin-heading">Nie masz prawa dostępu do tej strony!</h2>
 <div class="centered">
     <a href="<c:url value="/index"/>" class="btn btn-lg btn-primary btn-block">Powróć</a>

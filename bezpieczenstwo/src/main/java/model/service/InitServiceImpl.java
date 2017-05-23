@@ -158,7 +158,7 @@ public class InitServiceImpl {
         dniPracy.add(new DzienPracy("Sroda", "08:00", "13:00", uzytkownik));
         dniPracy.add(new DzienPracy("Czwartek", "11:00", "18:00", uzytkownik));
         dniPracy.add(new DzienPracy("Piatek", "08:00", "12:00", uzytkownik));
-        dniPracy.add(new DzienPracy("Sroda", "08:00", "10:00", uzytkownik3));
+       // dniPracy.add(new DzienPracy("Sroda", "08:00", "10:00", uzytkownik3));
         for (DzienPracy d : dniPracy) {
             dzienPracyRepository.insert(d);
             uzytkownik.getDniPracy().add(d);

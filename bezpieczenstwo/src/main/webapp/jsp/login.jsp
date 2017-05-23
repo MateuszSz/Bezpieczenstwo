@@ -20,7 +20,7 @@
             crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="<d:url value="/resources/CSS/main.css" />">
-    <title>Title</title>
+    <title>Logowanie</title>
 </head>
 <style>
     /*body {*/
@@ -62,7 +62,7 @@
     });
 </script>
 
-<body>
+<body background="<c:url value="/resources/images/bodybg.png"/>">
 <form class="form-signin" action="<c:url value="/j_spring_security_check"/>" method="POST">
     <h2 class="form-signin-heading">Proszę się zalogować</h2>
     <label for="inputEmail" class="sr-only">Login</label>
